@@ -17,6 +17,7 @@ import sys
 import tempfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
 
 from openai import OpenAI
 import requests
@@ -213,19 +214,31 @@ def download_pexels_clip(keyword, output_path):
             f.write(chunk)
 
 def fetch_all_clips(scenes, tmpdir):
-    """Tải toàn bộ clip cho 8 scene."""
-    paths = []
-    for i, scene in enumerate(scenes):
+    """Tai toan bo clip CONCURRENT - 8 thread song song -> tiet kiem 20s."""
+    print(f"[3/7] Downloading {len(scenes)} clips concurrently...")
+
+    def fetch_one(idx_scene):
+        i, scene = idx_scene
         path = Path(tmpdir) / f"clip_{i}.mp4"
         kw = scene["visual_keyword"]
-        print(f"[3/7] Downloading clip {i+1}/8: '{kw}'")
         try:
             download_pexels_clip(kw, path)
-            paths.append(path)
+            return (i, path, kw, None)
         except Exception as e:
-            print(f"      ⚠️ Failed '{kw}': {e}. Retrying with 'business'...")
-            download_pexels_clip("business meeting", path)
-            paths.append(path)
+            try:
+                download_pexels_clip("business meeting", path)
+                return (i, path, kw, f"fallback: {e}")
+            except Exception as e2:
+                return (i, None, kw, str(e2))
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        results = list(executor.map(fetch_one, enumerate(scenes)))
+
+    paths = [None] * len(scenes)
+    for i, path, kw, err in sorted(results, key=lambda x: x[0]):
+        status = "OK" if not err else f"WARN ({err[:40]})"
+        print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> {status}")
+        paths[i] = path
     return paths
 
 # ==================== STEP 4: SINH VOICE (GOOGLE CLOUD TTS WAVENET) ====================
@@ -381,8 +394,8 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         fps=30,
         codec="libx264",
         audio_codec="aac",
-        preset="slow",       # Quality cao hon (cham encode hon)
-        bitrate="6000k",     # Tang tu 3000 -> 6000k
+        preset="medium",     # Balance giua speed va quality
+        bitrate="5500k",     # Hoi giam tu 6000k de fit "medium" preset
         audio_bitrate="192k",
         threads=4,           # GitHub Actions co 4 cores
         ffmpeg_params=["-pix_fmt", "yuv420p", "-movflags", "+faststart"],

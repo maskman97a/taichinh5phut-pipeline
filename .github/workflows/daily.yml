@@ -22,11 +22,16 @@ jobs:
           python-version: "3.11"
           cache: "pip"
 
-      - name: Install system FFmpeg + ImageMagick
+      - name: Cache APT packages (FFmpeg, ImageMagick, fonts)
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: ffmpeg imagemagick fonts-dejavu fonts-noto fonts-noto-cjk
+          version: 1.0
+          execute_install_scripts: true
+
+      - name: Fix ImageMagick policy
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg imagemagick fonts-dejavu fonts-noto fonts-noto-cjk
-          sudo sed -i 's|rights="none" pattern="@\*"|rights="read\|write" pattern="@*"|' /etc/ImageMagick-6/policy.xml
+          sudo sed -i 's|rights="none" pattern="@\*"|rights="read\|write" pattern="@*"|' /etc/ImageMagick-6/policy.xml || true
 
       - name: Install Python deps
         run: |
