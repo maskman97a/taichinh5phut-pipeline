@@ -338,21 +338,40 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
                   .set_position(("center", 100))
                   .set_start(0).set_duration(4))
 
-    # Captions SYNC chinh xac voi voice
+    # === KARAOKE-STYLE CAPTIONS ===
+    # Chia voiceover moi scene thanh chunks 3-4 tu, hien sync voi voice
+    def split_chunks(text, max_words=4):
+        """Chia thanh cum 3-4 tu, uu tien ngat o dau cau."""
+        # Tach theo dau phay/cham truoc
+        import re as _re
+        parts = _re.split(r'(?<=[,.;:!?])\s+', text.strip())
+        chunks = []
+        for part in parts:
+            words = part.split()
+            for i in range(0, len(words), max_words):
+                chunk = " ".join(words[i:i + max_words])
+                if chunk:
+                    chunks.append(chunk)
+        return chunks if chunks else [text]
+
     scene_captions = []
     start_t = 0.0
     for i, scene in enumerate(script_data["scenes"]):
-        cap_text = scene["voiceover"]
-        # Wrap dai vua phai, hien duoc tren mobile
-        if len(cap_text) > 90:
-            cap_text = cap_text[:87] + "..."
-        # Caption hien suot duration cua scene (gom voice + 0.35s pause)
-        cap = (TextClip(cap_text, fontsize=58, color="yellow",
-                       stroke_color="black", stroke_width=4,
-                       size=(980, None), method="caption", font=VN_FONT)
-               .set_position(("center", 1400))
-               .set_start(start_t).set_duration(scene_durs[i]))
-        scene_captions.append(cap)
+        voice_dur = scene_voices[i].duration  # voice that su, khong tinh pause
+        chunks = split_chunks(scene["voiceover"], max_words=4)
+        if not chunks:
+            start_t += scene_durs[i]
+            continue
+        # Chia deu thoi gian voice cho cac chunks
+        chunk_dur = voice_dur / len(chunks)
+        for j, chunk in enumerate(chunks):
+            chunk_start = start_t + j * chunk_dur
+            cap = (TextClip(chunk, fontsize=85, color="yellow",
+                           stroke_color="black", stroke_width=6,
+                           size=(900, None), method="caption", font=VN_FONT)
+                   .set_position(("center", 1450))
+                   .set_start(chunk_start).set_duration(chunk_dur))
+            scene_captions.append(cap)
         start_t += scene_durs[i]
 
     final = CompositeVideoClip([video, disclaimer] + scene_captions)
