@@ -1,7 +1,6 @@
 __pycache__/
 *.py[cod]
 *.mp4
-*.mp3
 client_secret*.json
 youtube_secrets.json
 .env
