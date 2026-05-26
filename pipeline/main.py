@@ -345,3 +345,15 @@ def main():
         clip_paths = fetch_all_clips(script_data["scenes"], tmpdir)
         voice_path = generate_voice(script_data, tmpdir)
         video_path = assemble_video(clip_paths, voice_path, script_data, tmpdir)
+        # 6. Upload
+        video_id = upload_to_youtube(video_path, script_data, idea)
+
+    # 7. Log
+    mark_published(ideas, idea["id"], video_id)
+    print("[7/7] Logged to published.json")
+    print("=" * 60)
+    print(f"Done! Video: https://youtube.com/watch?v={video_id}")
+    print("=" * 60)
+
+if __name__ == "__main__":
+    main()
