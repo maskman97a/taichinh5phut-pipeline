@@ -272,7 +272,7 @@ def generate_voice_per_scene(script_data, tmpdir):
             "voice": {"languageCode": "vi-VN", "name": voice_name},
             "audioConfig": {
                 "audioEncoding": "MP3",
-                "speakingRate": 1.0,
+                "speakingRate": 1.15,  # +15% nhanh hon binh thuong (Shorts cu)
                 "pitch": 0.0,
                 "volumeGainDb": 2.0,
                 "sampleRateHertz": 24000,
@@ -302,7 +302,7 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     # Load voice per scene + get duration
     scene_voices = [AudioFileClip(str(p)) for p in scene_voice_paths]
-    PAUSE = 0.35  # khoang lang 0.35s giua moi scene (cho tu nhien)
+    PAUSE = 0.2   # khoang lang ngan giua scene (Shorts cu phai nhanh)
     scene_durs = [v.duration + PAUSE for v in scene_voices]
     total_dur = sum(scene_durs)
     print(f"      Total duration: {total_dur:.1f}s ({len(scene_voices)} scenes)")
@@ -375,6 +375,27 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
                   .set_position(("center", 100))
                   .set_start(0).set_duration(4))
 
+    # === HOOK VISUAL — diem nhan 1.5s dau (TikTok/Shorts style) ===
+    hook_text_raw = script_data["scenes"][0]["voiceover"]
+    # Cat ngan: lay den dau ? . ! dau tien, hoac 7 tu dau
+    import re as _re
+    _m = _re.match(r"([^.?!]{1,80}[.?!])", hook_text_raw)
+    if _m:
+        hook_text = _m.group(1).strip()
+    else:
+        hook_text = " ".join(hook_text_raw.split()[:7]) + "..."
+    # Gioi han do dai
+    if len(hook_text) > 80:
+        hook_text = hook_text[:77] + "..."
+    print(f"      Hook: \"{hook_text}\"")
+
+    hook_visual = (TextClip(hook_text, fontsize=110, color="yellow",
+                           stroke_color="black", stroke_width=10,
+                           size=(950, None), method="caption", font=VN_FONT)
+                   .set_position(("center", 700))   # giua-tren man hinh
+                   .set_start(0).set_duration(1.8)
+                   .fadein(0.15).fadeout(0.3))
+
     # === KARAOKE-STYLE CAPTIONS ===
     # Chia voiceover moi scene thanh chunks 3-4 tu, hien sync voi voice
     def split_chunks(text, max_words=4):
@@ -411,7 +432,7 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
             scene_captions.append(cap)
         start_t += scene_durs[i]
 
-    final = CompositeVideoClip([video, disclaimer] + scene_captions)
+    final = CompositeVideoClip([video, hook_visual, disclaimer] + scene_captions)
     output = Path(tmpdir) / "final.mp4"
     final.write_videofile(
         str(output),
