@@ -19,7 +19,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import edge_tts
-import google.generativeai as genai
+from openai import OpenAI
 import requests
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -30,7 +30,7 @@ from moviepy.editor import (AudioFileClip, CompositeAudioClip,
                             concatenate_videoclips)
 
 # ==================== CONFIG ====================
-GEMINI_KEY = os.environ["GEMINI_API_KEY"]
+GROQ_KEY = os.environ["GROQ_API_KEY"]
 PEXELS_KEY = os.environ["PEXELS_API_KEY"]
 YT_CLIENT_ID = os.environ["YT_CLIENT_ID"]
 YT_CLIENT_SECRET = os.environ["YT_CLIENT_SECRET"]
@@ -84,9 +84,8 @@ def mark_published(ideas, idea_id, video_id):
 
 # ==================== STEP 2: SINH SCRIPT (GEMINI) ====================
 def generate_script(idea):
-    """Gọi Gemini sinh script HSCV + 8 scene với visual_keyword."""
-    genai.configure(api_key=GEMINI_KEY)
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    """Goi Groq (Llama 3.3 70B) sinh script HSCV + 8 scene voi visual_keyword."""
+    client = OpenAI(api_key=GROQ_KEY, base_url="https://api.groq.com/openai/v1")
 
     prompt = f"""Bạn là editor kênh YouTube tài chính "Tài Chính 5 Phút" tiếng Việt.
 
@@ -118,9 +117,15 @@ TRẢ VỀ JSON THUẦN (KHÔNG có ```json wrapping):
   ]
 }}"""
 
-    response = model.generate_content(prompt)
-    text = response.text.strip()
-    # Clean nếu Gemini wrap trong ```json
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.7,
+        response_format={"type": "json_object"},
+        max_tokens=4096,
+    )
+    text = response.choices[0].message.content.strip()
+    # Clean neu wrap trong ```json
     text = re.sub(r"^```json\s*", "", text)
     text = re.sub(r"^```\s*", "", text)
     text = re.sub(r"\s*```$", "", text)

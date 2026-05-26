@@ -37,7 +37,7 @@ jobs:
 
       - name: Run pipeline
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -50,5 +50,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/ideas.json data/published.json 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "Auto: log video da dang [skip ci]"
-          git push || echo "Nothing to push"
+          git diff --staged --quiet || git commit -m "Auto: log video da dang [ski
