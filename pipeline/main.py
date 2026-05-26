@@ -44,6 +44,7 @@ GOOGLE_TTS_KEY = os.environ["GOOGLE_TTS_API_KEY"]
 REPO_ROOT = Path(__file__).resolve().parent.parent
 IDEAS_FILE = REPO_ROOT / "data" / "ideas.json"
 PUBLISHED_FILE = REPO_ROOT / "data" / "published.json"
+BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3)
 
 # Xoay vòng 4 voice Google WaveNet cho de-templating
 VOICES = [
@@ -97,40 +98,68 @@ def generate_script(idea):
     """Goi Groq (Llama 3.3 70B) sinh script HSCV + 8 scene voi visual_keyword."""
     client = OpenAI(api_key=GROQ_KEY, base_url="https://api.groq.com/openai/v1")
 
-    prompt = f"""Bạn là editor kênh YouTube tài chính "Tài Chính 5 Phút" tiếng Việt.
+    prompt = f"""Ban la editor TOP 1% cua kenh YouTube tai chinh Viet Nam "Tai Chinh 5 Phut".
 
-Tạo 1 video Short 45-55 giây về chủ đề: "{idea['title']}"
+NHIEM VU: Tao 1 video YouTube Shorts 45-55 giay ve: "{idea['title']}"
 Pillar: {idea.get('pillar', 'general')}
 
-YÊU CẦU YMYL (BẮT BUỘC):
-- Scene 1 hiển thị text disclaimer: "Video giáo dục, không phải lời khuyên đầu tư"
-- Scene cuối voice-over có câu "Đây là góc nhìn cá nhân, không phải lời khuyên tài chính"
-- KHÔNG khuyến nghị mua cổ phiếu cụ thể, KHÔNG hứa hẹn ROI
+LUAT TUYET DOI (lam sai = video FLOP):
 
-CẤU TRÚC: HSCV (Hook 3s - Setup 7s - Cốt lõi 30-35s - Value+CTA 5-10s)
-- Hook ≤ 10 từ, gây tò mò/shock
-- Chèn 1 câu "góc nhìn cá nhân" trong Cốt lõi
-- Văn phong tiếng Việt nói tự nhiên
+[1] HOOK SCENE 1 (3 giay, 8-12 tu):
+   - 1 cau hoi SHOCK hoac cau tuyen bo gay to mo
+   - PHAI co con so cu the (vd: "90%", "10 trieu", "5 phut")
+   - Vi du tot: "90% nguoi Viet luong 15tr van het tien cuoi thang. Vi sao?"
+   - Vi du te: "Hom nay chung ta noi ve quan ly tien." (NHAT, BO!)
 
-CHIA THÀNH 8 SCENE đều nhau. Mỗi scene có:
-- voiceover: text tiếng Việt sẽ đọc (1-2 câu)
-- visual_keyword: 2-4 từ TIẾNG ANH để search Pexels (đa dạng, mỗi scene khác nhau)
+[2] SETUP SCENE 2 (5-7 giay):
+   - Mo ta NOI DAU cu the cua dan VP Viet
+   - Tinh huong quen thuoc: cuoi thang nhan vi, dau thang tieu het luong, so dau tu vi mat tien
 
-TRẢ VỀ JSON THUẦN (KHÔNG có ```json wrapping):
+[3] COT LOI SCENE 3-6 (30-35 giay):
+   - Trinh bay GIAI PHAP cu the, KHONG ly thuyet
+   - DAY DU CON SO: vd "Luong 15tr -> 7.5tr sinh hoat + 4.5tr huong thu + 3tr dau tu"
+   - Moi scene 1 y chinh ro rang
+   - SCENE 5 hoac 6: BAT BUOC chen cau "Toi ap dung cach nay X thang va thay [ket qua cu the]"
+   - Tranh tu ngu academic. Noi nhu ban be 28 tuoi noi voi nhau
+
+[4] CTA SCENE 7-8 (5-10 giay):
+   - Scene 7: 1 cau tom tat hoac 1 cau hoi mo de comment
+   - Scene 8: "Theo doi de hoc moi ngay 1 meo tien. Day la goc nhin ca nhan, khong phai loi khuyen tai chinh."
+
+VOICEOVER:
+   - Moi scene: 1-2 cau ngan
+   - DUNG cham/phay dung cach de TTS doc co ngat nghi tu nhien
+   - KHONG viet "[disclaimer]" trong text - viet tu nhien
+
+VISUAL_KEYWORD (cho Pexels search):
+   - 2-4 tu TIENG ANH cu the (KHONG generic)
+   - Tot: "hand counting cash vietnamese", "young office worker stressed", "stock chart green rising"
+   - Te: "money", "business", "finance" (qua chung chung)
+   - Moi scene khac nhau hoan toan: mix wide shot + close-up + abstract
+
+YMYL COMPLIANCE (BAT BUOC):
+   - Scene 8 PHAI co cau disclaimer
+   - KHONG khuyen nghi mua co phieu cu the
+   - KHONG hua hen ROI
+
+TRA VE JSON (chi JSON, khong markdown wrapping):
 {{
-  "title": "tiêu đề cuối <60 ký tự, có #shorts",
-  "description": "200-300 từ, gồm: hook 2 câu + disclaimer ngắn + 3 link affiliate [LINK_VPS] [LINK_INFINA] [LINK_TPBANK] + CTA subscribe",
-  "tags": ["tag1", "tag2", ...],  // 15-20 tag tiếng Việt + Anh
+  "title": "<60 ky tu, co #shorts cuoi, gay to mo",
+  "description": "200-300 tu gom: hook 2 cau + disclaimer ngan + 3 link affiliate placeholder [LINK_VPS] [LINK_INFINA] [LINK_TPBANK] + CTA subscribe + 5 hashtag",
+  "tags": ["tag1", "tag2", ...],
   "scenes": [
     {{"voiceover": "...", "visual_keyword": "..."}},
-    ...8 scenes...
+    {{"voiceover": "...", "visual_keyword": "..."}},
+    ... 8 scenes
   ]
-}}"""
+}}
+
+Tra ve 8 scenes. Chu de: "{idea['title']}"."""
 
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[{"role": "user", "content": prompt}],
-        temperature=0.7,
+        temperature=0.85,
         response_format={"type": "json_object"},
         max_tokens=4096,
     )
@@ -202,91 +231,129 @@ def fetch_all_clips(scenes, tmpdir):
 # ==================== STEP 4: SINH VOICE (GOOGLE CLOUD TTS WAVENET) ====================
 import base64
 
-def generate_voice(script_data, tmpdir):
-    """Sinh voice bang Google Cloud TTS WaveNet. Xoay vong 4 voice moi ngay."""
-    voice = VOICES[datetime.now().day % len(VOICES)]
-    full_text = " ".join(s["voiceover"] for s in script_data["scenes"])
-    path = Path(tmpdir) / "voice.mp3"
-    print(f"[4/7] Generating voice ({voice})...")
+def generate_voice_per_scene(script_data, tmpdir):
+    """Sinh voice cho TUNG SCENE rieng -> caption sync chinh xac voi voice."""
+    voice_name = VOICES[datetime.now().day % len(VOICES)]
+    print(f"[4/7] Generating voice per scene ({voice_name})...")
+    scene_paths = []
+    for i, scene in enumerate(script_data["scenes"]):
+        text = scene["voiceover"].strip()
+        path = Path(tmpdir) / f"voice_{i}.mp3"
+        url = f"https://texttospeech.googleapis.com/v1/text:synthesize?key={GOOGLE_TTS_KEY}"
+        body = {
+            "input": {"text": text},
+            "voice": {"languageCode": "vi-VN", "name": voice_name},
+            "audioConfig": {
+                "audioEncoding": "MP3",
+                "speakingRate": 1.0,
+                "pitch": 0.0,
+                "volumeGainDb": 2.0,
+                "sampleRateHertz": 24000,
+                "effectsProfileId": ["small-bluetooth-speaker-class-device"],
+            },
+        }
+        r = requests.post(url, json=body, timeout=60)
+        if r.status_code != 200:
+            print(f"      TTS API error scene {i+1}: {r.status_code} - {r.text[:200]}")
+            r.raise_for_status()
+        audio_bytes = base64.b64decode(r.json()["audioContent"])
+        with open(path, "wb") as f:
+            f.write(audio_bytes)
+        scene_paths.append(path)
+    print(f"      Generated {len(scene_paths)} voice files")
+    return scene_paths
 
-    url = f"https://texttospeech.googleapis.com/v1/text:synthesize?key={GOOGLE_TTS_KEY}"
-    body = {
-        "input": {"text": full_text},
-        "voice": {
-            "languageCode": "vi-VN",
-            "name": voice,
-        },
-        "audioConfig": {
-            "audioEncoding": "MP3",
-            "speakingRate": 1.05,    # Hoi nhanh hon binh thuong de Shorts giu attention
-            "pitch": 0.0,
-            "volumeGainDb": 2.0,     # Boost am luong nhe
-            "sampleRateHertz": 24000,
-            "effectsProfileId": ["small-bluetooth-speaker-class-device"],
-        },
-    }
-    r = requests.post(url, json=body, timeout=60)
-    if r.status_code != 200:
-        print(f"      TTS API error: {r.status_code} - {r.text[:300]}")
-        r.raise_for_status()
-    audio_b64 = r.json()["audioContent"]
-    audio_bytes = base64.b64decode(audio_b64)
-    with open(path, "wb") as f:
-        f.write(audio_bytes)
-    print(f"      Audio saved: {len(audio_bytes) // 1024} KB")
-    return path
+
+# Backward compat name
+def generate_voice(script_data, tmpdir):
+    return generate_voice_per_scene(script_data, tmpdir)
 
 # ==================== STEP 5: GHÉP VIDEO (MOVIEPY) ====================
-def assemble_video(clip_paths, voice_path, script_data, tmpdir):
-    """Ghép 8 clip + voice + caption + disclaimer scene 1."""
+def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
+    """Ghep clip + voice per scene + caption SYNC chinh xac voi voice."""
     print("[5/7] Assembling video...")
-    voice = AudioFileClip(str(voice_path))
-    total_dur = voice.duration
-    scene_dur = total_dur / len(clip_paths)
 
-    # Crop/resize each clip vertical 1080x1920, trim to scene_dur
+    # Load voice per scene + get duration
+    scene_voices = [AudioFileClip(str(p)) for p in scene_voice_paths]
+    PAUSE = 0.35  # khoang lang 0.35s giua moi scene (cho tu nhien)
+    scene_durs = [v.duration + PAUSE for v in scene_voices]
+    total_dur = sum(scene_durs)
+    print(f"      Total duration: {total_dur:.1f}s ({len(scene_voices)} scenes)")
+
+    # Build clips with matching per-scene durations
+    target_w, target_h = 1080, 1920
     clips = []
-    for i, p in enumerate(clip_paths):
+    for i, (p, target_dur) in enumerate(zip(clip_paths, scene_durs)):
         c = VideoFileClip(str(p)).without_audio()
-        # Resize to 1080x1920 (vertical 9:16)
-        target_w, target_h = 1080, 1920
-        # Scale to cover (have to crop to maintain aspect)
         scale = max(target_w / c.w, target_h / c.h)
         c = c.resize(scale)
         c = c.crop(x_center=c.w/2, y_center=c.h/2, width=target_w, height=target_h)
-        # Trim to scene_dur (loop if too short)
-        if c.duration < scene_dur:
-            c = c.loop(duration=scene_dur)
+        if c.duration < target_dur:
+            c = c.loop(duration=target_dur)
         else:
-            c = c.subclip(0, scene_dur)
+            c = c.subclip(0, target_dur)
         clips.append(c)
 
     video = concatenate_videoclips(clips, method="compose")
-    video = video.set_audio(voice).set_duration(total_dur)
 
-    # Caption overlay — disclaimer at scene 1 (first 3 seconds)
-    # Font Vietnamese (DejaVu support full Unicode)
+    # Build composite audio: voice scene 1 at t=0, scene 2 at t=dur1, ...
+    from moviepy.editor import CompositeAudioClip
+    audio_parts = []
+    current_t = 0.0
+    for v in scene_voices:
+        audio_parts.append(v.set_start(current_t))
+        current_t += v.duration + PAUSE  # gap silence
+
+    # === BACKGROUND MUSIC ===
+    bgm_files = list(BGM_DIR.glob("*.mp3")) if BGM_DIR.exists() else []
+    if bgm_files:
+        bgm_path = random.choice(bgm_files)
+        print(f"      BGM: {bgm_path.name}")
+        bgm = AudioFileClip(str(bgm_path)).volumex(0.12)  # 12% volume - du nho de khong at giong
+        # Loop hoac trim BGM khop voi total duration
+        if bgm.duration < total_dur:
+            from moviepy.audio.fx.audio_loop import audio_loop
+            bgm = audio_loop(bgm, duration=total_dur)
+        else:
+            bgm = bgm.subclip(0, total_dur)
+        # Fade in/out 1s cho muot
+        from moviepy.audio.fx.audio_fadein import audio_fadein
+        from moviepy.audio.fx.audio_fadeout import audio_fadeout
+        bgm = audio_fadein(bgm, 1.0)
+        bgm = audio_fadeout(bgm, 1.5)
+        audio_parts.append(bgm.set_start(0))
+    else:
+        print("      No BGM in audio/ folder (skip)")
+
+    composite_audio = CompositeAudioClip(audio_parts)
+    video = video.set_audio(composite_audio).set_duration(total_dur)
+
+    # Font Vietnamese (DejaVu/Noto support full Unicode)
     VN_FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-    disclaimer = (TextClip(DISCLAIMER_TEXT, fontsize=42, color="white",
+
+    # Disclaimer ALWAYS hien o top trong 4s dau
+    disclaimer = (TextClip(DISCLAIMER_TEXT, fontsize=40, color="white",
                           bg_color="black", size=(900, None),
                           method="caption", font=VN_FONT)
                   .set_position(("center", 100))
-                  .set_start(0).set_duration(3))
+                  .set_start(0).set_duration(4))
 
-    # Word-by-word captions (simplified — by scene)
+    # Captions SYNC chinh xac voi voice
     scene_captions = []
+    start_t = 0.0
     for i, scene in enumerate(script_data["scenes"]):
-        start = i * scene_dur
-        # Wrap text every ~30 chars
         cap_text = scene["voiceover"]
-        if len(cap_text) > 80:
-            cap_text = cap_text[:77] + "..."
-        cap = (TextClip(cap_text, fontsize=64, color="yellow",
+        # Wrap dai vua phai, hien duoc tren mobile
+        if len(cap_text) > 90:
+            cap_text = cap_text[:87] + "..."
+        # Caption hien suot duration cua scene (gom voice + 0.35s pause)
+        cap = (TextClip(cap_text, fontsize=58, color="yellow",
                        stroke_color="black", stroke_width=4,
-                       size=(960, None), method="caption", font=VN_FONT)
-               .set_position(("center", 1500))
-               .set_start(start).set_duration(scene_dur))
+                       size=(980, None), method="caption", font=VN_FONT)
+               .set_position(("center", 1400))
+               .set_start(start_t).set_duration(scene_durs[i]))
         scene_captions.append(cap)
+        start_t += scene_durs[i]
 
     final = CompositeVideoClip([video, disclaimer] + scene_captions)
     output = Path(tmpdir) / "final.mp4"
@@ -384,8 +451,8 @@ def main():
     # 3-5. Make video in temp dir
     with tempfile.TemporaryDirectory() as tmpdir:
         clip_paths = fetch_all_clips(script_data["scenes"], tmpdir)
-        voice_path = generate_voice(script_data, tmpdir)
-        video_path = assemble_video(clip_paths, voice_path, script_data, tmpdir)
+        scene_voice_paths = generate_voice_per_scene(script_data, tmpdir)
+        video_path = assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir)
         # 6. Upload
         video_id = upload_to_youtube(video_path, script_data, idea)
 
