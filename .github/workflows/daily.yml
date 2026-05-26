@@ -2,9 +2,8 @@ name: Daily YouTube Pipeline
 
 on:
   schedule:
-    # 06:00 sang VN = 23:00 UTC ngay hom truoc
     - cron: "0 23 * * *"
-  workflow_dispatch:  # Cho phep trigger manual tu Actions tab
+  workflow_dispatch:
 
 jobs:
   generate-video:
@@ -27,8 +26,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg imagemagick fonts-dejavu
-          # Fix MoviePy: ImageMagick policy chan TextClip mac dinh
-          sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-6/policy.xml
+          sudo sed -i 's|rights="none" pattern="@\*"|rights="read\|write" pattern="@*"|' /etc/ImageMagick-6/policy.xml
 
       - name: Install Python deps
         run: |
@@ -47,7 +45,12 @@ jobs:
       - name: Commit updated log
         if: always()
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ideas.json data/published.json 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "Auto: log video da dang [ski
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/ideas.json data/published.json || true
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto update published log"
+            git push
+          else
+            echo "No changes to commit"
+          fi
