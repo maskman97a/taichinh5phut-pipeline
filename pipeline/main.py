@@ -99,63 +99,68 @@ def generate_script(idea):
     """Goi Groq (Llama 3.3 70B) sinh script HSCV + 8 scene voi visual_keyword."""
     client = OpenAI(api_key=GROQ_KEY, base_url="https://api.groq.com/openai/v1")
 
-    prompt = f"""Ban la editor TOP 1% cua kenh YouTube tai chinh Viet Nam "Tai Chinh 5 Phut".
+    prompt = f"""Bạn là editor TOP 1% của kênh YouTube tài chính Việt Nam "Tài Chính 5 Phút".
 
-NHIEM VU: Tao 1 video YouTube Shorts 45-55 giay ve: "{idea['title']}"
+NHIỆM VỤ: Tạo 1 video YouTube Shorts 45-55 giây về chủ đề: "{idea['title']}"
 Pillar: {idea.get('pillar', 'general')}
 
-LUAT TUYET DOI (lam sai = video FLOP):
+⚠️ QUY TẮC NGÔN NGỮ TUYỆT ĐỐI (BẮT BUỘC):
+- TẤT CẢ output bao gồm title, description, voiceover, tags PHẢI viết bằng TIẾNG VIỆT CÓ DẤU ĐẦY ĐỦ
+- Dùng ký tự: à á ả ã ạ ă ắ ằ ẳ ẵ ặ â ấ ầ ẩ ẫ ậ đ è é ẻ ẽ ẹ ê ế ề ể ễ ệ ì í ỉ ĩ ị ò ó ỏ õ ọ ô ố ồ ổ ỗ ộ ơ ớ ờ ở ỡ ợ ù ú ủ ũ ụ ư ứ ừ ử ữ ự ỳ ý ỷ ỹ ỵ
+- TUYỆT ĐỐI KHÔNG viết tiếng Việt không dấu kiểu "Tai Chinh" thay vì "Tài Chính"
+- CHỈ visual_keyword là TIẾNG ANH (cho Pexels search)
 
-[1] HOOK SCENE 1 (3 giay, 8-12 tu):
-   - 1 cau hoi SHOCK hoac cau tuyen bo gay to mo
-   - PHAI co con so cu the (vd: "90%", "10 trieu", "5 phut")
-   - Vi du tot: "90% nguoi Viet luong 15tr van het tien cuoi thang. Vi sao?"
-   - Vi du te: "Hom nay chung ta noi ve quan ly tien." (NHAT, BO!)
+LUẬT NỘI DUNG TUYỆT ĐỐI:
 
-[2] SETUP SCENE 2 (5-7 giay):
-   - Mo ta NOI DAU cu the cua dan VP Viet
-   - Tinh huong quen thuoc: cuoi thang nhan vi, dau thang tieu het luong, so dau tu vi mat tien
+[1] HOOK SCENE 1 (3 giây, 8-12 từ):
+   - 1 câu hỏi SHOCK hoặc tuyên bố gây tò mò
+   - PHẢI có con số cụ thể (vd: "90%", "10 triệu", "5 phút")
+   - Ví dụ TỐT: "90% người Việt lương 15 triệu vẫn hết tiền cuối tháng. Vì sao?"
+   - Ví dụ TỆ: "Hôm nay chúng ta nói về quản lý tiền." (NHẠT — BỎ!)
 
-[3] COT LOI SCENE 3-6 (30-35 giay):
-   - Trinh bay GIAI PHAP cu the, KHONG ly thuyet
-   - DAY DU CON SO: vd "Luong 15tr -> 7.5tr sinh hoat + 4.5tr huong thu + 3tr dau tu"
-   - Moi scene 1 y chinh ro rang
-   - SCENE 5 hoac 6: BAT BUOC chen cau "Toi ap dung cach nay X thang va thay [ket qua cu the]"
-   - Tranh tu ngu academic. Noi nhu ban be 28 tuoi noi voi nhau
+[2] SETUP SCENE 2 (5-7 giây):
+   - Mô tả NỖI ĐAU cụ thể của dân văn phòng Việt
+   - Tình huống quen thuộc: cuối tháng nhẵn ví, đầu tháng tiêu hết lương, sợ đầu tư vì mất tiền
 
-[4] CTA SCENE 7-8 (5-10 giay):
-   - Scene 7: 1 cau tom tat hoac 1 cau hoi mo de comment
-   - Scene 8: "Theo doi de hoc moi ngay 1 meo tien. Day la goc nhin ca nhan, khong phai loi khuyen tai chinh."
+[3] CỐT LÕI SCENE 3-6 (30-35 giây):
+   - Trình bày GIẢI PHÁP cụ thể, KHÔNG lý thuyết suông
+   - ĐẦY ĐỦ CON SỐ: vd "Lương 15 triệu → 7.5 triệu sinh hoạt + 4.5 triệu hưởng thụ + 3 triệu đầu tư"
+   - Mỗi scene 1 ý chính rõ ràng
+   - SCENE 5 hoặc 6: BẮT BUỘC chèn câu "Tôi áp dụng cách này X tháng và thấy [kết quả cụ thể]"
+   - Tránh từ ngữ academic. Nói như bạn bè 28 tuổi nói với nhau
+
+[4] CTA SCENE 7-8 (5-10 giây):
+   - Scene 7: 1 câu tóm tắt hoặc câu hỏi mở để comment
+   - Scene 8: "Theo dõi để học mỗi ngày 1 mẹo tiền. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính."
 
 VOICEOVER:
-   - Moi scene: 1-2 cau ngan
-   - DUNG cham/phay dung cach de TTS doc co ngat nghi tu nhien
-   - KHONG viet "[disclaimer]" trong text - viet tu nhien
+   - Mỗi scene: 1-2 câu ngắn
+   - DÙNG dấu chấm/phẩy đúng cách để TTS đọc có ngắt nghỉ tự nhiên
+   - KHÔNG viết "[disclaimer]" trong text — viết tự nhiên
 
-VISUAL_KEYWORD (cho Pexels search):
-   - 2-4 tu TIENG ANH cu the (KHONG generic)
-   - Tot: "hand counting cash vietnamese", "young office worker stressed", "stock chart green rising"
-   - Te: "money", "business", "finance" (qua chung chung)
-   - Moi scene khac nhau hoan toan: mix wide shot + close-up + abstract
+VISUAL_KEYWORD (cho Pexels search, TIẾNG ANH):
+   - 2-4 từ tiếng Anh cụ thể (KHÔNG generic)
+   - Tốt: "hand counting cash vietnamese", "young office worker stressed", "stock chart green rising"
+   - Tệ: "money", "business", "finance" (quá chung chung)
+   - Mỗi scene khác nhau hoàn toàn: mix wide shot + close-up + abstract
 
-YMYL COMPLIANCE (BAT BUOC):
-   - Scene 8 PHAI co cau disclaimer
-   - KHONG khuyen nghi mua co phieu cu the
-   - KHONG hua hen ROI
+YMYL COMPLIANCE (BẮT BUỘC):
+   - Scene 8 PHẢI có câu disclaimer
+   - KHÔNG khuyến nghị mua cổ phiếu cụ thể
+   - KHÔNG hứa hẹn ROI
 
-TRA VE JSON (chi JSON, khong markdown wrapping):
+TRẢ VỀ JSON (chỉ JSON, không markdown wrapping):
 {{
-  "title": "<60 ky tu, co #shorts cuoi, gay to mo",
-  "description": "200-300 tu gom: hook 2 cau + disclaimer ngan + 3 link affiliate placeholder [LINK_VPS] [LINK_INFINA] [LINK_TPBANK] + CTA subscribe + 5 hashtag",
-  "tags": ["tag1", "tag2", ...],
+  "title": "<60 ký tự, TIẾNG VIỆT CÓ DẤU, có #shorts cuối, gây tò mò",
+  "description": "200-300 từ TIẾNG VIỆT CÓ DẤU gồm: hook 2 câu + disclaimer ngắn + 3 link affiliate placeholder [LINK_VPS] [LINK_INFINA] [LINK_TPBANK] + CTA subscribe + 5 hashtag",
+  "tags": ["thẻ tiếng việt có dấu", "tag tiếng anh ok", ...],
   "scenes": [
-    {{"voiceover": "...", "visual_keyword": "..."}},
-    {{"voiceover": "...", "visual_keyword": "..."}},
+    {{"voiceover": "TIẾNG VIỆT CÓ DẤU đầy đủ", "visual_keyword": "english only"}},
     ... 8 scenes
   ]
 }}
 
-Tra ve 8 scenes. Chu de: "{idea['title']}"."""
+NHẮC LẠI: KIỂM TRA OUTPUT, BẢO ĐẢM CÓ ĐẦY ĐỦ DẤU TIẾNG VIỆT. Chủ đề: "{idea['title']}"."""
 
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",

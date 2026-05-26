@@ -1,190 +1,32 @@
 [
-  {
-    "id": 1,
-    "title": "Quy tac 50/30/20 - vi sao 99% nguoi Viet lam sai",
-    "pillar": "saving",
-    "status": "published",
-    "video_id": "rtBpwzu87Xw",
-    "published_at": "2026-05-26T18:01:36.086555+00:00"
-  },
-  {
-    "id": 2,
-    "title": "AI track chi tieu ca thang trong 5 phut",
-    "pillar": "saving+ai",
-    "status": "published",
-    "video_id": "Afh7bQ6FBoo",
-    "published_at": "2026-05-26T18:21:23.727168+00:00"
-  },
-  {
-    "id": 3,
-    "title": "1 cach tiet kiem 2 trieu/thang khong can no luc",
-    "pillar": "saving",
-    "status": "published",
-    "video_id": "03ssBnjGJUg",
-    "published_at": "2026-05-26T18:33:44.038347+00:00"
-  },
-  {
-    "id": 4,
-    "title": "Quy mo la gi - giai thich cho nguoi 0 kien thuc",
-    "pillar": "investing",
-    "status": "published",
-    "video_id": "jlUJWvwe3p0",
-    "published_at": "2026-05-26T18:39:40.423530+00:00"
-  },
-  {
-    "id": 5,
-    "title": "Chung khoan co ban trong 60 giay",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 6,
-    "title": "Vi sao Buffett mua Coca-Cola - bai hoc cho VN",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 7,
-    "title": "Lai kep - ky quan thu 8 cua the gioi (Einstein noi)",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 8,
-    "title": "Side hustle dung ChatGPT kiem 5 trieu/thang",
-    "pillar": "income+ai",
-    "status": "todo"
-  },
-  {
-    "id": 9,
-    "title": "5 dau hieu ban dang song duoi kha nang",
-    "pillar": "psychology",
-    "status": "todo"
-  },
-  {
-    "id": 10,
-    "title": "AI phan tich bao cao tai chinh cong ty trong 30s",
-    "pillar": "investing+ai",
-    "status": "todo"
-  },
-  {
-    "id": 11,
-    "title": "Dau tu vang nam 2026 - con kip khong",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 12,
-    "title": "App quan ly tien tot nhat cho nguoi Viet",
-    "pillar": "saving",
-    "status": "todo"
-  },
-  {
-    "id": 13,
-    "title": "ETF la gi - dau tu an toan nhat cho nguoi moi",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 14,
-    "title": "Cach AI giup len budget thang cho gia dinh",
-    "pillar": "saving+ai",
-    "status": "todo"
-  },
-  {
-    "id": 15,
-    "title": "Tam ly nguoi giau vs nguoi ngheo - 1 khac biet lon",
-    "pillar": "psychology",
-    "status": "todo"
-  },
-  {
-    "id": 16,
-    "title": "Lam phat an mon luong nhu the nao - VN 2026",
-    "pillar": "saving",
-    "status": "todo"
-  },
-  {
-    "id": 17,
-    "title": "Bao hiem nhan tho - bi lua hay dang tien",
-    "pillar": "saving",
-    "status": "todo"
-  },
-  {
-    "id": 18,
-    "title": "Crypto nam 2026 - goc nhin nguoi Viet",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 19,
-    "title": "Quy tac 4% - ve huu som can bao nhieu tien",
-    "pillar": "psychology",
-    "status": "todo"
-  },
-  {
-    "id": 20,
-    "title": "AI tao plan tra no - het no trong 12 thang",
-    "pillar": "saving+ai",
-    "status": "todo"
-  },
-  {
-    "id": 21,
-    "title": "Dau tu dat 2026 - con co hoi cho nguoi it von",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 22,
-    "title": "5 sai lam tien tuoi 30 se hoi han",
-    "pillar": "psychology",
-    "status": "todo"
-  },
-  {
-    "id": 23,
-    "title": "Cach Warren Buffett doc 500 trang/ngay de giau",
-    "pillar": "psychology",
-    "status": "todo"
-  },
-  {
-    "id": 24,
-    "title": "App vay tieu dung - bay lai suat 100%/nam",
-    "pillar": "saving",
-    "status": "todo"
-  },
-  {
-    "id": 25,
-    "title": "AI phan tich Tinder cho chi tieu hen ho",
-    "pillar": "income+ai",
-    "status": "todo"
-  },
-  {
-    "id": 26,
-    "title": "Tai sao gui tiet kiem mat tien moi nam",
-    "pillar": "saving",
-    "status": "todo"
-  },
-  {
-    "id": 27,
-    "title": "Cach doc bao cao tai chinh nhu Buffett",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 28,
-    "title": "10 nguoi giau nhat VN - ho lam giau the nao",
-    "pillar": "psychology",
-    "status": "todo"
-  },
-  {
-    "id": 29,
-    "title": "AI viet ke hoach kinh doanh trong 10 phut",
-    "pillar": "income+ai",
-    "status": "todo"
-  },
-  {
-    "id": 30,
-    "title": "Tai chinh hon nhan - chia tien the nao cho fair",
-    "pillar": "psychology",
-    "status": "todo"
-  }
+  {"id": 1, "title": "Quy tắc 50/30/20 — vì sao 99% người Việt làm sai", "pillar": "saving", "status": "todo"},
+  {"id": 2, "title": "AI track chi tiêu cả tháng trong 5 phút", "pillar": "saving+ai", "status": "todo"},
+  {"id": 3, "title": "1 cách tiết kiệm 2 triệu/tháng không cần nỗ lực", "pillar": "saving", "status": "todo"},
+  {"id": 4, "title": "Quỹ mở là gì — giải thích cho người 0 kiến thức", "pillar": "investing", "status": "todo"},
+  {"id": 5, "title": "Chứng khoán cơ bản trong 60 giây", "pillar": "investing", "status": "todo"},
+  {"id": 6, "title": "Vì sao Buffett mua Coca-Cola — bài học cho người Việt", "pillar": "investing", "status": "todo"},
+  {"id": 7, "title": "Lãi kép — kỳ quan thứ 8 của thế giới (Einstein nói)", "pillar": "investing", "status": "todo"},
+  {"id": 8, "title": "Side hustle dùng ChatGPT kiếm 5 triệu/tháng", "pillar": "income+ai", "status": "todo"},
+  {"id": 9, "title": "5 dấu hiệu bạn đang sống dưới khả năng", "pillar": "psychology", "status": "todo"},
+  {"id": 10, "title": "AI phân tích báo cáo tài chính công ty trong 30 giây", "pillar": "investing+ai", "status": "todo"},
+  {"id": 11, "title": "Đầu tư vàng năm 2026 — còn kịp không?", "pillar": "investing", "status": "todo"},
+  {"id": 12, "title": "App quản lý tiền tốt nhất cho người Việt", "pillar": "saving", "status": "todo"},
+  {"id": 13, "title": "ETF là gì — đầu tư an toàn nhất cho người mới", "pillar": "investing", "status": "todo"},
+  {"id": 14, "title": "Cách AI giúp lên budget tháng cho gia đình", "pillar": "saving+ai", "status": "todo"},
+  {"id": 15, "title": "Tâm lý người giàu vs người nghèo — 1 khác biệt lớn", "pillar": "psychology", "status": "todo"},
+  {"id": 16, "title": "Lạm phát ăn mòn lương như thế nào — Việt Nam 2026", "pillar": "saving", "status": "todo"},
+  {"id": 17, "title": "Bảo hiểm nhân thọ — bị lừa hay đáng tiền?", "pillar": "saving", "status": "todo"},
+  {"id": 18, "title": "Crypto năm 2026 — góc nhìn người Việt", "pillar": "investing", "status": "todo"},
+  {"id": 19, "title": "Quy tắc 4% — về hưu sớm cần bao nhiêu tiền?", "pillar": "psychology", "status": "todo"},
+  {"id": 20, "title": "AI tạo plan trả nợ — hết nợ trong 12 tháng", "pillar": "saving+ai", "status": "todo"},
+  {"id": 21, "title": "Đầu tư đất 2026 — còn cơ hội cho người ít vốn?", "pillar": "investing", "status": "todo"},
+  {"id": 22, "title": "5 sai lầm tiền tuổi 30 sẽ hối hận", "pillar": "psychology", "status": "todo"},
+  {"id": 23, "title": "Cách Warren Buffett đọc 500 trang/ngày để giàu", "pillar": "psychology", "status": "todo"},
+  {"id": 24, "title": "App vay tiêu dùng — bẫy lãi suất 100%/năm", "pillar": "saving", "status": "todo"},
+  {"id": 25, "title": "AI phân tích chi tiêu hẹn hò có giúp tiết kiệm không?", "pillar": "income+ai", "status": "todo"},
+  {"id": 26, "title": "Tại sao gửi tiết kiệm mất tiền mỗi năm?", "pillar": "saving", "status": "todo"},
+  {"id": 27, "title": "Cách đọc báo cáo tài chính như Buffett", "pillar": "investing", "status": "todo"},
+  {"id": 28, "title": "10 người giàu nhất Việt Nam — họ làm giàu thế nào?", "pillar": "psychology", "status": "todo"},
+  {"id": 29, "title": "AI viết kế hoạch kinh doanh trong 10 phút", "pillar": "income+ai", "status": "todo"},
+  {"id": 30, "title": "Tài chính hôn nhân — chia tiền thế nào cho công bằng?", "pillar": "psychology", "status": "todo"}
 ]
