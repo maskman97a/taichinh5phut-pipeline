@@ -1,0 +1,54 @@
+name: Daily YouTube Pipeline
+
+on:
+  schedule:
+    # 06:00 sang VN = 23:00 UTC ngay hom truoc
+    - cron: "0 23 * * *"
+  workflow_dispatch:  # Cho phep trigger manual tu Actions tab
+
+jobs:
+  generate-video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install system FFmpeg + ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg imagemagick fonts-dejavu
+          # Fix MoviePy: ImageMagick policy chan TextClip mac dinh
+          sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-6/policy.xml
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: python pipeline/main.py
+
+      - name: Commit updated log
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ideas.json data/published.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "Auto: log video da dang [skip ci]"
+          git push || echo "Nothing to push"
