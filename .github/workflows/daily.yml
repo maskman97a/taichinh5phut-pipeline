@@ -22,21 +22,16 @@ jobs:
           python-version: "3.11"
           cache: "pip"
 
-      - name: Cache APT packages (FFmpeg, ImageMagick, fonts)
-        uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
-          packages: ffmpeg imagemagick fonts-dejavu fonts-noto fonts-noto-cjk
-          version: 1.0
-          execute_install_scripts: true
-
-      - name: Fix ImageMagick policy + verify binary
+      - name: Install FFmpeg + ImageMagick + fonts
         run: |
-          # Fix policy ngan TextClip render
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg imagemagick fonts-dejavu fonts-noto fonts-noto-cjk
+          # Fix ImageMagick policy ngan TextClip render
           sudo sed -i 's|rights="none" pattern="@\*"|rights="read\|write" pattern="@*"|' /etc/ImageMagick-6/policy.xml || true
-          # Verify binary location
-          echo "convert binary: $(which convert || echo NOT_FOUND)"
-          echo "ffmpeg binary:  $(which ffmpeg || echo NOT_FOUND)"
-          convert -version | head -1 || echo "convert NOT working"
+          # Verify
+          echo "convert: $(which convert)"
+          echo "ffmpeg:  $(which ffmpeg)"
+          convert -version | head -1
 
       - name: Install Python deps
         run: |
@@ -51,7 +46,6 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          IMAGEMAGICK_BINARY: /usr/bin/convert
         run: python pipeline/main.py
 
       - name: Commit updated log
