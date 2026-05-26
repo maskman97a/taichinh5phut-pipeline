@@ -356,11 +356,21 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
     video = video.set_audio(composite_audio).set_duration(total_dur)
 
     # Font Vietnamese (DejaVu/Noto support full Unicode)
-    VN_FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    # Font Vietnamese - Montserrat (viral TikTok aesthetic) -> fallback Noto -> DejaVu
+    import os.path
+    _font_candidates = [
+        "/tmp/fonts/Montserrat-ExtraBold.ttf",
+        "/tmp/fonts/Montserrat-Black.ttf",
+        "/usr/share/fonts/truetype/roboto/Roboto-Bold.ttf",
+        "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    ]
+    VN_FONT = next((p for p in _font_candidates if os.path.exists(p)), _font_candidates[-1])
+    print(f"      Font: {VN_FONT.split('/')[-1]}")
 
     # Disclaimer ALWAYS hien o top trong 4s dau
-    disclaimer = (TextClip(DISCLAIMER_TEXT, fontsize=40, color="white",
-                          bg_color="black", size=(900, None),
+    disclaimer = (TextClip(DISCLAIMER_TEXT, fontsize=38, color="white",
+                          bg_color="rgba(0,0,0,0.7)", size=(900, None),
                           method="caption", font=VN_FONT)
                   .set_position(("center", 100))
                   .set_start(0).set_duration(4))
@@ -393,10 +403,10 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         chunk_dur = voice_dur / len(chunks)
         for j, chunk in enumerate(chunks):
             chunk_start = start_t + j * chunk_dur
-            cap = (TextClip(chunk, fontsize=85, color="yellow",
-                           stroke_color="black", stroke_width=6,
-                           size=(900, None), method="caption", font=VN_FONT)
-                   .set_position(("center", 1450))
+            cap = (TextClip(chunk, fontsize=95, color="white",
+                           stroke_color="black", stroke_width=8,
+                           size=(950, None), method="caption", font=VN_FONT)
+                   .set_position(("center", 1400))
                    .set_start(chunk_start).set_duration(chunk_dur))
             scene_captions.append(cap)
         start_t += scene_durs[i]
