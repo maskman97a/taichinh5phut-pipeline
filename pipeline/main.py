@@ -34,6 +34,17 @@ from PIL import Image as _PILImage
 if not hasattr(_PILImage, "ANTIALIAS"):
     _PILImage.ANTIALIAS = _PILImage.LANCZOS
 
+# Fix MoviePy khong tu tim duoc ImageMagick (sau cache APT action)
+import shutil as _shutil
+from moviepy.config import change_settings as _change_settings
+_imagemagick_path = (
+    _shutil.which("convert")
+    or _shutil.which("convert-im6.q16")
+    or "/usr/bin/convert"
+)
+_change_settings({"IMAGEMAGICK_BINARY": _imagemagick_path})
+print(f"[init] ImageMagick: {_imagemagick_path}")
+
 # ==================== CONFIG ====================
 GROQ_KEY = os.environ["GROQ_API_KEY"]
 PEXELS_KEY = os.environ["PEXELS_API_KEY"]
@@ -47,12 +58,10 @@ IDEAS_FILE = REPO_ROOT / "data" / "ideas.json"
 PUBLISHED_FILE = REPO_ROOT / "data" / "published.json"
 BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3)
 
-# Xoay vòng 4 voice Google WaveNet cho de-templating
+# Xoay vòng 2 voice NAM Google WaveNet cho de-templating
 VOICES = [
-    "vi-VN-Wavenet-A",  # Female 1
-    "vi-VN-Wavenet-B",  # Male 1
-    "vi-VN-Wavenet-C",  # Female 2
-    "vi-VN-Wavenet-D",  # Male 2
+    "vi-VN-Wavenet-B",  # Male 1 - nam trẻ, trung tính
+    "vi-VN-Wavenet-D",  # Male 2 - nam trầm, mature
 ]
 
 # Disclaimer YMYL bắt buộc (Finance niche)

@@ -29,9 +29,14 @@ jobs:
           version: 1.0
           execute_install_scripts: true
 
-      - name: Fix ImageMagick policy
+      - name: Fix ImageMagick policy + verify binary
         run: |
+          # Fix policy ngan TextClip render
           sudo sed -i 's|rights="none" pattern="@\*"|rights="read\|write" pattern="@*"|' /etc/ImageMagick-6/policy.xml || true
+          # Verify binary location
+          echo "convert binary: $(which convert || echo NOT_FOUND)"
+          echo "ffmpeg binary:  $(which ffmpeg || echo NOT_FOUND)"
+          convert -version | head -1 || echo "convert NOT working"
 
       - name: Install Python deps
         run: |
@@ -46,6 +51,7 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          IMAGEMAGICK_BINARY: /usr/bin/convert
         run: python pipeline/main.py
 
       - name: Commit updated log
