@@ -29,6 +29,11 @@ from moviepy.editor import (AudioFileClip, CompositeAudioClip,
                             CompositeVideoClip, TextClip, VideoFileClip,
                             concatenate_videoclips)
 
+# Fix Pillow 10+ compat: ANTIALIAS bi xoa, MoviePy 1.0.3 van dung
+from PIL import Image as _PILImage
+if not hasattr(_PILImage, "ANTIALIAS"):
+    _PILImage.ANTIALIAS = _PILImage.LANCZOS
+
 # ==================== CONFIG ====================
 GROQ_KEY = os.environ["GROQ_API_KEY"]
 PEXELS_KEY = os.environ["PEXELS_API_KEY"]
