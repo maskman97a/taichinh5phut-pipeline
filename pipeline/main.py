@@ -18,7 +18,6 @@ import tempfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-import edge_tts
 from openai import OpenAI
 import requests
 from google.auth.transport.requests import Request
@@ -40,13 +39,19 @@ PEXELS_KEY = os.environ["PEXELS_API_KEY"]
 YT_CLIENT_ID = os.environ["YT_CLIENT_ID"]
 YT_CLIENT_SECRET = os.environ["YT_CLIENT_SECRET"]
 YT_REFRESH_TOKEN = os.environ["YT_REFRESH_TOKEN"]
+GOOGLE_TTS_KEY = os.environ["GOOGLE_TTS_API_KEY"]
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 IDEAS_FILE = REPO_ROOT / "data" / "ideas.json"
 PUBLISHED_FILE = REPO_ROOT / "data" / "published.json"
 
-# Xoay vòng voice mỗi ngày cho de-templating
-VOICES = ["vi-VN-HoaiMyNeural", "vi-VN-NamMinhNeural"]
+# Xoay vòng 4 voice Google WaveNet cho de-templating
+VOICES = [
+    "vi-VN-Wavenet-A",  # Female 1
+    "vi-VN-Wavenet-B",  # Male 1
+    "vi-VN-Wavenet-C",  # Female 2
+    "vi-VN-Wavenet-D",  # Male 2
+]
 
 # Disclaimer YMYL bắt buộc (Finance niche)
 DISCLAIMER_TEXT = ("⚠️ Video chỉ mang tính giáo dục, KHÔNG phải lời khuyên "
@@ -149,7 +154,7 @@ def download_pexels_clip(keyword, output_path):
         params={
             "query": keyword,
             "orientation": "portrait",
-            "size": "medium",
+            "size": "large",
             "per_page": 5,
         },
         timeout=30,
@@ -170,7 +175,7 @@ def download_pexels_clip(keyword, output_path):
     # Tìm file HD vertical
     video_files = sorted(chosen["video_files"],
                          key=lambda f: f.get("width", 0))
-    target = next((f for f in video_files if f.get("width", 0) >= 720), video_files[-1])
+    target = next((f for f in video_files if f.get("width", 0) >= 1080), video_files[-1])
 
     resp = requests.get(target["link"], stream=True, timeout=60)
     resp.raise_for_status()
@@ -194,19 +199,41 @@ def fetch_all_clips(scenes, tmpdir):
             paths.append(path)
     return paths
 
-# ==================== STEP 4: SINH VOICE (EDGE TTS) ====================
-async def generate_voice_async(text, output_path, voice):
-    communicate = edge_tts.Communicate(text, voice, rate="+5%")
-    await communicate.save(str(output_path))
+# ==================== STEP 4: SINH VOICE (GOOGLE CLOUD TTS WAVENET) ====================
+import base64
 
 def generate_voice(script_data, tmpdir):
-    """Sinh voice cho toàn bộ video. Xoay vòng voice mỗi ngày."""
-    # Xoay vòng voice theo ngày
+    """Sinh voice bang Google Cloud TTS WaveNet. Xoay vong 4 voice moi ngay."""
     voice = VOICES[datetime.now().day % len(VOICES)]
     full_text = " ".join(s["voiceover"] for s in script_data["scenes"])
     path = Path(tmpdir) / "voice.mp3"
     print(f"[4/7] Generating voice ({voice})...")
-    asyncio.run(generate_voice_async(full_text, path, voice))
+
+    url = f"https://texttospeech.googleapis.com/v1/text:synthesize?key={GOOGLE_TTS_KEY}"
+    body = {
+        "input": {"text": full_text},
+        "voice": {
+            "languageCode": "vi-VN",
+            "name": voice,
+        },
+        "audioConfig": {
+            "audioEncoding": "MP3",
+            "speakingRate": 1.05,    # Hoi nhanh hon binh thuong de Shorts giu attention
+            "pitch": 0.0,
+            "volumeGainDb": 2.0,     # Boost am luong nhe
+            "sampleRateHertz": 24000,
+            "effectsProfileId": ["small-bluetooth-speaker-class-device"],
+        },
+    }
+    r = requests.post(url, json=body, timeout=60)
+    if r.status_code != 200:
+        print(f"      TTS API error: {r.status_code} - {r.text[:300]}")
+        r.raise_for_status()
+    audio_b64 = r.json()["audioContent"]
+    audio_bytes = base64.b64decode(audio_b64)
+    with open(path, "wb") as f:
+        f.write(audio_bytes)
+    print(f"      Audio saved: {len(audio_bytes) // 1024} KB")
     return path
 
 # ==================== STEP 5: GHÉP VIDEO (MOVIEPY) ====================
@@ -238,9 +265,11 @@ def assemble_video(clip_paths, voice_path, script_data, tmpdir):
     video = video.set_audio(voice).set_duration(total_dur)
 
     # Caption overlay — disclaimer at scene 1 (first 3 seconds)
+    # Font Vietnamese (DejaVu support full Unicode)
+    VN_FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
     disclaimer = (TextClip(DISCLAIMER_TEXT, fontsize=42, color="white",
                           bg_color="black", size=(900, None),
-                          method="caption")
+                          method="caption", font=VN_FONT)
                   .set_position(("center", 100))
                   .set_start(0).set_duration(3))
 
@@ -252,9 +281,9 @@ def assemble_video(clip_paths, voice_path, script_data, tmpdir):
         cap_text = scene["voiceover"]
         if len(cap_text) > 80:
             cap_text = cap_text[:77] + "..."
-        cap = (TextClip(cap_text, fontsize=56, color="yellow",
-                       stroke_color="black", stroke_width=3,
-                       size=(960, None), method="caption")
+        cap = (TextClip(cap_text, fontsize=64, color="yellow",
+                       stroke_color="black", stroke_width=4,
+                       size=(960, None), method="caption", font=VN_FONT)
                .set_position(("center", 1500))
                .set_start(start).set_duration(scene_dur))
         scene_captions.append(cap)
@@ -266,9 +295,11 @@ def assemble_video(clip_paths, voice_path, script_data, tmpdir):
         fps=30,
         codec="libx264",
         audio_codec="aac",
-        preset="medium",
-        bitrate="3000k",
-        threads=2,
+        preset="slow",       # Quality cao hon (cham encode hon)
+        bitrate="6000k",     # Tang tu 3000 -> 6000k
+        audio_bitrate="192k",
+        threads=4,           # GitHub Actions co 4 cores
+        ffmpeg_params=["-pix_fmt", "yuv420p", "-movflags", "+faststart"],
         verbose=False,
         logger=None,
     )

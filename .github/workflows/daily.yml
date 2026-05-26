@@ -25,7 +25,7 @@ jobs:
       - name: Install system FFmpeg + ImageMagick
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg imagemagick fonts-dejavu
+          sudo apt-get install -y ffmpeg imagemagick fonts-dejavu fonts-noto fonts-noto-cjk
           sudo sed -i 's|rights="none" pattern="@\*"|rights="read\|write" pattern="@*"|' /etc/ImageMagick-6/policy.xml
 
       - name: Install Python deps
@@ -36,6 +36,7 @@ jobs:
       - name: Run pipeline
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
