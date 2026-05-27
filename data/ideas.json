@@ -47,9 +47,17 @@
   },
   {
     "id": 7,
+<<<<<<< HEAD
     "title": "n8n là gì — tự động hoá công việc miễn phí trong 5 phút",
     "pillar": "automation",
     "status": "todo"
+=======
+    "title": "Lãi kép — kỳ quan thứ 8 của thế giới (Einstein nói)",
+    "pillar": "investing",
+    "status": "published",
+    "video_id": "0cKwZtlmdaw",
+    "published_at": "2026-05-27T16:00:30.450880+00:00"
+>>>>>>> 23b165d6bfbd7b95396b27af98041d3f82e302b0
   },
   {
     "id": 8,
