@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Quy tắc 50/30/20 — vì sao 99% người Việt làm sai",
-    "pillar": "saving",
+    "pillar": "finance-legacy",
     "status": "published",
     "video_id": "5kAtn4cBJPI",
     "published_at": "2026-05-26T18:57:40.657195+00:00"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "title": "AI track chi tiêu cả tháng trong 5 phút",
-    "pillar": "saving+ai",
+    "pillar": "finance-legacy",
     "status": "published",
     "video_id": "jNUzq70GNHI",
     "published_at": "2026-05-26T19:16:55.403594+00:00"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "title": "1 cách tiết kiệm 2 triệu/tháng không cần nỗ lực",
-    "pillar": "saving",
+    "pillar": "finance-legacy",
     "status": "published",
     "video_id": "jA2XxMc7JDc",
     "published_at": "2026-05-26T19:23:34.825230+00:00"
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "title": "Quỹ mở là gì — giải thích cho người 0 kiến thức",
-    "pillar": "investing",
+    "pillar": "finance-legacy",
     "status": "published",
     "video_id": "nnDGQRJP8Bk",
     "published_at": "2026-05-27T00:15:28.505369+00:00"
@@ -34,161 +34,189 @@
   {
     "id": 5,
     "title": "Chứng khoán cơ bản trong 60 giây",
-    "pillar": "investing",
+    "pillar": "finance-legacy",
     "status": "published",
     "video_id": "nKUd4f3yEsA",
     "published_at": "2026-05-27T00:26:04.045207+00:00"
   },
   {
     "id": 6,
-    "title": "Vì sao Buffett mua Coca-Cola — bài học cho người Việt",
-    "pillar": "investing",
-    "status": "published",
-    "video_id": "ARNXAzTE3oE",
-    "published_at": "2026-05-27T15:40:36.060528+00:00"
+    "title": "ChatGPT viết email công việc 30 giây — 5 prompt mẫu cho dân VP",
+    "pillar": "ai-tools",
+    "status": "todo"
   },
   {
     "id": 7,
-    "title": "Lãi kép — kỳ quan thứ 8 của thế giới (Einstein nói)",
-    "pillar": "investing",
+    "title": "n8n là gì — tự động hoá công việc miễn phí trong 5 phút",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 8,
-    "title": "Side hustle dùng ChatGPT kiếm 5 triệu/tháng",
-    "pillar": "income+ai",
+    "title": "Make.com vs n8n vs Zapier — chọn cái nào cho dân VP Việt 2026?",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 9,
-    "title": "5 dấu hiệu bạn đang sống dưới khả năng",
-    "pillar": "psychology",
+    "title": "AI tóm tắt cuộc họp Zoom 1 tiếng → 5 phút đọc",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 10,
-    "title": "AI phân tích báo cáo tài chính công ty trong 30 giây",
-    "pillar": "investing+ai",
+    "title": "Excel + ChatGPT: phân tích 1000 dòng data trong 30 giây",
+    "pillar": "excel-ai",
     "status": "todo"
   },
   {
     "id": 11,
-    "title": "Đầu tư vàng năm 2026 — còn kịp không?",
-    "pillar": "investing",
+    "title": "5 Custom GPT trợ lý cho dân VP Việt — setup miễn phí",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 12,
-    "title": "App quản lý tiền tốt nhất cho người Việt",
-    "pillar": "saving",
+    "title": "Workflow Zapier: Gmail mới → Slack + Notion tự động",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 13,
-    "title": "ETF là gì — đầu tư an toàn nhất cho người mới",
-    "pillar": "investing",
+    "title": "Claude vs ChatGPT vs Gemini — chọn cái nào cho dân VP Việt?",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 14,
-    "title": "Cách AI giúp lên budget tháng cho gia đình",
-    "pillar": "saving+ai",
+    "title": "Notion AI vs ChatGPT — dùng cái nào cho công việc?",
+    "pillar": "notion-productivity",
     "status": "todo"
   },
   {
     "id": 15,
-    "title": "Tâm lý người giàu vs người nghèo — 1 khác biệt lớn",
-    "pillar": "psychology",
+    "title": "AI dịch email tiếng Anh sang Việt — không cần Google Translate",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 16,
-    "title": "Lạm phát ăn mòn lương như thế nào — Việt Nam 2026",
-    "pillar": "saving",
+    "title": "n8n self-host miễn phí trên Oracle Cloud — full guide 10 phút",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 17,
-    "title": "Bảo hiểm nhân thọ — bị lừa hay đáng tiền?",
-    "pillar": "saving",
+    "title": "ChatGPT lên kế hoạch tuần cho dân VP trong 30 giây",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 18,
-    "title": "Crypto năm 2026 — góc nhìn người Việt",
-    "pillar": "investing",
+    "title": "Google Sheets + Gemini: công thức =GEMINI() làm được gì?",
+    "pillar": "excel-ai",
     "status": "todo"
   },
   {
     "id": 19,
-    "title": "Quy tắc 4% — về hưu sớm cần bao nhiêu tiền?",
-    "pillar": "psychology",
+    "title": "Workflow n8n: tự động đăng bài 5 mạng xã hội cùng lúc",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 20,
-    "title": "AI tạo plan trả nợ — hết nợ trong 12 tháng",
-    "pillar": "saving+ai",
+    "title": "AI làm slide PowerPoint từ outline trong 1 phút",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 21,
-    "title": "Đầu tư đất 2026 — còn cơ hội cho người ít vốn?",
-    "pillar": "investing",
+    "title": "Make.com tự động lưu hoá đơn Gmail vào Google Sheets",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 22,
-    "title": "5 sai lầm tiền tuổi 30 sẽ hối hận",
-    "pillar": "psychology",
+    "title": "Template Notion miễn phí: hệ thống GTD cho dân VP Việt",
+    "pillar": "notion-productivity",
     "status": "todo"
   },
   {
     "id": 23,
-    "title": "Cách Warren Buffett đọc 500 trang/ngày để giàu",
-    "pillar": "psychology",
+    "title": "Excel formulas AI: 5 công thức tiết kiệm 80% thời gian",
+    "pillar": "excel-ai",
     "status": "todo"
   },
   {
     "id": 24,
-    "title": "App vay tiêu dùng — bẫy lãi suất 100%/năm",
-    "pillar": "saving",
+    "title": "ChatGPT tự động viết JD tuyển dụng — HR tiết kiệm 80% thời gian",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 25,
-    "title": "AI phân tích chi tiêu hẹn hò có giúp tiết kiệm không?",
-    "pillar": "income+ai",
+    "title": "n8n + ChatGPT: tự động trả lời email khách hàng 24/7",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 26,
-    "title": "Tại sao gửi tiết kiệm mất tiền mỗi năm?",
-    "pillar": "saving",
+    "title": "Workflow Notion → Google Calendar tự động không cần Zapier",
+    "pillar": "notion-productivity",
     "status": "todo"
   },
   {
     "id": 27,
-    "title": "Cách đọc báo cáo tài chính như Buffett",
-    "pillar": "investing",
+    "title": "Tự động hoá daily standup report với n8n + ChatGPT",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 28,
-    "title": "10 người giàu nhất Việt Nam — họ làm giàu thế nào?",
-    "pillar": "psychology",
+    "title": "AI tạo dashboard Excel không cần biết code — 1 prompt",
+    "pillar": "excel-ai",
     "status": "todo"
   },
   {
     "id": 29,
-    "title": "AI viết kế hoạch kinh doanh trong 10 phút",
-    "pillar": "income+ai",
+    "title": "Telegram bot AI trợ lý cá nhân — setup với n8n trong 15 phút",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 30,
-    "title": "Tài chính hôn nhân — chia tiền thế nào cho công bằng?",
-    "pillar": "psychology",
+    "title": "5 prompt ChatGPT cứu tinh dân VP trước deadline",
+    "pillar": "ai-tools",
+    "status": "todo"
+  },
+  {
+    "id": 31,
+    "title": "AI tự động phân tích báo cáo PDF 50 trang trong 1 phút",
+    "pillar": "ai-tools",
+    "status": "todo"
+  },
+  {
+    "id": 32,
+    "title": "Workflow Make.com: tự động backup Drive → Dropbox + email log",
+    "pillar": "automation",
+    "status": "todo"
+  },
+  {
+    "id": 33,
+    "title": "Xây AI agent custom với n8n trong 10 phút — không cần code",
+    "pillar": "automation",
+    "status": "todo"
+  },
+  {
+    "id": 34,
+    "title": "Cursor AI vs Copilot — IDE nào cho dân không phải dev Việt?",
+    "pillar": "ai-tools",
+    "status": "todo"
+  },
+  {
+    "id": 35,
+    "title": "AI ghi chú cuộc họp tự động + tóm tắt vào Notion",
+    "pillar": "automation",
     "status": "todo"
   }
 ]
