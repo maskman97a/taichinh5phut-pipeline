@@ -35,56 +35,137 @@ OUTPUT_DIR = REPO_ROOT / "test_output"
 SCRIPTS_DIR = REPO_ROOT / "data" / "scripts"
 
 
-def ensure_montserrat_font():
-    """Auto-download Montserrat ve ~/Library/Fonts/ neu chua co (macOS).
+def load_dotenv_if_exists():
+    """Auto-load .env file o repo root (KEY=VALUE per line).
 
-    Pipeline can font Unicode dep cho caption Vietnamese. Mac built-in
+    Khong dung python-dotenv (de tranh them dependency). Parser cuc don gian:
+    - Bo qua comment (#) va dong rong
+    - Strip quotes (' ho "...")
+    - KHONG override env var da set san trong shell
+    """
+    env_path = REPO_ROOT / ".env"
+    if not env_path.exists():
+        return
+    loaded = []
+    for raw in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.strip()
+        value = value.strip().strip("'\"")
+        if key and key not in os.environ:
+            os.environ[key] = value
+            loaded.append(key)
+    if loaded:
+        print(f"✅ .env loaded: {', '.join(loaded)}")
+
+
+def ensure_montserrat_font():
+    """Auto-download Montserrat ve folder font user (macOS + Windows).
+
+    Pipeline can font Unicode dep cho caption Vietnamese. System font
     co Helvetica/Arial nhung khong dep bang Montserrat (TikTok style).
     """
     import platform
-    if platform.system() != "Darwin":
-        return  # Chi auto-cai tren macOS, Linux/Win bo qua
-    target_dir = Path.home() / "Library" / "Fonts"
+    system = platform.system()
+    if system == "Darwin":
+        target_dir = Path.home() / "Library" / "Fonts"
+        nice_path = "~/Library/Fonts/Montserrat-ExtraBold.ttf"
+    elif system == "Windows":
+        # Per-user Windows fonts folder (khong can admin)
+        target_dir = Path.home() / "AppData" / "Local" / "Microsoft" / "Windows" / "Fonts"
+        nice_path = "%LOCALAPPDATA%\\Microsoft\\Windows\\Fonts\\Montserrat-ExtraBold.ttf"
+    else:
+        return  # Linux: bo qua, dung font he thong
     target_file = target_dir / "Montserrat-ExtraBold.ttf"
     if target_file.exists():
-        print(f"✅ Montserrat: ~/Library/Fonts/Montserrat-ExtraBold.ttf")
+        print(f"✅ Montserrat: {nice_path}")
         return
-    print(f"⏬ Downloading Montserrat-ExtraBold to ~/Library/Fonts/ ...")
+    print(f"⏬ Downloading Montserrat-ExtraBold to {nice_path} ...")
     target_dir.mkdir(parents=True, exist_ok=True)
     import urllib.request
-    url = ("https://raw.githubusercontent.com/google/fonts/main/ofl/"
-           "montserrat/static/Montserrat-ExtraBold.ttf")
-    try:
-        urllib.request.urlretrieve(url, str(target_file))
-        size_kb = target_file.stat().st_size // 1024
-        if size_kb < 50:  # File font that thuong >100KB
+    # Multiple mirrors (Google Fonts da restructure folder static/ -> fallback nhieu nguon)
+    urls = [
+        # Mirror 1: JulietaUla/Montserrat (upstream cua Google Fonts)
+        "https://github.com/JulietaUla/Montserrat/raw/master/fonts/ttf/Montserrat-ExtraBold.ttf",
+        # Mirror 2: jsDelivr CDN cua Google Fonts repo
+        "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/montserrat/static/Montserrat-ExtraBold.ttf",
+        # Mirror 3: Google Fonts repo direct (URL co the moved)
+        "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/static/Montserrat-ExtraBold.ttf",
+    ]
+    last_err = None
+    for url in urls:
+        try:
+            urllib.request.urlretrieve(url, str(target_file))
+            size_kb = target_file.stat().st_size // 1024
+            if size_kb >= 50:  # File font that thuong >100KB
+                print(f"✅ Montserrat installed ({size_kb}KB)")
+                return
             target_file.unlink()
-            print(f"⚠ Download fail (size={size_kb}KB), fallback dung system font")
-        else:
-            print(f"✅ Montserrat installed ({size_kb}KB)")
-    except Exception as e:
-        print(f"⚠ Khong tai duoc Montserrat ({e}), fallback dung system font")
+            last_err = f"size={size_kb}KB qua nho"
+        except Exception as e:
+            last_err = str(e)
+            continue
+    print(f"⚠ Khong tai duoc Montserrat ({last_err}), fallback dung system font (Arial Bold)")
 
 
 def check_prereqs(skip_tts: bool):
     """Kiem tra deps + env vars truoc khi chay."""
+    # Load .env neu co (truoc khi check env vars)
+    load_dotenv_if_exists()
+
     issues = []
+
+    import platform as _plat
+    _is_win = _plat.system() == "Windows"
+    _ffmpeg_hint = (
+        "winget install Gyan.FFmpeg" if _is_win else "brew install ffmpeg"
+    )
+    _im_hint = (
+        "winget install ImageMagick.ImageMagick" if _is_win else "brew install imagemagick"
+    )
 
     # 1. ffmpeg
     if not shutil.which("ffmpeg"):
-        issues.append("❌ ffmpeg KHONG tim thay. Cai: brew install ffmpeg")
+        issues.append(f"❌ ffmpeg KHONG tim thay. Cai: {_ffmpeg_hint}")
     else:
         print(f"✅ ffmpeg: {shutil.which('ffmpeg')}")
 
     # 2. ImageMagick convert (can cho TextClip caption)
-    # IMv7 dung 'magick', IMv6 dung 'convert'. Brew install ca 2 alias.
-    convert_path = shutil.which("convert") or shutil.which("magick")
+    # IMv7 dung 'magick', IMv6 dung 'convert'. Windows co 'convert.exe' rieng o
+    # System32 (utility FAT->NTFS, KHONG PHAI ImageMagick) -> phai loai tru!
+    convert_path = shutil.which("magick")
+    if not convert_path and not _is_win:
+        # Linux/Mac: 'convert' la safe alias cua ImageMagick
+        convert_path = shutil.which("convert")
+    if not convert_path and _is_win:
+        # Windows: tim trong cac install path pho bien
+        import glob as _glob
+        for pattern in [
+            r"C:\Program Files\ImageMagick-*\magick.exe",
+            r"C:\Program Files (x86)\ImageMagick-*\magick.exe",
+            os.path.expandvars(r"%LOCALAPPDATA%\Programs\ImageMagick\magick.exe"),
+            os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\WinGet\Packages\ImageMagick.ImageMagick*\magick.exe"),
+        ]:
+            matches = _glob.glob(pattern)
+            if matches:
+                convert_path = matches[0]
+                break
     if not convert_path:
-        issues.append("❌ ImageMagick KHONG tim thay. Cai: brew install imagemagick")
+        issues.append(f"❌ ImageMagick KHONG tim thay. Cai: {_im_hint}")
+        if _is_win:
+            issues.append(
+                "   (Windows: 'convert.exe' o System32 KHONG phai ImageMagick. "
+                "Can cai IM v7 tu winget va dam bao co magick.exe trong PATH)"
+            )
     else:
         print(f"✅ imagemagick: {convert_path}")
+        # Windows: ep MoviePy dung magick.exe (IM v7) qua env var
+        if _is_win:
+            os.environ["IMAGEMAGICK_BINARY"] = convert_path
 
-    # 3. Font Vietnamese (auto-download Montserrat tren Mac)
+    # 3. Font Vietnamese (auto-download Montserrat tren Mac + Windows)
     ensure_montserrat_font()
 
     # 3. Env vars
@@ -188,7 +269,14 @@ def main():
         print(f"\n[tmp giu lai] {tmpdir}")
         cleanup = None
     else:
-        _tmp = tempfile.TemporaryDirectory()
+        # ignore_cleanup_errors: Windows hay khong release file handles tu MoviePy/imageio,
+        # khien rmtree fail. Khong nghiem trong (Windows tu don sau), nhung neu khong ignore
+        # se nuot mat loi goc.
+        try:
+            _tmp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
+        except TypeError:
+            # Python <3.10 khong support ignore_cleanup_errors
+            _tmp = tempfile.TemporaryDirectory()
         tmpdir_str = _tmp.name
         cleanup = _tmp
 
@@ -235,7 +323,11 @@ def main():
         sys.exit(1)
     finally:
         if cleanup:
-            cleanup.cleanup()
+            try:
+                cleanup.cleanup()
+            except (PermissionError, OSError) as cleanup_err:
+                # Windows: file handles MoviePy chua release. Bo qua, video da copy ra OK.
+                print(f"⚠ Cleanup tmp folder fail (khong nghiem trong): {cleanup_err}")
 
 
 if __name__ == "__main__":

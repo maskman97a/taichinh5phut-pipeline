@@ -37,16 +37,44 @@ from PIL import Image as _PILImage
 if not hasattr(_PILImage, "ANTIALIAS"):
     _PILImage.ANTIALIAS = _PILImage.LANCZOS
 
-# Fix MoviePy khong tu tim duoc ImageMagick (sau cache APT action)
+# Fix MoviePy khong tu tim duoc ImageMagick (cross-platform: Linux/Mac/Windows)
 import shutil as _shutil
+import platform as _platform
+import glob as _glob
 from moviepy.config import change_settings as _change_settings
-_imagemagick_path = (
-    _shutil.which("convert")
-    or _shutil.which("convert-im6.q16")
-    or "/usr/bin/convert"
-)
-_change_settings({"IMAGEMAGICK_BINARY": _imagemagick_path})
-print(f"[init] ImageMagick: {_imagemagick_path}")
+
+_is_win = _platform.system() == "Windows"
+
+# Uu tien env var (test_local.py / GitHub Actions set san)
+_imagemagick_path = os.environ.get("IMAGEMAGICK_BINARY", "")
+
+if not _imagemagick_path:
+    # Tim 'magick' (IMv7) truoc — chinh xac va an toan tren moi OS
+    _imagemagick_path = _shutil.which("magick") or ""
+
+if not _imagemagick_path and not _is_win:
+    # Linux/Mac: 'convert' la safe alias cua ImageMagick
+    _imagemagick_path = (
+        _shutil.which("convert")
+        or _shutil.which("convert-im6.q16")
+        or "/usr/bin/convert"
+    )
+
+if not _imagemagick_path and _is_win:
+    # Windows: 'convert.exe' o System32 KHONG PHAI ImageMagick — phai tim trong install dir
+    for _pattern in [
+        r"C:\Program Files\ImageMagick-*\magick.exe",
+        r"C:\Program Files (x86)\ImageMagick-*\magick.exe",
+        os.path.expandvars(r"%LOCALAPPDATA%\Programs\ImageMagick\magick.exe"),
+        os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\WinGet\Packages\ImageMagick.ImageMagick*\magick.exe"),
+    ]:
+        _matches = _glob.glob(_pattern)
+        if _matches:
+            _imagemagick_path = _matches[0]
+            break
+
+_change_settings({"IMAGEMAGICK_BINARY": _imagemagick_path or "magick"})
+print(f"[init] ImageMagick: {_imagemagick_path or '(default: magick)'}")
 
 # ==================== CONFIG ====================
 # NOTE: GROQ_API_KEY đã bỏ — pipeline đọc script từ data/scripts/{id}.json
@@ -352,6 +380,11 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         "/usr/share/fonts/truetype/roboto/Roboto-Bold.ttf",
         "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        # Windows (user-installed Montserrat / system fonts)
+        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/Montserrat-ExtraBold.ttf"),
+        "C:/Windows/Fonts/Montserrat-ExtraBold.ttf",
+        "C:/Windows/Fonts/arialbd.ttf",
+        "C:/Windows/Fonts/segoeuib.ttf",
     ]
     VN_FONT = next((p for p in _font_candidates if os.path.exists(p)), None)
     if not VN_FONT:
@@ -437,19 +470,70 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     final = CompositeVideoClip([video, hook_visual, disclaimer] + scene_captions)
     output = Path(tmpdir) / "final.mp4"
-    final.write_videofile(
-        str(output),
-        fps=30,
-        codec="libx264",
-        audio_codec="aac",
-        preset="medium",     # Balance giua speed va quality
-        bitrate="5500k",     # Hoi giam tu 6000k de fit "medium" preset
-        audio_bitrate="192k",
-        threads=4,           # GitHub Actions co 4 cores
-        ffmpeg_params=["-pix_fmt", "yuv420p", "-movflags", "+faststart"],
-        verbose=False,
-        logger=None,
-    )
+
+    # Memory optimization cho Windows (MoviePy 1.0.3 + nhieu TextClip):
+    # - gc.collect() truoc khi render de free temp arrays
+    # - threads=2 thay vi 4 (Windows MoviePy threading hay leak)
+    # - dung file tam ro rang cho audio (tranh in-memory buffer)
+    import gc as _gc
+    _gc.collect()
+
+    # Detect Windows de dieu chinh threads (Linux GitHub Actions van dung 4)
+    import platform as _pl
+    _threads = 2 if _pl.system() == "Windows" else 4
+
+    try:
+        final.write_videofile(
+            str(output),
+            fps=30,
+            codec="libx264",
+            audio_codec="aac",
+            preset="medium",
+            bitrate="5500k",
+            audio_bitrate="192k",
+            threads=_threads,
+            temp_audiofile=str(Path(tmpdir) / "temp_audio.m4a"),
+            remove_temp=True,
+            ffmpeg_params=["-pix_fmt", "yuv420p", "-movflags", "+faststart"],
+            verbose=False,
+            logger=None,
+        )
+    except (MemoryError, Exception) as e:
+        # Fallback: neu MemoryError -> retry voi resolution 720x1280 (con 56% memory)
+        if "MemoryError" in type(e).__name__ or "allocate" in str(e):
+            print(f"      ⚠ Memory tight, retry voi 720x1280...")
+            _gc.collect()
+            final_lo = final.resize((720, 1280))
+            final_lo.write_videofile(
+                str(output),
+                fps=30,
+                codec="libx264",
+                audio_codec="aac",
+                preset="medium",
+                bitrate="3500k",
+                audio_bitrate="192k",
+                threads=_threads,
+                temp_audiofile=str(Path(tmpdir) / "temp_audio2.m4a"),
+                remove_temp=True,
+                ffmpeg_params=["-pix_fmt", "yuv420p", "-movflags", "+faststart"],
+                verbose=False,
+                logger=None,
+            )
+        else:
+            raise
+
+    # Cleanup explicit cho Windows (force release file handles + memory)
+    try:
+        final.close()
+        for _c in scene_captions:
+            _c.close()
+        hook_visual.close()
+        disclaimer.close()
+        video.close()
+    except Exception:
+        pass
+    _gc.collect()
+
     print(f"      Saved: {output} ({output.stat().st_size // 1024} KB)")
     return output
 
