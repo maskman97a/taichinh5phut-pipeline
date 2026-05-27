@@ -5,3 +5,4 @@ client_secret*.json
 youtube_secrets.json
 .env
 .venv/
+test_output/

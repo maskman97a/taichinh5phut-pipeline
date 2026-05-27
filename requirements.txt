@@ -1,4 +1,4 @@
-openai>=1.30.0
+# openai>=1.30.0  # BO: khong con goi LLM API (script pre-gen boi Claude)
 moviepy==1.0.3
 requests>=2.31.0
 google-api-python-client>=2.100.0
