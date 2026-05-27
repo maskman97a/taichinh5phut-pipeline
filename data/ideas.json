@@ -41,23 +41,19 @@
   },
   {
     "id": 6,
-    "title": "ChatGPT viết email công việc 30 giây — 5 prompt mẫu cho dân VP",
-    "pillar": "ai-tools",
-    "status": "todo"
+    "title": "Vì Sao Buffett Mua Coca-Cola 36 Năm Không Bán?",
+    "pillar": "finance-legacy",
+    "status": "published",
+    "video_id": "ARNXAzTE3oE",
+    "published_at": "2026-05-27T15:40:36.062427+00:00"
   },
   {
     "id": 7,
-<<<<<<< HEAD
-    "title": "n8n là gì — tự động hoá công việc miễn phí trong 5 phút",
-    "pillar": "automation",
-    "status": "todo"
-=======
-    "title": "Lãi kép — kỳ quan thứ 8 của thế giới (Einstein nói)",
-    "pillar": "investing",
+    "title": "Lãi Kép Biến 100K Thành 1 Tỷ — Kỳ Quan Thứ 8",
+    "pillar": "finance-legacy",
     "status": "published",
     "video_id": "0cKwZtlmdaw",
-    "published_at": "2026-05-27T16:00:30.450880+00:00"
->>>>>>> 23b165d6bfbd7b95396b27af98041d3f82e302b0
+    "published_at": "2026-05-27T16:00:30.451404+00:00"
   },
   {
     "id": 8,
@@ -224,6 +220,18 @@
   {
     "id": 35,
     "title": "AI ghi chú cuộc họp tự động + tóm tắt vào Notion",
+    "pillar": "automation",
+    "status": "todo"
+  },
+  {
+    "id": 36,
+    "title": "ChatGPT viết email công việc 30 giây — 5 prompt mẫu cho dân VP",
+    "pillar": "ai-tools",
+    "status": "todo"
+  },
+  {
+    "id": 37,
+    "title": "n8n là gì — tự động hoá công việc miễn phí trong 5 phút",
     "pillar": "automation",
     "status": "todo"
   }
