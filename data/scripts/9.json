@@ -1,0 +1,52 @@
+{
+  "idea_id": 9,
+  "title": "AI Tóm Tắt Cuộc Họp Zoom 1 Tiếng → 5 Phút Đọc #shorts",
+  "description": "Mỗi tuần bạn mất 5 tiếng gõ note họp Zoom? AI làm thay trong 30 giây — và còn chính xác hơn bạn.\n\nVideo này demo workflow miễn phí 100%: ghi âm Zoom → upload Whisper AI → ChatGPT tóm tắt → lưu Notion. Không cần code, setup 1 lần, dùng mãi mãi.\n\nKèm 3 prompt mẫu Claude đã test giúp tách action items, key decisions, và follow-up tasks ra rõ ràng — sếp đọc 30 giây là hiểu hết cuộc họp 1 tiếng.\n\n🔗 ChatGPT Plus (Whisper free): https://chat.openai.com\n🔗 Notion template tóm tắt họp: [LINK_NOTION]\n🔗 n8n workflow tự động hoá: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — 1 prompt AI mới mỗi sáng.\n\n#AITool #TomTatHop #ChatGPT #Whisper #VanPhongTuDong",
+  "tags": [
+    "ai tóm tắt cuộc họp",
+    "tóm tắt zoom",
+    "whisper ai",
+    "chatgpt cho dân vp",
+    "ai workflow",
+    "tự động hoá",
+    "notion template",
+    "ai cho dân văn phòng",
+    "meeting summary ai",
+    "productivity ai",
+    "tăng năng suất"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Mỗi tuần bạn mất 5 tiếng để gõ note họp? AI làm thay trong 30 giây.",
+      "visual_keyword": "tired office worker typing meeting notes"
+    },
+    {
+      "voiceover": "Họp Zoom dài 1 tiếng, nói 8000 từ, có 30 phần quan trọng. Não bạn nhớ được khoảng 20 phần trăm.",
+      "visual_keyword": "zoom video call multiple participants screen"
+    },
+    {
+      "voiceover": "Bước một, ghi âm cuộc họp Zoom. Click record, lưu file MP3 vào máy. Bước này có sẵn trong Zoom miễn phí.",
+      "visual_keyword": "zoom record button interface close up"
+    },
+    {
+      "voiceover": "Bước hai, upload file lên ChatGPT có Whisper. Nó tự nhận diện tiếng Việt 95 phần trăm chính xác. Mất 1 phút.",
+      "visual_keyword": "chatgpt interface file upload"
+    },
+    {
+      "voiceover": "Bước ba, dán prompt tóm tắt 3 phần: ý chính, action items, deadline. Tôi tự dùng cách này 6 tháng, tiết kiệm 8 giờ tuần.",
+      "visual_keyword": "chatgpt prompt template screenshot"
+    },
+    {
+      "voiceover": "Toàn bộ workflow miễn phí với ChatGPT Plus 20 đô tháng. Tự động lưu Notion qua n8n nếu muốn nâng cấp.",
+      "visual_keyword": "notion meeting notes database template"
+    },
+    {
+      "voiceover": "Bạn đã dùng AI tóm tắt cuộc họp chưa? Comment YES hoặc NO, mình gửi prompt mẫu miễn phí.",
+      "visual_keyword": "instagram phone screen comments"
+    },
+    {
+      "voiceover": "Subscribe để mỗi sáng có 1 workflow AI mới cho dân VP. Kênh đăng đều mỗi 6h sáng. Tool có thể đổi giá theo thời gian.",
+      "visual_keyword": "youtube subscribe bell notification icon"
+    }
+  ]
+}

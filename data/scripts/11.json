@@ -1,0 +1,52 @@
+{
+  "idea_id": 11,
+  "title": "5 Custom GPT Trợ Lý Cho Dân VP Việt — Setup Miễn Phí #shorts",
+  "description": "ChatGPT có tính năng Custom GPT — bạn tự tạo 1 trợ lý chuyên môn riêng, free 100%, không cần code.\n\nVideo demo 5 Custom GPT mình tự build cho dân VP Việt: viết email công việc tiếng Anh, tóm tắt báo cáo, dịch tài liệu chuyên ngành, vẽ slide outline, và tạo SQL từ câu hỏi tiếng Việt. Mỗi cái setup 5 phút, dùng vô tận.\n\nKèm link 5 Custom GPT đã build sẵn cho bạn — copy-paste là dùng được luôn.\n\n🔗 5 Custom GPT VN ready-to-use: chat.openai.com/gpts\n🔗 Template prompt VN miễn phí: [LINK_NOTION]\n🔗 Tự động hoá với n8n: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — 1 prompt AI mới mỗi sáng.\n\n#CustomGPT #ChatGPT #AICongViec #DanVanPhong #VanPhongTuDong",
+  "tags": [
+    "custom gpt",
+    "chatgpt việt",
+    "ai trợ lý",
+    "prompt chatgpt",
+    "ai cho dân vp",
+    "viết email ai",
+    "tóm tắt tài liệu",
+    "ai dịch thuật",
+    "office ai",
+    "tăng năng suất ai",
+    "5 custom gpt"
+  ],
+  "scenes": [
+    {
+      "voiceover": "ChatGPT có tính năng tạo 5 trợ lý chuyên môn riêng cho dân VP Việt — miễn phí 100 phần trăm.",
+      "visual_keyword": "chatgpt custom gpt store interface"
+    },
+    {
+      "voiceover": "Bạn copy paste cùng 1 prompt mỗi sáng. Mất thời gian, dễ quên, đôi khi format sai. Custom GPT giải quyết hết.",
+      "visual_keyword": "repetitive typing keyboard close up"
+    },
+    {
+      "voiceover": "GPT một là Email Pro Việt-Anh. Viết email công việc tiếng Anh chuẩn business, tone phù hợp, không gồng cứng.",
+      "visual_keyword": "professional email screen draft"
+    },
+    {
+      "voiceover": "GPT hai là Báo Cáo Sếp. Paste meeting notes, nó tóm tắt 3 dòng kèm action items rõ ràng. Sếp đọc 10 giây hiểu hết.",
+      "visual_keyword": "executive summary document close up"
+    },
+    {
+      "voiceover": "GPT ba là SQL Việt. Hỏi tiếng Việt như doanh thu Q1 theo vùng, nó trả về câu SQL chạy được. Tôi tự dùng 5 tháng, không cần data analyst.",
+      "visual_keyword": "sql query database terminal"
+    },
+    {
+      "voiceover": "GPT bốn là Slide Outline. Cho topic, nó vẽ outline 10 slide. GPT năm là Dịch Chuyên Ngành Y-Pháp-IT chính xác hơn Google.",
+      "visual_keyword": "powerpoint slide outline structure"
+    },
+    {
+      "voiceover": "Bạn cần Custom GPT cho task nào? Comment task cụ thể, mình build và share link miễn phí.",
+      "visual_keyword": "open notebook brainstorm ideas"
+    },
+    {
+      "voiceover": "Subscribe để mỗi sáng có 1 prompt AI mới cho dân VP. Kênh đăng mẹo automation mỗi 6h. Custom GPT cần tài khoản Plus 20 đô tháng.",
+      "visual_keyword": "subscribe red youtube button"
+    }
+  ]
+}

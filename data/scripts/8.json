@@ -1,0 +1,53 @@
+{
+  "idea_id": 8,
+  "title": "Make.com Vs n8n Vs Zapier — Chọn Cái Nào Cho Dân VP Việt? #shorts",
+  "description": "Bạn đang định trả 50 đô/tháng cho Zapier mà chưa biết 2 đối thủ rẻ hơn 5 lần?\n\n3 tool tự động hoá công việc đang hot nhất 2026: Make.com, n8n, Zapier. Mỗi cái có chỗ mạnh chỗ yếu, không phải cái đắt nhất là cái tốt nhất cho dân VP Việt.\n\nVideo này so sánh trực tiếp 3 tool theo 5 tiêu chí: giá, dễ dùng, tích hợp app, học phí curve, support tiếng Việt — và đề xuất cái nào hợp với từng nhu cầu cụ thể.\n\n🔗 Đăng ký n8n cloud free trial: [LINK_N8N]\n🔗 Đăng ký Make.com (1000 ops/tháng free): [LINK_MAKE]\n🔗 Notion Premium giảm 10%: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — 1 workflow tự động mỗi sáng 6h.\n\n#n8n #MakeCom #Zapier #TuDongHoa #AICongViec",
+  "tags": [
+    "n8n việt nam",
+    "make.com tiếng việt",
+    "zapier việt nam",
+    "tự động hoá công việc",
+    "automation cho dân vp",
+    "n8n vs make vs zapier",
+    "workflow automation",
+    "ai cho dân văn phòng",
+    "no-code automation",
+    "tools cho dân vp",
+    "tự động hoá email",
+    "văn phòng tự động"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Bạn định trả 50 đô tháng cho Zapier mà chưa biết có 2 đối thủ rẻ hơn 5 lần?",
+      "visual_keyword": "automation workflow nodes diagram"
+    },
+    {
+      "voiceover": "Dân văn phòng Việt mình hay nghe tên Zapier rồi cài luôn. 3 tháng sau nhận hóa đơn 1 triệu rưỡi, mới thấy đắt.",
+      "visual_keyword": "stressed office worker laptop bills"
+    },
+    {
+      "voiceover": "Tool một là Zapier. Dễ dùng nhất, app nhiều nhất, nhưng đắt nhất. Free tier chỉ 100 task tháng, qua đó tính 30 đô.",
+      "visual_keyword": "zapier interface screenshot dashboard"
+    },
+    {
+      "voiceover": "Tool hai là Make.com. Rẻ hơn Zapier ba lần, giao diện đẹp hơn, free tier 1000 thao tác mỗi tháng. Hợp người mới.",
+      "visual_keyword": "make.com workflow scenario nodes"
+    },
+    {
+      "voiceover": "Tool ba là n8n. Self-host miễn phí trên Oracle Cloud, không giới hạn. Tôi tự dùng 8 tháng, tiết kiệm 12 giờ tuần và không trả đồng nào.",
+      "visual_keyword": "n8n self host server terminal"
+    },
+    {
+      "voiceover": "Quy tắc chọn cho dân VP Việt. Mới bắt đầu? Dùng Make.com. Có kỹ thuật? Dùng n8n self-host. Muốn nhanh không quan tâm tiền? Zapier.",
+      "visual_keyword": "comparison chart three tools logos"
+    },
+    {
+      "voiceover": "Bạn đang dùng tool nào? Comment tên tool, mình review riêng workflow phù hợp cho bạn.",
+      "visual_keyword": "phone scrolling youtube comments"
+    },
+    {
+      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot công việc lặp lại. Kênh đăng mẹo automation mỗi 6h sáng. Kết quả mỗi người khác nhau tùy workflow.",
+      "visual_keyword": "subscribe button youtube notification"
+    }
+  ]
+}

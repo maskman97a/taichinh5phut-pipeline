@@ -1,0 +1,52 @@
+{
+  "idea_id": 12,
+  "title": "Workflow Zapier: Gmail Mới → Slack + Notion Tự Động #shorts",
+  "description": "Bạn quên đọc email quan trọng đến mức bị sếp mắng? Cài workflow này trong 5 phút.\n\nDân VP Việt nhận 100-200 email mỗi ngày, 90% rác. Workflow Zapier này tự động lọc email từ sếp, khách VIP, đối tác → ping Slack ngay lập tức + lưu vào Notion database để khỏi quên.\n\nHoàn toàn no-code. Free tier Zapier đủ dùng nếu chỉ 1 trigger này.\n\n🔗 Zapier free tier (100 task/tháng): https://zapier.com\n🔗 Alternative free n8n: [LINK_N8N]\n🔗 Notion template Inbox VIP: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — automation cho dân VP mỗi sáng 6h.\n\n#Zapier #GmailAutomation #DanVanPhong #SlackVietNam #VanPhongTuDong",
+  "tags": [
+    "zapier việt nam",
+    "gmail automation",
+    "slack notion",
+    "workflow zapier",
+    "tự động hoá email",
+    "ai cho dân vp",
+    "no-code automation",
+    "email vip",
+    "productivity",
+    "office automation",
+    "zapier hướng dẫn"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Bạn quên đọc email sếp đến mức bị mắng? Cài workflow này 5 phút là không bao giờ lỡ nữa.",
+      "visual_keyword": "messy email inbox unread badge"
+    },
+    {
+      "voiceover": "Mỗi ngày dân VP Việt nhận 150 email. 90 phần trăm là spam, promo, newsletter. Email quan trọng bị chôn vùi.",
+      "visual_keyword": "overflowing email inbox notifications phone"
+    },
+    {
+      "voiceover": "Bước một, vào Zapier, chọn trigger Gmail New Email Matching Search. Filter from sếp, từ khoá khẩn cấp hoặc gấp.",
+      "visual_keyword": "zapier dashboard trigger setup"
+    },
+    {
+      "voiceover": "Bước hai, thêm action Slack Send Channel Message. Chọn channel vip, tự động tag bạn kèm tiêu đề email.",
+      "visual_keyword": "slack notification mobile alert"
+    },
+    {
+      "voiceover": "Bước ba, thêm action Notion Create Database Item. Lưu sender, subject, link gốc. Tôi tự dùng cách này 7 tháng, không lỡ email nào.",
+      "visual_keyword": "notion database email tracker"
+    },
+    {
+      "voiceover": "Free tier Zapier 100 task tháng đủ cho 1 workflow này. Muốn nhiều workflow hơn? Chuyển n8n self-host hoàn toàn miễn phí.",
+      "visual_keyword": "zapier pricing comparison page"
+    },
+    {
+      "voiceover": "Bạn nhận bao nhiêu email mỗi ngày? Comment số, mình gửi workflow filter phù hợp số lượng đó.",
+      "visual_keyword": "hand typing comment phone"
+    },
+    {
+      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot email công việc. Kênh đăng workflow tự động mỗi 6h sáng. Free tier có giới hạn.",
+      "visual_keyword": "youtube channel subscribe action"
+    }
+  ]
+}

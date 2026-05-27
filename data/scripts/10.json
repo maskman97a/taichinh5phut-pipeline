@@ -1,0 +1,51 @@
+{
+  "idea_id": 10,
+  "title": "Cách Excel + ChatGPT Phân Tích 1000 Dòng Data Trong 30 Giây #shorts",
+  "description": "Trước phải mất 3 tiếng phân tích báo cáo bán hàng. Giờ ChatGPT làm trong 30 giây.\n\nDân VP Việt thường ngại phân tích data lớn vì không biết SQL, không hiểu pivot table, sợ sai. Video này phá tan rào cản: chỉ cần copy 1000 dòng vào ChatGPT, paste 1 câu hỏi → có ngay insight, trend, anomaly và đề xuất action.\n\nKèm 5 prompt mẫu mình tự test trên data bán hàng VN — accuracy 90% so với phân tích thủ công.\n\n🔗 ChatGPT Plus (file upload): https://chat.openai.com\n🔗 Template Excel + AI miễn phí: [LINK_NOTION]\n🔗 Workflow Make.com tự động: [LINK_MAKE]\n\n👉 Subscribe @vanphongtudong — automation cho dân VP mỗi sáng 6h.\n\n#ExcelAI #ChatGPT #PhanTichData #DanVanPhong #VanPhongTuDong",
+  "tags": [
+    "excel ai",
+    "chatgpt excel",
+    "phân tích data",
+    "ai cho excel",
+    "data analysis ai",
+    "tự động báo cáo",
+    "ai cho dân vp",
+    "excel formulas ai",
+    "chatgpt phân tích",
+    "office productivity"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Trước mất 3 tiếng phân tích báo cáo. Giờ ChatGPT làm trong 30 giây. Demo thật, không nói suông.",
+      "visual_keyword": "excel spreadsheet thousands rows data"
+    },
+    {
+      "voiceover": "Dân văn phòng Việt sợ phân tích data vì không biết SQL, không hiểu pivot. Cuối tháng phải ngồi từ sáng đến chiều.",
+      "visual_keyword": "office worker stressed computer late night"
+    },
+    {
+      "voiceover": "Bước một, copy 1000 dòng data từ Excel. Đừng dán cả file. Chỉ những cột bạn quan tâm để tiết kiệm token.",
+      "visual_keyword": "copying excel data ctrl c shortcut"
+    },
+    {
+      "voiceover": "Bước hai, paste vào ChatGPT với prompt: phân tích trend, anomaly, đề xuất 3 hành động. Không cần biết kỹ thuật.",
+      "visual_keyword": "chatgpt prompt analysis screen"
+    },
+    {
+      "voiceover": "Tôi tự dùng cách này 4 tháng cho báo cáo bán hàng. Tiết kiệm 15 giờ tuần, accuracy 90 phần trăm so với làm thủ công.",
+      "visual_keyword": "data visualization chart trend up"
+    },
+    {
+      "voiceover": "Bonus prompt: hỏi ChatGPT vẽ biểu đồ. Nó trả về code Python, copy chạy là có chart đẹp hơn Excel default.",
+      "visual_keyword": "python matplotlib chart colorful dashboard"
+    },
+    {
+      "voiceover": "Bạn phân tích data Excel bao nhiêu tiếng mỗi tuần? Comment con số, mình gửi prompt mẫu phù hợp với bạn.",
+      "visual_keyword": "comment section youtube engagement"
+    },
+    {
+      "voiceover": "Subscribe để tự động hoá Excel báo cáo 3 tiếng thành 30 giây. Kênh đăng mỗi 6h sáng. Kết quả mỗi người khác nhau.",
+      "visual_keyword": "youtube channel subscribe banner"
+    }
+  ]
+}
