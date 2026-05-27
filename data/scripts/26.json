@@ -1,0 +1,50 @@
+{
+  "idea_id": 26,
+  "title": "Workflow Notion → Google Calendar Tự Động Không Cần Zapier #shorts",
+  "description": "Bạn đã từng tạo task trong Notion rồi quên cho vào Calendar? Workflow này tự sync — và miễn phí 100% không cần Zapier.\n\nVideo demo cách dùng Notion API + Google Calendar API qua n8n self-host: mỗi task có deadline trong Notion → tự tạo Calendar event với reminder 1 ngày trước. Update task trong Notion → Calendar tự cập nhật.\n\nSetup 15 phút, dùng vĩnh viễn. Tiết kiệm 240 đô/năm so với Zapier.\n\n🔗 n8n self-host: [LINK_N8N]\n🔗 Notion API docs: developers.notion.com\n🔗 Template task tracker: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — automation miễn phí mỗi sáng 6h.\n\n#Notion #GoogleCalendar #n8n #Automation #VanPhongTuDong",
+  "tags": [
+    "notion google calendar",
+    "n8n workflow",
+    "task automation",
+    "notion api",
+    "google calendar api",
+    "tự động sync",
+    "miễn phí automation",
+    "ai cho dân vp",
+    "productivity automation"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Bạn tạo task trong Notion rồi quên cho vào Calendar? Workflow này tự sync, miễn phí không cần Zapier.",
+      "visual_keyword": "notion task calendar disconnected"
+    },
+    {
+      "voiceover": "Zapier sync Notion với Calendar tính 30 đô tháng cho 100 task. n8n self-host làm cùng việc miễn phí, không giới hạn.",
+      "visual_keyword": "zapier pricing vs n8n free"
+    },
+    {
+      "voiceover": "Bước một, lấy API key Notion. Vào Notion Settings, Integrations, Internal integration. Copy token và share database task.",
+      "visual_keyword": "notion api token settings page"
+    },
+    {
+      "voiceover": "Bước hai, vào n8n tạo workflow. Trigger Notion Database Updated. Filter task có deadline và status not done.",
+      "visual_keyword": "n8n trigger database updated"
+    },
+    {
+      "voiceover": "Bước ba, module Google Calendar Create Event. Map title từ Notion, set time 1 ngày trước deadline. Tôi tự dùng 8 tháng, không miss deadline nào.",
+      "visual_keyword": "google calendar event auto created"
+    },
+    {
+      "voiceover": "Bonus, thêm update flow: khi Notion task update, Calendar event update theo. 2-way sync. Khi mark done, event tự xoá.",
+      "visual_keyword": "two way sync workflow diagram"
+    },
+    {
+      "voiceover": "Bạn dùng tool nào sync task với Calendar hiện tại? Comment tên, mình review xem có đang trả tiền oan không.",
+      "visual_keyword": "phone scrolling calendar app"
+    },
+    {
+      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot task management. Kênh đăng workflow miễn phí mỗi 6h sáng. API có thể đổi.",
+      "visual_keyword": "subscribe channel animation"
+    }
+  ]
+}

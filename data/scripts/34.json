@@ -1,0 +1,50 @@
+{
+  "idea_id": 34,
+  "title": "Cursor AI Vs Copilot — IDE Nào Cho Dân Không Phải Dev Việt? #shorts",
+  "description": "Bạn không phải dev nhưng cần viết code đơn giản cho công việc — Excel script, Python tự động, SQL query? Cursor AI hay GitHub Copilot tốt hơn?\n\nVideo so sánh 2 IDE AI cho dân VP Việt không phải dev: Cursor (chat trực tiếp với codebase), Copilot (autocomplete intelligent). Mỗi cái hợp use case khác nhau.\n\nKèm 3 ví dụ thực tế: viết Excel macro chạy hàng tháng, Python script scrape data, SQL query phân tích doanh thu — không cần biết coding chuyên sâu.\n\n🔗 Cursor AI: https://cursor.sh\n🔗 GitHub Copilot: github.com/features/copilot\n🔗 Alternative free Windsurf: codeium.com\n\n👉 Subscribe @vanphongtudong — coding for non-devs mỗi sáng 6h.\n\n#CursorAI #GithubCopilot #CodingForNonDevs #DanVanPhong #VanPhongTuDong",
+  "tags": [
+    "cursor ai",
+    "github copilot",
+    "ai coding",
+    "không phải dev",
+    "viết code ai",
+    "ai cho dân vp",
+    "python tự động",
+    "excel macro ai",
+    "sql ai"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Bạn không phải dev nhưng cần viết code đơn giản cho công việc? Cursor AI hay Copilot tốt hơn?",
+      "visual_keyword": "non developer coding ai assistant"
+    },
+    {
+      "voiceover": "Dân VP Việt thường cần code đơn giản: Excel macro, Python scrape, SQL query. Học coding 6 tháng vô bổ, AI viết code thay.",
+      "visual_keyword": "office worker coding learning"
+    },
+    {
+      "voiceover": "IDE một là Cursor AI. Mở project, chat tiếng Việt như nói chuyện. Nó hiểu cả codebase, đề xuất sửa nhiều file cùng lúc.",
+      "visual_keyword": "cursor ai chat interface code"
+    },
+    {
+      "voiceover": "IDE hai là GitHub Copilot. Autocomplete intelligent khi bạn gõ. Tốt cho dev có background nhưng lười gõ. Khó cho người mới.",
+      "visual_keyword": "github copilot autocomplete suggestion"
+    },
+    {
+      "voiceover": "Use case dân VP Việt: Cursor thắng vì chat tiếng Việt. Tôi tự dùng 5 tháng viết 20 script automation, tiết kiệm 40 giờ.",
+      "visual_keyword": "vietnamese chat ide screen"
+    },
+    {
+      "voiceover": "Pricing: Cursor Pro 20 đô tháng, Copilot 10 đô tháng. Free tier Cursor 50 request slow. Đầu tư Pro nếu dùng thường xuyên.",
+      "visual_keyword": "pricing comparison tools cards"
+    },
+    {
+      "voiceover": "Bạn có cần viết code cho công việc không? Comment task cụ thể, mình review nên dùng AI nào.",
+      "visual_keyword": "developer keyboard coding focus"
+    },
+    {
+      "voiceover": "Subscribe để mỗi sáng có 1 AI tool mới cho dân VP. Kênh đăng mẹo coding cho non-dev mỗi 6h. Pricing tool có thể đổi.",
+      "visual_keyword": "subscribe coding channel button"
+    }
+  ]
+}

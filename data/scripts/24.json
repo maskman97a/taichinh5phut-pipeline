@@ -1,0 +1,50 @@
+{
+  "idea_id": 24,
+  "title": "ChatGPT Tự Động Viết JD Tuyển Dụng — HR Tiết Kiệm 80% Thời Gian #shorts",
+  "description": "HR mất 2 tiếng viết 1 JD chuẩn. ChatGPT làm trong 3 phút — và còn SEO friendly hơn để thu hút ứng viên.\n\nVideo demo prompt mẫu cho HR Việt Nam: input vị trí, level, kỹ năng → output JD đầy đủ với responsibilities, requirements, nice-to-have, benefits. Kèm 3 phong cách: corporate formal, startup chill, hoặc tech-heavy.\n\nKèm bonus prompt tạo screening questions phỏng vấn vòng 1 phù hợp JD.\n\n🔗 ChatGPT (free): https://chat.openai.com\n🔗 Template JD Notion: [LINK_NOTION]\n🔗 ATS integration n8n: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — AI cho HR mỗi sáng 6h.\n\n#ChatGPT #HR #JobDescription #TuyenDung #VanPhongTuDong",
+  "tags": [
+    "chatgpt hr",
+    "ai viết jd",
+    "tuyển dụng ai",
+    "ai cho hr",
+    "job description ai",
+    "ats automation",
+    "hr tự động",
+    "dân hr việt",
+    "screening ai"
+  ],
+  "scenes": [
+    {
+      "voiceover": "HR mất 2 tiếng viết 1 JD chuẩn. ChatGPT làm trong 3 phút và còn SEO friendly hơn.",
+      "visual_keyword": "hr writing job description laptop"
+    },
+    {
+      "voiceover": "JD viết tay thường thiếu keyword, không SEO. ATS lọc không tìm thấy. CV chất lượng bị bỏ qua, HR tốn time mở từng cái.",
+      "visual_keyword": "ats system filtering resumes"
+    },
+    {
+      "voiceover": "Prompt một, paste vị trí và level. ChatGPT trả về responsibilities 5 mục, requirements must-have 5 mục, nice-to-have 3 mục.",
+      "visual_keyword": "chatgpt job description output"
+    },
+    {
+      "voiceover": "Prompt hai, yêu cầu 3 phong cách: corporate formal cho ngân hàng, startup chill cho công nghệ, tech-heavy cho dev senior.",
+      "visual_keyword": "three different jd styles comparison"
+    },
+    {
+      "voiceover": "Prompt ba, sinh 10 keyword SEO để JD ranking cao trên LinkedIn và TopCV. Tôi tự dùng 6 tháng, recruit CV chất lượng tăng 60 phần trăm.",
+      "visual_keyword": "linkedin topcv job posting"
+    },
+    {
+      "voiceover": "Bonus, sinh 8 screening questions vòng 1 phỏng vấn phù hợp JD. Mix behavioral và technical questions. Save 30 phút HR.",
+      "visual_keyword": "interview questions list document"
+    },
+    {
+      "voiceover": "Bạn đang tuyển vị trí nào khó nhất? Comment vị trí, mình gửi template JD và screening question miễn phí.",
+      "visual_keyword": "hr team meeting hiring discussion"
+    },
+    {
+      "voiceover": "Subscribe để mỗi sáng có 1 prompt AI mới cho công việc HR. Kênh đăng automation mỗi 6h. Kết quả tùy quality input.",
+      "visual_keyword": "subscribe button corner youtube"
+    }
+  ]
+}

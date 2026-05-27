@@ -1,0 +1,49 @@
+{
+  "idea_id": 33,
+  "title": "Xây AI Agent Custom Với n8n Trong 10 Phút — Không Cần Code #shorts",
+  "description": "AI Agent tự suy nghĩ và làm nhiều task liên tiếp — nghe phức tạp nhưng n8n cho build trong 10 phút, không cần code.\n\nVideo demo build AI Agent đầu tiên: nhận task từ Slack (ví dụ research công ty XYZ) → agent tự search web, scrape data, gọi ChatGPT analyze, tóm tắt vào Notion. Tất cả trong 1 workflow.\n\nKèm 3 use case cho dân VP Việt: research competitor, lead enrichment, content brief generator.\n\n🔗 n8n AI Agent node: [LINK_N8N]\n🔗 OpenAI API: platform.openai.com\n🔗 Brave Search API (free): brave.com/search/api\n\n👉 Subscribe @vanphongtudong — AI agent mỗi sáng 6h.\n\n#AIAgent #n8n #LangChain #AutomationAI #VanPhongTuDong",
+  "tags": [
+    "ai agent n8n",
+    "build ai agent",
+    "n8n langchain",
+    "ai automation",
+    "không cần code",
+    "ai cho dân vp",
+    "research agent",
+    "ai workflow tự động"
+  ],
+  "scenes": [
+    {
+      "voiceover": "AI Agent tự suy nghĩ và làm nhiều task liên tiếp. Nghe phức tạp nhưng n8n build 10 phút, không cần code.",
+      "visual_keyword": "ai agent workflow diagram brain"
+    },
+    {
+      "voiceover": "Workflow truyền thống làm 1 việc theo bước cố định. AI Agent tự quyết định bước nào làm trước, search gì, tổng hợp ra sao.",
+      "visual_keyword": "workflow vs agent comparison"
+    },
+    {
+      "voiceover": "Bước một, trong n8n thêm node AI Agent. Chọn OpenAI model GPT-4. System prompt: bạn là research assistant cho dân VP Việt.",
+      "visual_keyword": "n8n ai agent node configuration"
+    },
+    {
+      "voiceover": "Bước hai, gắn 3 tools: Web Search Brave, HTTP Request, ChatGPT Summarize. Agent tự chọn tool phù hợp từng câu hỏi.",
+      "visual_keyword": "ai agent tools selection"
+    },
+    {
+      "voiceover": "Bước ba, test với prompt research công ty XYZ. Agent search Google, đọc 5 trang, tóm tắt. Tôi tự dùng 4 tháng cho competitor analysis, save 20 giờ tuần.",
+      "visual_keyword": "competitor research output document"
+    },
+    {
+      "voiceover": "Use case một là lead enrichment. Input email khách, agent search LinkedIn, công ty, vai trò, tự fill CRM. Sales tiết kiệm 80 phần trăm time.",
+      "visual_keyword": "linkedin profile crm enrichment"
+    },
+    {
+      "voiceover": "Bạn cần AI agent cho công việc nào? Comment task cụ thể, mình build template miễn phí và share workflow.",
+      "visual_keyword": "comment box brainstorm engagement"
+    },
+    {
+      "voiceover": "Subscribe nếu bạn cũng muốn AI agent làm việc thay mình. Kênh đăng AI automation mỗi 6h sáng. OpenAI API tính theo token.",
+      "visual_keyword": "subscribe ai agent button"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "idea_id": 23,
+  "title": "Excel Formulas AI: 5 Công Thức Tiết Kiệm 80% Thời Gian #shorts",
+  "description": "Microsoft 365 Copilot vừa thêm AI formulas vào Excel — bạn không cần biết VLOOKUP, INDEX MATCH phức tạp nữa.\n\nVideo demo 5 công thức AI mới: =COPILOT.SUMMARIZE() tóm tắt 1000 dòng, =COPILOT.CLASSIFY() phân loại, =COPILOT.EXTRACT() trích xuất pattern, =COPILOT.TRANSLATE() dịch real-time, =COPILOT.SENTIMENT() phân tích cảm xúc khách hàng.\n\nThay thế 80% công thức Excel cũ — không cần kỹ thuật, dân không phải dev dùng được.\n\n🔗 Microsoft 365 Copilot: microsoft.com/copilot\n🔗 Alternative Google Sheets + Gemini: https://gemini.google.com\n🔗 Template Excel AI miễn phí: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — Excel AI mỗi sáng 6h.\n\n#ExcelAI #Copilot #Microsoft365 #DanVanPhong #VanPhongTuDong",
+  "tags": [
+    "excel ai",
+    "copilot excel",
+    "microsoft 365 ai",
+    "excel formulas ai",
+    "ai cho excel",
+    "dân không phải dev",
+    "excel automation",
+    "ai cho dân vp",
+    "office productivity"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Microsoft 365 Copilot vừa thêm 5 công thức AI vào Excel. Bạn không cần biết VLOOKUP, INDEX MATCH phức tạp nữa.",
+      "visual_keyword": "excel copilot formula interface"
+    },
+    {
+      "voiceover": "Dân VP Việt sợ Excel vì công thức nested 3-4 tầng, ai sai 1 dấu phẩy là chạy lỗi. AI formulas đơn giản như nói chuyện.",
+      "visual_keyword": "complex excel formula confusion"
+    },
+    {
+      "voiceover": "Công thức một, =COPILOT.SUMMARIZE() tóm tắt 1000 dòng feedback khách. 30 giây xong báo cáo tháng. Trước mất 3 tiếng.",
+      "visual_keyword": "excel summarize feedback cells"
+    },
+    {
+      "voiceover": "Công thức hai, =COPILOT.CLASSIFY() phân loại email khách hàng thành positive negative neutral. Marketing dùng cho NPS analysis.",
+      "visual_keyword": "email classification chart pie"
+    },
+    {
+      "voiceover": "Công thức ba và bốn, =EXTRACT số điện thoại từ paragraph, =TRANSLATE realtime. Tôi tự dùng 4 tháng, tiết kiệm 18 giờ tuần.",
+      "visual_keyword": "data extraction translation cells"
+    },
+    {
+      "voiceover": "Công thức năm, =COPILOT.SENTIMENT() phân tích cảm xúc khách hàng từ comment. Output 1 con số từ 0 đến 10. Dùng cho dashboard.",
+      "visual_keyword": "sentiment dashboard mood gauge"
+    },
+    {
+      "voiceover": "Bạn dùng Excel hay Google Sheets nhiều hơn? Comment công thức bạn dùng nhiều nhất, mình gợi ý AI thay thế.",
+      "visual_keyword": "office worker excel laptop"
+    },
+    {
+      "voiceover": "Subscribe để tự động hoá Excel báo cáo 3 tiếng thành 30 giây. Kênh đăng mẹo office mỗi 6h sáng. Cần Microsoft 365 Business license.",
+      "visual_keyword": "youtube subscribe animation"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "idea_id": 32,
+  "title": "Workflow Make.com: Tự Động Backup Drive → Dropbox + Email Log #shorts",
+  "description": "Mất file Google Drive vì lỡ tay delete? Workflow Make.com tự động backup mọi file mới sang Dropbox + email log hàng tuần.\n\nVideo demo: Make.com trigger Drive New File → upload Dropbox folder backup → log row Google Sheets với timestamp → cuối tuần gửi email summary số file backup.\n\nFree tier Make.com 1000 ops đủ cho 30 file/ngày. Tiết kiệm $20 admin Microsoft 365 backup tool.\n\n🔗 Make.com signup: [LINK_MAKE]\n🔗 Dropbox 2GB free: dropbox.com\n🔗 n8n alternative miễn phí: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — automation backup mỗi sáng 6h.\n\n#MakeCom #BackupDrive #Dropbox #DataSafety #VanPhongTuDong",
+  "tags": [
+    "make.com backup",
+    "google drive backup",
+    "dropbox automation",
+    "data safety",
+    "tự động backup",
+    "ai cho dân vp",
+    "workflow tự động",
+    "make.com việt nam"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Mất file Drive vì lỡ tay delete? Workflow Make.com tự backup mọi file mới sang Dropbox và email log.",
+      "visual_keyword": "google drive deleted file recovery"
+    },
+    {
+      "voiceover": "Google Drive có history 30 ngày. Sau đó file mất vĩnh viễn. Backup tay quên, dân VP Việt mất file quan trọng mỗi tháng.",
+      "visual_keyword": "lost file panic computer screen"
+    },
+    {
+      "voiceover": "Bước một, vào Make.com tạo scenario. Trigger Google Drive Watch Files trong folder Work. Filter file type và size.",
+      "visual_keyword": "make.com google drive trigger"
+    },
+    {
+      "voiceover": "Bước hai, module Dropbox Upload File. Map content từ Drive. Folder backup tự tạo theo cấu trúc YYYY-MM-DD.",
+      "visual_keyword": "dropbox folder backup structure"
+    },
+    {
+      "voiceover": "Bước ba, log row Google Sheets với timestamp và link. Tôi tự dùng 7 tháng, backup 2000 file, mất 0 file.",
+      "visual_keyword": "google sheets backup log"
+    },
+    {
+      "voiceover": "Bonus, schedule Make.com chủ nhật gửi email summary. Số file backup tuần, tổng size, file lớn nhất. Bạn biết health của backup.",
+      "visual_keyword": "weekly summary email report"
+    },
+    {
+      "voiceover": "Bạn đã mất file Drive vì lỡ tay chưa? Comment YES hoặc NO, mình gửi template backup workflow.",
+      "visual_keyword": "computer files folder organize"
+    },
+    {
+      "voiceover": "Subscribe để không bao giờ mất file Drive nữa. Kênh đăng workflow data safety mỗi 6h sáng. Free tier có giới hạn file size.",
+      "visual_keyword": "subscribe data safety badge"
+    }
+  ]
+}

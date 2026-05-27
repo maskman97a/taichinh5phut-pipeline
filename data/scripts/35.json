@@ -1,0 +1,49 @@
+{
+  "idea_id": 35,
+  "title": "AI Ghi Chú Cuộc Họp Tự Động + Tóm Tắt Vào Notion #shorts",
+  "description": "Bạn vừa họp xong, sếp hỏi action items gì — bạn không nhớ vì mải nói? AI ghi chú thay bạn, output sạch vào Notion.\n\nVideo demo workflow: Fireflies hoặc Otter ghi âm cuộc họp Zoom/Teams → transcribe tự động → ChatGPT tóm tắt với 3 phần (key decisions, action items, next steps) → push Notion database tự động.\n\nKhông bao giờ quên action item, sếp xem Notion là biết hết. Bạn họp full focus, không phân tâm gõ note.\n\n🔗 Fireflies AI: https://fireflies.ai\n🔗 Otter AI: https://otter.ai\n🔗 n8n integrate Notion: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — meeting AI mỗi sáng 6h.\n\n#FirefliesAI #OtterAI #MeetingNotes #Notion #VanPhongTuDong",
+  "tags": [
+    "ai ghi chú cuộc họp",
+    "fireflies",
+    "otter ai",
+    "tóm tắt họp ai",
+    "notion meeting notes",
+    "ai cho dân vp",
+    "transcribe ai",
+    "tăng năng suất họp"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Họp xong sếp hỏi action items gì, bạn không nhớ vì mải nói? AI ghi chú thay, push Notion sạch sẽ.",
+      "visual_keyword": "meeting forget notes after"
+    },
+    {
+      "voiceover": "Dân VP Việt họp 4 tiếng ngày. Gõ note tay không tập trung nói. Note tay xong không đọc lại vì xấu, không có context.",
+      "visual_keyword": "messy meeting notes handwritten"
+    },
+    {
+      "voiceover": "Tool một là Fireflies. Auto-join Zoom Teams Meet, record và transcribe tiếng Việt 90 phần trăm chính xác.",
+      "visual_keyword": "fireflies ai notetaker interface"
+    },
+    {
+      "voiceover": "Tool hai là Otter. Tốt cho meeting tiếng Anh hơn Fireflies. Free tier 300 phút tháng, đủ cho 10 cuộc họp ngắn.",
+      "visual_keyword": "otter ai transcription screen"
+    },
+    {
+      "voiceover": "Bước ba, n8n trigger khi Fireflies có transcript mới. ChatGPT tóm 3 phần. Push Notion database. Tôi tự dùng 6 tháng, save 8 giờ tuần và 0 action item bị quên.",
+      "visual_keyword": "notion meeting database automated"
+    },
+    {
+      "voiceover": "Bonus, share Notion link với team sau họp. Mọi người react emoji đồng ý hoặc thêm comment. Không cần meeting follow-up.",
+      "visual_keyword": "notion shared collaboration emoji"
+    },
+    {
+      "voiceover": "Bạn họp bao nhiêu tiếng mỗi tuần? Comment con số, mình gửi workflow setup phù hợp số lượng.",
+      "visual_keyword": "meeting calendar weekly schedule"
+    },
+    {
+      "voiceover": "Subscribe để hết phải gõ note họp tay. Kênh đăng meeting automation mỗi 6h sáng. Free tier có giới hạn phút.",
+      "visual_keyword": "subscribe meeting productivity"
+    }
+  ]
+}
