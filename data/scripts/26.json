@@ -1,50 +1,57 @@
 {
   "idea_id": 26,
-  "title": "Workflow Notion → Google Calendar Tự Động Không Cần Zapier #shorts",
-  "description": "Bạn đã từng tạo task trong Notion rồi quên cho vào Calendar? Workflow này tự sync — và miễn phí 100% không cần Zapier.\n\nVideo demo cách dùng Notion API + Google Calendar API qua n8n self-host: mỗi task có deadline trong Notion → tự tạo Calendar event với reminder 1 ngày trước. Update task trong Notion → Calendar tự cập nhật.\n\nSetup 15 phút, dùng vĩnh viễn. Tiết kiệm 240 đô/năm so với Zapier.\n\n🔗 n8n self-host: [LINK_N8N]\n🔗 Notion API docs: developers.notion.com\n🔗 Template task tracker: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — automation miễn phí mỗi sáng 6h.\n\n#Notion #GoogleCalendar #n8n #Automation #VanPhongTuDong",
+  "title": "Anh Minh Lương 8Tr Có Quỹ Khẩn Cấp 30Tr Trong 1 Năm — Cách Nào? #shorts #tietkiem",
+  "description": "Anh Minh 27 tuổi, công nhân nhà máy lương 8 triệu — vẫn có quỹ khẩn cấp 30 triệu sau 1 năm.\n\nCách của anh không phải tăng lương — mà là 3 nguyên tắc: gửi tiết kiệm trước chi tiêu sau, ăn cơm công ty thay vì ngoài, làm thêm 1 ca cuối tuần. 30 triệu = 3 tháng chi tiêu — đủ an toàn nếu mất việc. Bài này: cấu trúc chi tiêu 8tr và lộ trình 12 tháng.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #tietkiem #quykhancap #anhminh #luong8trieu #taichinh #shortvideo #danlaodong #savings #emergencyfund",
   "tags": [
-    "notion google calendar",
-    "n8n workflow",
-    "task automation",
-    "notion api",
-    "google calendar api",
-    "tự động sync",
-    "miễn phí automation",
-    "ai cho dân vp",
-    "productivity automation"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "quỹ khẩn cấp 30 triệu",
+    "anh minh tiết kiệm",
+    "lương 8 triệu tiết kiệm",
+    "công nhân tiết kiệm",
+    "cấu trúc chi tiêu lương thấp",
+    "emergency fund vietnam",
+    "tiết kiệm cho người lương thấp",
+    "3 nguyên tắc tiết kiệm",
+    "ca làm thêm cuối tuần",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Bạn tạo task trong Notion rồi quên cho vào Calendar? Workflow này tự sync, miễn phí không cần Zapier.",
-      "visual_keyword": "notion task calendar disconnected"
+      "voiceover": "Anh Minh 27 tuổi công nhân nhà máy lương 8 triệu. Sau 1 năm anh có quỹ khẩn cấp 30 triệu — đủ ba tháng chi tiêu.",
+      "visual_keyword": "vietnamese factory worker uniform warehouse smiling"
     },
     {
-      "voiceover": "Zapier sync Notion với Calendar tính 30 đô tháng cho 100 task. n8n self-host làm cùng việc miễn phí, không giới hạn.",
-      "visual_keyword": "zapier pricing vs n8n free"
+      "voiceover": "Anh không tăng lương, không vay người thân. Anh áp ba nguyên tắc đơn giản nhưng kỷ luật từ đầu đến cuối.",
+      "visual_keyword": "vietnamese man writing budget rules notebook"
     },
     {
-      "voiceover": "Bước một, lấy API key Notion. Vào Notion Settings, Integrations, Internal integration. Copy token và share database task.",
-      "visual_keyword": "notion api token settings page"
+      "voiceover": "Nguyên tắc một là gửi tiết kiệm trước. Lương về anh chuyển ngay 2 triệu vào tài khoản phụ — 70% tiền còn lại mới chi.",
+      "visual_keyword": "vietnamese phone banking auto transfer 2 million"
     },
     {
-      "voiceover": "Bước hai, vào n8n tạo workflow. Trigger Notion Database Updated. Filter task có deadline và status not done.",
-      "visual_keyword": "n8n trigger database updated"
+      "voiceover": "Nguyên tắc hai là ăn cơm công ty. Cơm trưa 25 nghìn thay vì 50 nghìn ngoài — tiết kiệm 700 nghìn mỗi tháng.",
+      "visual_keyword": "vietnamese factory canteen lunch worker eating"
     },
     {
-      "voiceover": "Bước ba, module Google Calendar Create Event. Map title từ Notion, set time 1 ngày trước deadline. Tôi tự dùng 8 tháng, không miss deadline nào.",
-      "visual_keyword": "google calendar event auto created"
+      "voiceover": "Nguyên tắc ba là làm thêm 1 ca cuối tuần. 4 ngày chủ nhật mỗi tháng thêm 1 triệu 6 — vào thẳng quỹ khẩn cấp.",
+      "visual_keyword": "vietnamese worker overtime weekend shift factory"
     },
     {
-      "voiceover": "Bonus, thêm update flow: khi Notion task update, Calendar event update theo. 2-way sync. Khi mark done, event tự xoá.",
-      "visual_keyword": "two way sync workflow diagram"
+      "voiceover": "Sau 12 tháng anh có 24 triệu từ tiết kiệm chính cộng 7 triệu từ cơm tiết kiệm cộng 19 triệu ca cuối tuần — tổng 30 triệu. Đây là ví dụ minh hoạ.",
+      "visual_keyword": "vietnamese hand counting savings 30 million banknotes"
     },
     {
-      "voiceover": "Bạn dùng tool nào sync task với Calendar hiện tại? Comment tên, mình review xem có đang trả tiền oan không.",
-      "visual_keyword": "phone scrolling calendar app"
+      "voiceover": "Lương của bạn bao nhiêu? Comment lương và chi tiêu trung bình, mình tính quỹ khẩn cấp 3 tháng cho bạn.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot task management. Kênh đăng workflow miễn phí mỗi 6h sáng. API có thể đổi.",
-      "visual_keyword": "subscribe channel animation"
+      "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

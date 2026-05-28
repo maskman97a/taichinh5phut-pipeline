@@ -1,50 +1,57 @@
 {
   "idea_id": 18,
-  "title": "Google Sheets + Gemini: Công Thức =GEMINI() Làm Được Gì? #shorts",
-  "description": "Google vừa thêm công thức =GEMINI() vào Sheets — 80% công việc Excel của bạn có thể tự động bằng 1 dòng formula.\n\nVideo demo 5 use case dân VP Việt: phân loại email by tone, tóm tắt feedback khách hàng, dịch tự động, sinh title content, extract data từ paragraph. Mỗi cái chỉ 1 dòng công thức, không cần macro, không cần Apps Script.\n\nMiễn phí với Google Workspace Business hoặc Google One AI Premium.\n\n🔗 Google Sheets: https://sheets.google.com\n🔗 Gemini Advanced: https://gemini.google.com\n🔗 Template Sheets + AI miễn phí: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — AI cho công việc mỗi sáng 6h.\n\n#GoogleSheets #Gemini #SheetsAI #DanVanPhong #VanPhongTuDong",
+  "title": "Sau 1 Năm Gửi Tiết Kiệm Online 7%/Năm — Lãi Tôi Nhận ❤️ #shorts #tietkiem #gtttkt",
+  "description": "Sau 1 năm gửi tiết kiệm online lãi suất 7%/năm — đây là số lãi tôi nhận được ❤️\n\nKhông phải vàng, không crypto, không cổ phiếu. Tôi gửi 50 triệu vào tài khoản online của 1 ngân hàng số. Lãi suất 7% — cao hơn vàng SJC năm vừa rồi 3%. Bài này: số lãi cụ thể, sự khác biệt với gửi quầy, và 3 lưu ý chọn ngân hàng số an toàn.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #tietkiem #gtttkt #taichinh #nganhangso #danvanphong #shortvideo #laisuat #savings #tiengui",
   "tags": [
-    "google sheets gemini",
-    "công thức gemini",
-    "sheets ai",
-    "ai cho excel",
-    "ai cho dân vp",
-    "google workspace",
-    "gemini việt nam",
-    "sheets automation",
-    "tăng năng suất ai"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "gửi tiết kiệm online",
+    "ngân hàng số việt nam",
+    "lãi suất 7% online",
+    "TPBank Cake VietCapital",
+    "tiết kiệm vs vàng",
+    "so sánh ngân hàng số",
+    "savings account vietnam",
+    "lãi gửi tiết kiệm 1 năm",
+    "an toàn ngân hàng online",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Google vừa thêm công thức =GEMINI() vào Sheets. 80 phần trăm việc Excel có thể tự động bằng 1 dòng.",
-      "visual_keyword": "google sheets gemini formula cell"
+      "voiceover": "Năm vừa rồi tôi gửi 50 triệu vào tiết kiệm online lãi 7%. Sau 12 tháng tôi có thêm 3 triệu 5 trong tay không động ngón tay.",
+      "visual_keyword": "vietnamese phone banking app savings 50 million"
     },
     {
-      "voiceover": "Trước phải viết Apps Script 50 dòng để gọi AI từ Sheets. Giờ chỉ 1 công thức như =SUM. Cách mạng cho dân VP.",
-      "visual_keyword": "complex code vs simple formula comparison"
+      "voiceover": "So với vàng SJC tăng 4% năm vừa rồi, tiết kiệm online lãi 7% hiệu quả hơn 3 điểm phần trăm và không lo giá lên xuống.",
+      "visual_keyword": "gold price chart vs savings comparison vietnamese"
     },
     {
-      "voiceover": "Use case một, phân loại email by tone. Cột A là email, cột B viết =GEMINI(A2 và prompt classify positive negative neutral.",
-      "visual_keyword": "sheets formula classification screen"
+      "voiceover": "Khác biệt với gửi quầy là lãi cao hơn 1 đến 2%, mở 5 phút không cần đến chi nhánh, rút linh hoạt 24/7.",
+      "visual_keyword": "vietnamese phone open savings account 5 minutes"
     },
     {
-      "voiceover": "Use case hai, tóm tắt feedback khách hàng. 500 dòng feedback, công thức =GEMINI tóm 1 câu mỗi cái. Mất 30 giây xử lý hết.",
-      "visual_keyword": "customer feedback sheet summary"
+      "voiceover": "Lưu ý một là chọn ngân hàng có giấy phép Bảo hiểm Tiền gửi Việt Nam. Tối đa 125 triệu được bảo hiểm khi ngân hàng phá sản.",
+      "visual_keyword": "deposit insurance vietnam certificate document"
     },
     {
-      "voiceover": "Use case ba và bốn, dịch tự động và sinh title content. Tôi tự dùng 3 tháng cho báo cáo bán hàng và content blog, tiết kiệm 12 giờ tuần.",
-      "visual_keyword": "translation content sheets dashboard"
+      "voiceover": "Lưu ý hai là so sánh lãi suất kỳ hạn 6 đến 12 tháng. Kỳ hạn ngắn lãi 5%, kỳ hạn 12 tháng có thể lên 7,5%.",
+      "visual_keyword": "savings rate comparison table vietnamese bank app"
     },
     {
-      "voiceover": "Cần Google Workspace Business hoặc Google One AI Premium. Free tier Sheets không có công thức này.",
-      "visual_keyword": "google workspace pricing tiers"
+      "voiceover": "Lưu ý ba là đọc kỹ điều kiện rút trước hạn. Vài ngân hàng chỉ trả lãi không kỳ hạn 0,1% nếu rút sớm.",
+      "visual_keyword": "fine print contract terms vietnamese magnifier"
     },
     {
-      "voiceover": "Bạn đang trả tiền Google Workspace nào? Comment plan, mình tư vấn upgrade có đáng tiền không.",
-      "visual_keyword": "hand pointing pricing comparison"
+      "voiceover": "Bạn gửi tiết kiệm ở đâu? Comment tên ngân hàng, mình so sánh lãi suất hiện tại giúp bạn.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe để tự động hoá Excel báo cáo bằng 1 dòng công thức. Kênh đăng mẹo Sheets AI mỗi 6h sáng. Pricing Google có thể đổi.",
-      "visual_keyword": "subscribe icon channel artwork"
+      "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

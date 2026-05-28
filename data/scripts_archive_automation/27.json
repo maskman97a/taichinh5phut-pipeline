@@ -1,0 +1,50 @@
+{
+  "idea_id": 27,
+  "title": "Tự Động Hoá Daily Standup Report Với n8n + ChatGPT #shorts",
+  "description": "Mỗi sáng họp standup 30 phút? Workflow này gen report tự động, gửi Slack trước họp, mỗi người chỉ confirm 1 click.\n\nVideo demo workflow team productivity: n8n đọc commit GitHub + task Notion mỗi đêm → ChatGPT tóm tắt yesterday/today/blockers cho mỗi member → post Slack channel #standup → mọi người đọc + react emoji confirm.\n\nThay thế standup 30 phút × 5 người = 150 phút mất hàng ngày. Team chỉ họp khi có blocker thật.\n\n🔗 n8n self-host: [LINK_N8N]\n🔗 GitHub API: github.com/settings/tokens\n🔗 Notion + Slack integration: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — automation cho team mỗi sáng 6h.\n\n#n8n #DailyStandup #TeamAutomation #SlackBot #VanPhongTuDong",
+  "tags": [
+    "daily standup automation",
+    "n8n team workflow",
+    "chatgpt standup",
+    "slack bot ai",
+    "team productivity",
+    "tự động hoá họp",
+    "agile automation",
+    "ai cho dân vp",
+    "workflow team"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Mỗi sáng họp standup 30 phút? Workflow này gen report tự động, gửi Slack trước họp, mỗi người 1 click.",
+      "visual_keyword": "morning standup meeting team"
+    },
+    {
+      "voiceover": "Standup 5 người 30 phút mất 150 phút mỗi sáng. Mà 80 phần trăm thông tin là yesterday/today, không có blocker thật.",
+      "visual_keyword": "wasted time meeting clock"
+    },
+    {
+      "voiceover": "Bước một, n8n schedule 7 giờ sáng. Trigger đọc commit GitHub member và task Notion status update đêm qua.",
+      "visual_keyword": "github commits notion tasks dashboard"
+    },
+    {
+      "voiceover": "Bước hai, ChatGPT tóm tắt với prompt: yesterday done X, today plan Y, blockers Z. Format ngắn 3 dòng mỗi member.",
+      "visual_keyword": "chatgpt summary three lines format"
+    },
+    {
+      "voiceover": "Bước ba, post Slack channel hashtag standup. Tag từng member. Tôi tự dùng team 6 người 9 tháng, tiết kiệm 200 giờ năm.",
+      "visual_keyword": "slack channel standup posted"
+    },
+    {
+      "voiceover": "Mọi người react emoji confirm hoặc reply thread nếu có blocker. Họp standup chỉ khi có blocker. Đại đa số ngày không cần.",
+      "visual_keyword": "slack emoji reactions confirm"
+    },
+    {
+      "voiceover": "Team bạn họp standup mỗi sáng không? Comment YES hoặc NO, mình gửi template workflow miễn phí.",
+      "visual_keyword": "team collaboration video call"
+    },
+    {
+      "voiceover": "Subscribe để team automation tiết kiệm 200 giờ năm. Kênh đăng workflow mỗi 6h sáng. Cần n8n self-host và tài khoản OpenAI.",
+      "visual_keyword": "subscribe team productivity"
+    }
+  ]
+}

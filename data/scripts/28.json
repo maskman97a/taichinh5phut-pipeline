@@ -1,49 +1,57 @@
 {
   "idea_id": 28,
-  "title": "AI Tạo Dashboard Excel Không Cần Biết Code — 1 Prompt #shorts",
-  "description": "Sếp cần dashboard sales hiển thị KPI real-time? Bạn không biết Power BI cũng làm được — 1 prompt với ChatGPT là có.\n\nVideo demo flow: paste data raw vào ChatGPT → request tạo dashboard với 5 chart phù hợp (revenue trend, top product, conversion rate, geo, customer segment) → output code Python matplotlib + chart đẹp xuất Excel embed.\n\nKhông cần Power BI 10 đô tháng, không cần Tableau 70 đô tháng. ChatGPT Plus 20 đô đủ.\n\n🔗 ChatGPT Plus: https://chat.openai.com\n🔗 Template dashboard miễn phí: [LINK_NOTION]\n🔗 Workflow tự động hoá Make.com: [LINK_MAKE]\n\n👉 Subscribe @vanphongtudong — Excel AI dashboard mỗi sáng 6h.\n\n#ExcelDashboard #ChatGPT #AIDataViz #DanVanPhong #VanPhongTuDong",
+  "title": "Dùng Gemini AI Lên Budget Gia Đình Trong 3 Phút — Prompt Free 📊 #shorts #aitaichinh",
+  "description": "Dùng Gemini AI lên budget gia đình chi tiết trong 3 phút — prompt mẫu copy ngay 📊\n\nKhông cần Excel template, không cần học công thức. Bạn nhập thu nhập 2 vợ chồng + 3 mục tiêu tài chính → Gemini trả về bảng budget 50/30/20 chi tiết theo 8 danh mục. Bài này: prompt full, output mẫu, và 2 cách tweak cho gia đình có con.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #aitaichinh #gemini #chatgpt #budget #shortvideo #aiforfamily #taichinhgiadinh #aitool #prompt",
   "tags": [
-    "excel dashboard ai",
-    "chatgpt dashboard",
-    "ai data visualization",
-    "không cần code",
-    "power bi alternative",
-    "ai cho excel",
-    "dashboard tự động",
-    "ai cho dân vp"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "gemini AI budget",
+    "ChatGPT lên budget gia đình",
+    "AI quản lý chi tiêu gia đình",
+    "prompt AI tài chính",
+    "budget tự động AI",
+    "gemini việt nam",
+    "AI cho mẹ bỉm",
+    "budget vợ chồng",
+    "no-code budget tool",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Sếp cần dashboard sales real-time? Bạn không biết Power BI cũng làm được — 1 prompt với ChatGPT.",
-      "visual_keyword": "sales dashboard kpi charts colorful"
+      "voiceover": "Lên budget gia đình chi tiết trong 3 phút bằng Gemini AI. Không cần Excel, không cần học công thức.",
+      "visual_keyword": "vietnamese family budget gemini ai laptop screen"
     },
     {
-      "voiceover": "Power BI 10 đô tháng, Tableau 70 đô tháng. Learning curve 3 tháng. Dân VP Việt ít người dùng đúng cách.",
-      "visual_keyword": "power bi tableau complex interface"
+      "voiceover": "Hầu hết vợ chồng VN không có budget vì lười set up. Đây là cách AI làm hộ trong vài phút.",
+      "visual_keyword": "vietnamese couple looking laptop together budget"
     },
     {
-      "voiceover": "Bước một, paste data raw 1000 dòng vào ChatGPT. Yêu cầu phân tích và đề xuất 5 chart phù hợp business.",
-      "visual_keyword": "raw data paste chatgpt screen"
+      "voiceover": "Bước một mở Gemini gemini chấm google chấm com. Free tier vẫn dùng prompt budget rất ổn.",
+      "visual_keyword": "gemini ai homepage browser vietnamese phone"
     },
     {
-      "voiceover": "Bước hai, ChatGPT trả về 5 chart: revenue trend, top product, conversion, geo, segment. Kèm code Python matplotlib chạy được.",
-      "visual_keyword": "five dashboard charts colorful"
+      "voiceover": "Bước hai paste prompt. Tôi là cặp vợ chồng 30 tuổi sống Hà Nội, lương combined 35 triệu, hai con nhỏ. Lên budget 50/30/20 chi tiết 8 danh mục.",
+      "visual_keyword": "gemini chat prompt budget detailed vietnamese family"
     },
     {
-      "voiceover": "Bước ba, chạy code trong Colab, xuất ảnh PNG, embed vào Excel hoặc Google Slides. Tôi tự dùng 5 tháng, làm 12 dashboard, tiết kiệm 60 giờ.",
-      "visual_keyword": "google colab python execution"
+      "voiceover": "Bước ba copy bảng output. Gemini trả về 8 nhóm chi cụ thể với số tiền — nhà ở, ăn uống, đi lại, giáo dục con, giải trí, mua sắm, dự phòng, đầu tư.",
+      "visual_keyword": "vietnamese budget table 8 categories spreadsheet"
     },
     {
-      "voiceover": "Bonus, request ChatGPT dạng interactive Plotly. Output HTML có thể nhúng Notion hoặc gửi sếp xem online.",
-      "visual_keyword": "plotly interactive dashboard html"
+      "voiceover": "Tweak một là nói thêm về mục tiêu — vd mua nhà 3 năm — Gemini sẽ adjust phần đầu tư cao hơn. Tweak hai là update 6 tháng một lần.",
+      "visual_keyword": "budget adjust goals vietnamese family planning"
     },
     {
-      "voiceover": "Bạn đang dùng Excel pivot hay Power BI? Comment tool, mình tư vấn workflow phù hợp.",
-      "visual_keyword": "dashboard tools comparison choices"
+      "voiceover": "Bạn đã dùng AI lên budget chưa? Comment lương combined của 2 vợ chồng, mình share prompt tối ưu cho bạn.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe để tự động hoá Excel dashboard không cần code. Kênh đăng mẹo data mỗi 6h sáng. ChatGPT Plus 20 đô tháng đủ.",
-      "visual_keyword": "subscribe button data visualization"
+      "voiceover": "Subscribe nếu bạn cũng muốn AI quản chi tiêu thay mình — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

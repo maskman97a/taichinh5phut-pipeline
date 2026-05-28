@@ -1,50 +1,57 @@
 {
   "idea_id": 27,
-  "title": "Tự Động Hoá Daily Standup Report Với n8n + ChatGPT #shorts",
-  "description": "Mỗi sáng họp standup 30 phút? Workflow này gen report tự động, gửi Slack trước họp, mỗi người chỉ confirm 1 click.\n\nVideo demo workflow team productivity: n8n đọc commit GitHub + task Notion mỗi đêm → ChatGPT tóm tắt yesterday/today/blockers cho mỗi member → post Slack channel #standup → mọi người đọc + react emoji confirm.\n\nThay thế standup 30 phút × 5 người = 150 phút mất hàng ngày. Team chỉ họp khi có blocker thật.\n\n🔗 n8n self-host: [LINK_N8N]\n🔗 GitHub API: github.com/settings/tokens\n🔗 Notion + Slack integration: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — automation cho team mỗi sáng 6h.\n\n#n8n #DailyStandup #TeamAutomation #SlackBot #VanPhongTuDong",
+  "title": "Lãi Kép: Kỳ Quan Thứ 8 Einstein Cảnh Báo 🔥 #shorts #dautu #laikep #taichinh",
+  "description": "Lãi kép là kỳ quan thứ 8 của thế giới — Einstein nói 100 năm trước và lời tiên đoán vẫn đúng đến nay 🔥\n\n1 ví dụ cụ thể: gửi 1 triệu/tháng lãi 8%/năm. Sau 10 năm bạn có 174 triệu. Sau 20 năm là 549 triệu. Sau 30 năm là 1,4 TỶ. Người hiểu lãi kép kiếm tiền — người không hiểu trả lãi kép. Bài này: công thức lãi kép, cách tận dụng, và 1 sai lầm phổ biến.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #dautu #laikep #einstein #compoundinterest #taichinh #danvanphong #shortvideo #investing #wealthbuild",
   "tags": [
-    "daily standup automation",
-    "n8n team workflow",
-    "chatgpt standup",
-    "slack bot ai",
-    "team productivity",
-    "tự động hoá họp",
-    "agile automation",
-    "ai cho dân vp",
-    "workflow team"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "lãi kép einstein",
+    "compound interest vietnam",
+    "kỳ quan thứ 8",
+    "sức mạnh lãi kép",
+    "gửi tiết kiệm dài hạn",
+    "đầu tư lãi kép 30 năm",
+    "1 triệu mỗi tháng 30 năm",
+    "công thức lãi kép",
+    "lãi mẹ đẻ lãi con",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Mỗi sáng họp standup 30 phút? Workflow này gen report tự động, gửi Slack trước họp, mỗi người 1 click.",
-      "visual_keyword": "morning standup meeting team"
+      "voiceover": "Lãi kép là kỳ quan thứ 8 của thế giới — Einstein nói 100 năm trước, lời tiên đoán vẫn đúng.",
+      "visual_keyword": "einstein vintage portrait formula blackboard"
     },
     {
-      "voiceover": "Standup 5 người 30 phút mất 150 phút mỗi sáng. Mà 80 phần trăm thông tin là yesterday/today, không có blocker thật.",
-      "visual_keyword": "wasted time meeting clock"
+      "voiceover": "Người hiểu lãi kép kiếm tiền. Người không hiểu trả lãi kép cho người khác cả đời.",
+      "visual_keyword": "vietnamese person reading book financial wisdom"
     },
     {
-      "voiceover": "Bước một, n8n schedule 7 giờ sáng. Trigger đọc commit GitHub member và task Notion status update đêm qua.",
-      "visual_keyword": "github commits notion tasks dashboard"
+      "voiceover": "Ví dụ cụ thể. Gửi 1 triệu mỗi tháng lãi 8 phần trăm năm. Sau 10 năm bạn có 174 triệu — vốn 120 triệu lãi 54 triệu.",
+      "visual_keyword": "compound interest chart 10 years growing vietnamese"
     },
     {
-      "voiceover": "Bước hai, ChatGPT tóm tắt với prompt: yesterday done X, today plan Y, blockers Z. Format ngắn 3 dòng mỗi member.",
-      "visual_keyword": "chatgpt summary three lines format"
+      "voiceover": "Sau 20 năm bạn có 549 triệu. Vốn vẫn 240 triệu nhưng lãi đã 309 triệu — lãi nhiều hơn vốn.",
+      "visual_keyword": "compound interest chart 20 years dramatic curve"
     },
     {
-      "voiceover": "Bước ba, post Slack channel hashtag standup. Tag từng member. Tôi tự dùng team 6 người 9 tháng, tiết kiệm 200 giờ năm.",
-      "visual_keyword": "slack channel standup posted"
+      "voiceover": "Sau 30 năm bạn có 1 tỷ 4. Vốn 360 triệu, lãi hơn 1 tỷ. Đó là điều Einstein gọi kỳ quan thứ 8.",
+      "visual_keyword": "compound interest 30 years 1.4 billion vietnamese chart"
     },
     {
-      "voiceover": "Mọi người react emoji confirm hoặc reply thread nếu có blocker. Họp standup chỉ khi có blocker. Đại đa số ngày không cần.",
-      "visual_keyword": "slack emoji reactions confirm"
+      "voiceover": "Sai lầm phổ biến là bắt đầu muộn. Bắt đầu tuổi 35 thay vì 25 mất một nửa tài sản tuổi 55. Đây là ví dụ minh hoạ, lãi suất thực có thể khác.",
+      "visual_keyword": "comparison chart early vs late starter vietnamese"
     },
     {
-      "voiceover": "Team bạn họp standup mỗi sáng không? Comment YES hoặc NO, mình gửi template workflow miễn phí.",
-      "visual_keyword": "team collaboration video call"
+      "voiceover": "Bạn bắt đầu đầu tư lúc bao nhiêu tuổi? Comment tuổi hiện tại, mình tính cho bạn số tiền tuổi 60 nếu bắt đầu nay.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe để team automation tiết kiệm 200 giờ năm. Kênh đăng workflow mỗi 6h sáng. Cần n8n self-host và tài khoản OpenAI.",
-      "visual_keyword": "subscribe team productivity"
+      "voiceover": "Subscribe để hết nói giá như tôi đầu tư sớm — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

@@ -1,0 +1,50 @@
+{
+  "idea_id": 19,
+  "title": "Cách Tự Động Đăng Bài Lên 5 Mạng Xã Hội Cùng Lúc Với n8n #shorts",
+  "description": "Đăng nội dung lên Facebook, Instagram, TikTok, Twitter, LinkedIn mất 1 tiếng mỗi lần? Workflow n8n này làm trong 30 giây.\n\nVideo demo workflow tự động hoá full: tạo bài 1 lần trong Notion → n8n đọc → format riêng cho mỗi platform → đăng đồng loạt với hashtag tối ưu từng MXH.\n\nMiễn phí 100% nếu self-host n8n trên Oracle Cloud. So với Buffer 15 đô/tháng hay Hootsuite 50 đô/tháng — tiết kiệm 600 đô/năm.\n\n🔗 n8n self-host guide: [LINK_N8N]\n🔗 Notion content database template: [LINK_NOTION]\n🔗 Alternative Make.com (free 1000 ops): [LINK_MAKE]\n\n👉 Subscribe @vanphongtudong — automation cho creator mỗi sáng 6h.\n\n#n8n #CrossPost #SocialMedia #VanPhongTuDong #AICreator",
+  "tags": [
+    "n8n cross-post",
+    "tự động đăng bài",
+    "social media automation",
+    "n8n workflow",
+    "automation creator",
+    "cross posting",
+    "facebook instagram tiktok",
+    "ai cho dân vp",
+    "tiết kiệm thời gian"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Đăng nội dung lên 5 mạng xã hội mất 1 tiếng. Workflow n8n này làm trong 30 giây. Demo thật.",
+      "visual_keyword": "social media icons multiple platforms"
+    },
+    {
+      "voiceover": "Vấn đề cross-post tay: mỗi platform giới hạn ký tự khác, hashtag khác, format ảnh khác. Sai 1 cái không lên feed.",
+      "visual_keyword": "social media confusion frustration"
+    },
+    {
+      "voiceover": "Bước một, tạo content database trong Notion. Mỗi bài có caption gốc, ảnh, danh sách platform muốn đăng.",
+      "visual_keyword": "notion content database structure"
+    },
+    {
+      "voiceover": "Bước hai, n8n trigger khi Notion có row mới. Loop qua từng platform: format caption theo limit, chọn hashtag tối ưu.",
+      "visual_keyword": "n8n workflow nodes social media"
+    },
+    {
+      "voiceover": "Bước ba, gọi API từng MXH đăng tự động. Tôi tự dùng cách này 5 tháng cho kênh phụ, tiết kiệm 12 giờ tuần và tăng reach 40 phần trăm.",
+      "visual_keyword": "phone notifications all platforms"
+    },
+    {
+      "voiceover": "Free 100 phần trăm nếu self-host n8n. So với Buffer 15 đô tháng hay Hootsuite 50 đô tháng, tiết kiệm 600 đô năm.",
+      "visual_keyword": "money savings calculation graph"
+    },
+    {
+      "voiceover": "Bạn đang đăng tay hay dùng tool nào? Comment tên tool, mình review xem có đang lãng phí không.",
+      "visual_keyword": "phone scrolling comments engagement"
+    },
+    {
+      "voiceover": "Subscribe để hết phải copy paste lên 5 mạng xã hội. Kênh đăng workflow automation mỗi 6h sáng. API có thể đổi limit.",
+      "visual_keyword": "subscribe button bright color"
+    }
+  ]
+}

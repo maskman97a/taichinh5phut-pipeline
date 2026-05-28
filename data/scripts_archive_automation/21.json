@@ -1,0 +1,50 @@
+{
+  "idea_id": 21,
+  "title": "Cách Make.com Tự Động Lưu Hoá Đơn Gmail Vào Google Sheets #shorts",
+  "description": "Cuối tháng bạn lùng email tìm hoá đơn để báo cáo chi phí? Make.com tự lưu hết vào Sheets ngay khi email đến.\n\nVideo demo workflow no-code: Gmail nhận hoá đơn từ Tiki, Shopee, Grab, taxi, nhà hàng → Make.com parse số tiền, ngày, vendor → ghi vào Google Sheets database. Cuối tháng có ngay báo cáo tổng.\n\nFree tier Make.com 1000 operations/tháng đủ cho 30 hoá đơn/ngày.\n\n🔗 Make.com signup: [LINK_MAKE]\n🔗 Template Sheets chi phí miễn phí: [LINK_NOTION]\n🔗 n8n alternative self-host: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — automation cho dân VP mỗi sáng 6h.\n\n#MakeCom #GmailAutomation #ExpenseTracking #VanPhongTuDong #DanVanPhong",
+  "tags": [
+    "make.com việt nam",
+    "tự động hoá đơn",
+    "expense tracking ai",
+    "gmail automation",
+    "google sheets automation",
+    "make.com hướng dẫn",
+    "ai cho dân vp",
+    "quản lý chi phí",
+    "workflow automation"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Cuối tháng bạn lùng email tìm hoá đơn để báo cáo chi phí? Make.com lưu hết vào Sheets ngay khi email đến.",
+      "visual_keyword": "messy email invoices search frustration"
+    },
+    {
+      "voiceover": "Hoá đơn Tiki, Shopee, Grab, taxi, nhà hàng đến rải rác cả tháng. Tìm tay mất 2 tiếng cuối tháng, dễ sót.",
+      "visual_keyword": "shopping receipts scattered desk"
+    },
+    {
+      "voiceover": "Bước một, vào Make.com tạo scenario. Trigger là Gmail Watch Emails. Filter from hoá đơn hoặc invoice.",
+      "visual_keyword": "make.com scenario builder dashboard"
+    },
+    {
+      "voiceover": "Bước hai, thêm module ChatGPT parse email. Prompt extract số tiền, ngày, vendor, category. AI tự đọc PDF đính kèm.",
+      "visual_keyword": "chatgpt extracting invoice data"
+    },
+    {
+      "voiceover": "Bước ba, thêm module Google Sheets append row. Lưu sender, amount, date, link gốc. Tôi tự dùng 6 tháng, không sót hoá đơn nào.",
+      "visual_keyword": "google sheets expense tracker"
+    },
+    {
+      "voiceover": "Free tier Make.com 1000 thao tác tháng đủ cho 30 hoá đơn ngày. Cao hơn? Pro plan 9 đô tháng cho 10000 thao tác.",
+      "visual_keyword": "make.com pricing plans comparison"
+    },
+    {
+      "voiceover": "Bạn chi tiêu bao nhiêu hoá đơn tháng hiện tại? Comment số, mình gửi template Sheets phù hợp loại chi phí.",
+      "visual_keyword": "calculator office expense planning"
+    },
+    {
+      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot quản lý chi phí. Kênh đăng workflow automation mỗi 6h sáng. Free tier có giới hạn.",
+      "visual_keyword": "subscribe button red badge"
+    }
+  ]
+}

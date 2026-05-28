@@ -1,49 +1,57 @@
 {
   "idea_id": 32,
-  "title": "Workflow Make.com: Tự Động Backup Drive → Dropbox + Email Log #shorts",
-  "description": "Mất file Google Drive vì lỡ tay delete? Workflow Make.com tự động backup mọi file mới sang Dropbox + email log hàng tuần.\n\nVideo demo: Make.com trigger Drive New File → upload Dropbox folder backup → log row Google Sheets với timestamp → cuối tuần gửi email summary số file backup.\n\nFree tier Make.com 1000 ops đủ cho 30 file/ngày. Tiết kiệm $20 admin Microsoft 365 backup tool.\n\n🔗 Make.com signup: [LINK_MAKE]\n🔗 Dropbox 2GB free: dropbox.com\n🔗 n8n alternative miễn phí: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — automation backup mỗi sáng 6h.\n\n#MakeCom #BackupDrive #Dropbox #DataSafety #VanPhongTuDong",
+  "title": "Vì Sao Buffett Cảnh Báo Không Đầu Tư Vàng — Lý Do Thật #shorts #dautu #vang #buffett",
+  "description": "Vì sao Warren Buffett — nhà đầu tư vĩ đại nhất thế giới — cảnh báo không đầu tư vàng?\n\nÔng nói câu nổi tiếng: vàng là tài sản không sinh ra giá trị. 1 ounce vàng năm 2000 vẫn là 1 ounce vàng năm 2024 — không như cổ phiếu Coca-Cola trả cổ tức đều đặn. Bài này: 3 lý do Buffett từ chối vàng + khi nào dân VP Việt vẫn nên giữ vàng dù Buffett nói không.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #dautu #vang #buffett #warrenbuffett #shortvideo #taichinh #vangsjc #investing #goldvscompany",
   "tags": [
-    "make.com backup",
-    "google drive backup",
-    "dropbox automation",
-    "data safety",
-    "tự động backup",
-    "ai cho dân vp",
-    "workflow tự động",
-    "make.com việt nam"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "buffett không vàng",
+    "warren buffett cảnh báo",
+    "vàng vs cổ phiếu",
+    "đầu tư vàng việt nam",
+    "vàng không sinh lời",
+    "vàng SJC vs Berkshire",
+    "tại sao không nên đầu tư vàng",
+    "phù hợp dân vp việt",
+    "investing wisdom buffett",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Mất file Drive vì lỡ tay delete? Workflow Make.com tự backup mọi file mới sang Dropbox và email log.",
-      "visual_keyword": "google drive deleted file recovery"
+      "voiceover": "Warren Buffett — nhà đầu tư vĩ đại nhất thế giới — cảnh báo không đầu tư vàng. Lý do thật sự khiến nhiều người Việt phải suy nghĩ lại.",
+      "visual_keyword": "warren buffett portrait gold bar background"
     },
     {
-      "voiceover": "Google Drive có history 30 ngày. Sau đó file mất vĩnh viễn. Backup tay quên, dân VP Việt mất file quan trọng mỗi tháng.",
-      "visual_keyword": "lost file panic computer screen"
+      "voiceover": "Câu nói nổi tiếng của ông: vàng là tài sản không sinh ra giá trị. Một ounce vàng năm 2000 vẫn là một ounce năm 2024.",
+      "visual_keyword": "gold ounce static unchanged time passes vietnamese"
     },
     {
-      "voiceover": "Bước một, vào Make.com tạo scenario. Trigger Google Drive Watch Files trong folder Work. Filter file type và size.",
-      "visual_keyword": "make.com google drive trigger"
+      "voiceover": "Lý do một là vàng không trả cổ tức. Cổ phiếu Coca-Cola Berkshire trả cổ tức đều đặn 2 phần trăm năm. Vàng nằm im trong két.",
+      "visual_keyword": "stock dividends coca cola check vs static gold"
     },
     {
-      "voiceover": "Bước hai, module Dropbox Upload File. Map content từ Drive. Folder backup tự tạo theo cấu trúc YYYY-MM-DD.",
-      "visual_keyword": "dropbox folder backup structure"
+      "voiceover": "Lý do hai là vàng không có thu nhập kinh doanh. Cổ phiếu Apple bán điện thoại — vàng không sản xuất gì để bán.",
+      "visual_keyword": "apple iphone production line vs gold bar comparison"
     },
     {
-      "voiceover": "Bước ba, log row Google Sheets với timestamp và link. Tôi tự dùng 7 tháng, backup 2000 file, mất 0 file.",
-      "visual_keyword": "google sheets backup log"
+      "voiceover": "Lý do ba là chi phí lưu trữ. Cất tủ sắt nhà tốn 500 nghìn năm, két ngân hàng tốn 2 triệu năm. Buffett gọi đây là cost of carry.",
+      "visual_keyword": "bank safe deposit vault vietnamese annual fee"
     },
     {
-      "voiceover": "Bonus, schedule Make.com chủ nhật gửi email summary. Số file backup tuần, tổng size, file lớn nhất. Bạn biết health của backup.",
-      "visual_keyword": "weekly summary email report"
+      "voiceover": "Nhưng dân VP Việt vẫn nên giữ 10 phần trăm tài sản dạng vàng — bảo hiểm chống mất giá đồng VND. Đây là góc nhìn cá nhân.",
+      "visual_keyword": "vietnamese gold 10 percent portfolio allocation"
     },
     {
-      "voiceover": "Bạn đã mất file Drive vì lỡ tay chưa? Comment YES hoặc NO, mình gửi template backup workflow.",
-      "visual_keyword": "computer files folder organize"
+      "voiceover": "Bạn nghiêng theo Buffett hay vẫn tích vàng? Comment quan điểm, mình tranh luận thẳng thắn.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe để không bao giờ mất file Drive nữa. Kênh đăng workflow data safety mỗi 6h sáng. Free tier có giới hạn file size.",
-      "visual_keyword": "subscribe data safety badge"
+      "voiceover": "Subscribe để hết nói giá như tôi đầu tư sớm — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

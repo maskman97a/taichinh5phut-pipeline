@@ -1,0 +1,51 @@
+{
+  "idea_id": 16,
+  "title": "n8n Self-Host Miễn Phí Trên Oracle Cloud — Full Guide 10 Phút #shorts",
+  "description": "n8n cloud trả 20 đô/tháng — hoặc tự host trên Oracle Cloud MIỄN PHÍ MÃI MÃI?\n\nOracle Cloud Free Tier cho 4 vCPU ARM + 24GB RAM forever free. Đủ chạy n8n self-host xử lý 100.000 workflow/tháng. Video này demo full setup: tạo VM, cài Docker, deploy n8n container, mở port, lấy URL.\n\n10 phút setup, dùng vĩnh viễn. Tiết kiệm 240 đô/năm so với n8n cloud.\n\n🔗 Oracle Cloud Free signup: https://oracle.com/cloud/free\n🔗 n8n docker image: [LINK_N8N]\n🔗 Workflow template miễn phí: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — self-host miễn phí mỗi sáng 6h.\n\n#n8n #OracleCloud #SelfHost #FreeForever #VanPhongTuDong",
+  "tags": [
+    "n8n self-host",
+    "oracle cloud free",
+    "n8n docker",
+    "miễn phí mãi mãi",
+    "tự host automation",
+    "n8n việt nam",
+    "free tier",
+    "linux server",
+    "devops cho dân vp",
+    "tiết kiệm tiền tool"
+  ],
+  "scenes": [
+    {
+      "voiceover": "n8n cloud trả 20 đô tháng. Hoặc tự host trên Oracle Cloud miễn phí MÃI MÃI. Bạn chọn cái nào?",
+      "visual_keyword": "oracle cloud free tier dashboard"
+    },
+    {
+      "voiceover": "Oracle Cloud Free Tier cho 4 vCPU ARM và 24 gigabyte RAM. Forever free, không bao giờ tính tiền nếu không qua giới hạn.",
+      "visual_keyword": "server vm computing resources"
+    },
+    {
+      "voiceover": "Bước một, đăng ký Oracle Cloud Free. Cần thẻ visa để verify nhưng không bị trừ tiền nếu chọn Always Free.",
+      "visual_keyword": "oracle signup credit card verification"
+    },
+    {
+      "voiceover": "Bước hai, tạo VM Ampere A1 Flex. Chọn 2 OCPU, 12GB RAM, Ubuntu 22.04. Setup ssh key và mở port 5678.",
+      "visual_keyword": "linux terminal ssh command"
+    },
+    {
+      "voiceover": "Bước ba, ssh vào VM, cài Docker, chạy lệnh docker run n8n. Tôi tự dùng cách này 9 tháng, xử lý 80 ngàn workflow tháng, miễn phí 100 phần trăm.",
+      "visual_keyword": "docker container running terminal"
+    },
+    {
+      "voiceover": "Bonus, gắn domain cá nhân qua Cloudflare Tunnel miễn phí. Có HTTPS riêng, không cần trả 5 đô tháng cho ngrok.",
+      "visual_keyword": "cloudflare tunnel domain configuration"
+    },
+    {
+      "voiceover": "Bạn đã self-host bất kỳ tool nào chưa? Comment tên tool, mình gửi guide setup nếu đang cần.",
+      "visual_keyword": "comment box keyboard typing"
+    },
+    {
+      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot công việc lặp lại miễn phí. Kênh đăng mẹo automation mỗi 6h sáng. Oracle có quota nếu vượt.",
+      "visual_keyword": "youtube subscribe button glow"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "idea_id": 29,
+  "title": "Telegram Bot AI Trợ Lý Cá Nhân — Setup Với n8n Trong 15 Phút #shorts",
+  "description": "Bạn muốn ChatGPT trong Telegram để hỏi bất cứ lúc nào? Setup bot AI cá nhân trên Telegram với n8n trong 15 phút.\n\nVideo demo full: tạo Telegram bot qua BotFather, kết nối n8n, gắn ChatGPT API → bot trả lời mọi câu hỏi trong Telegram, lưu lịch sử conversation, hỗ trợ tiếng Việt 100%.\n\nBonus: gắn voice recognition để gửi voice message thay vì gõ. Hoặc nhận ảnh phân tích bằng GPT Vision.\n\n🔗 BotFather Telegram: https://t.me/BotFather\n🔗 n8n self-host: [LINK_N8N]\n🔗 OpenAI API key: platform.openai.com\n\n👉 Subscribe @vanphongtudong — AI bot mỗi sáng 6h.\n\n#TelegramBot #n8n #ChatGPT #AIAssistant #VanPhongTuDong",
+  "tags": [
+    "telegram bot ai",
+    "n8n telegram",
+    "ai trợ lý cá nhân",
+    "chatgpt telegram",
+    "bot tự động",
+    "ai cho dân vp",
+    "telegram automation",
+    "voice recognition ai"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Bạn muốn ChatGPT trong Telegram để hỏi bất cứ lúc nào? Setup bot AI cá nhân 15 phút là xong.",
+      "visual_keyword": "telegram chat ai bot interface"
+    },
+    {
+      "voiceover": "Mở ChatGPT trong browser mỗi lần hỏi mất 30 giây. Telegram có sẵn trên phone, bot reply ngay 3 giây.",
+      "visual_keyword": "phone telegram quick chat"
+    },
+    {
+      "voiceover": "Bước một, mở Telegram tìm BotFather. Gửi lệnh new bot, đặt tên và username. BotFather trả token API.",
+      "visual_keyword": "telegram botfather create bot"
+    },
+    {
+      "voiceover": "Bước hai, vào n8n tạo workflow. Trigger Telegram On Message. Module OpenAI Chat với prompt context tiếng Việt.",
+      "visual_keyword": "n8n telegram openai workflow"
+    },
+    {
+      "voiceover": "Bước ba, gửi response back Telegram qua Send Message. Tôi tự dùng bot này 6 tháng, hỏi 50 câu ngày, tiết kiệm 4 giờ.",
+      "visual_keyword": "telegram bot reply phone screen"
+    },
+    {
+      "voiceover": "Bonus, gắn voice recognition. Gửi voice message, n8n dùng Whisper transcribe, ChatGPT trả lời text. Tiện khi lái xe.",
+      "visual_keyword": "voice message recording phone"
+    },
+    {
+      "voiceover": "Bạn có dùng Telegram cho công việc không? Comment YES hoặc NO, mình gửi template bot miễn phí.",
+      "visual_keyword": "messaging app icons selection"
+    },
+    {
+      "voiceover": "Subscribe nếu bạn cũng muốn có AI trợ lý trong túi 24/7. Kênh đăng AI bot mỗi 6h sáng. OpenAI API tính theo token.",
+      "visual_keyword": "subscribe channel mobile screen"
+    }
+  ]
+}

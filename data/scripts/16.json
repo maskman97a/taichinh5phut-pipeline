@@ -1,51 +1,56 @@
 {
   "idea_id": 16,
-  "title": "n8n Self-Host Miễn Phí Trên Oracle Cloud — Full Guide 10 Phút #shorts",
-  "description": "n8n cloud trả 20 đô/tháng — hoặc tự host trên Oracle Cloud MIỄN PHÍ MÃI MÃI?\n\nOracle Cloud Free Tier cho 4 vCPU ARM + 24GB RAM forever free. Đủ chạy n8n self-host xử lý 100.000 workflow/tháng. Video này demo full setup: tạo VM, cài Docker, deploy n8n container, mở port, lấy URL.\n\n10 phút setup, dùng vĩnh viễn. Tiết kiệm 240 đô/năm so với n8n cloud.\n\n🔗 Oracle Cloud Free signup: https://oracle.com/cloud/free\n🔗 n8n docker image: [LINK_N8N]\n🔗 Workflow template miễn phí: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — self-host miễn phí mỗi sáng 6h.\n\n#n8n #OracleCloud #SelfHost #FreeForever #VanPhongTuDong",
+  "title": "Vì Sao 99% Người Việt Áp Dụng 50/30/20 Sai? #shorts #tietkiem #taichinh #budget",
+  "description": "Bạn đã nghe quy tắc 50/30/20 — nhưng có khi nào tự hỏi vì sao 99% người Việt áp dụng nó sai?\n\nQuy tắc này được Elizabeth Warren (Thượng viện Mỹ) công bố năm 2005 cho lương trung bình Mỹ. Áp vào lương VN 10-30tr cần điều chỉnh 3 chỗ — nếu không bạn sẽ luôn thâm hụt cuối tháng. Bài này tôi giải thích sai ở đâu + công thức điều chỉnh chuẩn.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #taichinh #tietkiem #50_30_20 #budget #danvanphong #shortvideo #elizabethwarren #cachtietkiemtien #quanlytaichinh",
   "tags": [
-    "n8n self-host",
-    "oracle cloud free",
-    "n8n docker",
-    "miễn phí mãi mãi",
-    "tự host automation",
-    "n8n việt nam",
-    "free tier",
-    "linux server",
-    "devops cho dân vp",
-    "tiết kiệm tiền tool"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "quy tắc 50/30/20",
+    "50 30 20 việt nam",
+    "vì sao 50/30/20 sai",
+    "elizabeth warren rule",
+    "budget cho người việt",
+    "tiết kiệm tiền lương thấp",
+    "quản lý chi tiêu",
+    "công thức tiết kiệm",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "n8n cloud trả 20 đô tháng. Hoặc tự host trên Oracle Cloud miễn phí MÃI MÃI. Bạn chọn cái nào?",
-      "visual_keyword": "oracle cloud free tier dashboard"
+      "voiceover": "99% người Việt áp dụng quy tắc 50/30/20 sai. Đây là lý do bạn vẫn thâm hụt cuối tháng dù tuân thủ chặt.",
+      "visual_keyword": "vietnamese person frustrated budget paper calculator"
     },
     {
-      "voiceover": "Oracle Cloud Free Tier cho 4 vCPU ARM và 24 gigabyte RAM. Forever free, không bao giờ tính tiền nếu không qua giới hạn.",
-      "visual_keyword": "server vm computing resources"
+      "voiceover": "Quy tắc gốc do Elizabeth Warren công bố 2005 cho lương trung bình Mỹ năm mươi nghìn đô. Lương VN 10-30 triệu cần điều chỉnh.",
+      "visual_keyword": "elizabeth warren book budget rule cover"
     },
     {
-      "voiceover": "Bước một, đăng ký Oracle Cloud Free. Cần thẻ visa để verify nhưng không bị trừ tiền nếu chọn Always Free.",
-      "visual_keyword": "oracle signup credit card verification"
+      "voiceover": "Sai một là gộp tiền thuê nhà vào 30% Mong Muốn. Ở Mỹ thuê nhà là Mong Muốn — Việt Nam thuê nhà ở Hà Nội Sài Gòn là 50% Thiết Yếu.",
+      "visual_keyword": "vietnamese rental apartment hanoi saigon street"
     },
     {
-      "voiceover": "Bước hai, tạo VM Ampere A1 Flex. Chọn 2 OCPU, 12GB RAM, Ubuntu 22.04. Setup ssh key và mở port 5678.",
-      "visual_keyword": "linux terminal ssh command"
+      "voiceover": "Sai hai là tính lương net thay vì gross. Trừ bảo hiểm thuế xong 15 triệu chỉ còn 13 triệu rưỡi. Phải chia trên số sau thuế.",
+      "visual_keyword": "vietnamese payroll slip salary calculation paper"
     },
     {
-      "voiceover": "Bước ba, ssh vào VM, cài Docker, chạy lệnh docker run n8n. Tôi tự dùng cách này 9 tháng, xử lý 80 ngàn workflow tháng, miễn phí 100 phần trăm.",
-      "visual_keyword": "docker container running terminal"
+      "voiceover": "Sai ba là không chia 20% tiết kiệm ra ba quỹ. Phải có quỹ khẩn cấp ba tháng, quỹ mục tiêu ngắn hạn, quỹ đầu tư dài hạn — không trộn chung.",
+      "visual_keyword": "three savings jars labeled vietnamese emergency goal invest"
     },
     {
-      "voiceover": "Bonus, gắn domain cá nhân qua Cloudflare Tunnel miễn phí. Có HTTPS riêng, không cần trả 5 đô tháng cho ngrok.",
-      "visual_keyword": "cloudflare tunnel domain configuration"
+      "voiceover": "Công thức điều chỉnh cho VN là 55% thiết yếu, 25% mong muốn, 20% chia ba quỹ. Áp dụng đúng bạn sẽ có thặng dư từ tháng đầu.",
+      "visual_keyword": "vietnamese hand writing budget formula notebook close-up"
     },
     {
-      "voiceover": "Bạn đã self-host bất kỳ tool nào chưa? Comment tên tool, mình gửi guide setup nếu đang cần.",
-      "visual_keyword": "comment box keyboard typing"
+      "voiceover": "Bạn đang áp dụng tỉ lệ nào? Comment tỉ lệ của bạn, mình review xem có sai chỗ nào không.",
+      "visual_keyword": "youtube comments vietnamese phone scrolling"
     },
     {
-      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot công việc lặp lại miễn phí. Kênh đăng mẹo automation mỗi 6h sáng. Oracle có quota nếu vượt.",
-      "visual_keyword": "youtube subscribe button glow"
+      "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

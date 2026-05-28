@@ -1,0 +1,50 @@
+{
+  "idea_id": 17,
+  "title": "Cách ChatGPT Lên Kế Hoạch Tuần Cho Dân VP Trong 30 Giây #shorts",
+  "description": "Mỗi sáng thứ Hai ngồi 1 tiếng plan tuần? ChatGPT làm xong trong 30 giây — và còn cân bằng deep work vs họp tốt hơn bạn.\n\nVideo demo prompt mẫu lên kế hoạch tuần dân VP Việt: list 5 task quan trọng, schedule slot deep work, block giờ họp, dự phòng cho việc gấp. Kèm bonus prompt review cuối tuần để cải thiện week sau.\n\nKhông cần Notion, không cần app phức tạp. ChatGPT free tier đủ dùng.\n\n🔗 ChatGPT (free): https://chat.openai.com\n🔗 Template kế hoạch tuần Notion: [LINK_NOTION]\n🔗 Calendar tự động với n8n: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — productivity AI mỗi sáng 6h.\n\n#ChatGPT #KeHoachTuan #DanVanPhong #ProductivityAI #VanPhongTuDong",
+  "tags": [
+    "chatgpt kế hoạch",
+    "plan tuần ai",
+    "productivity chatgpt",
+    "ai cho dân vp",
+    "lên kế hoạch tuần",
+    "task management ai",
+    "weekly planning",
+    "dân văn phòng việt",
+    "ai trợ lý"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Mỗi sáng thứ Hai bạn ngồi 1 tiếng plan tuần? ChatGPT làm xong trong 30 giây.",
+      "visual_keyword": "monday morning calendar empty plan"
+    },
+    {
+      "voiceover": "Plan tuần không hiệu quả vì bạn list quá nhiều task, không phân biệt deep work với phản ứng. Cuối tuần thường lùi 50 phần trăm.",
+      "visual_keyword": "to do list cluttered overwhelm"
+    },
+    {
+      "voiceover": "Prompt một, paste 5 mục tiêu công việc tuần. Yêu cầu ChatGPT chia thành 15 task cụ thể, mỗi task dưới 2 tiếng.",
+      "visual_keyword": "chatgpt prompt weekly goals screen"
+    },
+    {
+      "voiceover": "Prompt hai, yêu cầu schedule slot 2 tiếng deep work mỗi sáng từ 9 đến 11 giờ. Block giờ họp sau 2 giờ chiều.",
+      "visual_keyword": "calendar time blocks color coded"
+    },
+    {
+      "voiceover": "Prompt ba, dự phòng 30 phần trăm buffer cho việc gấp. Tôi tự dùng cách này 8 tuần, hoàn thành 85 phần trăm task thay vì 50.",
+      "visual_keyword": "productivity dashboard progress chart"
+    },
+    {
+      "voiceover": "Bonus prompt chủ nhật, ChatGPT review tuần qua. Hỏi sai lầm lớn nhất và 1 cách sửa cho tuần sau. Self-improvement tự động.",
+      "visual_keyword": "sunday review notebook reflection"
+    },
+    {
+      "voiceover": "Bạn dành bao nhiêu thời gian plan tuần hiện tại? Comment con số, mình gửi prompt phù hợp cho bạn.",
+      "visual_keyword": "comment section response engagement"
+    },
+    {
+      "voiceover": "Subscribe để mỗi sáng có 1 prompt AI mới cho dân VP. Kênh đăng mẹo productivity mỗi 6h. Kết quả tuỳ workflow cá nhân.",
+      "visual_keyword": "subscribe channel youtube banner"
+    }
+  ]
+}

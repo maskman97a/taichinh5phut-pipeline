@@ -1,49 +1,57 @@
 {
   "idea_id": 33,
-  "title": "Xây AI Agent Custom Với n8n Trong 10 Phút — Không Cần Code #shorts",
-  "description": "AI Agent tự suy nghĩ và làm nhiều task liên tiếp — nghe phức tạp nhưng n8n cho build trong 10 phút, không cần code.\n\nVideo demo build AI Agent đầu tiên: nhận task từ Slack (ví dụ research công ty XYZ) → agent tự search web, scrape data, gọi ChatGPT analyze, tóm tắt vào Notion. Tất cả trong 1 workflow.\n\nKèm 3 use case cho dân VP Việt: research competitor, lead enrichment, content brief generator.\n\n🔗 n8n AI Agent node: [LINK_N8N]\n🔗 OpenAI API: platform.openai.com\n🔗 Brave Search API (free): brave.com/search/api\n\n👉 Subscribe @vanphongtudong — AI agent mỗi sáng 6h.\n\n#AIAgent #n8n #LangChain #AutomationAI #VanPhongTuDong",
+  "title": "7 Dấu Hiệu Bạn Đang Sống Dưới Mức Lương — Check Ngay 😅 #shorts #tamlytien #tietkiem",
+  "description": "7 dấu hiệu bạn đang sống dưới mức lương — check ngay nếu mắc 4/7 trở lên 😅\n\nKhông phải vì lương thấp — mà vì bạn không biết cách quản tiền hợp với mức lương hiện có. Dân VP lương 15-25 triệu mắc trung bình 4/7 dấu hiệu này. Bài này: 7 dấu hiệu + 1 bài tập 7 ngày để chuyển từ sống dưới sang sống chủ động tài chính.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #tamlytien #taichinh #songduomucluong #shortvideo #danvanphong #checkbantanh #financialcheckup #savings #underliving",
   "tags": [
-    "ai agent n8n",
-    "build ai agent",
-    "n8n langchain",
-    "ai automation",
-    "không cần code",
-    "ai cho dân vp",
-    "research agent",
-    "ai workflow tự động"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "sống dưới mức lương",
+    "7 dấu hiệu tài chính",
+    "check tài chính cá nhân",
+    "underliving signs",
+    "dân vp lương 15 triệu",
+    "tài chính lương 20 triệu",
+    "bài tập 7 ngày tài chính",
+    "kiểm tra sức khoẻ tài chính",
+    "mindset tài chính",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "AI Agent tự suy nghĩ và làm nhiều task liên tiếp. Nghe phức tạp nhưng n8n build 10 phút, không cần code.",
-      "visual_keyword": "ai agent workflow diagram brain"
+      "voiceover": "Bảy dấu hiệu bạn đang sống dưới mức lương. Check ngay nếu mắc bốn trên bảy trở lên — không phải vì lương thấp.",
+      "visual_keyword": "vietnamese young person worried checking list paper"
     },
     {
-      "voiceover": "Workflow truyền thống làm 1 việc theo bước cố định. AI Agent tự quyết định bước nào làm trước, search gì, tổng hợp ra sao.",
-      "visual_keyword": "workflow vs agent comparison"
+      "voiceover": "Dấu hiệu một là cuối tháng không nhớ tiền đi đâu. Lương về 2 tuần đã hết một nửa không có log.",
+      "visual_keyword": "vietnamese empty wallet calendar mid month stress"
     },
     {
-      "voiceover": "Bước một, trong n8n thêm node AI Agent. Chọn OpenAI model GPT-4. System prompt: bạn là research assistant cho dân VP Việt.",
-      "visual_keyword": "n8n ai agent node configuration"
+      "voiceover": "Dấu hiệu hai là không có quỹ khẩn cấp ba tháng. Mất việc bất ngờ bạn sẽ vay người thân ngay tuần đầu.",
+      "visual_keyword": "vietnamese person worried job loss empty savings"
     },
     {
-      "voiceover": "Bước hai, gắn 3 tools: Web Search Brave, HTTP Request, ChatGPT Summarize. Agent tự chọn tool phù hợp từng câu hỏi.",
-      "visual_keyword": "ai agent tools selection"
+      "voiceover": "Dấu hiệu ba là tiêu tăng theo lương. Lương tăng 5 triệu chi tiêu cũng tăng 5 triệu — số dư cuối tháng giống y như cũ.",
+      "visual_keyword": "salary up expenses up same balance vietnamese"
     },
     {
-      "voiceover": "Bước ba, test với prompt research công ty XYZ. Agent search Google, đọc 5 trang, tóm tắt. Tôi tự dùng 4 tháng cho competitor analysis, save 20 giờ tuần.",
-      "visual_keyword": "competitor research output document"
+      "voiceover": "Dấu hiệu bốn là vay BNPL trả góp 0 phần trăm cho hàng không thiết yếu. Iphone mới điện thoại mới mua trả góp 12 tháng.",
+      "visual_keyword": "vietnamese bnpl iphone installment phone deal"
     },
     {
-      "voiceover": "Use case một là lead enrichment. Input email khách, agent search LinkedIn, công ty, vai trò, tự fill CRM. Sales tiết kiệm 80 phần trăm time.",
-      "visual_keyword": "linkedin profile crm enrichment"
+      "voiceover": "Dấu hiệu năm sáu bảy là so sánh với người khác, mua đồ flex thay vì đầu tư, và không biết giá vốn vàng. Đây là góc nhìn cá nhân.",
+      "visual_keyword": "vietnamese person comparing instagram lifestyle expensive"
     },
     {
-      "voiceover": "Bạn cần AI agent cho công việc nào? Comment task cụ thể, mình build template miễn phí và share workflow.",
-      "visual_keyword": "comment box brainstorm engagement"
+      "voiceover": "Bạn mắc bao nhiêu dấu hiệu? Comment số dấu hiệu, mình tư vấn bài tập 7 ngày fix cho bạn.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe nếu bạn cũng muốn AI agent làm việc thay mình. Kênh đăng AI automation mỗi 6h sáng. OpenAI API tính theo token.",
-      "visual_keyword": "subscribe ai agent button"
+      "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

@@ -1,49 +1,57 @@
 {
   "idea_id": 29,
-  "title": "Telegram Bot AI Trợ Lý Cá Nhân — Setup Với n8n Trong 15 Phút #shorts",
-  "description": "Bạn muốn ChatGPT trong Telegram để hỏi bất cứ lúc nào? Setup bot AI cá nhân trên Telegram với n8n trong 15 phút.\n\nVideo demo full: tạo Telegram bot qua BotFather, kết nối n8n, gắn ChatGPT API → bot trả lời mọi câu hỏi trong Telegram, lưu lịch sử conversation, hỗ trợ tiếng Việt 100%.\n\nBonus: gắn voice recognition để gửi voice message thay vì gõ. Hoặc nhận ảnh phân tích bằng GPT Vision.\n\n🔗 BotFather Telegram: https://t.me/BotFather\n🔗 n8n self-host: [LINK_N8N]\n🔗 OpenAI API key: platform.openai.com\n\n👉 Subscribe @vanphongtudong — AI bot mỗi sáng 6h.\n\n#TelegramBot #n8n #ChatGPT #AIAssistant #VanPhongTuDong",
+  "title": "Chị Trang Bỏ Trà Sữa 1 Năm — Số Tiền Mua Iphone 😅 #shorts #tietkiem #tamlytien",
+  "description": "Chị Trang 29 tuổi bỏ trà sữa 1 năm — số tiền tiết kiệm đủ mua Iphone 15 Pro 😅\n\nKhông phải bài giảng đạo đức. Chị Trang nhân viên marketing lương 18 triệu uống trà sữa 5 ly/tuần × 50k = 1 triệu/tháng. 12 tháng = 12 triệu. Cộng tiền tiết kiệm phụ vào quỹ Iphone = 30 triệu. Bài này: hành trình + 3 cách thay thế thói quen không cảm thấy thiếu.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #tietkiem #tamlytien #latte_effect #chuongnghien #shortvideo #habitchange #trasua #danvanphong #taichinh",
   "tags": [
-    "telegram bot ai",
-    "n8n telegram",
-    "ai trợ lý cá nhân",
-    "chatgpt telegram",
-    "bot tự động",
-    "ai cho dân vp",
-    "telegram automation",
-    "voice recognition ai"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "bỏ trà sữa tiết kiệm",
+    "latte factor việt nam",
+    "chị trang trà sữa",
+    "thói quen mất tiền dân vp",
+    "bỏ thói quen tốn tiền",
+    "iphone 15 pro việt nam giá",
+    "habit change finance",
+    "tiết kiệm 12 triệu một năm",
+    "marketer việt tiết kiệm",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Bạn muốn ChatGPT trong Telegram để hỏi bất cứ lúc nào? Setup bot AI cá nhân 15 phút là xong.",
-      "visual_keyword": "telegram chat ai bot interface"
+      "voiceover": "Chị Trang 29 tuổi bỏ trà sữa 1 năm. Số tiền tiết kiệm đủ mua Iphone 15 Pro 30 triệu.",
+      "visual_keyword": "vietnamese woman holding iphone smiling office"
     },
     {
-      "voiceover": "Mở ChatGPT trong browser mỗi lần hỏi mất 30 giây. Telegram có sẵn trên phone, bot reply ngay 3 giây.",
-      "visual_keyword": "phone telegram quick chat"
+      "voiceover": "Chị làm marketing lương 18 triệu — uống trà sữa 5 ly tuần 50 nghìn. Một triệu mỗi tháng tan biến không suy nghĩ.",
+      "visual_keyword": "vietnamese milk tea cups pile office desk"
     },
     {
-      "voiceover": "Bước một, mở Telegram tìm BotFather. Gửi lệnh new bot, đặt tên và username. BotFather trả token API.",
-      "visual_keyword": "telegram botfather create bot"
+      "voiceover": "Latte Factor nói rằng thói quen nhỏ tốn 1 triệu tháng = 12 triệu năm. Chị quyết bỏ thử 30 ngày.",
+      "visual_keyword": "calendar 30 day habit tracker vietnamese phone"
     },
     {
-      "voiceover": "Bước hai, vào n8n tạo workflow. Trigger Telegram On Message. Module OpenAI Chat với prompt context tiếng Việt.",
-      "visual_keyword": "n8n telegram openai workflow"
+      "voiceover": "Cách thay một là tự pha trà sữa nhà — sữa tươi, trà ô long, đá. Tốn 8 nghìn ly thay vì 50 nghìn.",
+      "visual_keyword": "vietnamese woman making milk tea home kitchen"
     },
     {
-      "voiceover": "Bước ba, gửi response back Telegram qua Send Message. Tôi tự dùng bot này 6 tháng, hỏi 50 câu ngày, tiết kiệm 4 giờ.",
-      "visual_keyword": "telegram bot reply phone screen"
+      "voiceover": "Cách thay hai là chuyển sang trà gừng ấm văn phòng. Nhân viên VP uống trà gừng giảm cảm giác thèm đồ ngọt 70 phần trăm.",
+      "visual_keyword": "ginger tea office cup steam vietnamese"
     },
     {
-      "voiceover": "Bonus, gắn voice recognition. Gửi voice message, n8n dùng Whisper transcribe, ChatGPT trả lời text. Tiện khi lái xe.",
-      "visual_keyword": "voice message recording phone"
+      "voiceover": "Cách thay ba là transfer 50 nghìn vào quỹ Iphone mỗi lần định mua trà sữa. Sau 1 năm chị có 30 triệu — visual hoá tăng động lực gấp đôi. Đây là góc nhìn cá nhân.",
+      "visual_keyword": "vietnamese phone iphone savings goal progress bar"
     },
     {
-      "voiceover": "Bạn có dùng Telegram cho công việc không? Comment YES hoặc NO, mình gửi template bot miễn phí.",
-      "visual_keyword": "messaging app icons selection"
+      "voiceover": "Bạn có thói quen nào tốn 1 triệu tháng không? Comment thói quen, mình share cách bỏ không cảm thấy thiếu.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe nếu bạn cũng muốn có AI trợ lý trong túi 24/7. Kênh đăng AI bot mỗi 6h sáng. OpenAI API tính theo token.",
-      "visual_keyword": "subscribe channel mobile screen"
+      "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

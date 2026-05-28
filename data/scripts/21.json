@@ -1,50 +1,57 @@
 {
   "idea_id": 21,
-  "title": "Cách Make.com Tự Động Lưu Hoá Đơn Gmail Vào Google Sheets #shorts",
-  "description": "Cuối tháng bạn lùng email tìm hoá đơn để báo cáo chi phí? Make.com tự lưu hết vào Sheets ngay khi email đến.\n\nVideo demo workflow no-code: Gmail nhận hoá đơn từ Tiki, Shopee, Grab, taxi, nhà hàng → Make.com parse số tiền, ngày, vendor → ghi vào Google Sheets database. Cuối tháng có ngay báo cáo tổng.\n\nFree tier Make.com 1000 operations/tháng đủ cho 30 hoá đơn/ngày.\n\n🔗 Make.com signup: [LINK_MAKE]\n🔗 Template Sheets chi phí miễn phí: [LINK_NOTION]\n🔗 n8n alternative self-host: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — automation cho dân VP mỗi sáng 6h.\n\n#MakeCom #GmailAutomation #ExpenseTracking #VanPhongTuDong #DanVanPhong",
+  "title": "Cách Tiết Kiệm 30% Lương Mỗi Tháng Không Cần Nỗ Lực #shorts #tietkiem #budget #taichinh",
+  "description": "Cách tiết kiệm 30% lương mỗi tháng mà không cần nỗ lực — không cắt cà phê, không bỏ trà sữa.\n\nThay vì cố gắng ý chí, bạn dùng 1 thủ thuật ngân hàng số gọi là Pay Yourself First — chuyển 30% lương tự động vào quỹ tiết kiệm NGAY khi vừa nhận lương. Não bạn coi số tiền còn lại là tổng lương. Bài này: setup 5 phút trong app, 3 ngân hàng số hỗ trợ, và 1 mẹo bonus.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #tietkiem #budget #taichinh #payyourselffirst #danvanphong #shortvideo #savings30 #automation #lifehack",
   "tags": [
-    "make.com việt nam",
-    "tự động hoá đơn",
-    "expense tracking ai",
-    "gmail automation",
-    "google sheets automation",
-    "make.com hướng dẫn",
-    "ai cho dân vp",
-    "quản lý chi phí",
-    "workflow automation"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "tiết kiệm 30% lương",
+    "pay yourself first",
+    "automation tiết kiệm",
+    "chuyển tiền tự động ngân hàng",
+    "tiết kiệm không cần nỗ lực",
+    "TPBank Cake Timo VietCapital",
+    "cách tiết kiệm cho dân vp",
+    "lifehack tài chính",
+    "tiết kiệm trước chi tiêu sau",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Cuối tháng bạn lùng email tìm hoá đơn để báo cáo chi phí? Make.com lưu hết vào Sheets ngay khi email đến.",
-      "visual_keyword": "messy email invoices search frustration"
+      "voiceover": "Tiết kiệm 30 phần trăm lương mỗi tháng mà không cần ý chí. Không cắt cà phê, không bỏ trà sữa.",
+      "visual_keyword": "vietnamese person sipping coffee relaxed budget paper"
     },
     {
-      "voiceover": "Hoá đơn Tiki, Shopee, Grab, taxi, nhà hàng đến rải rác cả tháng. Tìm tay mất 2 tiếng cuối tháng, dễ sót.",
-      "visual_keyword": "shopping receipts scattered desk"
+      "voiceover": "Vấn đề là khi bạn cố tiết kiệm sau khi tiêu, luôn còn không đủ. Não bộ thấy tiền trong tài khoản là tiền được tiêu.",
+      "visual_keyword": "vietnamese phone account balance vs willpower scale"
     },
     {
-      "voiceover": "Bước một, vào Make.com tạo scenario. Trigger là Gmail Watch Emails. Filter from hoá đơn hoặc invoice.",
-      "visual_keyword": "make.com scenario builder dashboard"
+      "voiceover": "Giải pháp là Pay Yourself First — trả mình trước. Ngày lương về, chuyển 30 phần trăm tự động vào quỹ tiết kiệm riêng.",
+      "visual_keyword": "vietnamese phone auto transfer salary day banking app"
     },
     {
-      "voiceover": "Bước hai, thêm module ChatGPT parse email. Prompt extract số tiền, ngày, vendor, category. AI tự đọc PDF đính kèm.",
-      "visual_keyword": "chatgpt extracting invoice data"
+      "voiceover": "Setup 5 phút trong app TPBank Cake hoặc VietCapital. Vào mục Tự Động, chọn ngày 5 tháng, số tiền cố định 30%, tài khoản đích.",
+      "visual_keyword": "tpbank cake app auto transfer setup screen"
     },
     {
-      "voiceover": "Bước ba, thêm module Google Sheets append row. Lưu sender, amount, date, link gốc. Tôi tự dùng 6 tháng, không sót hoá đơn nào.",
-      "visual_keyword": "google sheets expense tracker"
+      "voiceover": "Não bạn sẽ coi 70 phần trăm còn lại là tổng lương. Bạn vẫn tiêu thoải mái, không cảm thấy thiếu thốn, không stress.",
+      "visual_keyword": "vietnamese happy office worker relaxed shopping"
     },
     {
-      "voiceover": "Free tier Make.com 1000 thao tác tháng đủ cho 30 hoá đơn ngày. Cao hơn? Pro plan 9 đô tháng cho 10000 thao tác.",
-      "visual_keyword": "make.com pricing plans comparison"
+      "voiceover": "Mẹo bonus là tăng dần 1 phần trăm mỗi 3 tháng. Sau một năm bạn tiết kiệm 33 phần trăm mà không nhận ra. Đây là góc nhìn cá nhân.",
+      "visual_keyword": "savings percentage increasing chart vietnamese over time"
     },
     {
-      "voiceover": "Bạn chi tiêu bao nhiêu hoá đơn tháng hiện tại? Comment số, mình gửi template Sheets phù hợp loại chi phí.",
-      "visual_keyword": "calculator office expense planning"
+      "voiceover": "Bạn đang tiết kiệm bao nhiêu phần trăm lương? Comment số phần trăm, mình tư vấn cách tăng dần lên 30 phần trăm.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot quản lý chi phí. Kênh đăng workflow automation mỗi 6h sáng. Free tier có giới hạn.",
-      "visual_keyword": "subscribe button red badge"
+      "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

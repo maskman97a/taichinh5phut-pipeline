@@ -58,7 +58,7 @@
   {
     "id": 8,
     "title": "Make.com vs n8n vs Zapier — chọn cái nào cho dân VP Việt 2026?",
-    "pillar": "automation-legacy",
+    "pillar": "automation",
     "status": "published",
     "video_id": "iGl2_9bxUCA",
     "published_at": "2026-05-27T16:51:13.413081+00:00"
@@ -66,7 +66,7 @@
   {
     "id": 9,
     "title": "AI tóm tắt cuộc họp Zoom 1 tiếng → 5 phút đọc",
-    "pillar": "automation-legacy",
+    "pillar": "ai-tools",
     "status": "published",
     "video_id": "gXjpwlRZqnQ",
     "published_at": "2026-05-27T17:02:20.628806+00:00"
@@ -74,7 +74,7 @@
   {
     "id": 10,
     "title": "Excel + ChatGPT: phân tích 1000 dòng data trong 30 giây",
-    "pillar": "automation-legacy",
+    "pillar": "excel-ai",
     "status": "published",
     "video_id": "ubkD5fwMOHE",
     "published_at": "2026-05-27T17:07:16.922184+00:00"
@@ -82,7 +82,7 @@
   {
     "id": 11,
     "title": "5 Custom GPT trợ lý cho dân VP Việt — setup miễn phí",
-    "pillar": "automation-legacy",
+    "pillar": "ai-tools",
     "status": "published",
     "video_id": "4VaiX07D_Go",
     "published_at": "2026-05-27T17:16:50.834273+00:00"
@@ -90,189 +90,159 @@
   {
     "id": 12,
     "title": "Workflow Zapier: Gmail mới → Slack + Notion tự động",
-    "pillar": "automation-legacy",
+    "pillar": "automation",
     "status": "published",
     "video_id": "FQP_BCddZXM",
     "published_at": "2026-05-28T00:07:00.777039+00:00"
   },
   {
     "id": 13,
-    "title": "Anh Tuấn Lương 15Tr Tiết Kiệm 54Tr/Năm — Cách Của Anh",
-    "pillar": "saving",
+    "title": "Claude vs ChatGPT vs Gemini — chọn cái nào cho dân VP Việt?",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 14,
-    "title": "Sau 30 Ngày Track Chi Tiêu Bằng App — Số Tiền Tôi Có",
-    "pillar": "saving",
+    "title": "Notion AI vs ChatGPT — dùng cái nào cho công việc?",
+    "pillar": "notion-productivity",
     "status": "todo"
   },
   {
     "id": 15,
-    "title": "5 Bẫy Tâm Lý Khiến Dân VP Mất 5 Triệu Mỗi Tháng",
-    "pillar": "psychology",
+    "title": "AI dịch email tiếng Anh sang Việt — không cần Google Translate",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 16,
-    "title": "Vì Sao 99% Người Việt Áp Dụng 50/30/20 Sai?",
-    "pillar": "saving",
+    "title": "n8n self-host miễn phí trên Oracle Cloud — full guide 10 phút",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 17,
-    "title": "Chị Lan 28 Tuổi Đầu Tư Quỹ Mở 500K/Tháng — Sau 2 Năm Có Gì?",
-    "pillar": "investing",
+    "title": "ChatGPT lên kế hoạch tuần cho dân VP trong 30 giây",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 18,
-    "title": "Sau 1 Năm Gửi Tiết Kiệm Online 7%/Năm — Lãi Tôi Nhận",
-    "pillar": "investing",
+    "title": "Google Sheets + Gemini: công thức =GEMINI() làm được gì?",
+    "pillar": "excel-ai",
     "status": "todo"
   },
   {
     "id": 19,
-    "title": "Excel + ChatGPT Track 100 Khoản Chi 1 Tháng — Template Free",
-    "pillar": "ai-finance",
+    "title": "Workflow n8n: tự động đăng bài 5 mạng xã hội cùng lúc",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 20,
-    "title": "Anh Hùng Trả 80Tr Nợ Thẻ Tín Dụng Trong 2 Năm — Lộ Trình",
-    "pillar": "psychology",
+    "title": "AI làm slide PowerPoint từ outline trong 1 phút",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 21,
-    "title": "Cách Tiết Kiệm 30% Lương Mỗi Tháng Không Cần Nỗ Lực",
-    "pillar": "saving",
+    "title": "Make.com tự động lưu hoá đơn Gmail vào Google Sheets",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 22,
-    "title": "Black Friday Là Cú Lừa Tâm Lý — 99% Dân VP Mắc Bẫy",
-    "pillar": "psychology",
+    "title": "Template Notion miễn phí: hệ thống GTD cho dân VP Việt",
+    "pillar": "notion-productivity",
     "status": "todo"
   },
   {
     "id": 23,
-    "title": "Khoản Tiết Kiệm 6 Tháng Của Mẹ Bỉm Lương 12Tr",
-    "pillar": "saving",
+    "title": "Excel formulas AI: 5 công thức tiết kiệm 80% thời gian",
+    "pillar": "excel-ai",
     "status": "todo"
   },
   {
     "id": 24,
-    "title": "Cô Hoa Lương 12Tr Mua Nhà Tuổi 35 — Không Vay Nợ",
-    "pillar": "investing",
+    "title": "ChatGPT tự động viết JD tuyển dụng — HR tiết kiệm 80% thời gian",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 25,
-    "title": "5 Sai Lầm Tiền Tuổi 25 Khiến Bạn Hối Hận Tuổi 35",
-    "pillar": "psychology",
+    "title": "n8n + ChatGPT: tự động trả lời email khách hàng 24/7",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 26,
-    "title": "Anh Minh Lương 8Tr Vẫn Có Quỹ Khẩn Cấp 30Tr — Cách Nào?",
-    "pillar": "saving",
+    "title": "Workflow Notion → Google Calendar tự động không cần Zapier",
+    "pillar": "notion-productivity",
     "status": "todo"
   },
   {
     "id": 27,
-    "title": "Lãi Kép: Kỳ Quan Thứ 8 Einstein Cảnh Báo 100 Năm Trước",
-    "pillar": "investing",
+    "title": "Tự động hoá daily standup report với n8n + ChatGPT",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 28,
-    "title": "Dùng Gemini AI Lên Budget Gia Đình Trong 3 Phút — Prompt Free",
-    "pillar": "ai-finance",
+    "title": "AI tạo dashboard Excel không cần biết code — 1 prompt",
+    "pillar": "excel-ai",
     "status": "todo"
   },
   {
     "id": 29,
-    "title": "Chị Trang Bỏ Trà Sữa 1 Năm — Số Tiền Mua Được Iphone",
-    "pillar": "psychology",
+    "title": "Telegram bot AI trợ lý cá nhân — setup với n8n trong 15 phút",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 30,
-    "title": "Sau 2 Năm Đầu Tư Vàng Mua Trữ — Lãi Tôi Có",
-    "pillar": "investing",
+    "title": "5 prompt ChatGPT cứu tinh dân VP trước deadline",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 31,
-    "title": "Anh Quân Lương 15Tr Mua Xe Hơi 200Tr Trong 3 Năm — Lộ Trình",
-    "pillar": "saving",
+    "title": "AI tự động phân tích báo cáo PDF 50 trang trong 1 phút",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 32,
-    "title": "Vì Sao Buffett Cảnh Báo Không Đầu Tư Vàng — Lý Do Thật",
-    "pillar": "investing",
+    "title": "Workflow Make.com: tự động backup Drive → Dropbox + email log",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 33,
-    "title": "7 Dấu Hiệu Bạn Đang Sống Dưới Mức Lương — Check Ngay",
-    "pillar": "psychology",
+    "title": "Xây AI agent custom với n8n trong 10 phút — không cần code",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 34,
-    "title": "Chị Linh Lương 28Tr 2 Con Vẫn Tiết Kiệm 50Tr/Năm",
-    "pillar": "saving",
+    "title": "Cursor AI vs Copilot — IDE nào cho dân không phải dev Việt?",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 35,
-    "title": "Notion AI Theo Dõi Mục Tiêu Tài Chính 1 Năm — Template Free",
-    "pillar": "ai-finance",
+    "title": "AI ghi chú cuộc họp tự động + tóm tắt vào Notion",
+    "pillar": "automation",
     "status": "todo"
   },
   {
     "id": 36,
-    "title": "Thành Quả 1 Năm Áp Dụng 50/30/20 — Số Tiền Tôi Có",
-    "pillar": "saving",
+    "title": "ChatGPT viết email công việc 30 giây — 5 prompt mẫu cho dân VP",
+    "pillar": "ai-tools",
     "status": "todo"
   },
   {
     "id": 37,
-    "title": "5 Dấu Hiệu Bạn Đang Sống Dưới Khả Năng Tài Chính",
-    "pillar": "saving",
-    "status": "todo"
-  },
-  {
-    "id": 38,
-    "title": "Chị Thảo DCA Chứng Khoán 1Tr/Tháng — Sau 5 Năm Có Bao Nhiêu?",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 39,
-    "title": "Vì Sao 80% Người Việt Mãi Trong Tầng Lớp Trung Bình?",
-    "pillar": "psychology",
-    "status": "todo"
-  },
-  {
-    "id": 40,
-    "title": "Cách Mở Tài Khoản Chứng Khoán Online Trong 5 Phút",
-    "pillar": "investing",
-    "status": "todo"
-  },
-  {
-    "id": 41,
-    "title": "App Vay Tiêu Dùng Bẫy Lãi 100%/Năm — 5 Dấu Hiệu Lừa Đảo",
-    "pillar": "saving",
-    "status": "todo"
-  },
-  {
-    "id": 42,
-    "title": "Bí Mật 80/20 Pareto Trong Quản Lý Tiền — Áp Dụng Ngay",
-    "pillar": "psychology",
+    "title": "n8n là gì — tự động hoá công việc miễn phí trong 5 phút",
+    "pillar": "automation",
     "status": "todo"
   }
 ]

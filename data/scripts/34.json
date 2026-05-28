@@ -1,50 +1,57 @@
 {
   "idea_id": 34,
-  "title": "Cursor AI Vs Copilot — IDE Nào Cho Dân Không Phải Dev Việt? #shorts",
-  "description": "Bạn không phải dev nhưng cần viết code đơn giản cho công việc — Excel script, Python tự động, SQL query? Cursor AI hay GitHub Copilot tốt hơn?\n\nVideo so sánh 2 IDE AI cho dân VP Việt không phải dev: Cursor (chat trực tiếp với codebase), Copilot (autocomplete intelligent). Mỗi cái hợp use case khác nhau.\n\nKèm 3 ví dụ thực tế: viết Excel macro chạy hàng tháng, Python script scrape data, SQL query phân tích doanh thu — không cần biết coding chuyên sâu.\n\n🔗 Cursor AI: https://cursor.sh\n🔗 GitHub Copilot: github.com/features/copilot\n🔗 Alternative free Windsurf: codeium.com\n\n👉 Subscribe @vanphongtudong — coding for non-devs mỗi sáng 6h.\n\n#CursorAI #GithubCopilot #CodingForNonDevs #DanVanPhong #VanPhongTuDong",
+  "title": "Chị Linh Lương 28Tr 2 Con Vẫn Tiết Kiệm 50Tr/Năm — Cách Của Chị #shorts #tietkiem",
+  "description": "Chị Linh 33 tuổi, kế toán Sài Gòn lương 28 triệu — có 2 con nhỏ vẫn tiết kiệm 50 triệu/năm 🔥\n\nKhông phải vì lương cao — vì cách quản chi hợp gia đình. Chị áp dụng 3 chiến lược: nấu cơm gia đình 6 ngày/tuần, mua sỉ tã sữa quarterly, không cho con học thêm dư thừa. Bài này: chi tiết phân bổ 28 triệu cho gia đình 4 người + 2 mẹo bonus cho mẹ VP.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #tietkiem #taichinh #chilinh #2con #shortvideo #danvanphong #budgetfamily #motherhood #savings50",
   "tags": [
-    "cursor ai",
-    "github copilot",
-    "ai coding",
-    "không phải dev",
-    "viết code ai",
-    "ai cho dân vp",
-    "python tự động",
-    "excel macro ai",
-    "sql ai"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "tiết kiệm gia đình 2 con",
+    "chị linh tiết kiệm",
+    "lương 28 triệu 2 con tiết kiệm",
+    "budget gia đình 4 người",
+    "mua sỉ tã sữa",
+    "nấu cơm gia đình tiết kiệm",
+    "kế toán việt nam mẹ",
+    "tiết kiệm 50 triệu năm",
+    "mẹ vp việt",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Bạn không phải dev nhưng cần viết code đơn giản cho công việc? Cursor AI hay Copilot tốt hơn?",
-      "visual_keyword": "non developer coding ai assistant"
+      "voiceover": "Chị Linh 33 tuổi kế toán Sài Gòn lương 28 triệu có 2 con nhỏ. Vẫn tiết kiệm 50 triệu một năm — không phải vì lương cao.",
+      "visual_keyword": "vietnamese mother two kids home apartment cozy"
     },
     {
-      "voiceover": "Dân VP Việt thường cần code đơn giản: Excel macro, Python scrape, SQL query. Học coding 6 tháng vô bổ, AI viết code thay.",
-      "visual_keyword": "office worker coding learning"
+      "voiceover": "Trước đó 3 năm chị stress vì cuối tháng không dư. Hai con học thêm tiền tã sữa ăn ngoài — lương 28 triệu vẫn thiếu.",
+      "visual_keyword": "vietnamese mother stress laptop bills kids playing"
     },
     {
-      "voiceover": "IDE một là Cursor AI. Mở project, chat tiếng Việt như nói chuyện. Nó hiểu cả codebase, đề xuất sửa nhiều file cùng lúc.",
-      "visual_keyword": "cursor ai chat interface code"
+      "voiceover": "Chiến lược một là nấu cơm 6 ngày tuần. Ăn ngoài tốn 1 triệu rưỡi tuần — nấu nhà còn 700 nghìn. Tiết kiệm 3 triệu tháng.",
+      "visual_keyword": "vietnamese family dinner home cooking dishes"
     },
     {
-      "voiceover": "IDE hai là GitHub Copilot. Autocomplete intelligent khi bạn gõ. Tốt cho dev có background nhưng lười gõ. Khó cho người mới.",
-      "visual_keyword": "github copilot autocomplete suggestion"
+      "voiceover": "Chiến lược hai là mua sỉ tã sữa mỗi quý. Mua 6 thùng tã thay vì 1 thùng — giảm 22 phần trăm giá, tiết kiệm 800 nghìn tháng.",
+      "visual_keyword": "vietnamese supermarket diapers bulk shopping cart"
     },
     {
-      "voiceover": "Use case dân VP Việt: Cursor thắng vì chat tiếng Việt. Tôi tự dùng 5 tháng viết 20 script automation, tiết kiệm 40 giờ.",
-      "visual_keyword": "vietnamese chat ide screen"
+      "voiceover": "Chiến lược ba là không cho con học thêm dư thừa. Trẻ mẫu giáo cần chơi, không cần học tiếng Anh — tiết kiệm 4 triệu tháng.",
+      "visual_keyword": "vietnamese kids playing park happy outdoor"
     },
     {
-      "voiceover": "Pricing: Cursor Pro 20 đô tháng, Copilot 10 đô tháng. Free tier Cursor 50 request slow. Đầu tư Pro nếu dùng thường xuyên.",
-      "visual_keyword": "pricing comparison tools cards"
+      "voiceover": "Tổng tiết kiệm 7 triệu rưỡi mỗi tháng cộng tiền thưởng cuối năm — chị có 50 triệu vào quỹ mục tiêu mua nhà mới. Đây là ví dụ minh hoạ.",
+      "visual_keyword": "vietnamese savings 50 million family goal jar"
     },
     {
-      "voiceover": "Bạn có cần viết code cho công việc không? Comment task cụ thể, mình review nên dùng AI nào.",
-      "visual_keyword": "developer keyboard coding focus"
+      "voiceover": "Bạn là mẹ có con nhỏ? Comment số con và lương, mình tư vấn cách quản chi cho gia đình.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe để mỗi sáng có 1 AI tool mới cho dân VP. Kênh đăng mẹo coding cho non-dev mỗi 6h. Pricing tool có thể đổi.",
-      "visual_keyword": "subscribe coding channel button"
+      "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

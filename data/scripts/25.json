@@ -1,49 +1,57 @@
 {
   "idea_id": 25,
-  "title": "n8n + ChatGPT: Tự Động Trả Lời Email Khách Hàng 24/7 #shorts",
-  "description": "Khách hàng email lúc 11h đêm hỏi gấp? n8n + ChatGPT trả lời tự động trong 30 giây — kèm gắn cờ urgent cho bạn xem sáng hôm sau.\n\nVideo demo workflow customer support tự động: Gmail nhận email → n8n classify intent (complaint, question, refund, sales) → ChatGPT generate reply theo brand voice → gửi email + log Notion. Bạn chỉ review case complex.\n\nGiảm 70% workload support team. Khách hàng được trả lời trong 30 giây thay vì 24 tiếng.\n\n🔗 n8n self-host: [LINK_N8N]\n🔗 ChatGPT API: https://platform.openai.com\n🔗 Notion CRM template: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — customer support AI mỗi sáng 6h.\n\n#n8n #ChatGPT #CustomerSupport #AutomationAI #VanPhongTuDong",
+  "title": "5 Sai Lầm Tiền Tuổi 25 Khiến Bạn Hối Hận Tuổi 35 😅 #shorts #tamlytien #taichinh",
+  "description": "5 sai lầm tiền tuổi 25 mà 90% dân VP Việt mắc — và sẽ hối hận tuổi 35 😅\n\nKhông phải bài giảng đạo đức. 5 sai lầm này khiến bạn mất trung bình 200-500 triệu tài sản tiềm năng đến tuổi 35. Tôi tổng hợp từ phỏng vấn 50 anh chị 35-40 tuổi quanh tôi — họ đều ước biết sớm hơn 10 năm. Bài này: 5 sai lầm + cách fix nếu bạn 25-30 tuổi.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #tamlytien #taichinh #sailamtuoi25 #danvanphong #shortvideo #moneymistakes #lifelessons #budget #savings",
   "tags": [
-    "n8n customer support",
-    "chatgpt email tự động",
-    "ai customer service",
-    "automation support",
-    "trả lời email tự động",
-    "ai cho sales",
-    "workflow ai",
-    "n8n việt nam"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "sai lầm tài chính tuổi 25",
+    "tâm lý tiền tuổi 30",
+    "hối hận tài chính",
+    "money mistakes 25",
+    "lifestyle inflation tuổi trẻ",
+    "không tiết kiệm tuổi 20",
+    "đầu tư sớm vs muộn",
+    "lương 25 tuổi tiêu hết",
+    "dân vp tuổi 25-30",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Khách hàng email 11h đêm hỏi gấp? n8n và ChatGPT trả lời tự động trong 30 giây. Bạn ngủ vẫn lo được khách.",
-      "visual_keyword": "midnight email notification phone glow"
+      "voiceover": "Năm sai lầm tiền tuổi 25 khiến dân VP Việt mất 200 tới 500 triệu tài sản tiềm năng đến tuổi 35.",
+      "visual_keyword": "vietnamese young person looking back regret thoughtful"
     },
     {
-      "voiceover": "Support team mất 4 tiếng ngày trả lời email. 70 phần trăm là câu hỏi lặp lại. Khách phải đợi 24 tiếng, mất kiên nhẫn, bỏ giỏ.",
-      "visual_keyword": "customer service overwhelmed inbox"
+      "voiceover": "Sai một là không bắt đầu tiết kiệm sớm. Tuổi 25 tiết kiệm 1 triệu tháng đến 35 là 180 triệu — chưa tính lãi kép.",
+      "visual_keyword": "compound interest chart 25 to 35 vietnamese"
     },
     {
-      "voiceover": "Bước một, n8n trigger Gmail New Email Matching từ subjectsupport. Module classify intent: complaint, question, refund, sales.",
-      "visual_keyword": "n8n workflow classification node"
+      "voiceover": "Sai hai là Lifestyle Inflation. Lương tăng 30 phần trăm chi tiêu tăng theo. 5 năm sau bạn vẫn không có quỹ khẩn cấp.",
+      "visual_keyword": "vietnamese salary increase lifestyle upgrade phone"
     },
     {
-      "voiceover": "Bước hai, dựa intent, gọi ChatGPT với prompt phù hợp brand voice. Có context FAQ database load từ Notion qua API.",
-      "visual_keyword": "chatgpt brand voice template"
+      "voiceover": "Sai ba là vay BNPL trả góp 0%. Bạn coi như rẻ — não không cảm thấy đau khi quẹt thẻ. Tuổi 30 đầy nợ tiêu dùng.",
+      "visual_keyword": "credit card swipe bnpl vietnamese trap close-up"
     },
     {
-      "voiceover": "Bước ba, gửi reply tự động + log vào Notion CRM. Case complex flag cho human review sáng. Tôi tự dùng 7 tháng, giảm 70 phần trăm workload.",
-      "visual_keyword": "automated email reply sent notification"
+      "voiceover": "Sai bốn là không đầu tư vì sợ rủi ro. Để hết tiền trong tài khoản 0,1% năm — lạm phát 4% ăn mất tài sản thật.",
+      "visual_keyword": "savings account stagnant inflation graph vietnamese"
     },
     {
-      "voiceover": "Quan trọng: luôn để human review trước khi gửi nếu email có complaint hoặc refund. AI không xử lý 100 phần trăm case nhạy cảm.",
-      "visual_keyword": "human review approval workflow"
+      "voiceover": "Sai năm là không xây mạng quan hệ. Tuổi 25-30 là cửa sổ vàng kết nối — bỏ qua sau này thuê tư vấn 5 triệu giờ. Đây là góc nhìn cá nhân.",
+      "visual_keyword": "vietnamese networking event professionals smiling"
     },
     {
-      "voiceover": "Bạn xử lý bao nhiêu email khách mỗi ngày? Comment con số, mình review xem workflow phù hợp.",
-      "visual_keyword": "customer support agent typing"
+      "voiceover": "Bạn đang ở tuổi nào, mắc sai lầm nào? Comment tuổi và sai lầm bạn nhận ra, mình tư vấn cách fix.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot customer support. Kênh đăng workflow automation mỗi 6h sáng. AI có thể trả sai cần review.",
-      "visual_keyword": "youtube subscribe red notification"
+      "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

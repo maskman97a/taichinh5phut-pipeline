@@ -1,0 +1,49 @@
+{
+  "idea_id": 31,
+  "title": "AI Tự Động Phân Tích Báo Cáo PDF 50 Trang Trong 1 Phút #shorts",
+  "description": "Sếp ném file PDF 50 trang yêu cầu đọc trả lời 3 câu hỏi? Claude làm trong 1 phút — và đọc chính xác hơn bạn.\n\nVideo demo so sánh 3 AI đọc PDF tốt nhất 2026: Claude (context 200k token), ChatGPT (Plus có file upload), Gemini (Google Drive integration). Mỗi cái có chỗ mạnh cho document khác nhau.\n\nKèm prompt mẫu extract action items, dates, dollar amounts, people mentioned từ PDF business.\n\n🔗 Claude (200k context): https://claude.ai\n🔗 ChatGPT Plus: https://chat.openai.com\n🔗 Gemini với Drive: https://gemini.google.com\n\n👉 Subscribe @vanphongtudong — AI tools mỗi sáng 6h.\n\n#ClaudeAI #PDFAnalysis #ChatGPT #DanVanPhong #VanPhongTuDong",
+  "tags": [
+    "ai đọc pdf",
+    "claude phân tích pdf",
+    "chatgpt pdf",
+    "ai cho dân vp",
+    "phân tích báo cáo ai",
+    "đọc tài liệu nhanh",
+    "ai document analysis",
+    "long context ai"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Sếp ném file PDF 50 trang yêu cầu trả lời 3 câu hỏi? Claude làm trong 1 phút, chính xác hơn bạn đọc.",
+      "visual_keyword": "thick pdf report 50 pages stack"
+    },
+    {
+      "voiceover": "Đọc PDF 50 trang tay mất 2 tiếng. Não bạn nhớ được 30 phần trăm. Tóm tắt sai cũng không biết vì không có time đọc lại.",
+      "visual_keyword": "tired reading thick document"
+    },
+    {
+      "voiceover": "AI một là Claude với context 200k token. Đọc 200 trang một lần không quên gì. Tốt nhất cho báo cáo dài và contract pháp lý.",
+      "visual_keyword": "claude anthropic logo dark"
+    },
+    {
+      "voiceover": "AI hai là ChatGPT Plus. File upload nhanh hơn Claude. Tốt cho PDF có chart và bảng vì có code interpreter.",
+      "visual_keyword": "chatgpt file upload interface"
+    },
+    {
+      "voiceover": "AI ba là Gemini với Google Drive integration. Đọc Drive PDF không cần upload. Tôi tự dùng 5 tháng cho audit report, tiết kiệm 30 giờ tuần.",
+      "visual_keyword": "gemini google drive integration"
+    },
+    {
+      "voiceover": "Prompt mẫu: extract 5 action items, dollar amounts, dates, people mentioned. AI trả về bảng format Markdown copy paste vào Excel.",
+      "visual_keyword": "extraction table markdown output"
+    },
+    {
+      "voiceover": "Bạn đọc bao nhiêu PDF mỗi tuần? Comment con số, mình gợi ý AI phù hợp loại document.",
+      "visual_keyword": "office worker pdf documents desk"
+    },
+    {
+      "voiceover": "Subscribe để hết phải đọc PDF 50 trang tay. Kênh đăng AI tools mỗi 6h sáng. Cần Plus/Advanced tier để upload file lớn.",
+      "visual_keyword": "subscribe button document analysis"
+    }
+  ]
+}

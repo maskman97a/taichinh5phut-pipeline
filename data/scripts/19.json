@@ -1,50 +1,57 @@
 {
   "idea_id": 19,
-  "title": "Cách Tự Động Đăng Bài Lên 5 Mạng Xã Hội Cùng Lúc Với n8n #shorts",
-  "description": "Đăng nội dung lên Facebook, Instagram, TikTok, Twitter, LinkedIn mất 1 tiếng mỗi lần? Workflow n8n này làm trong 30 giây.\n\nVideo demo workflow tự động hoá full: tạo bài 1 lần trong Notion → n8n đọc → format riêng cho mỗi platform → đăng đồng loạt với hashtag tối ưu từng MXH.\n\nMiễn phí 100% nếu self-host n8n trên Oracle Cloud. So với Buffer 15 đô/tháng hay Hootsuite 50 đô/tháng — tiết kiệm 600 đô/năm.\n\n🔗 n8n self-host guide: [LINK_N8N]\n🔗 Notion content database template: [LINK_NOTION]\n🔗 Alternative Make.com (free 1000 ops): [LINK_MAKE]\n\n👉 Subscribe @vanphongtudong — automation cho creator mỗi sáng 6h.\n\n#n8n #CrossPost #SocialMedia #VanPhongTuDong #AICreator",
+  "title": "Excel + ChatGPT Track 100 Khoản Chi 1 Tháng — Template Free 📊 #shorts #aitaichinh #excel",
+  "description": "Dùng Excel + ChatGPT phân loại 100 khoản chi 1 tháng tự động — template Google Sheets miễn phí 📊\n\nThay vì gõ tay 100 dòng vào Money Lover, copy dữ liệu sao kê ngân hàng → paste vào Sheet → ChatGPT phân loại sang 8 nhóm trong 1 prompt. Bài này: link template, prompt mẫu copy ngay, và cách extend cho 1 năm dữ liệu.\n\n🔗 Tài liệu tham khảo:\n→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]\n→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]\n→ Mở tài khoản chứng khoán: [LINK_VPS]\n\n🔔 Subscribe @taichinh5phut.official — mỗi sáng 6h 1 mẹo tiền cho dân VP Việt.\n\n⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.\n\n#shorts #aitaichinh #excel #chatgpt #googlesheets #danvanphong #shortvideo #budgettool #automation #tracking",
   "tags": [
-    "n8n cross-post",
-    "tự động đăng bài",
-    "social media automation",
-    "n8n workflow",
-    "automation creator",
-    "cross posting",
-    "facebook instagram tiktok",
-    "ai cho dân vp",
-    "tiết kiệm thời gian"
+    "tài chính 5 phút",
+    "taichinh5phut",
+    "excel track chi tiêu",
+    "chatgpt phân loại chi tiêu",
+    "google sheets budget template",
+    "template excel quản lý tiền",
+    "AI quản lý tài chính cá nhân",
+    "automation excel chatgpt",
+    "sao kê ngân hàng excel",
+    "phân loại chi tiêu AI",
+    "no-code finance tool",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
   ],
   "scenes": [
     {
-      "voiceover": "Đăng nội dung lên 5 mạng xã hội mất 1 tiếng. Workflow n8n này làm trong 30 giây. Demo thật.",
-      "visual_keyword": "social media icons multiple platforms"
+      "voiceover": "Phân loại 100 khoản chi 1 tháng trong 2 phút bằng Excel cộng ChatGPT. Không cần gõ tay từng dòng vào Money Lover.",
+      "visual_keyword": "excel spreadsheet expenses 100 rows colorful categories"
     },
     {
-      "voiceover": "Vấn đề cross-post tay: mỗi platform giới hạn ký tự khác, hashtag khác, format ảnh khác. Sai 1 cái không lên feed.",
-      "visual_keyword": "social media confusion frustration"
+      "voiceover": "Dân VP Việt mất ba tiếng mỗi tháng gõ tay sao kê vào app. Đây là cách dùng AI làm hộ trong vài phút.",
+      "visual_keyword": "vietnamese person tired typing laptop late night"
     },
     {
-      "voiceover": "Bước một, tạo content database trong Notion. Mỗi bài có caption gốc, ảnh, danh sách platform muốn đăng.",
-      "visual_keyword": "notion content database structure"
+      "voiceover": "Bước một là download sao kê ngân hàng ra Excel. Mọi ngân hàng đều có chức năng này trong app, file xls hoặc csv.",
+      "visual_keyword": "bank statement download excel csv vietnamese app"
     },
     {
-      "voiceover": "Bước hai, n8n trigger khi Notion có row mới. Loop qua từng platform: format caption theo limit, chọn hashtag tối ưu.",
-      "visual_keyword": "n8n workflow nodes social media"
+      "voiceover": "Bước hai là copy cột mô tả giao dịch, paste vào ChatGPT với prompt phân loại sang tám nhóm chi tiêu.",
+      "visual_keyword": "chatgpt prompt expense categorization screen close-up"
     },
     {
-      "voiceover": "Bước ba, gọi API từng MXH đăng tự động. Tôi tự dùng cách này 5 tháng cho kênh phụ, tiết kiệm 12 giờ tuần và tăng reach 40 phần trăm.",
-      "visual_keyword": "phone notifications all platforms"
+      "voiceover": "Bước ba là copy kết quả vào cột bên cạnh Excel, dùng SUMIF tổng theo nhóm. Pie chart hiện ngay tỷ lệ chi tiêu thật của bạn.",
+      "visual_keyword": "excel pie chart expense categories vietnamese dashboard"
     },
     {
-      "voiceover": "Free 100 phần trăm nếu self-host n8n. So với Buffer 15 đô tháng hay Hootsuite 50 đô tháng, tiết kiệm 600 đô năm.",
-      "visual_keyword": "money savings calculation graph"
+      "voiceover": "Link template Google Sheets có prompt mẫu trong description. Mở ra copy về tài khoản bạn, dùng ngay trong 5 phút.",
+      "visual_keyword": "google sheets template share copy link screen"
     },
     {
-      "voiceover": "Bạn đang đăng tay hay dùng tool nào? Comment tên tool, mình review xem có đang lãng phí không.",
-      "visual_keyword": "phone scrolling comments engagement"
+      "voiceover": "Bạn đã thử dùng AI quản tiền chưa? Comment cách bạn dùng ChatGPT, mình tổng hợp prompt hay nhất.",
+      "visual_keyword": "phone scrolling youtube comments vietnamese"
     },
     {
-      "voiceover": "Subscribe để hết phải copy paste lên 5 mạng xã hội. Kênh đăng workflow automation mỗi 6h sáng. API có thể đổi limit.",
-      "visual_keyword": "subscribe button bright color"
+      "voiceover": "Subscribe nếu bạn cũng muốn AI quản chi tiêu thay mình — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
+      "visual_keyword": "subscribe button red animated youtube"
     }
   ]
 }

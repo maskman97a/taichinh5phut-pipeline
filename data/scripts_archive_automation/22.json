@@ -1,0 +1,50 @@
+{
+  "idea_id": 22,
+  "title": "Template Notion Miễn Phí: Hệ Thống GTD Cho Dân VP Việt #shorts",
+  "description": "Bạn dùng 5 app khác nhau để track task — Notion, Trello, Todoist, Sticky Notes, Google Keep? Hệ thống GTD trong 1 Notion template miễn phí thay thế hết.\n\nVideo demo template GTD đã optimize cho dân VP Việt: Inbox capture nhanh, weekly review tự động, areas of focus theo OKR, project tracker với deadline reminder. Setup 5 phút, dùng cả năm.\n\nLink template tải miễn phí — duplicate vào Notion của bạn là dùng được luôn.\n\n🔗 Notion (free): https://notion.so\n🔗 Template GTD VN miễn phí: [LINK_NOTION]\n🔗 Tự động hoá Calendar với n8n: [LINK_N8N]\n\n👉 Subscribe @vanphongtudong — productivity systems mỗi sáng 6h.\n\n#Notion #GTD #ProductivitySystem #DanVanPhong #VanPhongTuDong",
+  "tags": [
+    "notion template gtd",
+    "getting things done",
+    "notion việt nam",
+    "productivity system",
+    "quản lý task",
+    "ai cho dân vp",
+    "notion gtd",
+    "weekly review",
+    "dân văn phòng việt"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Bạn dùng 5 app track task khác nhau? Hệ thống GTD trong 1 Notion template miễn phí thay thế hết.",
+      "visual_keyword": "multiple task apps scattered messy"
+    },
+    {
+      "voiceover": "Vấn đề dân VP Việt: task trôi giữa Trello, Todoist, sticky note. 30 phần trăm quên hoặc làm muộn deadline.",
+      "visual_keyword": "sticky notes lost on desk"
+    },
+    {
+      "voiceover": "Database một là Inbox. Tất cả task mới throw vào đây qua web clipper hoặc mobile. Không cần phân loại ngay.",
+      "visual_keyword": "notion inbox database empty"
+    },
+    {
+      "voiceover": "Database hai là Projects. Mỗi project có deadline, owner, status. Link với Inbox qua relation nên không sót task con.",
+      "visual_keyword": "notion projects database kanban"
+    },
+    {
+      "voiceover": "Database ba là Areas of Focus. Setup theo OKR cá nhân. Tôi tự dùng template này 12 tháng, hoàn thành 90 phần trăm goal năm.",
+      "visual_keyword": "notion okr areas dashboard"
+    },
+    {
+      "voiceover": "Bonus weekly review template. Mỗi chủ nhật mở ra, review week qua, plan week mới. AI tóm tắt tự động qua Notion AI.",
+      "visual_keyword": "weekly review reflection notion"
+    },
+    {
+      "voiceover": "Bạn dùng hệ thống task nào hiện tại? Comment tên, mình gửi cách migrate vào Notion GTD.",
+      "visual_keyword": "phone scrolling productivity apps"
+    },
+    {
+      "voiceover": "Subscribe để hết phải lưu task ở 5 chỗ khác nhau. Kênh đăng productivity system mỗi 6h sáng. Notion free tier đủ dùng cá nhân.",
+      "visual_keyword": "subscribe red animated button"
+    }
+  ]
+}

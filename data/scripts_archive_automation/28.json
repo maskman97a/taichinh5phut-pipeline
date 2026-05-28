@@ -1,0 +1,49 @@
+{
+  "idea_id": 28,
+  "title": "AI Tạo Dashboard Excel Không Cần Biết Code — 1 Prompt #shorts",
+  "description": "Sếp cần dashboard sales hiển thị KPI real-time? Bạn không biết Power BI cũng làm được — 1 prompt với ChatGPT là có.\n\nVideo demo flow: paste data raw vào ChatGPT → request tạo dashboard với 5 chart phù hợp (revenue trend, top product, conversion rate, geo, customer segment) → output code Python matplotlib + chart đẹp xuất Excel embed.\n\nKhông cần Power BI 10 đô tháng, không cần Tableau 70 đô tháng. ChatGPT Plus 20 đô đủ.\n\n🔗 ChatGPT Plus: https://chat.openai.com\n🔗 Template dashboard miễn phí: [LINK_NOTION]\n🔗 Workflow tự động hoá Make.com: [LINK_MAKE]\n\n👉 Subscribe @vanphongtudong — Excel AI dashboard mỗi sáng 6h.\n\n#ExcelDashboard #ChatGPT #AIDataViz #DanVanPhong #VanPhongTuDong",
+  "tags": [
+    "excel dashboard ai",
+    "chatgpt dashboard",
+    "ai data visualization",
+    "không cần code",
+    "power bi alternative",
+    "ai cho excel",
+    "dashboard tự động",
+    "ai cho dân vp"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Sếp cần dashboard sales real-time? Bạn không biết Power BI cũng làm được — 1 prompt với ChatGPT.",
+      "visual_keyword": "sales dashboard kpi charts colorful"
+    },
+    {
+      "voiceover": "Power BI 10 đô tháng, Tableau 70 đô tháng. Learning curve 3 tháng. Dân VP Việt ít người dùng đúng cách.",
+      "visual_keyword": "power bi tableau complex interface"
+    },
+    {
+      "voiceover": "Bước một, paste data raw 1000 dòng vào ChatGPT. Yêu cầu phân tích và đề xuất 5 chart phù hợp business.",
+      "visual_keyword": "raw data paste chatgpt screen"
+    },
+    {
+      "voiceover": "Bước hai, ChatGPT trả về 5 chart: revenue trend, top product, conversion, geo, segment. Kèm code Python matplotlib chạy được.",
+      "visual_keyword": "five dashboard charts colorful"
+    },
+    {
+      "voiceover": "Bước ba, chạy code trong Colab, xuất ảnh PNG, embed vào Excel hoặc Google Slides. Tôi tự dùng 5 tháng, làm 12 dashboard, tiết kiệm 60 giờ.",
+      "visual_keyword": "google colab python execution"
+    },
+    {
+      "voiceover": "Bonus, request ChatGPT dạng interactive Plotly. Output HTML có thể nhúng Notion hoặc gửi sếp xem online.",
+      "visual_keyword": "plotly interactive dashboard html"
+    },
+    {
+      "voiceover": "Bạn đang dùng Excel pivot hay Power BI? Comment tool, mình tư vấn workflow phù hợp.",
+      "visual_keyword": "dashboard tools comparison choices"
+    },
+    {
+      "voiceover": "Subscribe để tự động hoá Excel dashboard không cần code. Kênh đăng mẹo data mỗi 6h sáng. ChatGPT Plus 20 đô tháng đủ.",
+      "visual_keyword": "subscribe button data visualization"
+    }
+  ]
+}

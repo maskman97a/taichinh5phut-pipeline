@@ -1,0 +1,50 @@
+{
+  "idea_id": 37,
+  "title": "n8n Là Gì — Tự Động Hoá Công Việc Miễn Phí Trong 5 Phút #shorts",
+  "description": "n8n là Zapier MIỄN PHÍ — và còn mạnh hơn vì self-host, tùy chỉnh sâu, no limit. Setup đầu tiên trong 5 phút.\n\nVideo intro n8n cho dân VP Việt: cài đặt qua npx 1 lệnh, build workflow đầu tiên (gửi tin nhắn Telegram khi Gmail nhận email từ sếp), demo UI drag-drop dễ như Lego.\n\nSo sánh với Zapier 30 đô/tháng và Make.com 9 đô/tháng. n8n self-host free forever.\n\n🔗 n8n cài đặt: [LINK_N8N]\n🔗 Cloud n8n trial 14 ngày: n8n.cloud\n🔗 Workflow templates miễn phí: [LINK_NOTION]\n\n👉 Subscribe @vanphongtudong — n8n tutorials mỗi sáng 6h.\n\n#n8n #Automation #NoCodeAI #FreeForever #VanPhongTuDong",
+  "tags": [
+    "n8n là gì",
+    "n8n hướng dẫn",
+    "automation miễn phí",
+    "n8n vs zapier",
+    "self-host automation",
+    "ai cho dân vp",
+    "n8n việt nam",
+    "workflow đầu tiên",
+    "no-code automation"
+  ],
+  "scenes": [
+    {
+      "voiceover": "n8n là Zapier MIỄN PHÍ. Mạnh hơn vì self-host, no limit. Setup đầu tiên 5 phút là chạy.",
+      "visual_keyword": "n8n logo workflow nodes purple"
+    },
+    {
+      "voiceover": "Zapier 30 đô tháng cho 750 task. Make.com 9 đô cho 10000. n8n self-host miễn phí, không giới hạn task forever.",
+      "visual_keyword": "pricing comparison free vs paid"
+    },
+    {
+      "voiceover": "Bước một, cài npx n8n. Mở terminal gõ một dòng. n8n tự download và chạy localhost cổng 5678.",
+      "visual_keyword": "terminal npx n8n command"
+    },
+    {
+      "voiceover": "Bước hai, mở browser localhost. UI drag-drop dễ như Lego. Node là tool, line là data flow. Học 30 phút là sử dụng được.",
+      "visual_keyword": "n8n drag drop workflow ui"
+    },
+    {
+      "voiceover": "Bước ba, build workflow đầu tiên. Trigger Gmail Email từ sếp. Action Telegram Send Message. Tôi tự dùng n8n 9 tháng, build 40 workflow, miễn phí 100 phần trăm.",
+      "visual_keyword": "first workflow gmail telegram"
+    },
+    {
+      "voiceover": "n8n free tier khi self-host trên máy tính hoặc Oracle Cloud Free. Cloud trial 14 ngày test trước nếu chưa muốn cài.",
+      "visual_keyword": "n8n cloud trial signup"
+    },
+    {
+      "voiceover": "Bạn có workflow nào lặp lại muốn tự động hoá? Comment task, mình gửi template n8n phù hợp.",
+      "visual_keyword": "automation ideas brainstorm"
+    },
+    {
+      "voiceover": "Subscribe nếu bạn cũng muốn auto-pilot công việc lặp lại. Kênh đăng n8n tutorial mỗi 6h sáng. Self-host cần kỹ thuật cơ bản.",
+      "visual_keyword": "subscribe n8n tutorial channel"
+    }
+  ]
+}
