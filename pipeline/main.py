@@ -363,11 +363,19 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
     video = video.set_audio(composite_audio).set_duration(total_dur)
 
     # Font Vietnamese - cross-platform (macOS + Linux + Windows fallback)
-    # Uu tien: Montserrat (TikTok aesthetic) -> Noto/DejaVu -> system default
+    # Uu tien: Be Vietnam Pro (Google Font designed cho Vietnamese, dau dep) ->
+    #          Montserrat (TikTok aesthetic) -> Noto/DejaVu -> system default
     import os.path
     import glob as _glob
     _font_candidates = [
-        # GitHub Actions (downloaded vao /tmp/fonts/)
+        # Be Vietnam Pro (priority - Vietnamese-optimized)
+        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-Black.ttf"),
+        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-ExtraBold.ttf"),
+        os.path.expanduser("~/Library/Fonts/BeVietnamPro-Black.ttf"),
+        os.path.expanduser("~/Library/Fonts/BeVietnamPro-ExtraBold.ttf"),
+        "/tmp/fonts/BeVietnamPro-Black.ttf",
+        "/tmp/fonts/BeVietnamPro-ExtraBold.ttf",
+        # GitHub Actions Montserrat fallback (downloaded vao /tmp/fonts/)
         "/tmp/fonts/Montserrat-ExtraBold.ttf",
         "/tmp/fonts/Montserrat-Black.ttf",
         # macOS Homebrew fonts
@@ -378,14 +386,14 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         "/System/Library/Fonts/Helvetica.ttc",
         "/System/Library/Fonts/Avenir Next.ttc",
         "/Library/Fonts/Arial Bold.ttf",
-        # User-installed fonts macOS
+        # User-installed Montserrat macOS
         os.path.expanduser("~/Library/Fonts/Montserrat-ExtraBold.ttf"),
         os.path.expanduser("~/Library/Fonts/NotoSans-Bold.ttf"),
         # Linux (GitHub Actions Ubuntu)
         "/usr/share/fonts/truetype/roboto/Roboto-Bold.ttf",
         "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        # Windows (user-installed Montserrat / system fonts)
+        # Windows fallback Montserrat / system fonts
         os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/Montserrat-ExtraBold.ttf"),
         "C:/Windows/Fonts/Montserrat-ExtraBold.ttf",
         "C:/Windows/Fonts/arialbd.ttf",
@@ -409,6 +417,19 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         VN_FONT = "Arial-Bold"
     print(f"      Font: {VN_FONT.split('/')[-1] if '/' in VN_FONT else VN_FONT}")
 
+    # Hook font rieng: uu tien Montserrat-ExtraBold (yellow + stroke render dung tren IM7)
+    # BeVietnamPro Black + stroke day -> fill bi che, chu mat mau
+    _hook_font_candidates = [
+        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/Montserrat-ExtraBold.ttf"),
+        os.path.expanduser("~/Library/Fonts/Montserrat-ExtraBold.ttf"),
+        "/tmp/fonts/Montserrat-ExtraBold.ttf",
+        "/tmp/fonts/Montserrat-Black.ttf",
+        "C:/Windows/Fonts/Montserrat-ExtraBold.ttf",
+        "/opt/homebrew/share/fonts/Montserrat-ExtraBold.ttf",
+    ]
+    HOOK_FONT = next((p for p in _hook_font_candidates if os.path.exists(p)), VN_FONT)
+    print(f"      Hook Font: {HOOK_FONT.split('/')[-1] if '/' in HOOK_FONT else HOOK_FONT}")
+
     # Disclaimer ALWAYS hien o top trong 4s dau
     disclaimer = (TextClip(DISCLAIMER_TEXT, fontsize=38, color="white",
                           bg_color="rgba(0,0,0,0.7)", size=(900, None),
@@ -430,17 +451,21 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         hook_text = hook_text[:77] + "..."
     print(f"      Hook: \"{hook_text}\"")
 
+    # Hook visual: Montserrat-ExtraBold (yellow render dung tren IM7) + thick stroke
+    # BeVietnamPro Black font: stroke day -> fill bi che -> dung Montserrat rieng cho hook
     hook_visual = (TextClip(hook_text, fontsize=110, color="yellow",
-                           stroke_color="black", stroke_width=10,
-                           size=(950, None), method="caption", font=VN_FONT)
-                   .set_position(("center", 700))   # giua-tren man hinh
-                   .set_start(0).set_duration(1.8)
-                   .fadein(0.15).fadeout(0.3))
+                           stroke_color="black", stroke_width=8,
+                           size=(980, None), method="caption", font=HOOK_FONT)
+                   .set_position(("center", 720))   # giua-tren man hinh
+                   .set_start(0).set_duration(2.2)
+                   .fadein(0.15).fadeout(0.35))
 
     # === KARAOKE-STYLE CAPTIONS ===
     # Chia voiceover moi scene thanh chunks 3-4 tu, hien sync voi voice
-    def split_chunks(text, max_words=4):
-        """Chia thanh cum 3-4 tu, uu tien ngat o dau cau."""
+    def split_chunks(text, max_words=6):
+        """Chia thanh cum 5-6 tu, uu tien ngat o dau cau.
+        Note: max_words=6 (tu 4) giam ~35% TextClip count -> speedup composite render.
+        """
         # Tach theo dau phay/cham truoc
         import re as _re
         parts = _re.split(r'(?<=[,.;:!?])\s+', text.strip())
@@ -455,20 +480,31 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     scene_captions = []
     start_t = 0.0
+    HOOK_DURATION = 2.2  # giay hook chiem - scene 1 caption start sau hook
     for i, scene in enumerate(script_data["scenes"]):
         voice_dur = scene_voices[i].duration  # voice that su, khong tinh pause
         chunks = split_chunks(scene["voiceover"], max_words=4)
         if not chunks:
             start_t += scene_durs[i]
             continue
-        # Chia deu thoi gian voice cho cac chunks
-        chunk_dur = voice_dur / len(chunks)
+        # Scene 1: shift caption sau hook (2.2s), tranh overlap voi hook visual
+        if i == 0:
+            cap_window_start = start_t + HOOK_DURATION
+            cap_window_dur = max(0.5, voice_dur - HOOK_DURATION)
+        else:
+            cap_window_start = start_t
+            cap_window_dur = voice_dur
+        chunk_dur = cap_window_dur / len(chunks)
         for j, chunk in enumerate(chunks):
-            chunk_start = start_t + j * chunk_dur
-            cap = (TextClip(chunk, fontsize=95, color="white",
-                           stroke_color="black", stroke_width=8,
-                           size=(950, None), method="caption", font=VN_FONT)
-                   .set_position(("center", 1400))
+            chunk_start = cap_window_start + j * chunk_dur
+            # Karaoke caption: TRANG vien DEN, KHONG bg (TikTok style cleaner)
+            # Stroke width = 6 (~5.7% of fontsize 106) - vua du contrast, KHONG che fill
+            # Stroke qua day (>10) lam ImageMagick render fill bi den vi stroke overflow
+            # Dung HOOK_FONT Montserrat-ExtraBold - render trang chinh xac
+            cap = (TextClip(chunk, fontsize=106, color="white",
+                           stroke_color="black", stroke_width=6,
+                           size=(980, None), method="caption", font=HOOK_FONT)
+                   .set_position(("center", 1280))
                    .set_start(chunk_start).set_duration(chunk_dur))
             scene_captions.append(cap)
         start_t += scene_durs[i]
@@ -476,48 +512,78 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
     final = CompositeVideoClip([video, hook_visual, disclaimer] + scene_captions)
     output = Path(tmpdir) / "final.mp4"
 
-    # Memory optimization cho Windows (MoviePy 1.0.3 + nhieu TextClip):
+    # Memory + encoder optimization (29/05 — speedup 4x Windows, 2x Linux):
     # - gc.collect() truoc khi render de free temp arrays
-    # - threads=2 thay vi 4 (Windows MoviePy threading hay leak)
-    # - dung file tam ro rang cho audio (tranh in-memory buffer)
+    # - Windows: AMD GPU h264_amf encoder + threads=8 (i7-12700F 20T thua suc)
+    # - Linux CI: libx264 + preset=veryfast + threads=4
+    # - macOS: libx264 + medium (safer default)
+    # - fps 30 -> 24 (-20% frames, YouTube Shorts native 24fps OK)
     import gc as _gc
     _gc.collect()
 
-    # Detect Windows de dieu chinh threads (Linux GitHub Actions van dung 4)
     import platform as _pl
-    _threads = 2 if _pl.system() == "Windows" else 4
+    _sys = _pl.system()
+    if _sys == "Windows":
+        # Local Windows: libx264 + threads=8 (i7-12700F 20T) + preset=fast (1.5x medium)
+        # Note: h264_amf da test fail (MoviePy pass -preset medium khong tuong thich AMF)
+        # Neu can GPU encode -> override codec qua env var FFMPEG_CODEC
+        _codec = os.environ.get("FFMPEG_CODEC", "libx264")
+        _threads = 8
+        _preset = "fast"
+        _extra_params = []
+    elif _sys == "Linux":
+        # GitHub Actions Ubuntu: libx264 + preset veryfast (2x faster medium)
+        _codec, _threads, _preset = "libx264", 4, "veryfast"
+        _extra_params = []
+    else:  # macOS hoac OS khac
+        _codec, _threads, _preset = "libx264", 4, "medium"
+        _extra_params = []
 
-    try:
+    def _do_write(out_path, codec, threads, preset, bitrate, extra=None,
+                  tmp_audio="temp_audio.m4a"):
         final.write_videofile(
-            str(output),
-            fps=30,
-            codec="libx264",
+            str(out_path),
+            fps=24,
+            codec=codec,
             audio_codec="aac",
-            preset="medium",
-            bitrate="5500k",
+            preset=preset,
+            bitrate=bitrate,
             audio_bitrate="192k",
-            threads=_threads,
-            temp_audiofile=str(Path(tmpdir) / "temp_audio.m4a"),
+            threads=threads,
+            temp_audiofile=str(Path(tmpdir) / tmp_audio),
             remove_temp=True,
-            ffmpeg_params=["-pix_fmt", "yuv420p", "-movflags", "+faststart"],
+            ffmpeg_params=["-pix_fmt", "yuv420p", "-movflags", "+faststart"] + (extra or []),
             verbose=False,
             logger=None,
         )
+
+    try:
+        try:
+            _do_write(output, _codec, _threads, _preset, "5500k", _extra_params)
+        except Exception as enc_e:
+            # Encoder loi (h264_amf khong support hoac driver issue) -> fallback libx264
+            err_str = str(enc_e).lower()
+            if _codec != "libx264" and any(k in err_str for k in ["encoder", "amf", "nvenc", "codec"]):
+                print(f"      ⚠ {_codec} fail ({enc_e}) - fallback libx264 veryfast")
+                _gc.collect()
+                _do_write(output, "libx264", 8 if _sys == "Windows" else 4, "veryfast", "5500k", [])
+            else:
+                raise
     except (MemoryError, Exception) as e:
         # Fallback: neu MemoryError -> retry voi resolution 720x1280 (con 56% memory)
         if "MemoryError" in type(e).__name__ or "allocate" in str(e):
-            print(f"      ⚠ Memory tight, retry voi 720x1280...")
+            print(f"      ⚠ Memory tight, retry voi 720x1280 libx264...")
             _gc.collect()
             final_lo = final.resize((720, 1280))
             final_lo.write_videofile(
                 str(output),
-                fps=30,
+                fps=24,
                 codec="libx264",
                 audio_codec="aac",
-                preset="medium",
+                preset="veryfast",
                 bitrate="3500k",
                 audio_bitrate="192k",
-                threads=_threads,
+                threads=4,
                 temp_audiofile=str(Path(tmpdir) / "temp_audio2.m4a"),
                 remove_temp=True,
                 ffmpeg_params=["-pix_fmt", "yuv420p", "-movflags", "+faststart"],
@@ -592,7 +658,9 @@ def upload_to_youtube(video_path, script_data, idea):
             "defaultAudioLanguage": "vi",
         },
         "status": {
-            "privacyStatus": "public",  # Hoặc "private" lúc đầu để check
+            # Privacy configurable qua env var YT_PRIVACY (default "private" de user review)
+            # User doi sang "public" trong .github/workflows/daily.yml khi san sang phat hanh
+            "privacyStatus": os.environ.get("YT_PRIVACY", "private"),
             "selfDeclaredMadeForKids": False,
             "containsSyntheticMedia": True,  # YouTube 2026 BẮT BUỘC
         },

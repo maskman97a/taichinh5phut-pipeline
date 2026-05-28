@@ -32,9 +32,19 @@ jobs:
           echo "convert: $(which convert)"
           echo "ffmpeg:  $(which ffmpeg)"
           convert -version | head -1
-          # Download Montserrat (optional, fallback to Roboto/Noto neu fail)
+          # Download Be Vietnam Pro (priority - Vietnamese-optimized) + Montserrat fallback
           mkdir -p /tmp/fonts
           set +e
+          # Be Vietnam Pro Black + ExtraBold
+          wget -q -O /tmp/fonts/BeVietnamPro-Black.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/bevietnampro/BeVietnamPro-Black.ttf"
+          if [ $? -ne 0 ] || [ ! -s /tmp/fonts/BeVietnamPro-Black.ttf ]; then
+            wget -q -O /tmp/fonts/BeVietnamPro-Black.ttf "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/bevietnampro/BeVietnamPro-Black.ttf"
+          fi
+          wget -q -O /tmp/fonts/BeVietnamPro-ExtraBold.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/bevietnampro/BeVietnamPro-ExtraBold.ttf"
+          if [ $? -ne 0 ] || [ ! -s /tmp/fonts/BeVietnamPro-ExtraBold.ttf ]; then
+            wget -q -O /tmp/fonts/BeVietnamPro-ExtraBold.ttf "https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/bevietnampro/BeVietnamPro-ExtraBold.ttf"
+          fi
+          # Montserrat fallback
           wget -q -O /tmp/fonts/Montserrat-ExtraBold.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/static/Montserrat-ExtraBold.ttf"
           if [ $? -ne 0 ] || [ ! -s /tmp/fonts/Montserrat-ExtraBold.ttf ]; then
             echo "Montserrat ExtraBold download fail - try jsdelivr CDN"
