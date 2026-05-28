@@ -121,8 +121,8 @@ def pick_next_idea():
     print(f"[1/7] Picked idea #{picked['id']}: {picked['title']}")
     return picked, ideas
 
-def mark_published(ideas, idea_id, video_id):
-    """Mark idea đã đăng, append vào published.json."""
+def mark_published(ideas, idea_id, video_id, bgm_file=None):
+    """Mark idea đã đăng, append vào published.json (kèm log BGM file để trace copyright claim)."""
     for i in ideas:
         if i["id"] == idea_id:
             i["status"] = "published"
@@ -130,16 +130,19 @@ def mark_published(ideas, idea_id, video_id):
             i["published_at"] = datetime.now(timezone.utc).isoformat()
     with open(IDEAS_FILE, "w", encoding="utf-8") as f:
         json.dump(ideas, f, ensure_ascii=False, indent=2)
-    # Append published log
+    # Append published log (kèm bgm_file để trace nếu bị YouTube Content ID claim)
     log = []
     if PUBLISHED_FILE.exists():
         with open(PUBLISHED_FILE, "r", encoding="utf-8") as f:
             log = json.load(f)
-    log.append({
+    entry = {
         "idea_id": idea_id,
         "video_id": video_id,
         "published_at": datetime.now(timezone.utc).isoformat(),
-    })
+    }
+    if bgm_file:
+        entry["bgm_file"] = bgm_file
+    log.append(entry)
     with open(PUBLISHED_FILE, "w", encoding="utf-8") as f:
         json.dump(log, f, ensure_ascii=False, indent=2)
 
@@ -335,8 +338,10 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     # === BACKGROUND MUSIC ===
     bgm_files = list(BGM_DIR.glob("*.mp3")) if BGM_DIR.exists() else []
+    bgm_filename_used = None  # Trace cho copyright claim
     if bgm_files:
         bgm_path = random.choice(bgm_files)
+        bgm_filename_used = bgm_path.name
         print(f"      BGM: {bgm_path.name}")
         bgm = AudioFileClip(str(bgm_path)).volumex(0.12)  # 12% volume - du nho de khong at giong
         # Loop hoac trim BGM khop voi total duration
@@ -535,7 +540,8 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
     _gc.collect()
 
     print(f"      Saved: {output} ({output.stat().st_size // 1024} KB)")
-    return output
+    # Return tuple (path, bgm_filename) - bgm dùng để log vào published.json cho trace copyright
+    return output, bgm_filename_used
 
 # ==================== STEP 6: UPLOAD YOUTUBE ====================
 def get_youtube_service():
@@ -563,16 +569,17 @@ def upload_to_youtube(video_path, script_data, idea):
     vn_tomorrow_6am = (datetime.now(timezone.utc) + timedelta(hours=24))
     vn_tomorrow_6am = vn_tomorrow_6am.replace(minute=0, second=0, microsecond=0)
 
-    # Description với disclaimer YMYL
+    # Description automation niche (LOW YMYL) + Kevin MacLeod CC-BY credit
     full_desc = (
         f"{script_data['description']}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"⚠️ DISCLAIMER: Video chỉ mang tính giáo dục và chia sẻ góc nhìn cá nhân, "
-        f"KHÔNG phải lời khuyên đầu tư hay tư vấn tài chính được cấp phép. "
-        f"Mỗi người có hoàn cảnh tài chính khác nhau — hãy tham khảo chuyên gia "
-        f"hoặc nhà tư vấn được cấp phép trước khi quyết định.\n\n"
-        f"📚 Tham khảo: Uỷ ban Chứng khoán Nhà nước - ssc.gov.vn\n"
-        f"📧 Liên hệ: taichinh5phut@gmail.com"
+        f"⚠️ DISCLAIMER: Video chia sẻ workflow tự động hoá và tools AI cho mục đích "
+        f"giáo dục. Kết quả phụ thuộc vào quy trình cá nhân của bạn. Các tool có thể "
+        f"thay đổi giá hoặc tính năng theo thời gian — hãy kiểm tra trang chính thức.\n\n"
+        f"🎵 Music: Kevin MacLeod (incompetech.com)\n"
+        f"Licensed under Creative Commons: By Attribution 4.0\n"
+        f"https://creativecommons.org/licenses/by/4.0/\n\n"
+        f"📧 Liên hệ work/sponsor: vanphongtudong@gmail.com"
     )
 
     body = {
@@ -620,12 +627,12 @@ def main():
     with tempfile.TemporaryDirectory() as tmpdir:
         clip_paths = fetch_all_clips(script_data["scenes"], tmpdir)
         scene_voice_paths = generate_voice_per_scene(script_data, tmpdir)
-        video_path = assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir)
+        video_path, bgm_file = assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir)
         # 6. Upload
         video_id = upload_to_youtube(video_path, script_data, idea)
 
-    # 7. Log
-    mark_published(ideas, idea["id"], video_id)
+    # 7. Log (kèm bgm_file để trace nếu video bị Content ID claim sau)
+    mark_published(ideas, idea["id"], video_id, bgm_file=bgm_file)
     print("[7/7] Logged to published.json")
     print("=" * 60)
     print(f"Done! Video: https://youtube.com/watch?v={video_id}")

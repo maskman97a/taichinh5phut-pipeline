@@ -300,7 +300,9 @@ def main():
 
         # Step 5: Assemble video
         print(f"\n--- Step 5: Assemble video (MoviePy) ---")
-        video_path = assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir_str)
+        video_path, bgm_file = assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir_str)
+        if bgm_file:
+            print(f"   BGM used: {bgm_file}")
 
         # Copy ra output dir (tmp se bi xoa)
         final = OUTPUT_DIR / f"video_{args.id}_{ts}.mp4"
