@@ -523,21 +523,30 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     import platform as _pl
     _sys = _pl.system()
+    # LOCAL_FAST_MODE: ultrafast preset + bitrate thap (test_local --fast)
+    # Note: bottleneck KHONG phai encoder ma la MoviePy Python compositing
+    # -> tang threads/preset chi tiet kiem ~10-15%, khong giam dot bien
+    # -> Toi uu lon hon can refactor sang FFmpeg native overlay filter
+    _fast_mode = os.environ.get("LOCAL_FAST_MODE", "").lower() in ("1", "true", "yes")
+
     if _sys == "Windows":
-        # Local Windows: libx264 + threads=8 (i7-12700F 20T) + preset=fast (1.5x medium)
-        # Note: h264_amf da test fail (MoviePy pass -preset medium khong tuong thich AMF)
-        # Neu can GPU encode -> override codec qua env var FFMPEG_CODEC
-        _codec = os.environ.get("FFMPEG_CODEC", "libx264")
-        _threads = 8
-        _preset = "fast"
+        # Local Windows: libx264 ultrafast + 8 threads (i7 sufficient)
+        _codec = "libx264"
+        _threads = int(os.environ.get("FFMPEG_THREADS", "8"))
+        _preset = os.environ.get("FFMPEG_PRESET", "ultrafast")
         _extra_params = []
     elif _sys == "Linux":
-        # GitHub Actions Ubuntu: libx264 + preset veryfast (2x faster medium)
+        # GitHub Actions Ubuntu CI: libx264 + veryfast (chat luong tot hon ultrafast)
         _codec, _threads, _preset = "libx264", 4, "veryfast"
         _extra_params = []
     else:  # macOS hoac OS khac
         _codec, _threads, _preset = "libx264", 4, "medium"
         _extra_params = []
+
+    # Bitrate: fast mode dung 3500k (preview), production 5500k
+    _bitrate = "3500k" if _fast_mode else "5500k"
+    if _fast_mode:
+        print(f"      [LOCAL_FAST_MODE] bitrate {_bitrate} + preset {_preset}")
 
     def _do_write(out_path, codec, threads, preset, bitrate, extra=None,
                   tmp_audio="temp_audio.m4a"):
@@ -559,14 +568,14 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     try:
         try:
-            _do_write(output, _codec, _threads, _preset, "5500k", _extra_params)
+            _do_write(output, _codec, _threads, _preset, _bitrate, _extra_params)
         except Exception as enc_e:
             # Encoder loi (h264_amf khong support hoac driver issue) -> fallback libx264
             err_str = str(enc_e).lower()
             if _codec != "libx264" and any(k in err_str for k in ["encoder", "amf", "nvenc", "codec"]):
                 print(f"      ⚠ {_codec} fail ({enc_e}) - fallback libx264 veryfast")
                 _gc.collect()
-                _do_write(output, "libx264", 8 if _sys == "Windows" else 4, "veryfast", "5500k", [])
+                _do_write(output, "libx264", 8 if _sys == "Windows" else 4, "veryfast", _bitrate, [])
             else:
                 raise
     except (MemoryError, Exception) as e:
@@ -635,22 +644,27 @@ def upload_to_youtube(video_path, script_data, idea):
     vn_tomorrow_6am = (datetime.now(timezone.utc) + timedelta(hours=24))
     vn_tomorrow_6am = vn_tomorrow_6am.replace(minute=0, second=0, microsecond=0)
 
-    # Description automation niche (LOW YMYL) + Kevin MacLeod CC-BY credit
+    # Description finance YMYL + Kevin MacLeod CC-BY credit
     full_desc = (
         f"{script_data['description']}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"⚠️ DISCLAIMER: Video chia sẻ workflow tự động hoá và tools AI cho mục đích "
-        f"giáo dục. Kết quả phụ thuộc vào quy trình cá nhân của bạn. Các tool có thể "
-        f"thay đổi giá hoặc tính năng theo thời gian — hãy kiểm tra trang chính thức.\n\n"
+        f"⚠️ DISCLAIMER: Đây là góc nhìn cá nhân, KHÔNG phải lời khuyên đầu tư hay "
+        f"tài chính. Mỗi người có hoàn cảnh khác nhau — hãy tham khảo chuyên gia có "
+        f"chứng chỉ trước khi ra quyết định lớn. Kênh không khuyến nghị mua/bán mã "
+        f"cổ phiếu cụ thể, không hứa hẹn ROI.\n\n"
         f"🎵 Music: Kevin MacLeod (incompetech.com)\n"
         f"Licensed under Creative Commons: By Attribution 4.0\n"
         f"https://creativecommons.org/licenses/by/4.0/\n\n"
-        f"📧 Liên hệ work/sponsor: vanphongtudong@gmail.com"
+        f"📧 Liên hệ work/sponsor: taichinh5phut@gmail.com"
     )
+    # YouTube reject description chứa ký tự < hoặc > (HTML injection risk).
+    # Replace ngay đây trước khi build body — defense-in-depth dù scripts đã clean.
+    full_desc = full_desc.replace("<", "‹").replace(">", "›")
+    safe_title = script_data["title"][:100].replace("<", "‹").replace(">", "›")
 
     body = {
         "snippet": {
-            "title": script_data["title"][:100],  # YouTube giới hạn 100
+            "title": safe_title,  # YouTube giới hạn 100 + strip <>
             "description": full_desc[:5000],
             "tags": script_data.get("tags", [])[:30],
             "categoryId": "27",  # Education

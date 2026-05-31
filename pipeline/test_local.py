@@ -221,11 +221,20 @@ def main():
                         help="Bo qua Google TTS, dung silent audio (test nhanh)")
     parser.add_argument("--keep-tmp", action="store_true",
                         help="Giu thu muc tam sau khi xong (de debug)")
+    parser.add_argument("--fast", action="store_true",
+                        help="Preview mode: 720x1280 + bitrate 3000k + ultrafast (~3-4x faster, chat luong giam nhe)")
     args = parser.parse_args()
+
+    # Fast mode: set env var de main.py detect (LOCAL_FAST_MODE=1)
+    if args.fast:
+        os.environ["LOCAL_FAST_MODE"] = "1"
 
     print("=" * 60)
     print(f"🧪 TEST LOCAL — Idea ID: {args.id}")
-    print(f"   Mode: {'silent (skip TTS)' if args.skip_tts else 'full pipeline'}")
+    mode_desc = []
+    if args.skip_tts: mode_desc.append("silent")
+    if args.fast: mode_desc.append("FAST 720p")
+    print(f"   Mode: {' + '.join(mode_desc) if mode_desc else 'full pipeline 1080p'}")
     print("=" * 60)
 
     # Pre-reqs
