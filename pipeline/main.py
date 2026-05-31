@@ -280,38 +280,92 @@ def fetch_all_clips(scenes, tmpdir):
 
 # ==================== STEP 4: SINH VOICE (GOOGLE CLOUD TTS WAVENET) ====================
 import base64
+import html as _html
+
+def split_chunks_text(text, max_words=3):
+    """Module-level chunk splitter (shared TTS SSML + assembly caption).
+
+    Chia thanh cum 3 tu, uu tien ngat o dau cau (,.;:!?).
+    """
+    parts = re.split(r'(?<=[,.;:!?])\s+', text.strip())
+    chunks = []
+    for part in parts:
+        words = part.split()
+        for i in range(0, len(words), max_words):
+            chunk = " ".join(words[i:i + max_words])
+            if chunk:
+                chunks.append(chunk)
+    return chunks if chunks else [text]
+
 
 def generate_voice_per_scene(script_data, tmpdir):
-    """Sinh voice cho TUNG SCENE rieng -> caption sync chinh xac voi voice."""
+    """Sinh voice voi SSML mark + timepoints de caption sync 100% chinh xac.
+
+    Returns list of dict per scene:
+        {"path": Path, "chunks": [...], "timepoints": [start_s of each chunk]}
+    Timepoints are EXACT from Google TTS API - no heuristic.
+    """
     voice_name = VOICES[datetime.now().day % len(VOICES)]
-    print(f"[4/7] Generating voice per scene ({voice_name})...")
-    scene_paths = []
+    print(f"[4/7] Generating voice per scene ({voice_name}) with SSML timepoints...")
+    scene_meta = []
     for i, scene in enumerate(script_data["scenes"]):
         text = scene["voiceover"].strip()
+        chunks = split_chunks_text(text, max_words=3)
+
+        # Build SSML with marks between chunks: <mark name="c0"/>chunk0 <mark name="c1"/>chunk1 ...
+        # XML escape Vietnamese text (safe for &, <, > - we already strip <>)
+        ssml_parts = ['<speak>']
+        for j, chunk in enumerate(chunks):
+            ssml_parts.append(f'<mark name="c{j}"/>')
+            ssml_parts.append(_html.escape(chunk, quote=False))
+            ssml_parts.append(' ')
+        ssml_parts.append('<mark name="cend"/>')
+        ssml_parts.append('</speak>')
+        ssml = "".join(ssml_parts)
+
         path = Path(tmpdir) / f"voice_{i}.mp3"
-        url = f"https://texttospeech.googleapis.com/v1/text:synthesize?key={GOOGLE_TTS_KEY}"
+        # v1beta1 endpoint supports enableTimePointing (v1 does NOT)
+        url = f"https://texttospeech.googleapis.com/v1beta1/text:synthesize?key={GOOGLE_TTS_KEY}"
         body = {
-            "input": {"text": text},
+            "input": {"ssml": ssml},
             "voice": {"languageCode": "vi-VN", "name": voice_name},
             "audioConfig": {
                 "audioEncoding": "MP3",
-                "speakingRate": 1.15,  # +15% nhanh hon binh thuong (Shorts cu)
+                "speakingRate": 1.15,
                 "pitch": 0.0,
                 "volumeGainDb": 2.0,
                 "sampleRateHertz": 24000,
                 "effectsProfileId": ["small-bluetooth-speaker-class-device"],
             },
+            "enableTimePointing": ["SSML_MARK"],
         }
         r = requests.post(url, json=body, timeout=60)
         if r.status_code != 200:
             print(f"      TTS API error scene {i+1}: {r.status_code} - {r.text[:200]}")
             r.raise_for_status()
-        audio_bytes = base64.b64decode(r.json()["audioContent"])
+        resp_json = r.json()
+        audio_bytes = base64.b64decode(resp_json["audioContent"])
         with open(path, "wb") as f:
             f.write(audio_bytes)
-        scene_paths.append(path)
-    print(f"      Generated {len(scene_paths)} voice files")
-    return scene_paths
+
+        # Parse timepoints: list of {markName, timeSeconds}
+        tps = resp_json.get("timepoints", [])
+        tp_map = {tp["markName"]: tp["timeSeconds"] for tp in tps}
+        # Build chunk_starts: c0_time, c1_time, ..., cend_time
+        chunk_starts = [tp_map.get(f"c{j}", 0.0) for j in range(len(chunks))]
+        chunk_end = tp_map.get("cend", 0.0)
+
+        scene_meta.append({
+            "path": path,
+            "chunks": chunks,
+            "chunk_starts": chunk_starts,
+            "chunk_end": chunk_end,
+        })
+        if i == 0:
+            print(f"      Scene 1 timepoints sample: {chunk_starts[:3]} ... end={chunk_end:.2f}s")
+
+    print(f"      Generated {len(scene_meta)} voice files + timepoints")
+    return scene_meta
 
 
 # Backward compat name
@@ -319,13 +373,20 @@ def generate_voice(script_data, tmpdir):
     return generate_voice_per_scene(script_data, tmpdir)
 
 # ==================== STEP 5: GHÉP VIDEO (MOVIEPY) ====================
-def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
-    """Ghep clip + voice per scene + caption SYNC chinh xac voi voice."""
+def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
+    """Ghep clip + voice per scene + caption SYNC chinh xac voi voice.
+
+    scene_voice_data: list of dict (from new TTS) HOAC list of Path (backward compat).
+    """
     print("[5/7] Assembling video...")
 
-    # Load voice per scene + get duration
-    scene_voices = [AudioFileClip(str(p)) for p in scene_voice_paths]
-    PAUSE = 0.2   # khoang lang ngan giua scene (Shorts cu phai nhanh)
+    # Backward compat: if scene_voice_data is list of Paths, convert to dict format
+    if scene_voice_data and isinstance(scene_voice_data[0], (str, Path)):
+        scene_voice_data = [{"path": p, "chunks": None, "chunk_starts": None, "chunk_end": None}
+                            for p in scene_voice_data]
+
+    scene_voices = [AudioFileClip(str(d["path"])) for d in scene_voice_data]
+    PAUSE = 0.2
     scene_durs = [v.duration + PAUSE for v in scene_voices]
     total_dur = sum(scene_durs)
     print(f"      Total duration: {total_dur:.1f}s ({len(scene_voices)} scenes)")
@@ -535,9 +596,20 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     hook_norm = _normalize(hook_text) if hook_text else ""
 
+    # CAPTION_LEAD: caption hien som hon voice 0.1s de compensate visual perception
+    # (con offset nho - timepoints da chinh xac roi)
+    CAPTION_LEAD = 0.1
+
     for i, scene in enumerate(script_data["scenes"]):
         voice_dur = scene_voices[i].duration
-        chunks = split_chunks(scene["voiceover"], max_words=3)
+        # Get chunks + timepoints from TTS metadata (preferred) or fallback split
+        scene_data = scene_voice_data[i]
+        chunks = scene_data.get("chunks")
+        chunk_starts_tp = scene_data.get("chunk_starts")
+        chunk_end_tp = scene_data.get("chunk_end") or voice_dur
+        if not chunks or not chunk_starts_tp:
+            chunks = split_chunks(scene["voiceover"], max_words=3)
+            chunk_starts_tp = None  # fallback heuristic
         if not chunks:
             start_t += scene_durs[i]
             continue
@@ -549,56 +621,56 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
             for j, chunk in enumerate(chunks):
                 accumulated = (accumulated + " " + chunk).strip()
                 acc_norm = _normalize(accumulated)
-                # Hook covered het neu accumulated chua tron noi dung hook
                 if hook_norm in acc_norm:
                     skip_count = j + 1
                     break
 
-        chunks_render = chunks[skip_count:] if skip_count < len(chunks) else chunks
-
-        # Timing: word count proportion (Vietnamese TTS 1 am tiet/tu)
-        all_words = [max(1, len(c.split())) for c in chunks]
-        total_words = sum(all_words)
-        skipped_words = sum(all_words[:skip_count])
-
-        # Caption LEAD voice by 0.45s (compensate TTS ramp-up + reading lag)
-        # User feedback iter 10: sub van cham hon thuyet minh nhieu -> tang LEAD
-        CAPTION_LEAD = 0.45
-        # Speed multiplier: chunks display shorter than proportional -> sync nhanh hon
-        CHUNK_SPEED = 0.92
-
-        # Thoi diem caption start: sau khi voice doc xong hook portion, tru LEAD
-        if total_words:
-            base_start = start_t + voice_dur * (skipped_words / total_words)
-            cap_window_dur = voice_dur * (1 - skipped_words / total_words)
+        # Build chunk timing: use EXACT timepoints if available, else heuristic
+        if chunk_starts_tp:
+            # EXACT mode: caption at chunk_start[j] - LEAD, duration = next_start - this_start
+            chunk_timings = []  # list of (abs_start, duration)
+            for j in range(skip_count, len(chunks)):
+                next_start = chunk_starts_tp[j+1] if j+1 < len(chunks) else chunk_end_tp
+                abs_start = max(start_t, start_t + chunk_starts_tp[j] - CAPTION_LEAD)
+                duration = max(0.3, next_start - chunk_starts_tp[j])
+                chunk_timings.append((chunks[j], abs_start, duration))
         else:
-            base_start = start_t
-            cap_window_dur = voice_dur
-        cap_window_start = max(start_t, base_start - CAPTION_LEAD)
+            # FALLBACK heuristic (old logic)
+            all_words = [max(1, len(c.split())) for c in chunks]
+            total_words = sum(all_words)
+            skipped_words = sum(all_words[:skip_count])
+            chunks_render = chunks[skip_count:]
+            if total_words:
+                base_start = start_t + voice_dur * (skipped_words / total_words)
+                cap_window_dur = voice_dur * (1 - skipped_words / total_words)
+            else:
+                base_start = start_t
+                cap_window_dur = voice_dur
+            cap_window_start = max(start_t, base_start - CAPTION_LEAD)
+            render_words = [max(1, len(c.split())) for c in chunks_render]
+            render_total = sum(render_words) or 1
+            chunk_durs = [cap_window_dur * (w / render_total) * 0.92 for w in render_words]
+            chunk_timings = []
+            chunk_t = cap_window_start
+            for j, chunk in enumerate(chunks_render):
+                chunk_timings.append((chunk, chunk_t, chunk_durs[j]))
+                chunk_t += chunk_durs[j]
 
-        render_words = [max(1, len(c.split())) for c in chunks_render]
-        render_total = sum(render_words) or 1
-        # Apply CHUNK_SPEED multiplier de chunks transition nhanh hon, sync khop voice
-        chunk_durs = [cap_window_dur * (w / render_total) * CHUNK_SPEED for w in render_words]
-
-        chunk_t = cap_window_start
-        for j, chunk in enumerate(chunks_render):
-            # Caption v6: TRANG + STROKE mong + SHADOW DEN OFFSET (look bold/3D)
-            # User feedback: chua bold -> add shadow den offset behind chu trang
-            # Shadow render truoc, chu trang render sau (de chu hien tren cung)
+        for chunk, chunk_t, chunk_dur in chunk_timings:
+            # Caption: TRANG + STROKE 3 + SHADOW DEN OFFSET (look bold/3D)
+            # Timing dung EXACT timepoints tu Google TTS SSML mark (sync 100%)
             CHUNK_FONT = 110
             shadow = (TextClip(chunk, fontsize=CHUNK_FONT, color="black",
                               size=(980, None), method="caption", font=VN_FONT)
-                      .set_position(("center", 1287))  # offset 7px down
-                      .set_start(chunk_t).set_duration(chunk_durs[j]))
+                      .set_position(("center", 1287))
+                      .set_start(chunk_t).set_duration(chunk_dur))
             cap = (TextClip(chunk, fontsize=CHUNK_FONT, color="white",
                            stroke_color="black", stroke_width=3,
                            size=(980, None), method="caption", font=VN_FONT)
                    .set_position(("center", 1280))
-                   .set_start(chunk_t).set_duration(chunk_durs[j]))
+                   .set_start(chunk_t).set_duration(chunk_dur))
             scene_captions.append(shadow)
             scene_captions.append(cap)
-            chunk_t += chunk_durs[j]
         start_t += scene_durs[i]
 
     final = CompositeVideoClip([video, hook_visual, disclaimer] + scene_captions)
