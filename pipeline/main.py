@@ -195,6 +195,53 @@ def generate_script(idea):
     return load_script(idea)
 
 # ==================== STEP 3: TẢI PEXELS CLIPS ====================
+def generate_ai_image(prompt, output_path, width=1080, height=1920, seed=None):
+    """Generate AI image via Pollinations (free, no API key).
+
+    Pollinations Flux model - public Stable Diffusion service.
+    Returns image bytes via URL params.
+    """
+    import urllib.parse
+    if seed is None:
+        seed = random.randint(1, 999999)
+    # Pollinations URL: prompt encoded + dimensions
+    encoded = urllib.parse.quote(prompt[:500])  # cap length
+    url = (f"https://image.pollinations.ai/prompt/{encoded}"
+           f"?width={width}&height={height}&seed={seed}&model=flux&nologo=true")
+    resp = requests.get(url, timeout=60, stream=True)
+    resp.raise_for_status()
+    with open(output_path, "wb") as f:
+        for chunk in resp.iter_content(chunk_size=8192):
+            f.write(chunk)
+    return output_path
+
+
+def image_to_video_kenburns(image_path, video_path, duration=4.0, target_w=1080, target_h=1920):
+    """Convert image to vertical video with Ken Burns effect via FFmpeg.
+
+    Slow zoom-in + slight pan -> dynamic feel, không tĩnh.
+    """
+    import subprocess
+    # FFmpeg zoompan: zoom from 1.0 -> 1.15 across duration
+    fps = 24
+    total_frames = int(duration * fps)
+    # Slow continuous zoom + slight horizontal drift
+    zoompan = (f"zoompan=z='min(zoom+0.0015,1.15)':"
+               f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+               f"d={total_frames}:s={target_w}x{target_h}:fps={fps}")
+    cmd = [
+        "ffmpeg", "-y", "-loglevel", "error",
+        "-loop", "1", "-i", str(image_path),
+        "-vf", f"scale=-1:{target_h * 2}:flags=lanczos,crop={target_w}:{target_h},{zoompan}",
+        "-t", f"{duration:.2f}",
+        "-pix_fmt", "yuv420p",
+        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "23",
+        str(video_path),
+    ]
+    subprocess.run(cmd, check=True, capture_output=True)
+    return video_path
+
+
 def download_pexels_clip(keyword, output_path, exclude_ids=None):
     """Tải 1 video vertical từ Pexels theo keyword.
 
@@ -253,28 +300,69 @@ def download_pexels_clip(keyword, output_path, exclude_ids=None):
 
 
 def fetch_all_clips(scenes, tmpdir):
-    """Tai toan bo clip SEQUENTIAL - share exclude_ids -> KHONG duplicate clips."""
-    print(f"[3/7] Downloading {len(scenes)} clips (sequential, dedup)...")
+    """Tai toan bo clip SEQUENTIAL.
+
+    Strategy per scene:
+    1. Try Pexels stock (with dedup via exclude_ids)
+    2. Fallback: AI image gen (Pollinations Flux) + Ken Burns to video
+    3. Last resort: Pexels broad search
+
+    Script JSON co the chi dinh 'visual_style': 'stock'|'ai'|'auto' (default auto).
+    """
+    print(f"[3/7] Fetching {len(scenes)} clips (Pexels + AI fallback)...")
     used_ids = set()
     paths = [None] * len(scenes)
 
     for i, scene in enumerate(scenes):
         path = Path(tmpdir) / f"clip_{i}.mp4"
         kw = scene["visual_keyword"]
-        try:
-            vid = download_pexels_clip(kw, path, exclude_ids=used_ids)
-            used_ids.add(vid)
-            paths[i] = path
-            print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> OK (id={vid})")
-        except Exception as e:
+        style = scene.get("visual_style", "auto").lower()
+        ai_prompt = scene.get("visual_prompt") or kw  # explicit AI prompt or reuse keyword
+
+        # Force AI mode (skip Pexels)
+        if style == "ai":
             try:
-                vid = download_pexels_clip("business meeting", path, exclude_ids=used_ids)
+                img_path = Path(tmpdir) / f"img_{i}.jpg"
+                generate_ai_image(ai_prompt, img_path)
+                # Convert to video clip with Ken Burns
+                image_to_video_kenburns(img_path, path, duration=6.0)
+                paths[i] = path
+                print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> AI image OK")
+                continue
+            except Exception as e:
+                print(f"      Clip {i+1}/{len(scenes)}: AI fail ({e}), fallback Pexels")
+                style = "auto"  # fallback to Pexels
+
+        # Try Pexels first
+        if style != "ai":
+            try:
+                vid = download_pexels_clip(kw, path, exclude_ids=used_ids)
                 used_ids.add(vid)
                 paths[i] = path
-                print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> fallback OK ({e})")
-            except Exception as e2:
-                print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> FAIL ({e2})")
-                paths[i] = None
+                print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> Pexels OK (id={vid})")
+                continue
+            except Exception as pex_e:
+                # Pexels failed - fallback to AI image if 'auto' style
+                if style == "auto":
+                    try:
+                        img_path = Path(tmpdir) / f"img_{i}.jpg"
+                        generate_ai_image(ai_prompt, img_path)
+                        image_to_video_kenburns(img_path, path, duration=6.0)
+                        paths[i] = path
+                        print(f"      Clip {i+1}/{len(scenes)}: Pexels fail -> AI image OK")
+                        continue
+                    except Exception as ai_e:
+                        print(f"      Clip {i+1}/{len(scenes)}: AI also fail ({ai_e})")
+
+                # Last resort: Pexels broad search
+                try:
+                    vid = download_pexels_clip("business meeting", path, exclude_ids=used_ids)
+                    used_ids.add(vid)
+                    paths[i] = path
+                    print(f"      Clip {i+1}/{len(scenes)}: broad fallback OK")
+                except Exception as e2:
+                    print(f"      Clip {i+1}/{len(scenes)}: ALL FAIL ({e2})")
+                    paths[i] = None
 
     return paths
 

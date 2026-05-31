@@ -23,11 +23,11 @@
   "scenes": [
     {
       "voiceover": "Sáu tháng làm mẹ bỉm lương 12 triệu, tôi tiết kiệm được 18 triệu. Đây là cách tôi làm — không có thu nhập phụ.",
-      "visual_keyword": "vietnamese mother baby home apartment serene"
+      "visual_keyword": "vietnamese mother baby home"
     },
     {
       "voiceover": "Trước đó tôi nghĩ có con thì hết tiết kiệm. Sai. Tôi áp dụng quy tắc Bỉm First — con trước, mình sau.",
-      "visual_keyword": "vietnamese mother holding baby smiling home"
+      "visual_keyword": "vietnamese mother baby home"
     },
     {
       "voiceover": "Cắt một là sữa bột. Tôi mua sữa 6 lon thay vì 1 lon — giảm 18 phần trăm giá, tiết kiệm 300 nghìn tháng.",
@@ -47,11 +47,11 @@
     },
     {
       "voiceover": "Bạn là mẹ bỉm hay sắp làm mẹ? Comment thắc mắc về chi tiêu, mình share kinh nghiệm chi tiết.",
-      "visual_keyword": "phone scrolling youtube comments vietnamese"
+      "visual_keyword": "phone scrolling comments social media"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button red animated youtube"
+      "visual_keyword": "subscribe button animated red youtube"
     }
   ],
   "hook": "Sáu tháng làm mẹ bỉm lương 12 triệu, tôi tiết kiệm được 18 triệu."

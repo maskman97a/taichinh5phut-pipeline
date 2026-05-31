@@ -48,6 +48,31 @@
 - AI, IT, KPI, ATM, Excel, ChatGPT, Notion, Gemini
 - Brand names: SSI, VPS, VnDirect, TPBank, Infina, Cake...
 
+### 2.1d AI IMAGE FALLBACK (cho scene Pexels không match)
+
+User feedback iter 12: "Nếu không đủ video trên Pexels thì gen ảnh AI"
+
+**Pipeline auto-fallback (default):**
+- Try Pexels stock first (dedup via exclude_ids)
+- Nếu Pexels FAIL (rate limit, no results, all duplicates) → AI image gen
+- AI provider: **Pollinations Flux** (free, no API key, public Stable Diffusion)
+- Convert AI image → vertical video (1080×1920) với Ken Burns effect (slow zoom + pan) via FFmpeg
+
+**Script optional fields (per scene):**
+- `"visual_style": "auto"` (default) — Pexels first, fallback AI
+- `"visual_style": "ai"` — luôn dùng AI, skip Pexels
+- `"visual_style": "stock"` — chỉ Pexels (legacy mode)
+- `"visual_prompt": "<detailed prompt>"` — override prompt cho AI (nếu thiếu dùng `visual_keyword`)
+
+**Khi nào dùng `visual_style: "ai"`:**
+- Concept đặc thù VN không có trên Pexels (gửi tiết kiệm online, app ngân hàng số VN)
+- Cần consistency character (Anh Tuấn 32 tuổi, Chị Mai marketing)
+- Visual concept abstract (lãi kép, compound effect)
+
+**Khi nào dùng `visual_style: "stock"`:**
+- Concept universal (money close-up, calculator, office worker)
+- Pexels có nhiều options
+
 ### 2.1c KHÔNG LẶP CLIP PEXELS TRONG VIDEO
 
 User feedback iter 10: "Có những đoạn video bị lặp lại, bỏ nó và thay bằng video khác."
