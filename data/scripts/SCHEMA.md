@@ -48,6 +48,25 @@
 - AI, IT, KPI, ATM, Excel, ChatGPT, Notion, Gemini
 - Brand names: SSI, VPS, VnDirect, TPBank, Infina, Cake...
 
+### 2.1c KHÔNG LẶP CLIP PEXELS TRONG VIDEO
+
+User feedback iter 10: "Có những đoạn video bị lặp lại, bỏ nó và thay bằng video khác."
+
+**Pipeline rule (already implemented):**
+- `fetch_all_clips` chạy SEQUENTIAL (không concurrent) để share `used_ids` set
+- `download_pexels_clip(keyword, output_path, exclude_ids)` track Pexels video_id đã dùng
+- `per_page=15` (was 5) → nhiều lựa chọn hơn, tỷ lệ trùng thấp
+- 8 clips trong 1 video bắt buộc 8 video_id KHÁC NHAU
+
+**Script writer rule (cho người gen script):**
+- `visual_keyword` mỗi scene PHẢI khác nhau hoàn toàn về concept
+- Tránh stacking keywords gần nhau (vd: "vietnamese phone banking" + "vietnamese phone open account" → Pexels có thể trả về cùng clip)
+- Mix wide shot + close-up + abstract:
+  - Wide: "vietnamese family kitchen home"
+  - Close-up: "hand counting money close-up"
+  - Abstract: "calendar pages flipping months"
+- 8 scenes nên có 3+ themes khác nhau (subject + setting + action)
+
 ### 2.1a KHÔNG CONTENT ĐẦU TƯ TÀI CHÍNH
 
 User không muốn content về **đầu tư** (chốt 31/05 iteration 9). Bỏ:

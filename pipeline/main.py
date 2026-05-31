@@ -195,8 +195,15 @@ def generate_script(idea):
     return load_script(idea)
 
 # ==================== STEP 3: TẢI PEXELS CLIPS ====================
-def download_pexels_clip(keyword, output_path):
-    """Tải 1 video vertical từ Pexels theo keyword. Random 1/5 kết quả."""
+def download_pexels_clip(keyword, output_path, exclude_ids=None):
+    """Tải 1 video vertical từ Pexels theo keyword.
+
+    exclude_ids: set chứa Pexels video_id đã dùng -> SKIP để tránh duplicate.
+    per_page 15 (was 5) -> nhieu lua chon hon, ti le trung thap.
+    Returns: video_id đã chọn (de caller add vao exclude_ids).
+    """
+    if exclude_ids is None:
+        exclude_ids = set()
     r = requests.get(
         "https://api.pexels.com/videos/search",
         headers={"Authorization": PEXELS_KEY},
@@ -204,23 +211,34 @@ def download_pexels_clip(keyword, output_path):
             "query": keyword,
             "orientation": "portrait",
             "size": "large",
-            "per_page": 5,
+            "per_page": 15,  # was 5 - cho nhieu lua chon hon
         },
         timeout=30,
     )
     r.raise_for_status()
     videos = r.json().get("videos", [])
-    if not videos:
-        # Fallback: search rộng hơn
+
+    # Loc bo video da dung
+    available = [v for v in videos if v["id"] not in exclude_ids]
+
+    if not available:
+        # Tat ca da dung -> thu fallback search broader
         r = requests.get(
             "https://api.pexels.com/videos/search",
             headers={"Authorization": PEXELS_KEY},
-            params={"query": "business", "orientation": "portrait", "per_page": 5},
+            params={"query": "business", "orientation": "portrait", "per_page": 20},
             timeout=30,
         )
         videos = r.json().get("videos", [])
+        available = [v for v in videos if v["id"] not in exclude_ids]
+        if not available:
+            # Het cach -> pick bat ky (chap nhan duplicate hiem hoi)
+            available = videos if videos else []
 
-    chosen = random.choice(videos)
+    if not available:
+        raise RuntimeError(f"Pexels khong tra ket qua nao cho '{keyword}'")
+
+    chosen = random.choice(available)
     # Tìm file HD vertical
     video_files = sorted(chosen["video_files"],
                          key=lambda f: f.get("width", 0))
@@ -231,33 +249,33 @@ def download_pexels_clip(keyword, output_path):
     with open(output_path, "wb") as f:
         for chunk in resp.iter_content(chunk_size=8192):
             f.write(chunk)
+    return chosen["id"]
+
 
 def fetch_all_clips(scenes, tmpdir):
-    """Tai toan bo clip CONCURRENT - 8 thread song song -> tiet kiem 20s."""
-    print(f"[3/7] Downloading {len(scenes)} clips concurrently...")
+    """Tai toan bo clip SEQUENTIAL - share exclude_ids -> KHONG duplicate clips."""
+    print(f"[3/7] Downloading {len(scenes)} clips (sequential, dedup)...")
+    used_ids = set()
+    paths = [None] * len(scenes)
 
-    def fetch_one(idx_scene):
-        i, scene = idx_scene
+    for i, scene in enumerate(scenes):
         path = Path(tmpdir) / f"clip_{i}.mp4"
         kw = scene["visual_keyword"]
         try:
-            download_pexels_clip(kw, path)
-            return (i, path, kw, None)
+            vid = download_pexels_clip(kw, path, exclude_ids=used_ids)
+            used_ids.add(vid)
+            paths[i] = path
+            print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> OK (id={vid})")
         except Exception as e:
             try:
-                download_pexels_clip("business meeting", path)
-                return (i, path, kw, f"fallback: {e}")
+                vid = download_pexels_clip("business meeting", path, exclude_ids=used_ids)
+                used_ids.add(vid)
+                paths[i] = path
+                print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> fallback OK ({e})")
             except Exception as e2:
-                return (i, None, kw, str(e2))
+                print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> FAIL ({e2})")
+                paths[i] = None
 
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        results = list(executor.map(fetch_one, enumerate(scenes)))
-
-    paths = [None] * len(scenes)
-    for i, path, kw, err in sorted(results, key=lambda x: x[0]):
-        status = "OK" if not err else f"WARN ({err[:40]})"
-        print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> {status}")
-        paths[i] = path
     return paths
 
 # ==================== STEP 4: SINH VOICE (GOOGLE CLOUD TTS WAVENET) ====================
@@ -543,9 +561,11 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         total_words = sum(all_words)
         skipped_words = sum(all_words[:skip_count])
 
-        # Caption LEAD voice by 0.25s (compensate TTS ramp-up + reading lag)
-        # User feedback: caption van cham hon voice -> tang LEAD them
-        CAPTION_LEAD = 0.25
+        # Caption LEAD voice by 0.45s (compensate TTS ramp-up + reading lag)
+        # User feedback iter 10: sub van cham hon thuyet minh nhieu -> tang LEAD
+        CAPTION_LEAD = 0.45
+        # Speed multiplier: chunks display shorter than proportional -> sync nhanh hon
+        CHUNK_SPEED = 0.92
 
         # Thoi diem caption start: sau khi voice doc xong hook portion, tru LEAD
         if total_words:
@@ -558,7 +578,8 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
         render_words = [max(1, len(c.split())) for c in chunks_render]
         render_total = sum(render_words) or 1
-        chunk_durs = [cap_window_dur * (w / render_total) for w in render_words]
+        # Apply CHUNK_SPEED multiplier de chunks transition nhanh hon, sync khop voice
+        chunk_durs = [cap_window_dur * (w / render_total) * CHUNK_SPEED for w in render_words]
 
         chunk_t = cap_window_start
         for j, chunk in enumerate(chunks_render):
