@@ -48,6 +48,19 @@
 - AI, IT, KPI, ATM, Excel, ChatGPT, Notion, Gemini
 - Brand names: SSI, VPS, VnDirect, TPBank, Infina, Cake...
 
+### 2.1a KHÔNG CONTENT ĐẦU TƯ TÀI CHÍNH
+
+User không muốn content về **đầu tư** (chốt 31/05 iteration 9). Bỏ:
+- Chứng khoán (DCA, cổ phiếu, broker, mở tài khoản chứng khoán)
+- Quỹ mở (mutual funds, đầu tư quỹ)
+- Đầu tư vàng (vàng SJC, vàng miếng)
+- Lãi kép Einstein dài hạn
+- Buffett wisdom đầu tư
+
+**Giữ:** Saving (tiết kiệm chi tiêu), gửi tiết kiệm online (saving instrument không phải investing), mua nhà / xe / quỹ khẩn cấp (goal-based saving), psychology, AI tools cho budget cá nhân.
+
+**3 pillar còn lại:** saving (50%) + psychology (35%) + ai-finance (15%).
+
 ### 2.1bis KHÔNG QUẢNG CÁO APP/BRAND CỤ THỂ
 
 **Tuyệt đối không nhắc tên app/dịch vụ cụ thể.** Dùng generic terms:
