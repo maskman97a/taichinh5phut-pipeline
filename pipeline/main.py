@@ -743,9 +743,9 @@ def upload_to_youtube(video_path, script_data, idea):
             "defaultAudioLanguage": "vi",
         },
         "status": {
-            # Privacy configurable qua env var YT_PRIVACY (default "private" de user review)
-            # User doi sang "public" trong .github/workflows/daily.yml khi san sang phat hanh
-            "privacyStatus": os.environ.get("YT_PRIVACY", "private"),
+            # Privacy configurable qua env var YT_PRIVACY (default "public" - san sang phat hanh)
+            # Override "private" qua env var khi can review tam thoi
+            "privacyStatus": os.environ.get("YT_PRIVACY", "public"),
             "selfDeclaredMadeForKids": False,
             "containsSyntheticMedia": True,  # YouTube 2026 BẮT BUỘC
         },
