@@ -328,7 +328,9 @@ def fetch_all_clips(scenes, tmpdir):
                 img_path = Path(tmpdir) / f"img_{i}.jpg"
                 generate_ai_image(ai_prompt, img_path)
                 # Convert to video clip with Ken Burns
-                image_to_video_kenburns(img_path, path, duration=6.0)
+                # Duration 15s -> cover MAX voice scene (~12-14s), khong loop
+                # Assembly subclip 0->voice_dur de khop chinh xac
+                image_to_video_kenburns(img_path, path, duration=15.0)
                 paths[i] = path
                 print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> AI image OK")
                 continue
@@ -350,7 +352,8 @@ def fetch_all_clips(scenes, tmpdir):
                     try:
                         img_path = Path(tmpdir) / f"img_{i}.jpg"
                         generate_ai_image(ai_prompt, img_path)
-                        image_to_video_kenburns(img_path, path, duration=6.0)
+                        # Duration 15s same as AI-force path (cover max scene)
+                        image_to_video_kenburns(img_path, path, duration=15.0)
                         paths[i] = path
                         print(f"      Clip {i+1}/{len(scenes)}: Pexels fail -> AI image OK")
                         continue

@@ -59,13 +59,14 @@
     },
     {
       "voiceover": "Lương của bạn bao nhiêu? Comment bên dưới, mình tính cho bạn budget 50/30/20 chuẩn nhất.",
-      "visual_keyword": "phone scrolling comments social media",
+      "visual_keyword": "hands typing message phone screen close up",
       "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube",
-      "visual_style": "stock"
+      "visual_keyword": "young vietnamese person smiling office happy success",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese young person smiling pointing up at red subscribe button, modern office, photorealistic cinematic"
     }
   ],
   "hook": "Anh Tuấn 32 tuổi lương 15 triệu tiết kiệm 54 triệu trong 1 năm!"

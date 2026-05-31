@@ -58,13 +58,14 @@
     },
     {
       "voiceover": "Bạn dùng app gì track mục tiêu? Comment app yêu thích, mình so sánh chi tiết với app note AI.",
-      "visual_keyword": "phone scrolling comments social media",
+      "visual_keyword": "hands typing message phone screen close up",
       "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe nếu bạn cũng muốn AI quản chi tiêu thay mình — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube",
-      "visual_style": "stock"
+      "visual_keyword": "young vietnamese person smiling office happy success",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese young person smiling pointing up at red subscribe button, modern office, photorealistic cinematic"
     }
   ],
   "hook": "App note AI theo dõi mục tiêu tài chính 1 năm tự động!"

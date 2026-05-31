@@ -59,13 +59,14 @@
     },
     {
       "voiceover": "Bạn đã mắc bẫy black friday lần nào chưa? Comment món bạn mua tiếc nhất, mình check giá thật giúp.",
-      "visual_keyword": "phone scrolling comments social media",
+      "visual_keyword": "hands typing message phone screen close up",
       "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube",
-      "visual_style": "stock"
+      "visual_keyword": "young vietnamese person smiling office happy success",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese young person smiling pointing up at red subscribe button, modern office, photorealistic cinematic"
     }
   ],
   "hook": "Black Friday là cú lừa tâm lý — 99% dân văn phòng mắc bẫy!"

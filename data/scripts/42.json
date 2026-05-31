@@ -59,13 +59,14 @@
     },
     {
       "voiceover": "Bạn nhận ra 20 phần trăm nào tạo 80 phần trăm tài sản mình? Comment chia sẻ, mình tổng hợp pattern phổ biến.",
-      "visual_keyword": "phone scrolling comments social media",
+      "visual_keyword": "hands typing message phone screen close up",
       "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube",
-      "visual_style": "stock"
+      "visual_keyword": "young vietnamese person smiling office happy success",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese young person smiling pointing up at red subscribe button, modern office, photorealistic cinematic"
     }
   ],
   "hook": "Bí mật 80/20 Pareto trong quản lý tiền — áp dụng ngay!"

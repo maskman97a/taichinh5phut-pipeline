@@ -1,6 +1,6 @@
 # Script JSON Schema — Tài Chính 5 Phút
 
-> **Cập nhật 31/05/2026** — Tích hợp full rules từ iteration 1-7 với user feedback.
+> **Cập nhật 31/05/2026 (iter 15)** — Tích hợp full rules từ iteration 1-15 với user feedback.
 > Kênh: "Tài Chính 5 Phút" `@taichinh5phut.official`
 > Pillar: Tài chính cá nhân + AI tools cho dân văn phòng Việt Nam (low YMYL).
 
@@ -68,10 +68,20 @@ User feedback iter 12: "Nếu không đủ video trên Pexels thì gen ảnh AI"
 - Concept đặc thù VN không có trên Pexels (gửi tiết kiệm online, app ngân hàng số VN)
 - Cần consistency character (Anh Tuấn 32 tuổi, Chị Mai marketing)
 - Visual concept abstract (lãi kép, compound effect)
+- **CTA scene 8 subscribe** (iter 15) — Pexels KHÔNG có video subscribe button thật, search trả random "red" content (vd: bóng đá áo đỏ). MẶC ĐỊNH `ai` cho scene 8.
 
 **Khi nào dùng `visual_style: "stock"`:**
 - Concept universal (money close-up, calculator, office worker)
 - Pexels có nhiều options
+- Scene 7 comment CTA OK stock nhưng keyword phải cụ thể (vd: "hands typing message phone screen close up"). Tránh keyword vague như "phone scrolling comments social media" → Pexels miss match.
+
+**Pollinations 402 fallback (iter 15):**
+Pollinations Flux miễn phí nhưng intermittent return 402 Payment Required (rate limit hoặc tier change). Pipeline auto fallback Pexels — visual_keyword PHẢI universal Pexels-friendly để fallback hoạt động.
+
+**Ken Burns duration (iter 13, 15):**
+- Duration 15s (cover max voice scene ~12-14s, KHÔNG loop)
+- iter 13 đặt 10s; iter 15 bump lên 15s sau khi scene 1 idea 18 voice 10.61s gây MoviePy `c.loop(duration=10.61)` lặp 2 lần → "10s đầu = 2 video giống y hệt"
+- Assembly subclip 0→voice_dur khớp chính xác
 
 ### 2.1c KHÔNG LẶP CLIP PEXELS TRONG VIDEO
 
@@ -269,11 +279,11 @@ Scene 1 = hook punchy (overlap với `hook` field) + 1-2 câu context. Pipeline 
 - Audio: AAC 192kbps
 - Faststart for streaming
 
-### 4.3 Upload privacy
+### 4.3 Upload privacy (iter 9 chốt)
 
-- Default: **private** (env var `YT_PRIVACY` override default)
-- Workflow CI: set `YT_PRIVACY=public` khi sẵn sàng phát hành chính thức
-- Local manual: privacy=private để review
+- Default: **public** (`os.environ.get("YT_PRIVACY", "public")`)
+- Cron auto upload public ngay 6h sáng VN
+- Override `YT_PRIVACY=private` khi local test cần review trước
 
 ### 4.4 Sanitization layers
 

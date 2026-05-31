@@ -59,13 +59,14 @@
     },
     {
       "voiceover": "Bạn là mẹ có con nhỏ? Comment số con và lương, mình tư vấn cách quản chi cho gia đình.",
-      "visual_keyword": "phone scrolling comments social media",
+      "visual_keyword": "hands typing message phone screen close up",
       "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube",
-      "visual_style": "stock"
+      "visual_keyword": "young vietnamese person smiling office happy success",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese young person smiling pointing up at red subscribe button, modern office, photorealistic cinematic"
     }
   ],
   "hook": "Chị Linh 33 tuổi kế toán Sài Gòn lương 28 triệu có 2 con nhỏ."
