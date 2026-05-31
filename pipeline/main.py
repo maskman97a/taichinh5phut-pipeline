@@ -437,28 +437,49 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
                   .set_position(("center", 100))
                   .set_start(0).set_duration(4))
 
-    # === HOOK VISUAL — diem nhan 1.5s dau (TikTok/Shorts style) ===
+    # === HOOK VISUAL — diem nhan 2s dau (TikTok/Shorts style) ===
+    # Uu tien hook tu script JSON neu co, neu khong extract tu scene 1 voiceover
     hook_text_raw = script_data["scenes"][0]["voiceover"]
-    # Cat ngan: lay den dau ? . ! dau tien, hoac 7 tu dau
+    hook_explicit = script_data.get("hook", "").strip()
     import re as _re
-    _m = _re.match(r"([^.?!]{1,80}[.?!])", hook_text_raw)
-    if _m:
-        hook_text = _m.group(1).strip()
+    if hook_explicit:
+        hook_text = hook_explicit
     else:
-        hook_text = " ".join(hook_text_raw.split()[:7]) + "..."
-    # Gioi han do dai
-    if len(hook_text) > 80:
-        hook_text = hook_text[:77] + "..."
+        # Cat thong minh: thu lay cau ngan nhat ket thuc bang .?!
+        # Sau do tu de;,. Tuong tu Shorts viral: ngan, manh, gay shock
+        sentences = _re.split(r"(?<=[.?!])\s+", hook_text_raw.strip())
+        hook_text = sentences[0] if sentences else hook_text_raw
+        # Neu cau dau > 60 chars, cat o dau ; hoac dau ,
+        if len(hook_text) > 60:
+            for sep in [";", ","]:
+                idx = hook_text.find(sep)
+                if 20 <= idx <= 60:
+                    hook_text = hook_text[:idx].strip()
+                    break
+        # Fallback cuoi: 8 tu dau + ...
+        if len(hook_text) > 70:
+            hook_text = " ".join(hook_text.split()[:8]) + "..."
     print(f"      Hook: \"{hook_text}\"")
 
-    # Hook visual: Montserrat-ExtraBold (yellow render dung tren IM7) + thick stroke
-    # BeVietnamPro Black font: stroke day -> fill bi che -> dung Montserrat rieng cho hook
-    hook_visual = (TextClip(hook_text, fontsize=110, color="yellow",
-                           stroke_color="black", stroke_width=8,
-                           size=(980, None), method="caption", font=HOOK_FONT)
-                   .set_position(("center", 720))   # giua-tren man hinh
-                   .set_start(0).set_duration(2.2)
-                   .fadein(0.15).fadeout(0.35))
+    # Hook visual: TRANG + STROKE MONG + BG SEMI-DEN (pill style, clean render)
+    # Bo yellow vi yellow + thick stroke gay che fill (ImageMagick artifact)
+    # Trang + bg semi-black -> distinctive khoi caption + render sach
+    _hook_len = len(hook_text)
+    if _hook_len <= 25:
+        _hook_size = 125  # cau cuc ngan, max size
+    elif _hook_len <= 45:
+        _hook_size = 108  # ngan
+    elif _hook_len <= 65:
+        _hook_size = 92   # vua
+    else:
+        _hook_size = 82   # dai (fallback)
+    hook_visual = (TextClip(hook_text, fontsize=_hook_size, color="white",
+                           stroke_color="black", stroke_width=4,
+                           bg_color="rgba(0,0,0,0.65)",
+                           size=(960, None), method="caption", font=HOOK_FONT)
+                   .set_position(("center", 700))
+                   .set_start(0).set_duration(2.5)
+                   .fadein(0.2).fadeout(0.4))
 
     # === KARAOKE-STYLE CAPTIONS ===
     # Chia voiceover thanh cum sentences -> sub hien chinh xac voi thuyet minh
@@ -482,7 +503,7 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
     HOOK_DURATION = 2.2  # giay hook chiem - scene 1 caption start sau hook
     for i, scene in enumerate(script_data["scenes"]):
         voice_dur = scene_voices[i].duration  # voice that su, khong tinh pause
-        chunks = split_chunks(scene["voiceover"], max_words=4)
+        chunks = split_chunks(scene["voiceover"], max_words=3)
         if not chunks:
             start_t += scene_durs[i]
             continue
@@ -500,11 +521,10 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         chunk_durs = [cap_window_dur * (cc / total_chars) for cc in chunk_chars]
         chunk_t = cap_window_start
         for j, chunk in enumerate(chunks):
-            # Caption: TRANG + STROKE MONG (4) + BeVietnamPro-Black (chu DAY hon)
-            # User feedback: stroke mong hon, chu day hon
-            # Black font + thin stroke -> fill ro net + outline du contrast
-            cap = (TextClip(chunk, fontsize=108, color="white",
-                           stroke_color="black", stroke_width=4,
+            # Caption: TRANG + STROKE 5 + BeVietnamPro-Black (chu day hon chut)
+            # User feedback: chu day hon nho thoi
+            cap = (TextClip(chunk, fontsize=110, color="white",
+                           stroke_color="black", stroke_width=5,
                            size=(980, None), method="caption", font=VN_FONT)
                    .set_position(("center", 1280))
                    .set_start(chunk_t).set_duration(chunk_durs[j]))

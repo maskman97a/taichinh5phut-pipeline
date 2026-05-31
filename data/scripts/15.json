@@ -22,7 +22,7 @@
   ],
   "scenes": [
     {
-      "voiceover": "Chị Hà 31 tuổi, nhân viên marketing lương 18 triệu, mỗi tháng mất 5 triệu vì 5 bẫy tâm lý mà não bạn cũng mắc.",
+      "voiceover": "Bạn mất 5 triệu mỗi tháng vì 5 bẫy tâm lý này! Chị Hà 31 tuổi marketing lương 18 triệu cũng mắc, đến khi xem lại 12 tháng chi tiêu mới phát hiện.",
       "visual_keyword": "vietnamese woman marketing office stressed bills calculator"
     },
     {
@@ -53,5 +53,6 @@
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác về tiền bạc. Kênh đăng mỗi 6 giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
       "visual_keyword": "subscribe button red animated youtube"
     }
-  ]
+  ],
+  "hook": "Bạn mất 5 triệu mỗi tháng vì 5 bẫy tâm lý này!"
 }
