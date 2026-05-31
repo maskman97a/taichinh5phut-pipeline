@@ -500,26 +500,56 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     scene_captions = []
     start_t = 0.0
-    # Caption start CUNG LUC voi voice scene -> sync chinh xac
-    # Hook overlay o y=700, caption o y=1280 -> khac vung, KHONG overlap visual
-    # -> KHONG can delay caption sau hook nua
+
+    def _normalize(s):
+        """Lowercase + bo dau cau de match hook vs chunks."""
+        out = s.lower()
+        for ch in [".", ",", "!", "?", ";", ":"]:
+            out = out.replace(ch, "")
+        return " ".join(out.split())
+
+    hook_norm = _normalize(hook_text) if hook_text else ""
+
     for i, scene in enumerate(script_data["scenes"]):
-        voice_dur = scene_voices[i].duration  # voice that su, khong tinh pause
+        voice_dur = scene_voices[i].duration
         chunks = split_chunks(scene["voiceover"], max_words=3)
         if not chunks:
             start_t += scene_durs[i]
             continue
-        # Timing chunks theo WORD COUNT (Vietnamese mostly monosyllabic
-        # -> word count ≈ syllable count ≈ duration ≈ TTS read time)
-        chunk_words = [max(1, len(c.split())) for c in chunks]
-        total_words = sum(chunk_words)
-        chunk_durs = [voice_dur * (cw / total_words) for cw in chunk_words]
-        chunk_t = start_t
-        for j, chunk in enumerate(chunks):
-            # Caption: TRANG + STROKE 5 + fontsize 120 (lon hon, de doc)
-            # User feedback: chu hoi be -> tang fontsize
-            cap = (TextClip(chunk, fontsize=120, color="white",
-                           stroke_color="black", stroke_width=5,
+
+        # Scene 1: SKIP chunks da co trong hook (tranh repeat sub trung hook visual)
+        skip_count = 0
+        if i == 0 and hook_norm:
+            accumulated = ""
+            for j, chunk in enumerate(chunks):
+                accumulated = (accumulated + " " + chunk).strip()
+                acc_norm = _normalize(accumulated)
+                # Hook covered het neu accumulated chua tron noi dung hook
+                if hook_norm in acc_norm:
+                    skip_count = j + 1
+                    break
+
+        chunks_render = chunks[skip_count:] if skip_count < len(chunks) else chunks
+
+        # Timing: word count proportion (TT TTS tieng Viet 1 am tiet/tu)
+        all_words = [max(1, len(c.split())) for c in chunks]
+        total_words = sum(all_words)
+        skipped_words = sum(all_words[:skip_count])
+
+        # Thoi diem caption start: sau khi voice da doc xong phan hook
+        cap_window_start = start_t + voice_dur * (skipped_words / total_words) if total_words else start_t
+        cap_window_dur = voice_dur * (1 - skipped_words / total_words) if total_words else voice_dur
+
+        render_words = [max(1, len(c.split())) for c in chunks_render]
+        render_total = sum(render_words) or 1
+        chunk_durs = [cap_window_dur * (w / render_total) for w in render_words]
+
+        chunk_t = cap_window_start
+        for j, chunk in enumerate(chunks_render):
+            # Caption: TRANG + STROKE 3 + fontsize 100 + Bold font
+            # User feedback: bold, giam stroke, giam kich thuoc
+            cap = (TextClip(chunk, fontsize=100, color="white",
+                           stroke_color="black", stroke_width=3,
                            size=(980, None), method="caption", font=VN_FONT)
                    .set_position(("center", 1280))
                    .set_start(chunk_t).set_duration(chunk_durs[j]))
