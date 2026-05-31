@@ -48,6 +48,24 @@
 - AI, IT, KPI, ATM, Excel, ChatGPT, Notion, Gemini
 - Brand names: SSI, VPS, VnDirect, TPBank, Infina, Cake...
 
+### 2.1bis KHÔNG QUẢNG CÁO APP/BRAND CỤ THỂ
+
+**Tuyệt đối không nhắc tên app/dịch vụ cụ thể.** Dùng generic terms:
+
+| Brand/App cụ thể | Generic term |
+|---|---|
+| TPBank, Cake, Timo, VietCapital | "app ngân hàng số" / "ngân hàng số" |
+| Money Lover, Spendee | "app quản lý chi tiêu" |
+| Infina | "ứng dụng đầu tư quỹ mở" |
+| SSI, VPS, VND, VnDirect | "công ty chứng khoán" |
+| VFM, Dragon Capital | "công ty quản lý quỹ" |
+| ChatGPT, Claude, Gemini, Notion AI | "AI trợ lý" |
+| Notion | "app note" |
+
+**Description footer KHÔNG có** `[LINK_INFINA]` `[LINK_TPBANK]` `[LINK_VPS]` placeholders nữa. Pipeline auto-append chỉ disclaimer + Kevin MacLeod credit + email contact.
+
+**Giữ nguyên:** AI (generic term), Excel/Google Sheets (generic productivity), Shopee/Lazada (chỉ trong context cảnh báo tâm lý).
+
 ### 2.2 KHÔNG ký tự `<` `>` trong description/title/voiceover
 
 YouTube API reject 400 invalidDescription nếu có `<` hoặc `>`.
