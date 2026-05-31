@@ -461,12 +461,11 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
                    .fadein(0.15).fadeout(0.35))
 
     # === KARAOKE-STYLE CAPTIONS ===
-    # Chia voiceover moi scene thanh chunks 3-4 tu, hien sync voi voice
+    # Chia voiceover thanh cum sentences -> sub hien chinh xac voi thuyet minh
     def split_chunks(text, max_words=6):
-        """Chia thanh cum 5-6 tu, uu tien ngat o dau cau.
-        Note: max_words=6 (tu 4) giam ~35% TextClip count -> speedup composite render.
+        """Chia thanh cum 5-6 tu, uu tien ngat o dau cau de sub khop voice.
+        Return list of chunks giu original text exact (TTS dung text nay).
         """
-        # Tach theo dau phay/cham truoc
         import re as _re
         parts = _re.split(r'(?<=[,.;:!?])\s+', text.strip())
         chunks = []
@@ -494,19 +493,23 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         else:
             cap_window_start = start_t
             cap_window_dur = voice_dur
-        chunk_dur = cap_window_dur / len(chunks)
+        # Timing chunks theo CHARACTER PROPORTION (chinh xac hon equal split)
+        # Chunk dai hon -> duration dai hon -> khop voi thuyet minh hon
+        chunk_chars = [max(1, len(c)) for c in chunks]
+        total_chars = sum(chunk_chars)
+        chunk_durs = [cap_window_dur * (cc / total_chars) for cc in chunk_chars]
+        chunk_t = cap_window_start
         for j, chunk in enumerate(chunks):
-            chunk_start = cap_window_start + j * chunk_dur
-            # Karaoke caption: TRANG vien DEN, KHONG bg (TikTok style cleaner)
-            # Stroke width = 6 (~5.7% of fontsize 106) - vua du contrast, KHONG che fill
-            # Stroke qua day (>10) lam ImageMagick render fill bi den vi stroke overflow
-            # Dung HOOK_FONT Montserrat-ExtraBold - render trang chinh xac
-            cap = (TextClip(chunk, fontsize=106, color="white",
-                           stroke_color="black", stroke_width=6,
-                           size=(980, None), method="caption", font=HOOK_FONT)
+            # Caption: TRANG + STROKE MONG (4) + BeVietnamPro-Black (chu DAY hon)
+            # User feedback: stroke mong hon, chu day hon
+            # Black font + thin stroke -> fill ro net + outline du contrast
+            cap = (TextClip(chunk, fontsize=108, color="white",
+                           stroke_color="black", stroke_width=4,
+                           size=(980, None), method="caption", font=VN_FONT)
                    .set_position(("center", 1280))
-                   .set_start(chunk_start).set_duration(chunk_dur))
+                   .set_start(chunk_t).set_duration(chunk_durs[j]))
             scene_captions.append(cap)
+            chunk_t += chunk_durs[j]
         start_t += scene_durs[i]
 
     final = CompositeVideoClip([video, hook_visual, disclaimer] + scene_captions)
