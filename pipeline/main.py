@@ -216,17 +216,19 @@ def generate_ai_image(prompt, output_path, width=1080, height=1920, seed=None):
     return output_path
 
 
-def image_to_video_kenburns(image_path, video_path, duration=4.0, target_w=1080, target_h=1920):
-    """Convert image to vertical video with Ken Burns effect via FFmpeg.
+def image_to_video_kenburns(image_path, video_path, duration=10.0, target_w=1080, target_h=1920):
+    """Convert image to vertical video with smooth Ken Burns effect via FFmpeg.
 
-    Slow zoom-in + slight pan -> dynamic feel, không tĩnh.
+    SMOOTH linear zoom 1.0 -> 1.15 across duration (khong giat khung hinh).
+    Duration default 10s -> cover max scene duration, assembly subclip to exact.
     """
     import subprocess
-    # FFmpeg zoompan: zoom from 1.0 -> 1.15 across duration
     fps = 24
     total_frames = int(duration * fps)
-    # Slow continuous zoom + slight horizontal drift
-    zoompan = (f"zoompan=z='min(zoom+0.0015,1.15)':"
+    # SMOOTH linear zoom: z = 1.0 + (max_zoom - 1.0) * (on/total_frames)
+    # Use 'on' (current output frame number) for linear interpolation
+    max_zoom = 1.15
+    zoompan = (f"zoompan=z='1.0+({max_zoom}-1.0)*on/{total_frames}':"
                f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
                f"d={total_frames}:s={target_w}x{target_h}:fps={fps}")
     cmd = [
@@ -234,6 +236,7 @@ def image_to_video_kenburns(image_path, video_path, duration=4.0, target_w=1080,
         "-loop", "1", "-i", str(image_path),
         "-vf", f"scale=-1:{target_h * 2}:flags=lanczos,crop={target_w}:{target_h},{zoompan}",
         "-t", f"{duration:.2f}",
+        "-r", str(fps),  # explicit output fps
         "-pix_fmt", "yuv420p",
         "-c:v", "libx264", "-preset", "ultrafast", "-crf", "23",
         str(video_path),
@@ -480,14 +483,19 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
     print(f"      Total duration: {total_dur:.1f}s ({len(scene_voices)} scenes)")
 
     # Build clips with matching per-scene durations
+    # Force 24fps on ALL source clips de tranh fps mismatch giat khung hinh
     target_w, target_h = 1080, 1920
+    TARGET_FPS = 24
     clips = []
     for i, (p, target_dur) in enumerate(zip(clip_paths, scene_durs)):
         c = VideoFileClip(str(p)).without_audio()
+        # Normalize fps NGAY tu nguon de tranh stutter khi concat
+        c = c.set_fps(TARGET_FPS)
         scale = max(target_w / c.w, target_h / c.h)
         c = c.resize(scale)
         c = c.crop(x_center=c.w/2, y_center=c.h/2, width=target_w, height=target_h)
         if c.duration < target_dur:
+            # AI Ken Burns clip 10s should cover -> rarely loop. Pexels may.
             c = c.loop(duration=target_dur)
         else:
             c = c.subclip(0, target_dur)
