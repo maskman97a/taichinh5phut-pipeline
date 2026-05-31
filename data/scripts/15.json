@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Bạn mất 5 triệu mỗi tháng vì 5 bẫy tâm lý này! Chị Hà 31 tuổi marketing lương 18 triệu cũng mắc, đến khi xem lại 12 tháng chi tiêu mới phát hiện.",
-      "visual_keyword": "office worker laptop stressed papers"
+      "visual_keyword": "office worker laptop stressed papers",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese female office worker portrait holding phone, photorealistic, modern Asian bright office"
     },
     {
       "voiceover": "Bẫy thứ nhất là mua thêm cho đủ ngưỡng miễn phí giao hàng. Đơn 150 nghìn, bạn thêm 2 món đến 250 nghìn, mất 100 nghìn thay vì trả 20 nghìn phí giao.",
-      "visual_keyword": "phone online shopping app interface"
+      "visual_keyword": "phone online shopping app interface",
+      "visual_style": "ai",
+      "visual_prompt": "Person reading small print contract with magnifying glass, close up hands document, photorealistic"
     },
     {
       "voiceover": "Bẫy thứ hai là giá mồi nhử. Cốc cà phê nhỏ 30 nghìn, vừa 40 nghìn, lớn 45 nghìn. Bạn chọn cốc lớn vì cảm giác hời, thực ra uống không hết.",
-      "visual_keyword": "coffee shop menu pricing small medium large vietnamese cafe"
+      "visual_keyword": "coffee shop menu pricing small medium large vietnamese cafe",
+      "visual_style": "ai",
+      "visual_prompt": "Person reading small print contract with magnifying glass, close up hands document, photorealistic"
     },
     {
       "voiceover": "Bẫy thứ ba là trả góp không lãi suất. Điện thoại 25 triệu chia 12 tháng nghe rẻ, nhưng não không cảm thấy đau khi quẹt thẻ, tiêu nhiều hơn 30 phần trăm.",
-      "visual_keyword": "credit card payment hands close up"
+      "visual_keyword": "credit card payment hands close up",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Bẫy thứ tư là so sánh với giá gốc đã thổi phồng. Túi xách niêm yết 1 triệu, sale chỉ 300 nghìn, bạn nghĩ hời. Thực ra giá thị trường chỉ 250 nghìn quanh năm.",
-      "visual_keyword": "phone online shopping app interface"
+      "visual_keyword": "phone online shopping app interface",
+      "visual_style": "ai",
+      "visual_prompt": "Financial comparison chart on phone screen modern infographic, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Bẫy thứ năm là phình to chi tiêu theo lương. Tăng lương 3 triệu, chi tiêu cũng tăng 3 triệu. Năm năm sau lương đôi nhưng vẫn không có quỹ khẩn cấp.",
-      "visual_keyword": "vietnamese salary increase chart lifestyle inflation upgrade"
+      "visual_keyword": "vietnamese salary increase chart lifestyle inflation upgrade",
+      "visual_style": "ai",
+      "visual_prompt": "Person reading small print contract with magnifying glass, close up hands document, photorealistic"
     },
     {
       "voiceover": "Bạn đã mắc bẫy số mấy nhiều nhất? Comment số bẫy bạn nhận ra, mình tư vấn cách thoát cụ thể cho từng bẫy.",
-      "visual_keyword": "vietnamese person thinking phone scrolling comments"
+      "visual_keyword": "vietnamese person thinking phone scrolling comments",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác về tiền bạc. Kênh đăng mỗi 6 giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Bạn mất 5 triệu mỗi tháng vì 5 bẫy tâm lý này!"

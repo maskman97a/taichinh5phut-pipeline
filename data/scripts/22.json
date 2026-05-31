@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Black Friday thực chất là cú lừa tâm lý — 80% sản phẩm giá thật cao hơn giá trung bình ba tháng trước.",
-      "visual_keyword": "black friday banner shopee vietnamese phone deceptive"
+      "visual_keyword": "black friday banner shopee vietnamese phone deceptive",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Người bán dùng bốn chiêu tâm lý để bạn quẹt thẻ vô tội vạ. Hiểu chúng bạn tiết kiệm trung bình 3 triệu mỗi mùa sale.",
-      "visual_keyword": "vietnamese woman shopping online holiday excited"
+      "visual_keyword": "vietnamese woman shopping online holiday excited",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Chiêu một Anchor Pricing. Giá gốc 2 triệu, sale còn 600 nghìn. Bạn so với 2 triệu — thực ra giá thị trường 700 nghìn quanh năm.",
-      "visual_keyword": "phone online shopping app interface"
+      "visual_keyword": "phone online shopping app interface",
+      "visual_style": "ai",
+      "visual_prompt": "Financial comparison chart on phone screen modern infographic, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Chiêu hai Countdown Scarcity. Còn 3 giờ, còn 5 sản phẩm — đếm ngược kích thích FOMO. Bạn quyết định trong 30 giây không kịp suy nghĩ.",
-      "visual_keyword": "countdown timer scarcity sales urgency vietnamese"
+      "visual_keyword": "countdown timer scarcity sales urgency vietnamese",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Chiêu ba Social Proof Fake. 4,9 sao 50 ngàn lượt mua — phần lớn từ farm review hoặc đơn tự động sau bán. Check kỹ comment có ảnh thật.",
-      "visual_keyword": "fake reviews 5 stars magnifier check vietnamese app"
+      "visual_keyword": "fake reviews 5 stars magnifier check vietnamese app",
+      "visual_style": "ai",
+      "visual_prompt": "Person holding shopping bags excited shopping mall, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Chiêu bốn Loss Aversion. Bỏ qua sẽ tiếc — nhưng bạn không cần sản phẩm đó. Dùng extension Honey hoặc Keepa check lịch sử giá 6 tháng.",
-      "visual_keyword": "honey extension price history chart browser screen"
+      "visual_keyword": "honey extension price history chart browser screen",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Bạn đã mắc bẫy black friday lần nào chưa? Comment món bạn mua tiếc nhất, mình check giá thật giúp.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Black Friday là cú lừa tâm lý — 99% dân văn phòng mắc bẫy!"

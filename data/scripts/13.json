@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Anh Tuấn 32 tuổi, kế toán Hà Nội, lương 15 triệu. Sau 1 năm anh có 54 triệu trong tài khoản tiết kiệm.",
-      "visual_keyword": "young office worker desk laptop"
+      "visual_keyword": "young office worker desk laptop",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese male office worker portrait holding phone, photorealistic, modern Asian bright office"
     },
     {
       "voiceover": "Trước đó 3 năm anh không nổi 5 triệu cuối tháng. Cứ lương về là tiêu hết, không hiểu tiền đi đâu.",
-      "visual_keyword": "empty wallet hands close up"
+      "visual_keyword": "empty wallet hands close up",
+      "visual_style": "ai",
+      "visual_prompt": "Empty leather wallet on wooden table close up, sad mood, dim lighting, photorealistic"
     },
     {
       "voiceover": "Tháng 1, anh chia lương theo 50/30/20. Bảy triệu rưỡi cho thiết yếu, bốn triệu rưỡi mong muốn, ba triệu tiết kiệm tự động.",
-      "visual_keyword": "envelope cash money hands"
+      "visual_keyword": "envelope cash money hands",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Tháng 4 anh add bước hai, track mọi khoản chi trên năm chục nghìn bằng app quản lý chi tiêu. Một tháng sau anh phát hiện tốn một triệu rưỡi cho cà phê.",
-      "visual_keyword": "phone screen app interface close up"
+      "visual_keyword": "phone screen app interface close up",
+      "visual_style": "ai",
+      "visual_prompt": "Calculator on desk with Vietnamese dong banknotes and notebook, calculating budget, photorealistic"
     },
     {
       "voiceover": "Tháng 7 anh cắt sáu mươi phần trăm chi tiêu vặt. Tiết kiệm thêm một triệu mỗi tháng, chuyển sang gửi online lãi bảy phẩy năm phần trăm năm.",
-      "visual_keyword": "hands counting cash money close up"
+      "visual_keyword": "hands counting cash money close up",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Tháng mười hai tổng quỹ năm mươi tư triệu, lãi sáu tháng cuối tám trăm nghìn. Đây là ví dụ minh hoạ, kết quả tuỳ chi tiêu mỗi người.",
-      "visual_keyword": "savings account 54 million vietnamese banking app"
+      "visual_keyword": "savings account 54 million vietnamese banking app",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Lương của bạn bao nhiêu? Comment bên dưới, mình tính cho bạn budget 50/30/20 chuẩn nhất.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Anh Tuấn 32 tuổi lương 15 triệu tiết kiệm 54 triệu trong 1 năm!"

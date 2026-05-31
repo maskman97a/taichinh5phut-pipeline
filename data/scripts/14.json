@@ -22,35 +22,49 @@
   "scenes": [
     {
       "voiceover": "Tháng vừa rồi tôi track mọi khoản chi trên năm chục nghìn. Số tiền tôi tiết kiệm bonus còn nhiều hơn cả lương tháng 13.",
-      "visual_keyword": "vietnamese phone expense tracker app dashboard report monthly"
+      "visual_keyword": "vietnamese phone expense tracker app dashboard report monthly",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Trước đó tôi nghĩ mình tiêu hợp lý. Nhìn report 30 ngày tôi phát hiện năm chỗ rò rỉ tiền mình hoàn toàn không nhận ra.",
-      "visual_keyword": "vietnamese woman shocked expression looking phone"
+      "visual_keyword": "vietnamese woman shocked expression looking phone",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Chỗ thứ nhất là cà phê take away. Tôi tiêu sáu trăm nghìn — nhiều hơn tiền điện nước cả tháng.",
-      "visual_keyword": "coffee cups receipts pile vietnamese cafe"
+      "visual_keyword": "coffee cups receipts pile vietnamese cafe",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese coffee shop street vendor cups close up, lifestyle photo photorealistic"
     },
     {
       "voiceover": "Chỗ thứ hai là shopee freeship. Mỗi lần đặt thêm hai mặt hàng để đủ free ship, tổng tám trăm nghìn không cần thiết.",
-      "visual_keyword": "ecommerce app screenshot cart vietnamese phone"
+      "visual_keyword": "ecommerce app screenshot cart vietnamese phone",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Chỗ thứ ba là grab fee giờ cao điểm, một triệu hai. Sau khi nhận ra tôi đi giờ sớm hoặc dùng grab bike, tiết kiệm bảy trăm nghìn tháng sau.",
-      "visual_keyword": "grab app vietnamese motorbike street rain"
+      "visual_keyword": "grab app vietnamese motorbike street rain",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Tổng sau ba mươi ngày tôi tiết kiệm thêm hai triệu hai mà không cảm thấy thiếu thốn. Đây là kết quả của tôi, mỗi người sẽ khác nhau.",
-      "visual_keyword": "vietnamese hand counting cash 2 million banknotes"
+      "visual_keyword": "vietnamese hand counting cash 2 million banknotes",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Bạn dùng app gì track chi tiêu? Comment tên app, mình review riêng cái nào hợp với dân VP Việt nhất.",
-      "visual_keyword": "youtube comments scrolling phone vietnamese"
+      "visual_keyword": "youtube comments scrolling phone vietnamese",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Sau 30 ngày track chi tiêu — đây là số tiền tôi tiết kiệm bonus!"

@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Bảy dấu hiệu bạn đang sống dưới mức lương. Check ngay nếu mắc bốn trên bảy trở lên — không phải vì lương thấp.",
-      "visual_keyword": "vietnamese young person worried checking list paper"
+      "visual_keyword": "vietnamese young person worried checking list paper",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Dấu hiệu một là cuối tháng không nhớ tiền đi đâu. Lương về 2 tuần đã hết một nửa không có log.",
-      "visual_keyword": "empty wallet hands close up"
+      "visual_keyword": "empty wallet hands close up",
+      "visual_style": "ai",
+      "visual_prompt": "Empty leather wallet on wooden table close up, sad mood, dim lighting, photorealistic"
     },
     {
       "voiceover": "Dấu hiệu hai là không có quỹ khẩn cấp ba tháng. Mất việc bất ngờ bạn sẽ vay người thân ngay tuần đầu.",
-      "visual_keyword": "vietnamese person worried job loss empty savings"
+      "visual_keyword": "vietnamese person worried job loss empty savings",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Dấu hiệu ba là tiêu tăng theo lương. Lương tăng 5 triệu chi tiêu cũng tăng 5 triệu — số dư cuối tháng giống y như cũ.",
-      "visual_keyword": "salary up expenses up same balance vietnamese"
+      "visual_keyword": "salary up expenses up same balance vietnamese",
+      "visual_style": "ai",
+      "visual_prompt": "Calculator on desk with Vietnamese dong banknotes and notebook, calculating budget, photorealistic"
     },
     {
       "voiceover": "Dấu hiệu bốn là vay trả góp 0% lãi suất trả góp 0 phần trăm cho hàng không thiết yếu. Iphone mới điện thoại mới mua trả góp 12 tháng.",
-      "visual_keyword": "vietnamese bnpl iphone installment phone deal"
+      "visual_keyword": "vietnamese bnpl iphone installment phone deal",
+      "visual_style": "ai",
+      "visual_prompt": "Person holding shopping bags excited shopping mall, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Dấu hiệu năm sáu bảy là so sánh với người khác, mua đồ flex thay vì đầu tư, và không biết giá vốn vàng. Đây là góc nhìn cá nhân.",
-      "visual_keyword": "vietnamese person comparing instagram lifestyle expensive"
+      "visual_keyword": "vietnamese person comparing instagram lifestyle expensive",
+      "visual_style": "ai",
+      "visual_prompt": "Financial comparison chart on phone screen modern infographic, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Bạn mắc bao nhiêu dấu hiệu? Comment số dấu hiệu, mình tư vấn bài tập 7 ngày fix cho bạn.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Bảy dấu hiệu bạn đang sống dưới mức lương."

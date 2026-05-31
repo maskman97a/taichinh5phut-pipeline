@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Năm sai lầm tiền tuổi 25 khiến dân văn phòng Việt mất 200 tới 500 triệu tài sản tiềm năng đến tuổi 35.",
-      "visual_keyword": "vietnamese young person looking back regret thoughtful"
+      "visual_keyword": "vietnamese young person looking back regret thoughtful",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Sai một là không bắt đầu tiết kiệm sớm. Tuổi 25 tiết kiệm 1 triệu tháng đến 35 là 180 triệu — chưa tính lãi kép.",
-      "visual_keyword": "compound interest chart 25 to 35 vietnamese"
+      "visual_keyword": "compound interest chart 25 to 35 vietnamese",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Sai hai là Lifestyle Inflation. Lương tăng 30 phần trăm chi tiêu tăng theo. 5 năm sau bạn vẫn không có quỹ khẩn cấp.",
-      "visual_keyword": "vietnamese salary increase lifestyle upgrade phone"
+      "visual_keyword": "vietnamese salary increase lifestyle upgrade phone",
+      "visual_style": "ai",
+      "visual_prompt": "Calculator on desk with Vietnamese dong banknotes and notebook, calculating budget, photorealistic"
     },
     {
       "voiceover": "Sai ba là vay trả góp 0% lãi suất trả góp 0%. Bạn coi như rẻ — não không cảm thấy đau khi quẹt thẻ. Tuổi 30 đầy nợ tiêu dùng.",
-      "visual_keyword": "credit card payment hands close up"
+      "visual_keyword": "credit card payment hands close up",
+      "visual_style": "ai",
+      "visual_prompt": "Credit card swipe at modern payment terminal close up, photorealistic"
     },
     {
       "voiceover": "Sai bốn là không đầu tư vì sợ rủi ro. Để hết tiền trong tài khoản 0,1% năm — lạm phát 4% ăn mất tài sản thật.",
-      "visual_keyword": "savings account stagnant inflation graph vietnamese"
+      "visual_keyword": "savings account stagnant inflation graph vietnamese",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Sai năm là không xây mạng quan hệ. Tuổi 25-30 là cửa sổ vàng kết nối — bỏ qua sau này thuê tư vấn 5 triệu giờ. Đây là góc nhìn cá nhân.",
-      "visual_keyword": "vietnamese networking event professionals smiling"
+      "visual_keyword": "vietnamese networking event professionals smiling",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Bạn đang ở tuổi nào, mắc sai lầm nào? Comment tuổi và sai lầm bạn nhận ra, mình tư vấn cách fix.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "5 sai lầm tiền tuổi 25 sẽ khiến bạn hối hận tuổi 35!"

@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Cô Hoa 30 tuổi sales Hà Nội lương 12 triệu. Sau năm năm cô mua căn hộ 1 tỷ 2 không cần vay đồng nào.",
-      "visual_keyword": "vietnamese woman sales office hanoi smiling"
+      "visual_keyword": "vietnamese woman sales office hanoi smiling",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese female office worker portrait holding phone, photorealistic, modern Asian bright office"
     },
     {
       "voiceover": "Cô không trúng số, không thừa kế. Cô kết hợp ba việc — tiết kiệm 50% lương, đầu tư quỹ mở, freelance buổi tối.",
-      "visual_keyword": "vietnamese woman three tasks split screen working"
+      "visual_keyword": "vietnamese woman three tasks split screen working",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Việc một là tiết kiệm 6 triệu mỗi tháng — một nửa lương. Cô sống cùng bố mẹ, không tốn tiền thuê nhà.",
-      "visual_keyword": "vietnamese family home shared multigenerational"
+      "visual_keyword": "vietnamese family home shared multigenerational",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Việc hai là DCA 3 triệu mỗi tháng vào quỹ mở cân bằng. Sau 5 năm cô có 220 triệu vốn cộng lãi 80 triệu.",
-      "visual_keyword": "stock chart growing 5 years vietnamese app screen"
+      "visual_keyword": "stock chart growing 5 years vietnamese app screen",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Việc ba là freelance thiết kế ban đêm 8 triệu mỗi tháng. Cô làm thêm 3 đêm 1 tuần — toàn bộ tiền freelance vào quỹ mua nhà.",
-      "visual_keyword": "vietnamese woman freelance design laptop night cozy"
+      "visual_keyword": "vietnamese woman freelance design laptop night cozy",
+      "visual_style": "ai",
+      "visual_prompt": "Person holding shopping bags excited shopping mall, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Sau 60 tháng cô có 720 triệu tiết kiệm cộng 300 triệu quỹ mở cộng 480 triệu freelance — đủ 1 tỷ 5 mua căn hộ vùng ven. Đây là ví dụ minh hoạ.",
-      "visual_keyword": "vietnamese hand holding apartment key new home"
+      "visual_keyword": "vietnamese hand holding apartment key new home",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Bạn có dream mua nhà không? Comment lương hiện tại, mình tư vấn lộ trình 5 năm cho bạn.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hết nói giá như tôi đầu tư sớm — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Cô Hoa 30 tuổi sales Hà Nội lương 12 triệu."

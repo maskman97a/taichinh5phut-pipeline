@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Năm dấu hiệu bạn đang sống dưới khả năng tài chính — ngược lại với sống quá khả năng.",
-      "visual_keyword": "vietnamese person frugal lifestyle minimal home"
+      "visual_keyword": "vietnamese person frugal lifestyle minimal home",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Sống quá khả năng dễ nhận ra. Sống dưới khả năng khó hơn — bạn tưởng đang khôn ngoan nhưng thực tế đang bỏ lỡ cơ hội.",
-      "visual_keyword": "vietnamese balance scale lifestyle quality money"
+      "visual_keyword": "vietnamese balance scale lifestyle quality money",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Dấu hiệu một là tiết kiệm trên 40 phần trăm lương nhưng không có quỹ giải trí. Tiết kiệm phải kèm sống chất lượng.",
-      "visual_keyword": "vietnamese person home alone weekend no plans"
+      "visual_keyword": "vietnamese person home alone weekend no plans",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Dấu hiệu hai là không dám tiêu cho sức khoẻ. Khám tổng quát 2 triệu năm bạn cho là phí — tới khi đau mất 50 triệu chữa bệnh.",
-      "visual_keyword": "vietnamese hospital expensive treatment regret"
+      "visual_keyword": "vietnamese hospital expensive treatment regret",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Dấu hiệu ba là không đầu tư vì sợ rủi ro. Để hết tiền tài khoản 0,1 phần trăm năm — lạm phát 4 phần trăm ăn mất tài sản.",
-      "visual_keyword": "savings stagnant inflation eroding vietnamese chart"
+      "visual_keyword": "savings stagnant inflation eroding vietnamese chart",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Dấu hiệu bốn năm là lương cao thuê phòng 2 triệu chật chội, mua đồ cũ kém chất lượng tốn nhiều lần sửa, không học khoá kỹ năng nâng lương. Đây là góc nhìn cá nhân.",
-      "visual_keyword": "vietnamese small room cramped office worker savings"
+      "visual_keyword": "vietnamese small room cramped office worker savings",
+      "visual_style": "ai",
+      "visual_prompt": "Person holding shopping bags excited shopping mall, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Bạn nhận ra dấu hiệu nào ở mình? Comment số dấu hiệu, mình tư vấn balance lại.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "5 dấu hiệu bạn đang sống dưới khả năng tài chính của mình!"

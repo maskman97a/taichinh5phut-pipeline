@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Phân loại 100 khoản chi 1 tháng trong 2 phút bằng Excel cộng AI trợ lý. Không cần gõ tay từng dòng vào app quản lý chi tiêu.",
-      "visual_keyword": "excel spreadsheet expenses 100 rows colorful categories"
+      "visual_keyword": "excel spreadsheet expenses 100 rows colorful categories",
+      "visual_style": "ai",
+      "visual_prompt": "Calculator on desk with Vietnamese dong banknotes and notebook, calculating budget, photorealistic"
     },
     {
       "voiceover": "Dân Văn Phòng Việt mất ba tiếng mỗi tháng gõ tay sao kê vào app. Đây là cách dùng AI làm hộ trong vài phút.",
-      "visual_keyword": "vietnamese person tired typing laptop late night"
+      "visual_keyword": "vietnamese person tired typing laptop late night",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Bước một là download sao kê ngân hàng ra Excel. Mọi ngân hàng đều có chức năng này trong app, file xls hoặc csv.",
-      "visual_keyword": "bank statement download excel csv vietnamese app"
+      "visual_keyword": "bank statement download excel csv vietnamese app",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Bước hai là copy cột mô tả giao dịch, paste vào AI trợ lý với prompt phân loại sang tám nhóm chi tiêu.",
-      "visual_keyword": "chatgpt prompt expense categorization screen close-up"
+      "visual_keyword": "chatgpt prompt expense categorization screen close-up",
+      "visual_style": "ai",
+      "visual_prompt": "Calculator on desk with Vietnamese dong banknotes and notebook, calculating budget, photorealistic"
     },
     {
       "voiceover": "Bước ba là copy kết quả vào cột bên cạnh Excel, dùng SUMIF tổng theo nhóm. Pie chart hiện ngay tỷ lệ chi tiêu thật của bạn.",
-      "visual_keyword": "excel pie chart expense categories vietnamese dashboard"
+      "visual_keyword": "excel pie chart expense categories vietnamese dashboard",
+      "visual_style": "ai",
+      "visual_prompt": "Financial comparison chart on phone screen modern infographic, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Link template Google Sheets có prompt mẫu trong description. Mở ra copy về tài khoản bạn, dùng ngay trong 5 phút.",
-      "visual_keyword": "google sheets template share copy link screen"
+      "visual_keyword": "google sheets template share copy link screen",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Bạn đã thử dùng AI quản tiền chưa? Comment cách bạn dùng AI trợ lý, mình tổng hợp prompt hay nhất.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe nếu bạn cũng muốn AI quản chi tiêu thay mình — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Phân loại 100 khoản chi 1 tháng trong 2 phút bằng Excel cộng AI trợ lý."

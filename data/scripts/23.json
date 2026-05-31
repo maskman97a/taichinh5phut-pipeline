@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Sáu tháng làm mẹ bỉm lương 12 triệu, tôi tiết kiệm được 18 triệu. Đây là cách tôi làm — không có thu nhập phụ.",
-      "visual_keyword": "vietnamese mother baby home"
+      "visual_keyword": "vietnamese mother baby home",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Trước đó tôi nghĩ có con thì hết tiết kiệm. Sai. Tôi áp dụng quy tắc Bỉm First — con trước, mình sau.",
-      "visual_keyword": "vietnamese mother baby home"
+      "visual_keyword": "vietnamese mother baby home",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Cắt một là sữa bột. Tôi mua sữa 6 lon thay vì 1 lon — giảm 18 phần trăm giá, tiết kiệm 300 nghìn tháng.",
-      "visual_keyword": "baby formula milk cans bulk pile vietnamese kitchen"
+      "visual_keyword": "baby formula milk cans bulk pile vietnamese kitchen",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Cắt hai là bỉm. Tôi đổi bỉm size thưa hơn — tiết kiệm 200 nghìn tháng mà bé vẫn khô ráo cả đêm.",
-      "visual_keyword": "baby diapers vietnamese supermarket comparison"
+      "visual_keyword": "baby diapers vietnamese supermarket comparison",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Cắt ba là quần áo bé. Tôi mua group mẹ bỉm thanh lý 30 phần trăm giá mới — bé mặc 2 tháng là chật, tận dụng kinh tế.",
-      "visual_keyword": "secondhand baby clothes facebook group vietnamese"
+      "visual_keyword": "secondhand baby clothes facebook group vietnamese",
+      "visual_style": "ai",
+      "visual_prompt": "Person holding shopping bags excited shopping mall, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Cắt bốn năm là chi cho mình. Trà sữa cà phê cắt hẳn — tiết kiệm 1 triệu rưỡi tháng. Mẹo bonus là gửi tiết kiệm online 7 phần trăm năm cho bé.",
-      "visual_keyword": "savings jar baby fund vietnamese piggy bank"
+      "visual_keyword": "savings jar baby fund vietnamese piggy bank",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Bạn là mẹ bỉm hay sắp làm mẹ? Comment thắc mắc về chi tiêu, mình share kinh nghiệm chi tiết.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Sáu tháng làm mẹ bỉm lương 12 triệu, tôi tiết kiệm được 18 triệu."

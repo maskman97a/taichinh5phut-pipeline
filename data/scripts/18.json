@@ -25,39 +25,47 @@
       "voiceover": "Năm vừa rồi tôi gửi 50 triệu vào tiết kiệm online lãi 7%. Sau 12 tháng tôi có thêm 3 triệu 5 trong tay không động ngón tay.",
       "visual_keyword": "person phone screen close up modern",
       "visual_style": "ai",
-      "visual_prompt": "Vietnamese young woman office worker happy looking at phone savings account dashboard, modern bright office, photorealistic"
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "So với gửi tiết kiệm tại quầy ngân hàng truyền thống lãi chỉ 4 đến 5%, gửi online lãi 7% cao hơn 2 đến 3 điểm phần trăm.",
-      "visual_keyword": "office desk worker computer monitor"
+      "visual_keyword": "office desk worker computer monitor",
+      "visual_style": "ai",
+      "visual_prompt": "Financial comparison chart on phone screen modern infographic, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Khác biệt với gửi quầy là lãi cao hơn 1 đến 2%, mở 5 phút không cần đến chi nhánh, rút linh hoạt 24/7.",
-      "visual_keyword": "phone screen app interface close up"
+      "visual_keyword": "phone screen app interface close up",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Lưu ý một là chọn ngân hàng có giấy phép Bảo hiểm Tiền gửi Việt Nam. Tối đa 125 triệu được bảo hiểm khi ngân hàng phá sản.",
       "visual_keyword": "person signing contract pen paper",
       "visual_style": "ai",
-      "visual_prompt": "Hands signing bank contract document with pen close up, Vietnamese banking certificate, modern bank office"
+      "visual_prompt": "Hands signing important bank document with pen close up, professional setting, photorealistic"
     },
     {
       "voiceover": "Lưu ý hai là so sánh lãi suất kỳ hạn 6 đến 12 tháng. Kỳ hạn ngắn lãi 5%, kỳ hạn 12 tháng có thể lên 7,5%.",
       "visual_keyword": "calculator desk papers close up",
       "visual_style": "ai",
-      "visual_prompt": "Modern fintech mobile banking app interface on phone screen showing savings rate comparison chart, Vietnamese context"
+      "visual_prompt": "Financial comparison chart on phone screen modern infographic, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Lưu ý ba là đọc kỹ điều kiện rút trước hạn. Vài ngân hàng chỉ trả lãi không kỳ hạn 0,1% nếu rút sớm.",
-      "visual_keyword": "reading documents magnifying glass close up"
+      "visual_keyword": "reading documents magnifying glass close up",
+      "visual_style": "ai",
+      "visual_prompt": "Person reading small print contract with magnifying glass, close up hands document, photorealistic"
     },
     {
       "voiceover": "Bạn gửi tiết kiệm ở đâu? Comment tên ngân hàng, mình so sánh lãi suất hiện tại giúp bạn.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Sau 1 năm gửi 50 triệu tiết kiệm online — đây là số lãi tôi nhận!"

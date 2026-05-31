@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Anh Quân 26 tuổi sales lương 15 triệu. Sau ba năm anh mua xe Vios cũ 200 triệu trả thẳng, không vay đồng nào.",
-      "visual_keyword": "vietnamese young man toyota vios used car keys"
+      "visual_keyword": "vietnamese young man toyota vios used car keys",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese male office worker portrait holding phone, photorealistic, modern Asian bright office"
     },
     {
       "voiceover": "Anh chia mục tiêu 200 triệu cho 36 tháng — 5 triệu rưỡi mỗi tháng. Lương 15 triệu thì không đủ — anh phải tăng thu nhập.",
-      "visual_keyword": "vietnamese hand writing 200 million goal calendar"
+      "visual_keyword": "vietnamese hand writing 200 million goal calendar",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese male office worker portrait holding phone, photorealistic, modern Asian bright office"
     },
     {
       "voiceover": "Tăng một là sales bonus. Anh tăng KPI gấp đôi nhận 5 triệu bonus tháng — không phải tháng nào cũng đạt, trung bình 3 triệu.",
-      "visual_keyword": "vietnamese sales chart kpi increase office"
+      "visual_keyword": "vietnamese sales chart kpi increase office",
+      "visual_style": "ai",
+      "visual_prompt": "Person holding shopping bags excited shopping mall, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Tăng hai là Grab xe máy cuối tuần. Cuối tuần anh chạy 6 tiếng nhận 1 triệu 5 — 4 ngày cuối tuần là 6 triệu tháng.",
-      "visual_keyword": "vietnamese grab motorbike driver weekend street"
+      "visual_keyword": "vietnamese grab motorbike driver weekend street",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Tổng thu nhập anh lên 24 triệu tháng. Anh tiết kiệm 5 triệu rưỡi mỗi tháng vào quỹ mua xe — chỗ còn lại sinh hoạt.",
-      "visual_keyword": "vietnamese savings car fund jar bills accumulating"
+      "visual_keyword": "vietnamese savings car fund jar bills accumulating",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Tháng 36 anh đủ 200 triệu. Anh mua Vios cũ 2023 chạy 30 nghìn km — kiểm tra body, máy, lịch sử bảo dưỡng kỹ. Đây là ví dụ minh hoạ.",
-      "visual_keyword": "vietnamese mechanic checking used car under hood"
+      "visual_keyword": "vietnamese mechanic checking used car under hood",
+      "visual_style": "ai",
+      "visual_prompt": "Person holding shopping bags excited shopping mall, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Bạn muốn mua xe trong mấy năm? Comment mục tiêu + lương hiện tại, mình tính lộ trình cho bạn.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Anh Quân 26 tuổi sales lương 15 triệu."

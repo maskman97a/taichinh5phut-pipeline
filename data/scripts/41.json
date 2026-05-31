@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "App vay tiêu dùng bẫy lãi 100 phần trăm năm. Quảng cáo lãi 0 nhưng phí dịch vụ 30 — tổng thực 100 đến 300 phần trăm.",
-      "visual_keyword": "vietnamese loan app phone scam warning red"
+      "visual_keyword": "vietnamese loan app phone scam warning red",
+      "visual_style": "ai",
+      "visual_prompt": "Person reading small print contract with magnifying glass, close up hands document, photorealistic"
     },
     {
       "voiceover": "Hàng chục app Trung Quốc trá hình Việt Nam — vay 5 triệu trả 9 triệu sau 1 tháng. Không khác cho vay nặng lãi.",
-      "visual_keyword": "vietnamese fake loan app warning scam"
+      "visual_keyword": "vietnamese fake loan app warning scam",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Dấu hiệu một là duyệt vay quá dễ — không kiểm tra thu nhập, lịch sử CIC. App nghiêm túc luôn check kỹ.",
-      "visual_keyword": "vietnamese loan approval instant no verification phone"
+      "visual_keyword": "vietnamese loan approval instant no verification phone",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Dấu hiệu hai là phí dịch vụ ẩn. Họ nói lãi 18 phần trăm năm — kèm phí mở hợp đồng 2 triệu, phí giải ngân 500 nghìn, phí quản lý tháng.",
-      "visual_keyword": "vietnamese hidden fees small print contract"
+      "visual_keyword": "vietnamese hidden fees small print contract",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese dong cash banknotes stacked on table close up, money counting, photorealistic dramatic lighting"
     },
     {
       "voiceover": "Dấu hiệu ba là cho phép truy cập danh bạ. App lừa đảo lấy số người thân để đe doạ khi bạn trả chậm. Hợp pháp không cần danh bạ.",
-      "visual_keyword": "vietnamese phone contacts permission scary popup"
+      "visual_keyword": "vietnamese phone contacts permission scary popup",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Dấu hiệu bốn năm là không có giấy phép Ngân hàng Nhà nước và đánh giá CHPlay 1 sao nhiều comment lừa đảo. Check trước khi cài. Đây là góc nhìn cá nhân.",
-      "visual_keyword": "vietnamese app store low rating warning reviews"
+      "visual_keyword": "vietnamese app store low rating warning reviews",
+      "visual_style": "ai",
+      "visual_prompt": "Hands signing important bank document with pen close up, professional setting, photorealistic"
     },
     {
       "voiceover": "Bạn đã từng vay app nào tiếc nhất? Comment tên app, mình check pháp lý giúp.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "App vay tiêu dùng bẫy lãi 100 phần trăm năm."

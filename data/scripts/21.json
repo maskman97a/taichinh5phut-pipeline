@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Tiết kiệm 30 phần trăm lương mỗi tháng mà không cần ý chí. Không cắt cà phê, không bỏ trà sữa.",
-      "visual_keyword": "vietnamese person sipping coffee relaxed budget paper"
+      "visual_keyword": "vietnamese person sipping coffee relaxed budget paper",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Vấn đề là khi bạn cố tiết kiệm sau khi tiêu, luôn còn không đủ. Não bộ thấy tiền trong tài khoản là tiền được tiêu.",
-      "visual_keyword": "vietnamese phone account balance vs willpower scale"
+      "visual_keyword": "vietnamese phone account balance vs willpower scale",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Giải pháp là Pay Yourself First — trả mình trước. Ngày lương về, chuyển 30 phần trăm tự động vào quỹ tiết kiệm riêng.",
-      "visual_keyword": "person phone screen close up modern"
+      "visual_keyword": "person phone screen close up modern",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Setup 5 phút trong app ngân hàng số. Vào mục Tự Động, chọn ngày 5 tháng, số tiền cố định 30%, tài khoản đích.",
-      "visual_keyword": "digital banking app auto transfer setup screen"
+      "visual_keyword": "digital banking app auto transfer setup screen",
+      "visual_style": "ai",
+      "visual_prompt": "Modern mobile banking app interface on phone screen with auto transfer setting, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Não bạn sẽ coi 70 phần trăm còn lại là tổng lương. Bạn vẫn tiêu thoải mái, không cảm thấy thiếu thốn, không stress.",
-      "visual_keyword": "young woman office smiling happy"
+      "visual_keyword": "young woman office smiling happy",
+      "visual_style": "ai",
+      "visual_prompt": "Empty leather wallet on wooden table close up, sad mood, dim lighting, photorealistic"
     },
     {
       "voiceover": "Mẹo bonus là tăng dần 1 phần trăm mỗi 3 tháng. Sau một năm bạn tiết kiệm 33 phần trăm mà không nhận ra. Đây là góc nhìn cá nhân.",
-      "visual_keyword": "savings percentage increasing chart vietnamese over time"
+      "visual_keyword": "savings percentage increasing chart vietnamese over time",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Bạn đang tiết kiệm bao nhiêu phần trăm lương? Comment số phần trăm, mình tư vấn cách tăng dần lên 30 phần trăm.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để có lần đầu cuối tháng còn dư tiền — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Tiết kiệm 30 phần trăm lương mỗi tháng mà không cần ý chí."

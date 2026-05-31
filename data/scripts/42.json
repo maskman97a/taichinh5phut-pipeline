@@ -23,35 +23,49 @@
   "scenes": [
     {
       "voiceover": "Bí mật 80/20 Pareto trong quản lý tiền — quy tắc đơn giản nhất nhưng mạnh nhất bạn từng nghe.",
-      "visual_keyword": "vietnamese pareto chart 80 20 principle book"
+      "visual_keyword": "vietnamese pareto chart 80 20 principle book",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Vilfredo Pareto nhận ra 80 phần trăm kết quả đến từ 20 phần trăm nguyên nhân. Tài chính cá nhân không khác.",
-      "visual_keyword": "vilfredo pareto vintage portrait economist"
+      "visual_keyword": "vilfredo pareto vintage portrait economist",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Áp dụng một là chi tiêu. 80 phần trăm tiền mất vô ích đến từ 20 phần trăm loại chi — thường là cà phê, freeship, sale flash.",
-      "visual_keyword": "vietnamese expense categories pie 80 20 chart"
+      "visual_keyword": "vietnamese expense categories pie 80 20 chart",
+      "visual_style": "ai",
+      "visual_prompt": "Calculator on desk with Vietnamese dong banknotes and notebook, calculating budget, photorealistic"
     },
     {
       "voiceover": "Cách identify là review chi tiêu 30 ngày — list top 20 phần trăm loại tốn tiền vô ích — cắt chỉ chúng tiết kiệm 80 phần trăm chi vô lý.",
-      "visual_keyword": "vietnamese expense review top 20 percent waste"
+      "visual_keyword": "vietnamese expense review top 20 percent waste",
+      "visual_style": "ai",
+      "visual_prompt": "Pink piggy bank with Vietnamese coins falling close up, photorealistic slow motion"
     },
     {
       "voiceover": "Áp dụng hai là tài sản. 80 phần trăm tài sản đến từ 20 phần trăm quyết định đúng — đầu tư sớm, mua nhà đúng vùng, học kỹ năng đúng.",
-      "visual_keyword": "vietnamese wealth building decisions top 20 list"
+      "visual_keyword": "vietnamese wealth building decisions top 20 list",
+      "visual_style": "ai",
+      "visual_prompt": "Person holding shopping bags excited shopping mall, Vietnamese context, photorealistic"
     },
     {
       "voiceover": "Bài tập tuần này là viết 20 phần trăm quyết định tài chính đã tạo 80 phần trăm thay đổi tốt cho bạn. Tập trung làm thêm. Đây là góc nhìn cá nhân.",
-      "visual_keyword": "vietnamese journal writing 20 percent decisions"
+      "visual_keyword": "vietnamese journal writing 20 percent decisions",
+      "visual_style": "ai",
+      "visual_prompt": "Vietnamese person modern office finance lifestyle, photorealistic cinematic"
     },
     {
       "voiceover": "Bạn nhận ra 20 phần trăm nào tạo 80 phần trăm tài sản mình? Comment chia sẻ, mình tổng hợp pattern phổ biến.",
-      "visual_keyword": "phone scrolling comments social media"
+      "visual_keyword": "phone scrolling comments social media",
+      "visual_style": "stock"
     },
     {
       "voiceover": "Subscribe để hiểu vì sao người giàu nghĩ khác — kênh đăng mỗi sáu giờ sáng. Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.",
-      "visual_keyword": "subscribe button animated red youtube"
+      "visual_keyword": "subscribe button animated red youtube",
+      "visual_style": "stock"
     }
   ],
   "hook": "Bí mật 80/20 Pareto trong quản lý tiền — áp dụng ngay!"
