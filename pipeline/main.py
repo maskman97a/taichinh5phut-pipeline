@@ -531,14 +531,23 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
         chunks_render = chunks[skip_count:] if skip_count < len(chunks) else chunks
 
-        # Timing: word count proportion (TT TTS tieng Viet 1 am tiet/tu)
+        # Timing: word count proportion (Vietnamese TTS 1 am tiet/tu)
         all_words = [max(1, len(c.split())) for c in chunks]
         total_words = sum(all_words)
         skipped_words = sum(all_words[:skip_count])
 
-        # Thoi diem caption start: sau khi voice da doc xong phan hook
-        cap_window_start = start_t + voice_dur * (skipped_words / total_words) if total_words else start_t
-        cap_window_dur = voice_dur * (1 - skipped_words / total_words) if total_words else voice_dur
+        # Caption LEAD voice by 0.25s (compensate TTS ramp-up + reading lag)
+        # User feedback: caption van cham hon voice -> tang LEAD them
+        CAPTION_LEAD = 0.25
+
+        # Thoi diem caption start: sau khi voice doc xong hook portion, tru LEAD
+        if total_words:
+            base_start = start_t + voice_dur * (skipped_words / total_words)
+            cap_window_dur = voice_dur * (1 - skipped_words / total_words)
+        else:
+            base_start = start_t
+            cap_window_dur = voice_dur
+        cap_window_start = max(start_t, base_start - CAPTION_LEAD)
 
         render_words = [max(1, len(c.split())) for c in chunks_render]
         render_total = sum(render_words) or 1
@@ -546,13 +555,20 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
         chunk_t = cap_window_start
         for j, chunk in enumerate(chunks_render):
-            # Caption: TRANG + STROKE 3 + fontsize 100 + Bold font
-            # User feedback: bold, giam stroke, giam kich thuoc
-            cap = (TextClip(chunk, fontsize=100, color="white",
+            # Caption v6: TRANG + STROKE mong + SHADOW DEN OFFSET (look bold/3D)
+            # User feedback: chua bold -> add shadow den offset behind chu trang
+            # Shadow render truoc, chu trang render sau (de chu hien tren cung)
+            CHUNK_FONT = 110
+            shadow = (TextClip(chunk, fontsize=CHUNK_FONT, color="black",
+                              size=(980, None), method="caption", font=VN_FONT)
+                      .set_position(("center", 1287))  # offset 7px down
+                      .set_start(chunk_t).set_duration(chunk_durs[j]))
+            cap = (TextClip(chunk, fontsize=CHUNK_FONT, color="white",
                            stroke_color="black", stroke_width=3,
                            size=(980, None), method="caption", font=VN_FONT)
                    .set_position(("center", 1280))
                    .set_start(chunk_t).set_duration(chunk_durs[j]))
+            scene_captions.append(shadow)
             scene_captions.append(cap)
             chunk_t += chunk_durs[j]
         start_t += scene_durs[i]
