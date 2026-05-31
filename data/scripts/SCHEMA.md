@@ -1,229 +1,240 @@
 # Script JSON Schema — Tài Chính 5 Phút
 
-> **Cập nhật 29/05/2026** — Tích hợp findings từ research top 22 viral finance Shorts VN (6 tháng gần đây).
-> Insight chính: comedy/skit + show-off tiết kiệm dominate (avg 1M-3M views); pure education chỉ đạt 10-30k views.
-> User KHÔNG thể format comedy face-camera → chiến lược: **HYBRID character-driven story + practical demo**.
+> **Cập nhật 31/05/2026** — Tích hợp full rules từ iteration 1-7 với user feedback.
+> Kênh: "Tài Chính 5 Phút" `@taichinh5phut.official`
+> Pillar: Tài chính cá nhân + AI tools cho dân văn phòng Việt Nam (low YMYL).
 
-Mỗi file `data/scripts/{idea_id}.json` phải đúng format dưới đây để pipeline assemble video chạy được.
+---
 
-## Niche reality check (từ research API)
-
-| Content type | Avg views/video | Ceiling |
-|---|---|---|
-| Comedy skit về tiết kiệm | **1,294,344** | 3.3M (face-camera, out of scope với pipeline AI voice) |
-| Show-off khoản tiết kiệm năm | 408,646 | 947k (character-driven, AI voice OK) |
-| Practical tip + visual demo | 340,532 | 340k (excel template, mẹo điện) |
-| Education pure (lý thuyết) | 10,669 | 10-30k (current user format) |
-| Tâm lý + cảnh báo cross-over | 558,833 | 558k (storytelling-friendly) |
-
-**Hàm ý:** Format cũ "Vì sao 99% người Việt làm sai" → ceiling 10-30k views. Muốn break 100k → cần **character story + result reveal + practical demo**.
-
-## Schema chuẩn
+## 1. SCHEMA chuẩn JSON
 
 ```json
 {
-  "title": "string, 50-80 ký tự, TIẾNG VIỆT CÓ DẤU, có 3-5 hashtag bundle cuối",
-  "description": "string, 200-300 từ, line 1 là hook trong 100 chars, 3 link affiliate placeholder [LINK_INFINA] [LINK_VPS] [LINK_TPBANK], CTA subscribe, 8-10 hashtag finance VN",
-  "tags": ["string array, 12-20 tag, mix VN có dấu + English, có brand tag + topic tag + viral tag"],
+  "idea_id": <int>,
+  "title": "<50-80 ký tự, Title Case VN có dấu, kết bằng 3-5 hashtag bundle, optional 1 emoji>",
+  "hook": "<câu hook punchy 30-60 ký tự, hiển thị visual 2.5s đầu, mô tả character/result reveal/shock>",
+  "description": "<200-300 từ, LINE 1 là hook 80-100 chars + story + 3 link [LINK_INFINA][LINK_VPS][LINK_TPBANK] + CTA + 8-12 hashtag>",
+  "tags": ["<12-20 tag mix brand + topic + viral>"],
   "scenes": [
-    {"voiceover": "VN có dấu, 1-2 câu ngắn", "visual_keyword": "english only, 3-5 từ specific với vietnamese context"},
+    {"voiceover": "<VN có dấu, 1-2 câu ngắn, KHÔNG viết tắt>", "visual_keyword": "<english 3-5 từ với vietnamese/asian context>"},
     ...8 phần tử
   ]
 }
 ```
 
-## Quy tắc bắt buộc
+---
 
-### Title
+## 2. QUY TẮC NỘI DUNG (đã chốt với user)
 
-- **Length: 50-80 ký tự** (tăng từ <60 — viral Shorts avg 67 chars)
-- Phải có số cụ thể (90%, 5 triệu, 1 năm, 15tr...) → tăng CTR
-- **Hashtag bundle 3-5** cuối title: `#shorts #taichinh #tietkiem #trending` (top performers dùng 3-7 hashtag)
-- 1 emoji optional boost CTR: 🔥 ❤️ 😅 (chọn 1 phù hợp tone)
-- VN có dấu đầy đủ: à á ả ã ạ ă ắ ằ ẳ ẵ ặ â ấ ầ ẩ ẫ ậ đ è é ẻ ẽ ẹ ê ế ề ể ễ ệ ì í ỉ ĩ ị ò ó ỏ õ ọ ô ố ồ ổ ỗ ộ ơ ớ ờ ở ỡ ợ ù ú ủ ũ ụ ư ứ ừ ử ữ ự ỳ ý ỷ ỹ ỵ
+### 2.1 KHÔNG VIẾT TẮT — bắt buộc 100%
 
-### Title Formula (8 mẫu — PHÂN BỔ ƯU TIÊN theo viral data)
+| Viết tắt | Phải viết đầy đủ |
+|---|---|
+| VN | Việt Nam |
+| HN | Hà Nội |
+| SG | Sài Gòn |
+| HCM / TPHCM | Hồ Chí Minh / Thành phố Hồ Chí Minh |
+| VP | văn phòng |
+| Tr / tr | Triệu / triệu |
+| K / k (sau số) | nghìn |
+| TK | tài khoản |
+| CK | chứng khoán |
+| HR | nhân sự |
+| CCCD | căn cước công dân |
+| BNPL | trả góp 0% lãi suất |
+| VND (currency context) | đồng (hoặc "đồng Việt Nam") |
 
-**🥇 PRIORITY HIGH — Formula F/G/H (character + reveal + tâm lý) — dùng 60% scripts:**
+**Giữ nguyên** (globally accepted trong tiếng Việt):
+- AI, IT, KPI, ATM, Excel, ChatGPT, Notion, Gemini
+- Brand names: SSI, VPS, VnDirect, TPBank, Infina, Cake...
 
-**Formula F — Story character + result reveal** (top viral pattern, avg 400k-1M views):
-- `Anh Tuấn Lương 15Tr Tiết Kiệm 1 Năm Được Bao Nhiêu? #shorts #tietkiem #taichinh`
-- `Chị Lan 28 Tuổi Áp Dụng 50/30/20 — Sau 6 Tháng Có Gì? 🔥 #shorts #tietkiem`
-- `Cô Hoa Công Nhân Lương 8Tr Vẫn Mua Được Nhà — Cách Nào? #shorts #tietkiem`
+### 2.2 KHÔNG ký tự `<` `>` trong description/title/voiceover
 
-**Formula G — Show-off khoản tiết kiệm/result** (avg 400-900k views):
-- `Khoản Tiết Kiệm 1 Năm Của Dân VP Lương 18Tr ❤️ #shorts #tietkiem #shortvideo`
-- `Sau 30 Ngày Track Chi Tiêu Bằng App — Đây Là Số Tiền Tôi Có #shorts #taichinh`
-- `Thành Quả 12 Tháng Đầu Tư Quỹ Mở 500K/Tháng 📈 #shorts #dautu`
+YouTube API reject 400 invalidDescription nếu có `<` hoặc `>`.
+- ❌ "chi >50k" — REJECT
+- ✅ "chi trên 50 nghìn" — OK
 
-**Formula H — Bẫy tâm lý/cảnh báo** (avg 500k+ views, viral cross-over):
-- `5 Bẫy Tâm Lý Khiến Bạn Mất Tiền Mỗi Tháng 😅 #shorts #tietkiem #tamlytien`
-- `Black Friday Là Cú Lừa Tâm Lý — 99% Mắc Bẫy #shorts #taichinh #canhbao`
-- `App Vay Tiêu Dùng Bẫy Lãi 100%/Năm — Cách Nhận Biết 🔥 #shorts #canhbao`
+Pipeline tự sanitize `<` → `‹` và `>` → `›` defense-in-depth.
 
-**🥈 PRIORITY MEDIUM — Formula A/B/C/D (educational, ceiling 30k views) — dùng 30% scripts:**
+### 2.3 Hook field bắt buộc
 
-**Formula A — Vì Sao + %** (validated — user video đạt 1k views):
-- `Vì Sao 99% Người Việt Làm Sai Quy Tắc 50/30/20? #shorts #taichinh #tietkiem`
-- `Vì Sao Buffett Mua Coca-Cola 36 Năm Không Bán? #shorts #dautu`
+Mỗi script có `"hook"` explicit (KHÔNG dựa fallback auto-extract):
+- **Độ dài:** 30-60 ký tự (1 câu ngắn punchy)
+- **Style:** character intro + outcome / shock number / cảnh báo
+- **Vai trò:** Hiển thị visual 2.5s đầu video — bí quyết "stop scroll"
 
-**Formula B — Cách + con số + outcome:**
-- `Cách Tiết Kiệm 2 Triệu/Tháng Không Cần Nỗ Lực #shorts #tietkiem #taichinh`
-- `Cách Dùng AI Lên Budget Gia Đình Trong 5 Phút #shorts #aitaichinh`
+**Ví dụ tốt:**
+- "Anh Tuấn lương 15 triệu tiết kiệm 54 triệu trong 1 năm!"
+- "Bạn mất 5 triệu mỗi tháng vì 5 bẫy tâm lý này!"
+- "Sau 30 ngày track chi tiêu — đây là số tiền tôi tiết kiệm"
 
-**Formula C — [Con số] + sai lầm/dấu hiệu:**
-- `5 Sai Lầm Tiền Tuổi 30 Sẽ Hối Hận Đời 🔥 #shorts #tamlytien #taichinh`
-- `5 Dấu Hiệu Bạn Đang Sống Dưới Khả Năng #shorts #tietkiem`
+**Ví dụ TỆ:**
+- "Vì sao 99% người Việt làm sai 50/30/20? Hãy cùng tôi tìm hiểu trong video này." (quá dài)
+- "Quỹ mở là gì?" (quá ngắn, không hook)
 
-**Formula D — Bí mật + topic:**
-- `Lãi Kép: Kỳ Quan Thứ 8 Einstein Cảnh Báo #shorts #dautu`
-- `Bí Mật Quỹ Mở Mà Ngân Hàng Không Nói Bạn #shorts #dautu #quymo`
+### 2.4 Scene 1 voiceover: hook + context
 
-**🥉 PRIORITY LOW — Formula E (practical demo) — dùng 10% scripts:**
+Scene 1 = hook punchy (overlap với `hook` field) + 1-2 câu context. Pipeline sẽ SKIP caption chunks trùng hook visual (tránh duplicate hiển thị).
 
-**Formula E — Mẹo cụ thể + tool + time:**
-- `Excel Template Track 100 Khoản Chi 1 Tháng — File Miễn Phí 📊 #shorts #taichinh`
-- `Mẹo Tiết Kiệm Tiền Điện 30%/Tháng Không Cần Thay Đồ #shorts #tietkiem`
+### 2.5 Title Formula priority
 
-**Quy tắc capitalization (thống nhất brand):**
-- Dùng **Title Case** (mỗi từ chính viết hoa chữ đầu)
-- Giữ nguyên dấu Việt: `Vì`, `Mãi Mãi`, `Người Việt`...
-- KHÔNG ALL CAPS (trừ con số hoặc emphasis 1 từ)
-- Liên từ/giới từ ngắn giữ thường: `của`, `cho`, `và`, `để`, `trong`, `với`
-- Hashtag viết liền không khoảng trắng, lowercase
+| Priority | Formula | Pattern | Target views |
+|---|---|---|---|
+| 🥇 HIGH | F (character story) | "[Tên Tuổi] Lương [X] Triệu — [Outcome]" | 400k-1M |
+| 🥇 HIGH | G (result reveal) | "Sau [time] [action] — [reveal số liệu]" | 400k-900k |
+| 🥇 HIGH | H (tâm lý/cảnh báo) | "[N] Bẫy / Cú Lừa + [outcome]" | 500k+ |
+| 🥈 MED | A (Vì Sao + %) | "Vì Sao 99% [target] [problem]?" | 10-30k |
+| 🥈 MED | B (Cách + outcome) | "Cách [action] [outcome]" | 10-30k |
+| 🥈 MED | C (Số + sai lầm) | "[N] Sai Lầm / Dấu Hiệu [topic]" | 10-30k |
+| 🥈 MED | D (Bí mật + topic) | "Bí Mật / Cảnh Báo [topic]" | 10-30k |
+| 🥉 LOW | E (practical demo) | "[Tool] + outcome + [time]" | 50-300k |
 
-### Scenes (8 cảnh, tổng 45-55s)
+**Phân bổ 30 scripts:** 60% F/G/H + 30% A-D + 10% E.
 
-**1. HOOK (3s, 8-12 từ) — VISUAL + CHARACTER PRIORITY:**
+### 2.6 Cấu trúc 8 scenes (45-55s tổng)
 
-❌ TỆ (current format — ceiling 10-30k views):
-- "Bạn có biết 99% người Việt làm sai quy tắc 50/30/20 không?"
-- "Cách tiết kiệm 2 triệu/tháng — bí quyết đây."
+1. **HOOK** (3s): Câu hook punchy (giống `hook` field)
+2. **PAIN / SETUP** (5-7s): Nỗi đau cụ thể của dân văn phòng Việt Nam
+3-6. **CỐT LÕI** (30-35s): Storytelling timeline với character + số liệu cụ thể
+   - Scene 5 hoặc 6 BẮT BUỘC: "Tôi tự áp dụng cách này X tháng và thấy..."
+7. **CTA / PATTERN INTERRUPT** (3-4s): Câu hỏi force comment
+8. **SUBSCRIBE + DISCLAIMER** (3-4s):
+   - Value prop subscribe tailored theo pillar
+   - YMYL disclaimer: "Đây là góc nhìn cá nhân, không phải lời khuyên tài chính."
 
-✅ TỐT (viral pattern — ceiling 100k-1M views):
-- **Character intro:** "Anh Tuấn, 32 tuổi, lương 15 triệu — sau 1 năm anh có 54 triệu trong tài khoản tiết kiệm."
-- **Result reveal:** "Sau 6 tháng áp dụng 50/30/20, đây là số tiền tôi có — và 1 sai lầm tôi đã mắc."
-- **Shock number:** "30 triệu trong 12 tháng với lương 15 triệu — không phải đùa."
-- **Cảnh báo tâm lý:** "Black Friday vừa rồi — bạn vừa rơi vào bẫy tâm lý 99% người mắc."
+### 2.7 Visual keyword (TIẾNG ANH)
 
-**2. PAIN/SETUP (5-7s):** Nỗi đau cụ thể + relatable cho dân VP Việt
-- Lương 15-20tr không đủ, cuối tháng hết tiền, không biết tiền đi đâu
-- Vợ chồng cãi nhau vì chi tiêu, sinh con không dám tiêu, không có quỹ khẩn cấp
-- Đầu tư mất tiền vì FOMO, app vay tiêu dùng nợ chồng nợ
+- 3-5 từ specific với **vietnamese/asian context**
+- 8 scene phải KHÁC nhau hoàn toàn
 
-**3-6. CỐT LÕI (30-35s):** Step-by-step storytelling
-- **Mỗi scene 1 bước CỤ THỂ** + số liệu thực tế
-- Tránh lý thuyết trừu tượng — luôn quay về câu chuyện character (Anh Tuấn làm gì tháng 1, tháng 3, tháng 6)
-- Scene 5 hoặc 6 BẮT BUỘC: số tiền specific: "tháng đầu anh tiết kiệm 3tr, tháng 6 lên 5tr, sau 1 năm tổng 54tr"
-- Nếu Formula F/G (character) → scene 3-6 là journey timeline với numbers
-- Nếu Formula H (cảnh báo) → scene 3-6 là 3-5 bẫy cụ thể + cách tránh
+❌ Generic: "money", "business", "finance chart"
+✅ Specific: "vietnamese office worker counting money desk", "young asian woman thinking budget excel laptop"
 
-**7. CTA/PATTERN INTERRUPT (3-4s):**
-- Câu hỏi mở để force comment, vd:
-  - "Bạn đã từng áp dụng 50/30/20 chưa? Comment kết quả của bạn, mình đọc hết."
-  - "Bạn có nhận ra bẫy nào ở trên? Comment số bẫy bạn mắc, mình tư vấn."
-  - "Lương của bạn bao nhiêu? Comment, mình tính cho bạn budget chuẩn."
+---
 
-**8. SUBSCRIBE + DISCLAIMER (3-4s):**
-- **Value prop subscribe** tailored theo topic (KHÔNG generic "theo dõi để học mẹo tiền")
-- **Disclaimer YMYL ngắn:** "Đây là góc nhìn cá nhân, không phải lời khuyên tài chính."
+## 3. QUY TẮC VISUAL (Pipeline rules đã chốt)
 
-**Outro pattern chuẩn (Formula winning):**
-```
-"Subscribe [value prop cụ thể theo topic] — kênh đăng mỗi 6h sáng. 
-Đây là góc nhìn cá nhân, không phải lời khuyên tài chính."
-```
+### 3.1 Caption (sub karaoke)
 
-Ví dụ value prop tailored theo pillar:
-- **saving:** "Subscribe để có lần đầu cuối tháng còn dư tiền..."
-- **investing:** "Subscribe để hết nói 'giá như tôi đầu tư sớm'..."
-- **psychology:** "Subscribe để hiểu vì sao người giàu nghĩ khác..."
-- **ai-finance:** "Subscribe nếu bạn cũng muốn AI quản chi tiêu thay mình..."
+| Element | Value | Lý do |
+|---|---|---|
+| **Font** | BeVietnamPro-ExtraBold (weight 800) | Vietnamese-optimized + balanced bold |
+| **Fontsize** | 110 | Đủ to dễ đọc mobile |
+| **Color fill** | white | Clean readable |
+| **Stroke** | black, width 3 | Mỏng để fill không bị che |
+| **Shadow** | TextClip đen offset y+7px behind | Tạo 3D bold look |
+| **BG box** | KHÔNG | Cleaner look |
+| **Position** | y=1280 (middle-lower) | Tránh che YouTube UI dưới |
+| **Width** | 980 | |
+| **Chunks** | max_words=3 | Nhỏ → chuyển nhanh khớp voice |
+| **Lead time** | 0.25s trước voice | Compensate TTS ramp-up |
+| **Timing** | word-count proportion | Tiếng Việt monosyllabic ≈ word ≈ syllable ≈ TTS time |
+| **Scene 1 skip** | Skip chunks trùng hook content | Tránh duplicate |
 
-### Voiceover
+### 3.2 Hook visual (đầu video)
 
-- Mỗi scene 1-2 câu ngắn
-- Dùng dấu chấm/phẩy đúng → TTS đọc có ngắt nghỉ tự nhiên
-- KHÔNG viết "[disclaimer]" — viết tự nhiên trong scene 8
-- Nói như bạn bè 28 tuổi nói với nhau, KHÔNG academic
-- **Character voice consistency:** Nếu hook giới thiệu "Anh Tuấn" → toàn script gọi "Anh Tuấn", không đổi sang "anh ấy" trừ khi cần variation
+| Element | Value | Lý do |
+|---|---|---|
+| **Font** | Montserrat-ExtraBold | Hook rộng hơn caption, Latin OK |
+| **Color** | white | Yellow + thick stroke bị render đen ám trên IM7 |
+| **Stroke** | black, width 4 | |
+| **BG box** | rgba(0,0,0,0.65) semi-black pill | Distinctive khỏi caption |
+| **Position** | y=700 (upper area) | Tránh che subject + YouTube UI |
+| **Duration** | 2.5s | Đủ time đọc |
+| **Fontsize** | Dynamic 82-125 theo độ dài hook | Hook ngắn → font lớn |
+| **Fade** | fadein 0.2s + fadeout 0.4s | Smooth |
 
-### Visual keyword (TIẾNG ANH)
+### 3.3 Disclaimer (đầu video)
 
-- 3-5 từ specific với **vietnamese/asian context** (boost relevance)
-- 8 scene phải KHÁC nhau hoàn toàn (mix wide + close-up + abstract)
+- Position y=100 (top strip)
+- fontsize 38, color white, bg_color="rgba(0,0,0,0.7)"
+- Duration 0-4s
+- Text: "Video chỉ mang tính giáo dục, KHÔNG phải lời khuyên đầu tư. Hãy tham khảo chuyên gia tài chính."
 
-**❌ TỆ (generic):**
-- "money"
-- "business"
-- "finance chart"
+---
 
-**✅ TỐT (character + context):**
-- "vietnamese office worker counting money desk"
-- "young asian woman thinking budget excel laptop"
-- "vietnamese family budget discussion kitchen"
-- "hand writing financial goals notebook close-up"
-- "asian person stressed bills paper morning"
-- "vietnamese piggy bank coins falling slow motion"
-- "excel spreadsheet budget colorful pie chart"
+## 4. QUY TẮC PIPELINE / ENCODER
 
-**Pattern visual cho Formula F (character story):**
-- Scene 1: character wide shot — "vietnamese young man office stressed"
-- Scene 2: pain visual — "calculator empty wallet kitchen night"
-- Scene 3-6: journey timeline — "calendar pages flipping", "money jar growing weeks", "excel budget tracker screen"
-- Scene 7: question close-up — "person looking camera thinking"
-- Scene 8: subscribe button graphic — "youtube subscribe red button animated"
+### 4.1 Encoder
 
-### Description (NEW rules)
+| Platform | Codec | Threads | Preset | FPS | Bitrate |
+|---|---|---|---|---|---|
+| Windows local | libx264 | 8 | ultrafast | 24 | 5500k (prod), 3500k (--fast) |
+| Linux CI | libx264 | 4 | veryfast | 24 | 5500k |
+| macOS | libx264 | 4 | medium | 24 | 5500k |
 
-- **Line 1: HOOK 80-100 chars** — YouTube cắt ở 100 char trên feed, đây là phần quan trọng nhất
-- Lines 2-3: Story expand
-- Mid: 3 affiliate placeholder `[LINK_INFINA]` `[LINK_VPS]` `[LINK_TPBANK]`
-- CTA Subscribe
-- **Hashtag bundle 8-12** (mix #shorts #taichinh #tietkiem #dautu #vanphongtudong)
+**Note:** h264_amf (AMD GPU) test fail với MoviePy 1.0.3 — preset arg không tương thích. Stick libx264.
 
-**Mẫu description:**
-```
-Anh Tuấn 32 tuổi, lương 15 triệu — sau 1 năm tiết kiệm được 54 triệu. Đây là cách 🔥
+### 4.2 Render output
 
-Anh không phải dùng app trade chứng khoán nào, không vay nợ. Chỉ áp dụng quy tắc 50/30/20 + 3 thói quen nhỏ mỗi sáng. Bạn cũng có thể làm được — bắt đầu từ tháng này.
+- Resolution: 1080x1920 (1080p vertical Shorts)
+- Codec: H.264 main/high profile
+- Audio: AAC 192kbps
+- Faststart for streaming
 
-📚 Tài liệu chi tiết:
-→ Đầu tư quỹ mở từ 100k: [LINK_INFINA]
-→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]
-→ Vay tiêu dùng lãi suất ưu đãi: [LINK_VPS]
+### 4.3 Upload privacy
 
-🔔 Subscribe @taichinh5phut.official để mỗi sáng 6h có 1 mẹo tiền cho dân VP Việt.
+- Default: **private** (env var `YT_PRIVACY` override default)
+- Workflow CI: set `YT_PRIVACY=public` khi sẵn sàng phát hành chính thức
+- Local manual: privacy=private để review
 
-⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính.
+### 4.4 Sanitization layers
 
-#shorts #taichinh #tietkiem #dautu #50_30_20 #dan_van_phong #luong15trieu #tienbac #tietkiemtien #shortvideo
-```
+Pipeline tự strip `<` `>` ở 2 lớp:
+1. Title: `safe_title = script_data["title"][:100].replace("<", "‹").replace(">", "›")`
+2. Description: tương tự
+3. Trong scripts: batch clean qua regex (đã apply)
 
-### Tags (NEW rules)
+---
 
-- **12-20 tags** (tăng từ 8-15) — top viral có 18-40 tags
-- 3 nhóm:
-  - **Brand tag (3-4):** "tài chính 5 phút", "taichinh5phut", "@taichinh5phut.official"
-  - **Topic tag (6-10):** specific theo nội dung — "tiết kiệm tiền lương 15 triệu", "quỹ mở việt nam 2026"...
-  - **Viral tag (3-5):** "shorts", "shortvideo", "trending", "viralshorts", "tips"
+## 5. QUY TẮC ANTI-TEMPLATING
 
-### YMYL Compliance
+Khi gen batch script:
+- **Character rotation 10 names:** Tuấn, Lan, Hùng, Hoa, Minh, Trang, Quân, Linh, Thảo, Nam, Hà
+- **Lương rotation:** 8tr, 12tr, 15tr, 18tr, 22tr, 28tr, 35tr
+- **Timeline:** 1 tháng, 3 tháng, 6 tháng, 1 năm, 2 năm, 5 năm
+- **Tone rotation:** 30% storytelling cảm xúc, 30% urgency cảnh báo, 20% nghiêm túc, 20% triết lý
+- Mỗi 5 script consecutive PHẢI mix 3+ Formula khác nhau
+
+---
+
+## 6. YMYL Compliance
 
 - KHÔNG khuyến nghị mã cổ phiếu cụ thể (vd: "mua HPG", "mua VIC")
 - KHÔNG hứa hẹn ROI cụ thể ("chắc chắn lời 20%")
-- KHÔNG cliff fictional character làm như thật — nếu dùng "Anh Tuấn 32 tuổi" cần add: "Đây là ví dụ minh họa, kết quả mỗi người khác nhau"
-- Scene 8 PHẢI có disclaimer
-- Pipeline sẽ tự append disclaimer dài vào description khi upload
+- KHÔNG nhắc tên app vay tiền/lừa đảo (cảnh báo OK, nhưng disclaim)
+- Scene 8 PHẢI có disclaimer "Đây là góc nhìn cá nhân, không phải lời khuyên tài chính"
+- Pipeline auto-append disclaimer dài vào description: "Đây là góc nhìn cá nhân, KHÔNG phải lời khuyên đầu tư hay tài chính..."
 
-### Anti-templating (BẮT BUỘC khi gen batch)
+---
 
-- Mỗi 5 script consecutive PHẢI mix 3+ Formula khác nhau (vd: 2 character F + 1 result G + 1 cảnh báo H + 1 educational A)
-- Character name rotation: Tuấn, Lan, Hùng, Hoa, Minh, Trang... (không lặp "Anh Tuấn" 30 scripts)
-- Lương number variation: 8tr, 12tr, 15tr, 18tr, 22tr, 28tr, 35tr — không stuck "lương 15 triệu" mọi script
-- Timeline variation: 1 tháng, 3 tháng, 6 tháng, 1 năm, 2 năm — không stuck "1 năm" mọi script
-- Tone rotation: 30% storytelling cảm xúc, 30% urgency cảnh báo, 20% nghiêm túc educational, 20% triết lý
+## 7. Description format
 
-## File mẫu
+```
+<Hook line 80-100 chars> emoji optional
 
-Xem `data/scripts/5kAtn4cBJPI` (Quy Tắc 50/30/20 — 1027 views) — đây là proof of concept tốt nhất hiện có với format cũ. Format mới (F/G/H) chưa có sample, sẽ tạo khi gen idea 13.
+<Body 100-150 từ — story expand, character context, value teaser>
+
+🔗 Tài liệu tham khảo:
+→ Đầu tư quỹ mở từ 100 nghìn: [LINK_INFINA]
+→ Mở tài khoản tiết kiệm online: [LINK_TPBANK]
+→ Mở tài khoản chứng khoán: [LINK_VPS]
+
+🔔 Subscribe @taichinh5phut.official — mỗi sáng 6 giờ 1 mẹo tiền cho dân văn phòng Việt.
+
+⚠️ Đây là góc nhìn cá nhân, không phải lời khuyên tài chính. Kết quả mỗi người khác nhau.
+
+#shorts #taichinh #tietkiem #danvanphong + 4-8 hashtag specific
+```
+
+---
+
+## 8. File mẫu tham khảo
+
+- **Idea 13 (Anh Tuấn lương 15 triệu):** Formula F character story chuẩn
+- **Idea 15 (Chị Hà 5 bẫy tâm lý):** Formula H cảnh báo + character intro
+- **Idea 16 (50/30/20 sai):** Formula A educational với auto-hook
+
+---
+
+**END OF SCHEMA** — Cập nhật mỗi khi có rule mới chốt với user.
