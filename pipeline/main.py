@@ -368,13 +368,15 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
     import os.path
     import glob as _glob
     _font_candidates = [
-        # Be Vietnam Pro (priority - Vietnamese-optimized)
-        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-Black.ttf"),
+        # Be Vietnam Pro ExtraBold (PRIORITY - balanced bold + Vietnamese-optimized)
+        # ExtraBold (weight 800) chon thay Black (900) - dam vua, khong overkill
         os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-ExtraBold.ttf"),
-        os.path.expanduser("~/Library/Fonts/BeVietnamPro-Black.ttf"),
         os.path.expanduser("~/Library/Fonts/BeVietnamPro-ExtraBold.ttf"),
-        "/tmp/fonts/BeVietnamPro-Black.ttf",
         "/tmp/fonts/BeVietnamPro-ExtraBold.ttf",
+        # Fallback BeVietnamPro-Black neu ExtraBold khong co
+        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-Black.ttf"),
+        os.path.expanduser("~/Library/Fonts/BeVietnamPro-Black.ttf"),
+        "/tmp/fonts/BeVietnamPro-Black.ttf",
         # GitHub Actions Montserrat fallback (downloaded vao /tmp/fonts/)
         "/tmp/fonts/Montserrat-ExtraBold.ttf",
         "/tmp/fonts/Montserrat-Black.ttf",
@@ -399,7 +401,12 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
         "C:/Windows/Fonts/arialbd.ttf",
         "C:/Windows/Fonts/segoeuib.ttf",
     ]
-    VN_FONT = next((p for p in _font_candidates if os.path.exists(p)), None)
+    # Env override: CAPTION_FONT_PATH cho phep test font khac nhanh
+    _caption_font_override = os.environ.get("CAPTION_FONT_PATH", "").strip()
+    if _caption_font_override and os.path.exists(_caption_font_override):
+        VN_FONT = _caption_font_override
+    else:
+        VN_FONT = next((p for p in _font_candidates if os.path.exists(p)), None)
     if not VN_FONT:
         # Fallback cuoi: tim BAT KY .ttf/.ttc nao trong system fonts cua Mac
         for pattern in [
