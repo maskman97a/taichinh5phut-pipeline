@@ -131,7 +131,29 @@ YouTube API reject 400 invalidDescription nếu có `<` hoặc `>`.
 
 Pipeline tự sanitize `<` → `‹` và `>` → `›` defense-in-depth.
 
-### 2.3 Hook field bắt buộc
+### 2.3 Hook field bắt buộc + MUST MATCH scene 1 voice start (iter 14)
+
+**CRITICAL RULE:** `hook` field PHẢI xuất hiện VERBATIM ở đầu `scenes[0].voiceover`.
+
+Lý do: pipeline có logic skip caption chunks trùng hook visual để tránh duplicate hiển thị. Nếu hook ≠ scene 1 start, skip không kích hoạt → hook visual + caption đầu hiện 2 nội dung khác nhau = cảm giác **lặp đầu video**.
+
+❌ TỆ (hook ≠ scene 1 start):
+```json
+{
+  "hook": "Anh Tuấn tiết kiệm 54 triệu trong 1 năm!",
+  "scenes": [{"voiceover": "Anh Tuấn 32 tuổi, kế toán Hà Nội, lương 15 triệu. Sau 1 năm anh có 54 triệu..."}]
+}
+```
+→ Hook visual + caption "Anh Tuấn 32 tuổi" cùng hiện 0-2.5s = lặp khác nội dung.
+
+✅ TỐT (hook = scene 1 start):
+```json
+{
+  "hook": "Anh Tuấn lương 15 triệu tiết kiệm 54 triệu trong 1 năm!",
+  "scenes": [{"voiceover": "Anh Tuấn lương 15 triệu tiết kiệm 54 triệu trong 1 năm! Anh là kế toán Hà Nội, trước đó 3 năm không nổi 5 triệu cuối tháng."}]
+}
+```
+→ Skip logic kích hoạt, caption chỉ hiện phần sau hook.
 
 Mỗi script có `"hook"` explicit (KHÔNG dựa fallback auto-extract):
 - **Độ dài:** 30-60 ký tự (1 câu ngắn punchy)
