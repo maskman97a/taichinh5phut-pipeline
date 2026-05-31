@@ -93,9 +93,9 @@
   },
   {
     "idea_id": 15,
-    "video_id": "KtIpQNl4iMI",
-    "published_at": "2026-05-31T03:41:48.257655+00:00",
-    "bgm_file": "bgm_03_lobby_time.mp3",
-    "note": "v2 with hook fix"
+    "video_id": "Kk6xJUI0cbY",
+    "published_at": "2026-05-31T05:11:23.906601+00:00",
+    "bgm_file": "bgm_05_local_forecast.mp3",
+    "note": "v3 bigger caption + sync fix"
   }
 ]

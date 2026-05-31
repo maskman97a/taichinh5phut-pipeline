@@ -500,30 +500,25 @@ def assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir):
 
     scene_captions = []
     start_t = 0.0
-    HOOK_DURATION = 2.2  # giay hook chiem - scene 1 caption start sau hook
+    # Caption start CUNG LUC voi voice scene -> sync chinh xac
+    # Hook overlay o y=700, caption o y=1280 -> khac vung, KHONG overlap visual
+    # -> KHONG can delay caption sau hook nua
     for i, scene in enumerate(script_data["scenes"]):
         voice_dur = scene_voices[i].duration  # voice that su, khong tinh pause
         chunks = split_chunks(scene["voiceover"], max_words=3)
         if not chunks:
             start_t += scene_durs[i]
             continue
-        # Scene 1: shift caption sau hook (2.2s), tranh overlap voi hook visual
-        if i == 0:
-            cap_window_start = start_t + HOOK_DURATION
-            cap_window_dur = max(0.5, voice_dur - HOOK_DURATION)
-        else:
-            cap_window_start = start_t
-            cap_window_dur = voice_dur
-        # Timing chunks theo CHARACTER PROPORTION (chinh xac hon equal split)
-        # Chunk dai hon -> duration dai hon -> khop voi thuyet minh hon
-        chunk_chars = [max(1, len(c)) for c in chunks]
-        total_chars = sum(chunk_chars)
-        chunk_durs = [cap_window_dur * (cc / total_chars) for cc in chunk_chars]
-        chunk_t = cap_window_start
+        # Timing chunks theo WORD COUNT (Vietnamese mostly monosyllabic
+        # -> word count ≈ syllable count ≈ duration ≈ TTS read time)
+        chunk_words = [max(1, len(c.split())) for c in chunks]
+        total_words = sum(chunk_words)
+        chunk_durs = [voice_dur * (cw / total_words) for cw in chunk_words]
+        chunk_t = start_t
         for j, chunk in enumerate(chunks):
-            # Caption: TRANG + STROKE 5 + BeVietnamPro-Black (chu day hon chut)
-            # User feedback: chu day hon nho thoi
-            cap = (TextClip(chunk, fontsize=110, color="white",
+            # Caption: TRANG + STROKE 5 + fontsize 120 (lon hon, de doc)
+            # User feedback: chu hoi be -> tang fontsize
+            cap = (TextClip(chunk, fontsize=120, color="white",
                            stroke_color="black", stroke_width=5,
                            size=(980, None), method="caption", font=VN_FONT)
                    .set_position(("center", 1280))
