@@ -1,8 +1,11 @@
 name: Daily YouTube Pipeline
 
+# PIVOT EN (2026-06-02): cron PAUSED until user creates @aitoolsdaily channel
+# + updates YT_REFRESH_TOKEN secret. Resume by uncommenting `schedule` block.
+# Manual trigger via workflow_dispatch still works for testing.
 on:
-  schedule:
-    - cron: "0 23 * * *"
+  # schedule:
+  #   - cron: "0 23 * * *"
   workflow_dispatch:
 
 jobs:

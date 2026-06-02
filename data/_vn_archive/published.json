@@ -1,0 +1,123 @@
+[
+  {
+    "idea_id": 1,
+    "video_id": "rtBpwzu87Xw",
+    "published_at": "2026-05-26T18:01:36.086979+00:00"
+  },
+  {
+    "idea_id": 2,
+    "video_id": "Afh7bQ6FBoo",
+    "published_at": "2026-05-26T18:21:23.727607+00:00"
+  },
+  {
+    "idea_id": 3,
+    "video_id": "03ssBnjGJUg",
+    "published_at": "2026-05-26T18:33:44.038767+00:00"
+  },
+  {
+    "idea_id": 1,
+    "video_id": "5kAtn4cBJPI",
+    "published_at": "2026-05-26T18:57:40.657611+00:00"
+  },
+  {
+    "idea_id": 2,
+    "video_id": "jNUzq70GNHI",
+    "published_at": "2026-05-26T19:16:55.404010+00:00"
+  },
+  {
+    "idea_id": 3,
+    "video_id": "jA2XxMc7JDc",
+    "published_at": "2026-05-26T19:23:34.825679+00:00"
+  },
+  {
+    "idea_id": 5,
+    "video_id": "nKUd4f3yEsA",
+    "published_at": "2026-05-27T00:26:04.045623+00:00"
+  },
+  {
+    "idea_id": 6,
+    "video_id": "ARNXAzTE3oE",
+    "published_at": "2026-05-27T15:40:36.062427+00:00"
+  },
+  {
+    "idea_id": 7,
+    "video_id": "0cKwZtlmdaw",
+    "published_at": "2026-05-27T16:00:30.451404+00:00"
+  },
+  {
+    "idea_id": 8,
+    "video_id": "iGl2_9bxUCA",
+    "published_at": "2026-05-27T16:51:13.413598+00:00"
+  },
+  {
+    "idea_id": 9,
+    "video_id": "gXjpwlRZqnQ",
+    "published_at": "2026-05-27T17:02:20.629330+00:00"
+  },
+  {
+    "idea_id": 10,
+    "video_id": "ubkD5fwMOHE",
+    "published_at": "2026-05-27T17:07:16.924188+00:00"
+  },
+  {
+    "idea_id": 11,
+    "video_id": "4VaiX07D_Go",
+    "published_at": "2026-05-27T17:16:50.834750+00:00"
+  },
+  {
+    "idea_id": 12,
+    "video_id": "FQP_BCddZXM",
+    "published_at": "2026-05-28T00:07:00.777593+00:00"
+  },
+  {
+    "idea_id": 13,
+    "video_id": "g4ZyQ4teHv0",
+    "published_at": "2026-05-28T19:21:19.032770+00:00",
+    "bgm_file": "bgm_07_investigations.mp3"
+  },
+  {
+    "idea_id": 14,
+    "video_id": "qsNF1BrjxvI",
+    "published_at": "2026-05-31T02:55:29.271640+00:00",
+    "bgm_file": "bgm_01_backed_vibes.mp3"
+  },
+  {
+    "idea_id": 15,
+    "video_id": "s1pHMl4qZPU",
+    "published_at": "2026-05-31T05:59:14.658461+00:00",
+    "bgm_file": "varies",
+    "note": "v6 shadow bold + lead 0.25s"
+  },
+  {
+    "idea_id": 16,
+    "video_id": "9_jtahMkp0w",
+    "published_at": "2026-05-31T06:56:59.692604+00:00",
+    "bgm_file": "varies",
+    "note": "v2 abbrev fully expanded"
+  },
+  {
+    "idea_id": 4,
+    "video_id": "c8JMsWrSVEo",
+    "published_at": "2026-05-31T08:03:10.486008+00:00",
+    "bgm_file": "varies",
+    "note": "v4 no brand promotion"
+  },
+  {
+    "idea_id": 18,
+    "video_id": "TqZhO-faJIk",
+    "published_at": "2026-05-31T16:47:33.326708+00:00",
+    "bgm_file": "bgm_09_funky_chunk.mp3"
+  },
+  {
+    "idea_id": 19,
+    "video_id": "aAUp3pdmcso",
+    "published_at": "2026-06-01T00:14:10.930828+00:00",
+    "bgm_file": "bgm_10_aces_high.mp3"
+  },
+  {
+    "idea_id": 20,
+    "video_id": "HoB1-xTzEGg",
+    "published_at": "2026-06-02T00:21:15.682834+00:00",
+    "bgm_file": "bgm_10_aces_high.mp3"
+  }
+]

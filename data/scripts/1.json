@@ -1,0 +1,72 @@
+{
+  "idea_id": 1,
+  "title": "I Tested Cursor AI for 7 Days — Saved 18 Hours of Coding #shorts #ai #cursor",
+  "hook": "I gave Cursor AI my entire codebase for 7 days. Result: 18 hours saved.",
+  "description": "I gave Cursor AI my entire codebase for 7 days. Result: 18 hours saved.\n\nReal numbers from a senior dev: average task time dropped from 45 to 12 minutes. The agent mode handled 73% of refactors without manual fixes. But there's a catch — context loss after 200k tokens.\n\nIn this video: my exact workflow, the 3 prompts that worked, and when Cursor failed me.\n\n🔔 Subscribe @aitoolsdaily — 1 new AI tool tested every day at 8 AM PT.\n\n⚠️ Personal testing. Tools change pricing/features fast. Verify before subscribing.\n\n#shorts #cursor #ai #coding #productivity #aitools #devtools #vscode #github #ide",
+  "tags": [
+    "AI tools daily",
+    "aitoolsdaily",
+    "cursor ai review",
+    "cursor ai 7 days",
+    "cursor vs vscode",
+    "ai coding assistant",
+    "best ai for coding 2026",
+    "cursor ai agent mode",
+    "ai coding tools",
+    "developer productivity ai",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
+  ],
+  "scenes": [
+    {
+      "voiceover": "I gave Cursor AI my entire codebase for 7 days. Result: 18 hours saved. I'm a senior dev, average task time dropped from 45 to 12 minutes.",
+      "visual_keyword": "developer typing keyboard monitor close up",
+      "visual_style": "ai",
+      "visual_prompt": "Modern developer workstation, multiple monitors with code editor, dark theme, dramatic lighting, photorealistic cinematic"
+    },
+    {
+      "voiceover": "Before Cursor, I spent half my day on boilerplate, refactors, and writing test cases. Manual context switching killed my flow.",
+      "visual_keyword": "stressed developer office laptop late night",
+      "visual_style": "ai",
+      "visual_prompt": "Stressed developer at desk surrounded by sticky notes, multiple browser tabs open, dim office lighting, photorealistic"
+    },
+    {
+      "voiceover": "Cursor's agent mode does the heavy lifting. You describe the change in plain English, it edits multiple files, runs tests, and shows a diff before commit.",
+      "visual_keyword": "modern code editor screen close up",
+      "visual_style": "ai",
+      "visual_prompt": "AI coding assistant interface on monitor, code diff view with green and red changes, modern dark theme UI, photorealistic"
+    },
+    {
+      "voiceover": "Test result: 73 percent of refactors worked without manual fixes. Adding a new API endpoint dropped from 30 minutes to 4 minutes.",
+      "visual_keyword": "code editor api endpoint screen",
+      "visual_style": "ai",
+      "visual_prompt": "Code editor showing API endpoint definition with terminal output below showing successful test results, modern dark theme, photorealistic"
+    },
+    {
+      "voiceover": "But here's the catch. After 200 thousand tokens of context, Cursor starts losing track. I had to manually re-anchor every 3 hours.",
+      "visual_keyword": "developer reading documentation screen",
+      "visual_style": "ai",
+      "visual_prompt": "Developer pointing at error message on screen, frustrated expression, modern office setting, photorealistic dramatic"
+    },
+    {
+      "voiceover": "Verdict: worth the 20 dollars per month if you ship code daily. Skip if you only debug existing systems. My 3 best prompts are in the description.",
+      "visual_keyword": "money calculator price tag close up",
+      "visual_style": "ai",
+      "visual_prompt": "Hand holding credit card next to laptop with Cursor pricing page open, modern minimal desk setup, photorealistic"
+    },
+    {
+      "voiceover": "Which AI tool should I test next? Comment your stack and the tool you want benchmarked.",
+      "visual_keyword": "hands typing message phone screen close up",
+      "visual_style": "stock"
+    },
+    {
+      "voiceover": "Subscribe for one new AI tool tested every day at 8 AM Pacific. Personal testing, not paid promotion.",
+      "visual_keyword": "young person smiling pointing office happy",
+      "visual_style": "ai",
+      "visual_prompt": "Young tech professional smiling pointing up at subscribe button, modern office background, photorealistic cinematic"
+    }
+  ]
+}

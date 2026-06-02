@@ -1,6 +1,6 @@
 """
 Pipeline tự động tạo + upload 1 video YouTube Shorts mỗi ngày.
-Kênh: Tài Chính 5 Phút
+Kênh: AI Tools Daily (@aitoolsdaily) — EN niche, daily AI tool reviews
 
 Flow: ideas.json -> LOAD pre-generated script (data/scripts/{id}.json)
    -> Pexels clips -> Google TTS WaveNet voice
@@ -98,15 +98,16 @@ PUBLISHED_FILE = REPO_ROOT / "data" / "published.json"
 SCRIPTS_DIR = REPO_ROOT / "data" / "scripts"  # Thu muc chua script JSON pre-gen
 BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3)
 
-# Xoay vòng 2 voice NAM Google WaveNet cho de-templating
+# Rotate 3 English WaveNet voices for de-templating (AI Tools Daily - EN)
 VOICES = [
-    "vi-VN-Wavenet-B",  # Male 1 - nam trẻ, trung tính
-    "vi-VN-Wavenet-D",  # Male 2 - nam trầm, mature
+    "en-US-Wavenet-D",  # Male - confident, mature tech reviewer
+    "en-US-Wavenet-J",  # Male - young, energetic
+    "en-US-Wavenet-F",  # Female - clear, professional
 ]
 
-# Disclaimer YMYL bắt buộc (Finance niche)
-DISCLAIMER_TEXT = ("⚠️ Video chỉ mang tính giáo dục, KHÔNG phải lời khuyên "
-                   "đầu tư. Hãy tham khảo chuyên gia tài chính.")
+# Disclaimer for AI tools review niche (test before paid plans)
+DISCLAIMER_TEXT = ("Tools change pricing/features fast. Verify before "
+                   "subscribing. Personal testing, not paid promotion.")
 
 # ==================== STEP 1: LẤY Ý TƯỞNG ====================
 def pick_next_idea():
@@ -422,7 +423,7 @@ def generate_voice_per_scene(script_data, tmpdir):
         url = f"https://texttospeech.googleapis.com/v1beta1/text:synthesize?key={GOOGLE_TTS_KEY}"
         body = {
             "input": {"ssml": ssml},
-            "voice": {"languageCode": "vi-VN", "name": voice_name},
+            "voice": {"languageCode": "en-US", "name": voice_name},
             "audioConfig": {
                 "audioEncoding": "MP3",
                 "speakingRate": 1.15,
@@ -907,18 +908,18 @@ def upload_to_youtube(video_path, script_data, idea):
     vn_tomorrow_6am = (datetime.now(timezone.utc) + timedelta(hours=24))
     vn_tomorrow_6am = vn_tomorrow_6am.replace(minute=0, second=0, microsecond=0)
 
-    # Description finance YMYL + Kevin MacLeod CC-BY credit
+    # Description AI tools review + Kevin MacLeod CC-BY credit
     full_desc = (
         f"{script_data['description']}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"⚠️ DISCLAIMER: Đây là góc nhìn cá nhân, KHÔNG phải lời khuyên đầu tư hay "
-        f"tài chính. Mỗi người có hoàn cảnh khác nhau — hãy tham khảo chuyên gia có "
-        f"chứng chỉ trước khi ra quyết định lớn. Kênh không khuyến nghị mua/bán mã "
-        f"cổ phiếu cụ thể, không hứa hẹn ROI.\n\n"
+        f"⚠️ DISCLAIMER: Personal testing experience, not paid promotion. "
+        f"AI tools change pricing/features fast — verify before subscribing. "
+        f"Results may vary based on your use case. Channel does not guarantee "
+        f"tool performance or specific outcomes.\n\n"
         f"🎵 Music: Kevin MacLeod (incompetech.com)\n"
         f"Licensed under Creative Commons: By Attribution 4.0\n"
         f"https://creativecommons.org/licenses/by/4.0/\n\n"
-        f"📧 Liên hệ work/sponsor: taichinh5phut@gmail.com"
+        f"📧 Business / sponsor: aitoolsdaily.contact@gmail.com"
     )
     # YouTube reject description chứa ký tự < hoặc > (HTML injection risk).
     # Replace ngay đây trước khi build body — defense-in-depth dù scripts đã clean.
@@ -931,8 +932,8 @@ def upload_to_youtube(video_path, script_data, idea):
             "description": full_desc[:5000],
             "tags": script_data.get("tags", [])[:30],
             "categoryId": "27",  # Education
-            "defaultLanguage": "vi",
-            "defaultAudioLanguage": "vi",
+            "defaultLanguage": "en",
+            "defaultAudioLanguage": "en",
         },
         "status": {
             # Privacy configurable qua env var YT_PRIVACY (default "public" - san sang phat hanh)

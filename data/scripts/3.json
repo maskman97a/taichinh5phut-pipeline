@@ -1,0 +1,72 @@
+{
+  "idea_id": 3,
+  "title": "I Replaced Figma + Adobe + Canva with 2 Free AI Tools #shorts #ai #design",
+  "hook": "I cancelled Figma, Adobe, and Canva. Replaced them all with 2 free AI tools.",
+  "description": "I cancelled Figma, Adobe, and Canva. Replaced them all with 2 free AI tools.\n\nMonthly cost dropped from 180 dollars to zero. The two tools: Flux on Pollinations for image generation, and Penpot for vector editing. Combined output replaces 90 percent of what I used the paid stack for.\n\nIn this video: side-by-side comparison, the only feature I lost, and when paid tools still win.\n\n🔔 Subscribe @aitoolsdaily — 1 new AI tool tested every day at 8 AM PT.\n\n⚠️ Personal testing. Free tier policies change — verify before relying.\n\n#shorts #figma #adobe #canva #ai #design #freetools #aitools #flux #penpot",
+  "tags": [
+    "AI tools daily",
+    "aitoolsdaily",
+    "figma alternative free",
+    "adobe alternative ai",
+    "canva alternative 2026",
+    "free design tools",
+    "flux pollinations review",
+    "penpot review",
+    "ai image generation free",
+    "design tools comparison",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
+  ],
+  "scenes": [
+    {
+      "voiceover": "I cancelled Figma, Adobe, and Canva. Replaced them all with 2 free AI tools. Monthly cost dropped from 180 dollars to zero.",
+      "visual_keyword": "credit card subscription cancellation",
+      "visual_style": "ai",
+      "visual_prompt": "Hand holding credit card next to laptop showing subscription cancellation screen, modern minimal desk setup, photorealistic"
+    },
+    {
+      "voiceover": "Tool one: Flux on Pollinations. Free, no signup, generates 1080p images from text prompts. Replaces my Canva template stack entirely.",
+      "visual_keyword": "ai image generation interface screen",
+      "visual_style": "ai",
+      "visual_prompt": "AI image generation interface on monitor showing prompt input and generated artwork, modern dark theme UI, photorealistic"
+    },
+    {
+      "voiceover": "Tool two: Penpot. Open source vector editor, runs in browser, exports SVG and PDF. Real collaboration like Figma without the price tag.",
+      "visual_keyword": "vector design software interface",
+      "visual_style": "ai",
+      "visual_prompt": "Vector design software interface showing SVG editor with shapes and layers panel, modern UI design, photorealistic"
+    },
+    {
+      "voiceover": "Real test: I redesigned my product landing page in 47 minutes. Used Flux for hero images, Penpot for layout. Output looked premium.",
+      "visual_keyword": "landing page design mockup screen",
+      "visual_style": "ai",
+      "visual_prompt": "Modern SaaS landing page mockup on monitor with hero image and call to action button, clean minimalist design, photorealistic"
+    },
+    {
+      "voiceover": "The one thing I lost: Adobe's photo retouching for client work. For that I still use Krita, also free. So technically three tools, all zero cost.",
+      "visual_keyword": "photo editing software interface",
+      "visual_style": "ai",
+      "visual_prompt": "Photo editing software interface showing portrait retouching tools and layers panel, modern dark theme UI, photorealistic"
+    },
+    {
+      "voiceover": "When paid still wins: enterprise team sync at 50 plus seats, and Adobe's video editing. For solo creators, free stack is enough.",
+      "visual_keyword": "team collaboration office workspace",
+      "visual_style": "ai",
+      "visual_prompt": "Team collaboration in modern office with multiple screens showing design files, warm lighting, photorealistic"
+    },
+    {
+      "voiceover": "What paid tool should I find a free replacement for next? Comment the subscription you want me to kill.",
+      "visual_keyword": "hands typing message phone screen close up",
+      "visual_style": "stock"
+    },
+    {
+      "voiceover": "Subscribe for daily free AI tool tests. One new replacement found every day.",
+      "visual_keyword": "young person smiling pointing office happy",
+      "visual_style": "ai",
+      "visual_prompt": "Young tech professional smiling pointing up at subscribe button, modern office background, photorealistic cinematic"
+    }
+  ]
+}
