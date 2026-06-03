@@ -98,11 +98,15 @@ PUBLISHED_FILE = REPO_ROOT / "data" / "published.json"
 SCRIPTS_DIR = REPO_ROOT / "data" / "scripts"  # Thu muc chua script JSON pre-gen
 BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3)
 
-# Rotate 3 English WaveNet voices for de-templating (AI Tools Daily - EN)
+# Rotate 3 English Neural2 MALE voices (AI Tools Daily - EN)
+# iter 18: switched all to male voices (user feedback "chon giong nam").
+# Research: viral channels (Matt Wolfe, Wes Roth) use real human voice;
+# faceless AI use ElevenLabs ($5/mo paid). Free best = Google Neural2 male.
+# Tech review niche favors confident male voice over female/young.
 VOICES = [
-    "en-US-Wavenet-D",  # Male - confident, mature tech reviewer
-    "en-US-Wavenet-J",  # Male - young, energetic
-    "en-US-Wavenet-F",  # Female - clear, professional
+    "en-US-Neural2-D",   # Male - confident, deeper authoritative (PRIMARY)
+    "en-US-Neural2-J",   # Male - young energetic, natural inflection
+    "en-US-Neural2-I",   # Male - alternative tone, mature reviewer
 ]
 
 # Disclaimer for AI tools review niche (test before paid plans)
@@ -199,22 +203,44 @@ def generate_script(idea):
 def generate_ai_image(prompt, output_path, width=1080, height=1920, seed=None):
     """Generate AI image via Pollinations (free, no API key).
 
-    Pollinations Flux model - public Stable Diffusion service.
+    iter 17: Retry logic + model fallback (flux -> turbo).
+    Pollinations 402 Payment Required intermittent rate limit -> try turbo + delay.
+
     Returns image bytes via URL params.
     """
-    import urllib.parse
+    import urllib.parse, time
     if seed is None:
         seed = random.randint(1, 999999)
-    # Pollinations URL: prompt encoded + dimensions
     encoded = urllib.parse.quote(prompt[:500])  # cap length
-    url = (f"https://image.pollinations.ai/prompt/{encoded}"
-           f"?width={width}&height={height}&seed={seed}&model=flux&nologo=true")
-    resp = requests.get(url, timeout=60, stream=True)
-    resp.raise_for_status()
-    with open(output_path, "wb") as f:
-        for chunk in resp.iter_content(chunk_size=8192):
-            f.write(chunk)
-    return output_path
+
+    # Try sequence: flux -> turbo (2 attempts each with backoff)
+    attempts = [
+        ("flux", 0),
+        ("turbo", 5),
+        ("flux", 15),
+        ("turbo", 20),
+    ]
+    last_err = None
+    for model, delay in attempts:
+        if delay:
+            time.sleep(delay)
+        url = (f"https://image.pollinations.ai/prompt/{encoded}"
+               f"?width={width}&height={height}&seed={seed}&model={model}&nologo=true")
+        try:
+            resp = requests.get(url, timeout=90, stream=True)
+            if resp.status_code == 200:
+                with open(output_path, "wb") as f:
+                    for chunk in resp.iter_content(chunk_size=8192):
+                        f.write(chunk)
+                # Verify file size > 5KB (otherwise placeholder)
+                if Path(output_path).stat().st_size > 5 * 1024:
+                    return output_path
+                last_err = f"{model}: file too small"
+            else:
+                last_err = f"{model}: HTTP {resp.status_code}"
+        except Exception as e:
+            last_err = f"{model}: {e}"
+    raise RuntimeError(f"Pollinations all retries failed: {last_err}")
 
 
 def image_to_video_kenburns(image_path, video_path, duration=10.0, target_w=1080, target_h=1920):
@@ -503,9 +529,30 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
             c = c.loop(duration=target_dur)
         else:
             c = c.subclip(0, target_dur)
+
+        # iter 18: ZOOM-IN PUNCH last 0.4s (viral Shorts pacing effect)
+        # Zoom 1.0 -> 1.12 in last 0.4s -> sharp visual pop at scene end
+        _punch_dur = min(0.4, c.duration * 0.3)
+        _clip_dur = c.duration
+        def _zoom_punch_factory(clip_dur, punch_dur):
+            def _zoom(t):
+                if t < clip_dur - punch_dur:
+                    return 1.0
+                progress = max(0, (t - (clip_dur - punch_dur)) / punch_dur)
+                return 1.0 + 0.12 * min(1.0, progress)
+            return _zoom
+        c = c.resize(_zoom_punch_factory(_clip_dur, _punch_dur))
         clips.append(c)
 
     video = concatenate_videoclips(clips, method="compose")
+
+    # iter 18: COLOR GRADE BOOST — saturation cho pop visual
+    # iter 18.1: 1.18 -> 1.10 (less aggressive, avoid oversaturated look)
+    try:
+        from moviepy.video.fx.colorx import colorx
+        video = colorx(video, factor=1.10)
+    except ImportError:
+        pass
 
     # Build composite audio: voice scene 1 at t=0, scene 2 at t=dur1, ...
     from moviepy.editor import CompositeAudioClip
@@ -547,18 +594,18 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
     import os.path
     import glob as _glob
     _font_candidates = [
-        # Be Vietnam Pro ExtraBold (PRIORITY - balanced bold + Vietnamese-optimized)
-        # ExtraBold (weight 800) chon thay Black (900) - dam vua, khong overkill
-        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-ExtraBold.ttf"),
-        os.path.expanduser("~/Library/Fonts/BeVietnamPro-ExtraBold.ttf"),
-        "/tmp/fonts/BeVietnamPro-ExtraBold.ttf",
-        # Fallback BeVietnamPro-Black neu ExtraBold khong co
+        # Be Vietnam Pro Black (iter 17: weight 900 - dam hon ExtraBold,
+        # user feedback "font day hon 1 chut"). Works for both VN and EN.
         os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-Black.ttf"),
         os.path.expanduser("~/Library/Fonts/BeVietnamPro-Black.ttf"),
         "/tmp/fonts/BeVietnamPro-Black.ttf",
+        # Fallback ExtraBold neu Black khong co
+        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-ExtraBold.ttf"),
+        os.path.expanduser("~/Library/Fonts/BeVietnamPro-ExtraBold.ttf"),
+        "/tmp/fonts/BeVietnamPro-ExtraBold.ttf",
         # GitHub Actions Montserrat fallback (downloaded vao /tmp/fonts/)
-        "/tmp/fonts/Montserrat-ExtraBold.ttf",
         "/tmp/fonts/Montserrat-Black.ttf",
+        "/tmp/fonts/Montserrat-ExtraBold.ttf",
         # macOS Homebrew fonts
         "/opt/homebrew/share/fonts/Montserrat-ExtraBold.ttf",
         "/opt/homebrew/share/fonts/NotoSans-Bold.ttf",
@@ -647,25 +694,26 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
             hook_text = " ".join(hook_text.split()[:8]) + "..."
     print(f"      Hook: \"{hook_text}\"")
 
-    # Hook visual: TRANG + STROKE MONG + BG SEMI-DEN (pill style, clean render)
-    # Bo yellow vi yellow + thick stroke gay che fill (ImageMagick artifact)
-    # Trang + bg semi-black -> distinctive khoi caption + render sach
+    # Hook visual: TRANG + STROKE + BG SEMI-DEN (pill style)
+    # iter 18: BIGGER fontsize (no resize animation - breaks IM stroke + fill)
+    # iter 18.1: REVERT scale-pop, use fast fadein opacity (preserves text rendering)
     _hook_len = len(hook_text)
     if _hook_len <= 25:
-        _hook_size = 125  # cau cuc ngan, max size
+        _hook_size = 145
     elif _hook_len <= 45:
-        _hook_size = 108  # ngan
+        _hook_size = 125
     elif _hook_len <= 65:
-        _hook_size = 92   # vua
+        _hook_size = 105
     else:
-        _hook_size = 82   # dai (fallback)
+        _hook_size = 92
+
     hook_visual = (TextClip(hook_text, fontsize=_hook_size, color="white",
-                           stroke_color="black", stroke_width=4,
-                           bg_color="rgba(0,0,0,0.65)",
-                           size=(960, None), method="caption", font=HOOK_FONT)
+                           stroke_color="black", stroke_width=5,
+                           bg_color="rgba(0,0,0,0.72)",
+                           size=(980, None), method="caption", font=HOOK_FONT)
                    .set_position(("center", 700))
-                   .set_start(0).set_duration(2.5)
-                   .fadein(0.2).fadeout(0.4))
+                   .set_start(0).set_duration(2.8)
+                   .fadein(0.12).fadeout(0.4))
 
     # === KARAOKE-STYLE CAPTIONS ===
     # Chia voiceover thanh cum sentences -> sub hien chinh xac voi thuyet minh
@@ -759,16 +807,20 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
         for chunk, chunk_t, chunk_dur in chunk_timings:
             # Caption: TRANG + STROKE 3 + SHADOW DEN OFFSET (look bold/3D)
             # Timing dung EXACT timepoints tu Google TTS SSML mark (sync 100%)
-            CHUNK_FONT = 110
+            # iter 17: 110 -> 95 + font Black weight 900
+            # iter 18.1: REVERT scale-pop (broke stroke), use quick fadein 0.06s instead
+            CHUNK_FONT = 95
             shadow = (TextClip(chunk, fontsize=CHUNK_FONT, color="black",
                               size=(980, None), method="caption", font=VN_FONT)
                       .set_position(("center", 1287))
-                      .set_start(chunk_t).set_duration(chunk_dur))
+                      .set_start(chunk_t).set_duration(chunk_dur)
+                      .fadein(0.06))
             cap = (TextClip(chunk, fontsize=CHUNK_FONT, color="white",
                            stroke_color="black", stroke_width=3,
                            size=(980, None), method="caption", font=VN_FONT)
                    .set_position(("center", 1280))
-                   .set_start(chunk_t).set_duration(chunk_dur))
+                   .set_start(chunk_t).set_duration(chunk_dur)
+                   .fadein(0.06))
             scene_captions.append(shadow)
             scene_captions.append(cap)
         start_t += scene_durs[i]
