@@ -96,22 +96,21 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 IDEAS_FILE = REPO_ROOT / "data" / "ideas.json"
 PUBLISHED_FILE = REPO_ROOT / "data" / "published.json"
 SCRIPTS_DIR = REPO_ROOT / "data" / "scripts"  # Thu muc chua script JSON pre-gen
+IMAGES_DIR = REPO_ROOT / "data" / "images"  # Anh curated cho niche bida (visual_style="local")
 BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3)
 
-# Rotate 3 English Neural2 MALE voices (AI Tools Daily - EN)
-# iter 18: switched all to male voices (user feedback "chon giong nam").
-# Research: viral channels (Matt Wolfe, Wes Roth) use real human voice;
-# faceless AI use ElevenLabs ($5/mo paid). Free best = Google Neural2 male.
-# Tech review niche favors confident male voice over female/young.
+# Rotate 3 Vietnamese voices (Bida Huyen Thoai - VN niche, iter 19 pivot)
+# Neural2 vi-VN: giong tu nhien hon Wavenet, co inflection ke chuyen.
+# Male voice hop niche the thao/tieu su (giong binh luan vien).
 VOICES = [
-    "en-US-Neural2-D",   # Male - confident, deeper authoritative (PRIMARY)
-    "en-US-Neural2-J",   # Male - young energetic, natural inflection
-    "en-US-Neural2-I",   # Male - alternative tone, mature reviewer
+    "vi-VN-Neural2-D",   # Nam - tram, manh me (PRIMARY, giong binh luan vien)
+    "vi-VN-Wavenet-D",   # Nam - mature, fallback neu Neural2 loi
+    "vi-VN-Neural2-A",   # Nu - ro rang (rotation de-templating)
 ]
 
-# Disclaimer for AI tools review niche (test before paid plans)
-DISCLAIMER_TEXT = ("Tools change pricing/features fast. Verify before "
-                   "subscribing. Personal testing, not paid promotion.")
+# Disclaimer cho niche the thao/tieu su (co dau tieng Viet)
+DISCLAIMER_TEXT = ("Video giới thiệu, tư liệu thể thao. "
+                   "Hình ảnh thuộc về chủ sở hữu bản quyền tương ứng.")
 
 # ==================== STEP 1: LẤY Ý TƯỞNG ====================
 def pick_next_idea():
@@ -272,6 +271,45 @@ def image_to_video_kenburns(image_path, video_path, duration=10.0, target_w=1080
     return video_path
 
 
+def image_to_video_fit_blur(image_path, video_path, duration=15.0, target_w=1080, target_h=1920):
+    """Convert image to vertical video — FIT toan bo anh + nen MO (iter 19).
+
+    Cho anh nguoi/landscape ty le khong dong dang (vd anh bao chi):
+    - Background: anh scale COVER (fill) + blur manh -> lap day khung
+    - Foreground: anh scale CONTAIN (fit toan bo, KHONG crop) o giua
+    - Ken Burns zoom nhe 1.0->1.08 tren ca composite
+
+    Tranh loi crop sat mat khi anh landscape ep vao khung doc.
+    """
+    import subprocess
+    fps = 24
+    total_frames = int(duration * fps)
+    # Background: cover + crop full frame + gaussian blur manh
+    # Foreground: contain (fit), giu nguyen ty le, khong crop
+    # Overlay fg giua bg -> zoompan nhe tren ket qua
+    filter_complex = (
+        f"[0:v]scale={target_w}:{target_h}:force_original_aspect_ratio=increase,"
+        f"crop={target_w}:{target_h},gblur=sigma=28[bg];"
+        f"[0:v]scale={target_w}:{target_h}:force_original_aspect_ratio=decrease:flags=lanczos[fg];"
+        f"[bg][fg]overlay=(W-w)/2:(H-h)/2[ov];"
+        f"[ov]zoompan=z='1.0+0.08*on/{total_frames}':"
+        f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+        f"d=1:s={target_w}x{target_h}:fps={fps}"
+    )
+    cmd = [
+        "ffmpeg", "-y", "-loglevel", "error",
+        "-loop", "1", "-i", str(image_path),
+        "-filter_complex", filter_complex,
+        "-t", f"{duration:.2f}",
+        "-r", str(fps),
+        "-pix_fmt", "yuv420p",
+        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "23",
+        str(video_path),
+    ]
+    subprocess.run(cmd, check=True, capture_output=True)
+    return video_path
+
+
 def download_pexels_clip(keyword, output_path, exclude_ids=None):
     """Tải 1 video vertical từ Pexels theo keyword.
 
@@ -329,25 +367,56 @@ def download_pexels_clip(keyword, output_path, exclude_ids=None):
     return chosen["id"]
 
 
-def fetch_all_clips(scenes, tmpdir):
+def fetch_all_clips(scenes, tmpdir, idea_id=None):
     """Tai toan bo clip SEQUENTIAL.
 
     Strategy per scene:
+    0. visual_style="local" -> doc anh curated tu data/images/{idea_id}/ + Ken Burns
     1. Try Pexels stock (with dedup via exclude_ids)
     2. Fallback: AI image gen (Pollinations Flux) + Ken Burns to video
     3. Last resort: Pexels broad search
 
-    Script JSON co the chi dinh 'visual_style': 'stock'|'ai'|'auto' (default auto).
+    Script JSON co the chi dinh 'visual_style': 'local'|'stock'|'ai'|'auto' (default auto).
+    visual_file: ten file anh trong data/images/{idea_id}/ (cho style="local").
     """
-    print(f"[3/7] Fetching {len(scenes)} clips (Pexels + AI fallback)...")
+    print(f"[3/7] Fetching {len(scenes)} clips...")
     used_ids = set()
     paths = [None] * len(scenes)
+    img_folder = (IMAGES_DIR / str(idea_id)) if idea_id is not None else None
 
     for i, scene in enumerate(scenes):
         path = Path(tmpdir) / f"clip_{i}.mp4"
-        kw = scene["visual_keyword"]
+        kw = scene.get("visual_keyword", "")
         style = scene.get("visual_style", "auto").lower()
         ai_prompt = scene.get("visual_prompt") or kw  # explicit AI prompt or reuse keyword
+
+        # visual_style="local" -> anh curated tu data/images/{idea_id}/
+        if style == "local":
+            try:
+                # Tim file: visual_file chi dinh, hoac mac dinh {i}.jpg/png
+                vf = scene.get("visual_file", "")
+                local_img = None
+                if vf and img_folder and (img_folder / vf).exists():
+                    local_img = img_folder / vf
+                elif img_folder:
+                    # Fallback: tim {i}.jpg/png/jpeg/webp
+                    for ext in (".jpg", ".jpeg", ".png", ".webp"):
+                        cand = img_folder / f"{i}{ext}"
+                        if cand.exists():
+                            local_img = cand
+                            break
+                if not local_img:
+                    raise FileNotFoundError(
+                        f"Khong tim thay anh local cho scene {i} trong {img_folder} "
+                        f"(visual_file='{vf}')")
+                # FIT + blur background 15s (anh nguoi/bao chi ty le bat ky -> khong crop sat mat)
+                image_to_video_fit_blur(str(local_img), path, duration=15.0)
+                paths[i] = path
+                print(f"      Clip {i+1}/{len(scenes)}: local '{local_img.name}' -> fit+blur OK")
+                continue
+            except Exception as e:
+                print(f"      Clip {i+1}/{len(scenes)}: local fail ({e}), fallback AI")
+                style = "ai"  # fallback to AI gen
 
         # Force AI mode (skip Pexels)
         if style == "ai":
@@ -449,10 +518,10 @@ def generate_voice_per_scene(script_data, tmpdir):
         url = f"https://texttospeech.googleapis.com/v1beta1/text:synthesize?key={GOOGLE_TTS_KEY}"
         body = {
             "input": {"ssml": ssml},
-            "voice": {"languageCode": "en-US", "name": voice_name},
+            "voice": {"languageCode": "vi-VN", "name": voice_name},
             "audioConfig": {
                 "audioEncoding": "MP3",
-                "speakingRate": 1.15,
+                "speakingRate": 1.1,
                 "pitch": 0.0,
                 "volumeGainDb": 2.0,
                 "sampleRateHertz": 24000,
@@ -563,21 +632,20 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
         current_t += v.duration + PAUSE  # gap silence
 
     # === BACKGROUND MUSIC ===
-    # iter 18.2: EN niche AI tools -> prioritize TECH/electronic tracks (bgm_11-17)
-    # Old finance tracks (bgm_01-10) only used as fallback if no tech tracks.
+    # iter 19 (bida VN niche): dung CINEMATIC/dramatic tracks cho storytelling tieu su.
+    # Tranh tech electronic (bgm_11-17, cho EN AI niche cu) -> le tong bida.
     all_bgm = list(BGM_DIR.glob("*.mp3")) if BGM_DIR.exists() else []
-    # Tech tracks: hackbeat, cipher, voltaic, digital_lemonade, acid_jazz,
-    #              the_complex, blip_stream, electrodoodle (bgm_11 onwards)
+    # Tech tracks loai tru cho niche bida (giu lai cho EN niche neu revert)
     _tech_keywords = ("hackbeat", "voltaic", "digital_lemonade", "acid_jazz",
                       "the_complex", "blip_stream", "electrodoodle", "cipher")
-    tech_bgm = [f for f in all_bgm if any(k in f.name.lower() for k in _tech_keywords)]
-    bgm_files = tech_bgm if tech_bgm else all_bgm  # prefer tech, fallback all
+    cinematic_bgm = [f for f in all_bgm if not any(k in f.name.lower() for k in _tech_keywords)]
+    bgm_files = cinematic_bgm if cinematic_bgm else all_bgm
     bgm_filename_used = None  # Trace cho copyright claim
     if bgm_files:
         bgm_path = random.choice(bgm_files)
         bgm_filename_used = bgm_path.name
-        print(f"      BGM: {bgm_path.name} (tech pool: {len(tech_bgm)}/{len(all_bgm)})")
-        bgm = AudioFileClip(str(bgm_path)).volumex(0.14)  # iter 18.2: 0.12 -> 0.14 (tech needs presence)
+        print(f"      BGM: {bgm_path.name} (cinematic pool: {len(cinematic_bgm)}/{len(all_bgm)})")
+        bgm = AudioFileClip(str(bgm_path)).volumex(0.12)
         # Loop hoac trim BGM khop voi total duration
         if bgm.duration < total_dur:
             from moviepy.audio.fx.audio_loop import audio_loop
@@ -968,18 +1036,18 @@ def upload_to_youtube(video_path, script_data, idea):
     vn_tomorrow_6am = (datetime.now(timezone.utc) + timedelta(hours=24))
     vn_tomorrow_6am = vn_tomorrow_6am.replace(minute=0, second=0, microsecond=0)
 
-    # Description AI tools review + Kevin MacLeod CC-BY credit
+    # Description bida tieu su the thao + Kevin MacLeod CC-BY credit
     full_desc = (
         f"{script_data['description']}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"⚠️ DISCLAIMER: Personal testing experience, not paid promotion. "
-        f"AI tools change pricing/features fast — verify before subscribing. "
-        f"Results may vary based on your use case. Channel does not guarantee "
-        f"tool performance or specific outcomes.\n\n"
-        f"🎵 Music: Kevin MacLeod (incompetech.com)\n"
+        f"⚠️ MIỄN TRỪ TRÁCH NHIỆM: Video mang tính giới thiệu, tư liệu thể thao "
+        f"và tôn vinh các huyền thoại bida. Hình ảnh và tư liệu thuộc về chủ sở "
+        f"hữu bản quyền tương ứng, sử dụng theo nguyên tắc bình luận/giáo dục. "
+        f"Mọi yêu cầu gỡ bỏ vui lòng liên hệ kênh.\n\n"
+        f"🎵 Nhạc: Kevin MacLeod (incompetech.com)\n"
         f"Licensed under Creative Commons: By Attribution 4.0\n"
         f"https://creativecommons.org/licenses/by/4.0/\n\n"
-        f"📧 Business / sponsor: aitoolsdaily.contact@gmail.com"
+        f"📧 Liên hệ: bidahuyenthoai.contact@gmail.com"
     )
     # YouTube reject description chứa ký tự < hoặc > (HTML injection risk).
     # Replace ngay đây trước khi build body — defense-in-depth dù scripts đã clean.
@@ -991,9 +1059,9 @@ def upload_to_youtube(video_path, script_data, idea):
             "title": safe_title,  # YouTube giới hạn 100 + strip <>
             "description": full_desc[:5000],
             "tags": script_data.get("tags", [])[:30],
-            "categoryId": "27",  # Education
-            "defaultLanguage": "en",
-            "defaultAudioLanguage": "en",
+            "categoryId": "17",  # Sports
+            "defaultLanguage": "vi",
+            "defaultAudioLanguage": "vi",
         },
         "status": {
             # Privacy configurable qua env var YT_PRIVACY (default "public" - san sang phat hanh)
@@ -1031,7 +1099,7 @@ def main():
 
     # 3-5. Make video in temp dir
     with tempfile.TemporaryDirectory() as tmpdir:
-        clip_paths = fetch_all_clips(script_data["scenes"], tmpdir)
+        clip_paths = fetch_all_clips(script_data["scenes"], tmpdir, idea_id=idea["id"])
         scene_voice_paths = generate_voice_per_scene(script_data, tmpdir)
         video_path, bgm_file = assemble_video(clip_paths, scene_voice_paths, script_data, tmpdir)
         # 6. Upload

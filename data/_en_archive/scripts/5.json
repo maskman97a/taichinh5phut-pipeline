@@ -1,0 +1,72 @@
+{
+  "idea_id": 5,
+  "title": "AI Summarized 50 Unread Emails in 10 Seconds — My New Workflow #shorts #ai",
+  "hook": "I let AI summarize 50 unread emails in 10 seconds. Inbox zero, no time lost.",
+  "description": "I let AI summarize 50 unread emails in 10 seconds. Inbox zero, no time lost.\n\nThe stack: Gmail API plus a local Claude instance through Cursor. The AI scans subject and body, ranks by urgency, and writes a 1-line action item per email. Total processing time for 50 emails: 9.4 seconds on my test run.\n\nIn this video: the exact pipeline, the urgency scoring rule, and 2 emails the AI got wrong.\n\n🔔 Subscribe @aitoolsdaily — 1 new AI tool tested every day at 8 AM PT.\n\n⚠️ Personal workflow. Test on a sample folder before connecting to your live inbox.\n\n#shorts #ai #email #productivity #aitools #gmail #workflow #automation #inbox #claude",
+  "tags": [
+    "AI tools daily",
+    "aitoolsdaily",
+    "ai email summarizer",
+    "inbox zero with ai",
+    "claude email automation",
+    "ai productivity workflow",
+    "gmail ai workflow",
+    "ai inbox management",
+    "email automation 2026",
+    "ai for office workers",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
+  ],
+  "scenes": [
+    {
+      "voiceover": "I let AI summarize 50 unread emails in 10 seconds. Inbox zero, no time lost. Total processing: 9.4 seconds on my test run.",
+      "visual_keyword": "email inbox screen close up many messages",
+      "visual_style": "ai",
+      "visual_prompt": "Email inbox interface with many unread messages, modern minimal UI, dark theme, photorealistic"
+    },
+    {
+      "voiceover": "Before: I spent 45 minutes every morning triaging email. Most of it was newsletters and notifications I would skip anyway.",
+      "visual_keyword": "stressed person coffee laptop morning",
+      "visual_style": "ai",
+      "visual_prompt": "Stressed office worker drinking coffee staring at email inbox in early morning light, modern home office, photorealistic"
+    },
+    {
+      "voiceover": "The stack: Gmail API connected to a local Claude instance through Cursor. AI reads subject and body, no attachments. Pure text only.",
+      "visual_keyword": "automated workflow diagram interface",
+      "visual_style": "ai",
+      "visual_prompt": "Workflow diagram showing email API connecting to AI processor with output arrows, modern infographic style, photorealistic"
+    },
+    {
+      "voiceover": "AI ranks each email by urgency. Score 0 to 10. Anything below 4 gets auto-archived. Anything above 7 hits a separate priority folder.",
+      "visual_keyword": "priority sorting dashboard interface",
+      "visual_style": "ai",
+      "visual_prompt": "Priority sorting dashboard with color-coded urgency scores, modern minimal UI design, dark theme, photorealistic"
+    },
+    {
+      "voiceover": "Output per email: one line action item. Example: client wants invoice resent. Action: forward to billing, mark followup tomorrow.",
+      "visual_keyword": "task list action items checklist screen",
+      "visual_style": "ai",
+      "visual_prompt": "Task list interface with concise one-line action items and checkboxes, modern clean UI, photorealistic"
+    },
+    {
+      "voiceover": "Two emails the AI got wrong: a contract amendment marked low priority, and a fake invoice scored as urgent. Always sanity check before delete.",
+      "visual_keyword": "warning alert sign document screen",
+      "visual_style": "ai",
+      "visual_prompt": "Warning alert icon overlay on email interface with flagged messages, attention grabbing UI, photorealistic"
+    },
+    {
+      "voiceover": "Want the full setup walkthrough? Comment your email volume and I'll share the pipeline config.",
+      "visual_keyword": "hands typing message phone screen close up",
+      "visual_style": "stock"
+    },
+    {
+      "voiceover": "Subscribe for daily AI workflow tests. Real automations for real office work.",
+      "visual_keyword": "young person smiling pointing office happy",
+      "visual_style": "ai",
+      "visual_prompt": "Young tech professional smiling pointing up at subscribe button, modern office background, photorealistic cinematic"
+    }
+  ]
+}

@@ -293,7 +293,7 @@ def main():
     try:
         # Step 3: Download Pexels
         print(f"\n--- Step 3: Download Pexels clips ---")
-        clip_paths = fetch_all_clips(script_data["scenes"], tmpdir_str)
+        clip_paths = fetch_all_clips(script_data["scenes"], tmpdir_str, idea_id=args.id)
         ok_count = sum(1 for p in clip_paths if p is not None)
         print(f"   Downloaded: {ok_count}/{len(clip_paths)} clips")
         if ok_count == 0:

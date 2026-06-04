@@ -1,72 +1,79 @@
 {
   "idea_id": 1,
-  "title": "I Used Cursor AI for 7 Days — 18 Hours Saved (Real Numbers) #shorts #ai #cursor",
-  "hook": "I gave Cursor AI my entire codebase. 7 days later: 18 hours saved.",
-  "description": "I gave Cursor AI my entire codebase. 7 days later: 18 hours saved.\n\nReal numbers from a senior dev test. Average task time dropped from 45 minutes to 12. Agent mode shipped 73 percent of refactors with zero manual fixes.\n\nBut here is what they do not tell you. After 200 thousand tokens, Cursor loses context. Bad code starts leaking in. You need to re-anchor every 3 hours.\n\nIn this video: the 3 prompts that worked, where Cursor failed me, and is 20 dollars per month worth it.\n\n🔔 Subscribe @aitoolsdaily — 1 new AI tool tested every day at 8 AM PT.\n\n⚠️ Personal testing. Tools change pricing fast. Verify before subscribing.\n\n#shorts #cursor #ai #coding #productivity #aitools #devtools #vscode #github",
+  "title": "Cậu Bé Ngủ Trên Bàn Bida Thành Huyền Thoại Vĩ Đại Nhất — Efren Reyes #shorts #bida #billiard",
+  "hook": "Cậu bé ngủ trên bàn bida mỗi đêm — trở thành tay cơ vĩ đại nhất lịch sử.",
+  "description": "Cậu bé ngủ trên bàn bida mỗi đêm — trở thành tay cơ vĩ đại nhất lịch sử.\n\nEfren Reyes, biệt danh Phù Thủy, sinh năm 1954 tại Philippines. Tuổi thơ nghèo khó, cậu dọn dẹp câu lạc bộ bida của chú và ngủ ngay trên bàn. Vì quá thấp, cậu phải đứng trên thùng Coca-Cola để với tới mặt bàn.\n\nVậy mà cậu bé ấy đã giành hơn 100 danh hiệu quốc tế, là người đầu tiên vô địch thế giới ở hai thể loại khác nhau, và năm 2003 trở thành người châu Á đầu tiên được vinh danh tại Đại sảnh Danh vọng Bida thế giới.\n\n🔔 Đăng ký kênh để xem tiếp series Huyền Thoại Bida thế giới.\n\n📷 Ảnh: Efren Reyes — Doha Stadium Plus Qatar (CC BY 2.0) và RailbirdJAM (Public Domain), Wikimedia Commons.\n\n#shorts #bida #billiard #efrenreyes #themagician #pool #huyenthoai #philippines #pooltournament #cothu",
   "tags": [
-    "AI tools daily",
-    "aitoolsdaily",
-    "cursor ai review",
-    "cursor ai 7 days test",
-    "cursor vs vscode 2026",
-    "ai coding assistant best",
-    "cursor agent mode",
-    "ai for developers",
-    "cursor tutorial 2026",
-    "best ai coding tool",
+    "bida huyền thoại",
+    "efren reyes",
+    "efren reyes the magician",
+    "phù thủy bida",
+    "huyền thoại bida thế giới",
+    "cơ thủ vĩ đại nhất",
+    "bida philippines",
+    "billiard legend",
+    "pool world champion",
+    "tiểu sử efren reyes",
     "shorts",
-    "shortvideo",
-    "viralshorts",
-    "trending"
+    "bida",
+    "billiard",
+    "pool",
+    "cơ thủ thế giới"
   ],
   "scenes": [
     {
-      "voiceover": "I gave Cursor AI my entire codebase. 7 days later: 18 hours saved. Real numbers. No clickbait.",
-      "visual_keyword": "developer typing keyboard glowing screen close up",
-      "visual_style": "ai",
-      "visual_prompt": "Senior developer hands typing on glowing mechanical keyboard, code reflection on screen, dramatic neon purple cyan lighting, cinematic close up, photorealistic high detail"
+      "voiceover": "Cậu bé ngủ trên bàn bida mỗi đêm — trở thành tay cơ vĩ đại nhất lịch sử. Đây là câu chuyện của Efren Reyes, người được mệnh danh là Phù Thủy.",
+      "visual_style": "local",
+      "visual_file": "0_portrait.jpg",
+      "visual_keyword": "efren reyes portrait billiards legend"
     },
     {
-      "voiceover": "Average task time: 45 minutes. After Cursor: 12 minutes. Same tasks. Same dev. Three times faster.",
-      "visual_keyword": "stopwatch timer fast clock dramatic",
-      "visual_style": "ai",
-      "visual_prompt": "Dramatic stopwatch with glowing numbers showing time reduction, motion blur, neon cyan accent lighting, dark tech aesthetic, cinematic close up, photorealistic"
+      "voiceover": "Sinh năm 1954 tại Philippines trong gia đình nghèo, cậu bé Efren dọn dẹp câu lạc bộ bida của người chú và ngủ ngay trên bàn mỗi đêm.",
+      "visual_style": "local",
+      "visual_file": "1_young.jpg",
+      "visual_keyword": "efren reyes young vintage billiard hall"
     },
     {
-      "voiceover": "Agent mode is the killer. You type the change in plain English. It edits 5 files. Runs tests. Done.",
-      "visual_keyword": "modern code editor agent ai interface",
-      "visual_style": "ai",
-      "visual_prompt": "Modern dark theme code editor with AI agent panel showing multi-file edit, green diff lines, futuristic UI design, neon glow, photorealistic high detail"
+      "voiceover": "Vì quá thấp không với tới mặt bàn, cậu phải đứng trên những thùng Coca-Cola để tập đánh. Năm chín tuổi, cậu đã thắng ván tiền đầu tiên.",
+      "visual_style": "local",
+      "visual_file": "2_table.jpg",
+      "visual_keyword": "old billiard table vintage pool hall"
     },
     {
-      "voiceover": "73 percent of refactors. Zero manual fixes. Adding an API endpoint dropped from 30 minutes to 4.",
-      "visual_keyword": "code success terminal green checkmarks",
-      "visual_style": "ai",
-      "visual_prompt": "Code editor showing successful API endpoint test with green checkmarks and code diff, terminal output green text, dramatic dark theme, photorealistic"
+      "voiceover": "Biệt danh Phù Thủy đến từ những cú đánh phản bi ảo diệu, tưởng như bất khả thi. Đối thủ và khán giả đều không tin vào mắt mình.",
+      "visual_style": "local",
+      "visual_file": "3_shot.jpg",
+      "visual_keyword": "efren reyes difficult pool shot action"
     },
     {
-      "voiceover": "But here is the catch. After 200 thousand tokens, Cursor forgets. Bad code leaks in.",
-      "visual_keyword": "error red warning code screen alert",
-      "visual_style": "ai",
-      "visual_prompt": "Code editor showing red error messages and broken code, warning icons, dramatic red glow, dark theme, urgent atmosphere, photorealistic"
+      "voiceover": "Năm 1997, ông đánh bại Earl Strickland và mang về tiền thưởng một trăm nghìn đô la — khoản tiền lớn nhất lịch sử bida cho một trận đấu thời điểm đó.",
+      "visual_style": "local",
+      "visual_file": "4_match.jpg",
+      "visual_keyword": "efren reyes tournament match competition"
     },
     {
-      "voiceover": "Fix: re-anchor every 3 hours. Paste your folder structure. Force Cursor to reload context.",
-      "visual_keyword": "developer focused coding solution office",
-      "visual_style": "ai",
-      "visual_prompt": "Focused developer at modern workstation pasting code into AI chat, multiple monitors showing code, dramatic lighting, photorealistic cinematic"
+      "voiceover": "Ông là người đầu tiên vô địch thế giới ở hai thể loại khác nhau, giành hơn một trăm danh hiệu quốc tế trong suốt sự nghiệp.",
+      "visual_style": "local",
+      "visual_file": "5_trophy.jpg",
+      "visual_keyword": "efren reyes trophy champion celebration"
     },
     {
-      "voiceover": "Verdict: 20 dollars per month is worth it if you ship daily. Skip if you only debug.",
-      "visual_keyword": "money price tag credit card decision",
-      "visual_style": "ai",
-      "visual_prompt": "Credit card next to laptop showing Cursor subscription page, modern desk close up, dramatic lighting, photorealistic minimal style"
+      "voiceover": "Năm 2003, Efren Reyes trở thành người châu Á đầu tiên được vinh danh tại Đại sảnh Danh vọng Bida thế giới. Nhiều tay cơ gọi ông là vĩ đại nhất mọi thời đại.",
+      "visual_style": "local",
+      "visual_file": "6_legend.jpg",
+      "visual_keyword": "efren reyes hall of fame legend honored"
     },
     {
-      "voiceover": "Which AI tool should I benchmark next? Comment your stack. Subscribe for one tool tested daily.",
-      "visual_keyword": "young person smiling pointing office happy",
-      "visual_style": "ai",
-      "visual_prompt": "Young tech professional smiling pointing up at glowing subscribe button, modern office background, dramatic cinematic lighting, photorealistic high detail"
+      "voiceover": "Theo bạn, ai mới là cơ thủ vĩ đại nhất mọi thời đại? Hãy để lại bình luận tên thần tượng của bạn.",
+      "visual_style": "local",
+      "visual_file": "7_cta.jpg",
+      "visual_keyword": "efren reyes waving crowd fans"
+    },
+    {
+      "voiceover": "Đăng ký kênh để xem tiếp series Huyền Thoại Bida thế giới. Mỗi tập một câu chuyện về một tay cơ huyền thoại.",
+      "visual_style": "local",
+      "visual_file": "8_subscribe.jpg",
+      "visual_keyword": "efren reyes portrait cue stick"
     }
   ]
 }

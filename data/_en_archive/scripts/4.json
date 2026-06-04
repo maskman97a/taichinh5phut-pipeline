@@ -1,0 +1,72 @@
+{
+  "idea_id": 4,
+  "title": "Most Devs Don't Know This Cursor AI Trick (Saves 5 Hours/Week) #shorts #ai #cursor",
+  "hook": "Most devs don't know this Cursor AI trick. It saves me 5 hours every single week.",
+  "description": "Most devs don't know this Cursor AI trick. It saves me 5 hours every single week.\n\nThe trick: custom rules file at the project root. Cursor reads it on every prompt and respects your codebase conventions automatically. No more reminding the AI about your folder structure, naming rules, or testing framework.\n\nIn this video: the exact rules file template, the 4 sections that matter most, and what to never include.\n\n🔔 Subscribe @aitoolsdaily — 1 new AI tool tested every day at 8 AM PT.\n\n⚠️ Personal workflow. Adapt the rules to your codebase before copying.\n\n#shorts #cursor #ai #coding #devtools #productivity #aitools #vscode #ide #workflow",
+  "tags": [
+    "AI tools daily",
+    "aitoolsdaily",
+    "cursor ai rules",
+    "cursor ai tips",
+    "cursor ai workflow",
+    "cursor productivity hack",
+    "cursorrules file",
+    "ai coding tricks",
+    "developer productivity 2026",
+    "cursor advanced features",
+    "shorts",
+    "shortvideo",
+    "tips",
+    "viralshorts",
+    "trending"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Most devs don't know this Cursor AI trick. It saves me 5 hours every single week. The fix takes 2 minutes to set up.",
+      "visual_keyword": "developer typing fast keyboard close up",
+      "visual_style": "ai",
+      "visual_prompt": "Close up of hands typing rapidly on mechanical keyboard, code visible on monitor in background, dramatic lighting, photorealistic"
+    },
+    {
+      "voiceover": "The problem: every prompt you waste tokens reminding Cursor about your folder structure, naming rules, and which framework you use.",
+      "visual_keyword": "code editor file tree project structure",
+      "visual_style": "ai",
+      "visual_prompt": "Code editor showing project folder tree with nested directories, modern dark theme IDE, photorealistic"
+    },
+    {
+      "voiceover": "The trick: create a file called dot cursor rules at the project root. Cursor reads it automatically on every prompt. Zero token waste.",
+      "visual_keyword": "configuration file text editor screen",
+      "visual_style": "ai",
+      "visual_prompt": "Code editor showing configuration file with project rules, syntax highlighted text, modern dark theme, photorealistic"
+    },
+    {
+      "voiceover": "The 4 sections that matter: folder structure rules, naming conventions, testing framework, and forbidden patterns. Skip everything else.",
+      "visual_keyword": "checklist document tasks screen",
+      "visual_style": "ai",
+      "visual_prompt": "Modern interface showing 4 numbered configuration sections with checkmarks, clean UI design, photorealistic"
+    },
+    {
+      "voiceover": "Real example: I told Cursor we use Vitest, not Jest. Every new test file now uses correct imports. No more manual rewrites.",
+      "visual_keyword": "test file code success screen",
+      "visual_style": "ai",
+      "visual_prompt": "Code editor showing test file with green passing test indicators and Vitest framework imports, photorealistic"
+    },
+    {
+      "voiceover": "Never include: API keys, secrets, or personal preferences. Rules file gets shared with team and may end up in version control.",
+      "visual_keyword": "lock security password screen",
+      "visual_style": "ai",
+      "visual_prompt": "Security lock icon overlay on code editor with redacted secret keys, warning style, dark theme, photorealistic"
+    },
+    {
+      "voiceover": "Want my actual cursor rules file? Comment your stack and I'll share a customized template.",
+      "visual_keyword": "hands typing message phone screen close up",
+      "visual_style": "stock"
+    },
+    {
+      "voiceover": "Subscribe for one AI productivity hack every day. Real workflows from real production codebases.",
+      "visual_keyword": "young person smiling pointing office happy",
+      "visual_style": "ai",
+      "visual_prompt": "Young tech professional smiling pointing up at subscribe button, modern office background, photorealistic cinematic"
+    }
+  ]
+}
