@@ -103,9 +103,9 @@ BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3)
 # Neural2 vi-VN: giong tu nhien hon Wavenet, co inflection ke chuyen.
 # Male voice hop niche the thao/tieu su (giong binh luan vien).
 VOICES = [
-    "vi-VN-Neural2-D",   # Nam - tram, manh me (PRIMARY, giong binh luan vien)
-    "vi-VN-Wavenet-D",   # Nam - mature, fallback neu Neural2 loi
-    "vi-VN-Neural2-A",   # Nu - ro rang (rotation de-templating)
+    "vi-VN-Wavenet-B",   # Nam - sang, ro net (iter 19.1: doi tu Neural2-D)
+    "vi-VN-Wavenet-D",   # Nam - tram, mature (rotation)
+    "vi-VN-Neural2-D",   # Nam - tram manh me (rotation de-templating)
 ]
 
 # Disclaimer cho niche the thao/tieu su (co dau tieng Viet)
@@ -670,8 +670,12 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
     import os.path
     import glob as _glob
     _font_candidates = [
-        # Be Vietnam Pro Black (iter 17: weight 900 - dam hon ExtraBold,
-        # user feedback "font day hon 1 chut"). Works for both VN and EN.
+        # Montserrat Black (iter 19.1: user "font khac day hon" - geometric viral
+        # Shorts aesthetic, weight 900, ho tro day du dau tieng Viet).
+        os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/Montserrat-Black.ttf"),
+        os.path.expanduser("~/Library/Fonts/Montserrat-Black.ttf"),
+        "/tmp/fonts/Montserrat-Black.ttf",
+        # Be Vietnam Pro Black (fallback - weight 900, Vietnamese-optimized)
         os.path.expanduser("~/AppData/Local/Microsoft/Windows/Fonts/BeVietnamPro-Black.ttf"),
         os.path.expanduser("~/Library/Fonts/BeVietnamPro-Black.ttf"),
         "/tmp/fonts/BeVietnamPro-Black.ttf",
@@ -885,7 +889,8 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
             # Timing dung EXACT timepoints tu Google TTS SSML mark (sync 100%)
             # iter 17: 110 -> 95 + font Black weight 900
             # iter 18.1: REVERT scale-pop (broke stroke), use quick fadein 0.06s instead
-            CHUNK_FONT = 95
+            # iter 19.1: 95 -> 85 (user "co chu nho hon chut") + Montserrat-Black font
+            CHUNK_FONT = 85
             shadow = (TextClip(chunk, fontsize=CHUNK_FONT, color="black",
                               size=(980, None), method="caption", font=VN_FONT)
                       .set_position(("center", 1287))

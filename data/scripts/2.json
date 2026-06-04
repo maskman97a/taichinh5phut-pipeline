@@ -1,72 +1,72 @@
 {
   "idea_id": 2,
-  "title": "Claude vs ChatGPT vs Gemini Build the Same App — Winner Surprised Me #shorts #ai",
-  "hook": "I asked Claude, ChatGPT, and Gemini to build the same app. One failed instantly.",
-  "description": "I asked Claude, ChatGPT, and Gemini to build the same app. One failed instantly.\n\nThe challenge: a working todo app with React frontend, Express backend, and SQLite storage. Same prompt, same context window. One AI shipped working code in 90 seconds. One needed 4 prompts. One never compiled.\n\nIn this video: the exact prompt I used, line counts, bug rates, and which model wins for actual production code.\n\n🔔 Subscribe @aitoolsdaily — 1 new AI tool tested every day at 8 AM PT.\n\n⚠️ Personal testing. AI models update frequently — results may vary by version.\n\n#shorts #claude #chatgpt #gemini #ai #aitools #devtools #coding #llm #benchmark",
+  "title": "Người Đài Loan Vô Địch 3 Giải Thế Giới Trong 1 Năm — Ko Pin Yi #shorts #bida #billiard",
+  "hook": "Năm 2015, một người Đài Loan làm điều chưa ai từng làm trong lịch sử bida.",
+  "description": "Năm 2015, một người Đài Loan làm điều chưa ai từng làm trong lịch sử bida.\n\nKo Pin Yi, biệt danh Hoàng Tử Bida, sinh năm 1989. Trong một năm 2015 duy nhất, anh vô địch cả ba giải thế giới: World 9 bi, World 10 bi và World Cup of Pool. Một cú ăn ba vàng mà chưa cơ thủ nào lặp lại được.\n\nNăm 2023, anh trở thành người Đài Loan đầu tiên vô địch World Pool Masters. Cả ba anh em nhà anh đều là cơ thủ chuyên nghiệp.\n\n📷 Hình ảnh: trích từ video tư liệu giải đấu và phỏng vấn trên YouTube, thuộc bản quyền chủ sở hữu tương ứng, dùng theo nguyên tắc bình luận/giới thiệu.\n\n🔔 Đăng ký kênh để xem tiếp series Huyền Thoại Bida thế giới.\n\n#shorts #bida #billiard #kopinyi #pool #huyenthoai #taiwan #9ball #worldchampion #cothu",
   "tags": [
-    "AI tools daily",
-    "aitoolsdaily",
-    "claude vs chatgpt vs gemini",
-    "best ai for coding 2026",
-    "claude 3 vs gpt 4",
-    "gemini pro coding",
-    "ai code benchmark",
-    "llm coding comparison",
-    "ai for developers",
-    "claude opus review",
+    "bida huyền thoại",
+    "ko pin yi",
+    "hoàng tử bida",
+    "cơ thủ đài loan",
+    "ko pin yi 2015",
+    "world 9 ball champion",
+    "golden treble bida",
+    "huyền thoại bida thế giới",
+    "billiard legend taiwan",
     "shorts",
-    "shortvideo",
-    "tips",
-    "viralshorts",
-    "trending"
+    "bida",
+    "billiard",
+    "pool",
+    "cơ thủ thế giới"
   ],
   "scenes": [
     {
-      "voiceover": "I asked Claude, ChatGPT, and Gemini to build the same app. One failed instantly. Same prompt, same context, three very different outcomes.",
-      "visual_keyword": "three monitors comparison screen",
-      "visual_style": "ai",
-      "visual_prompt": "Three monitors side by side showing three different AI chat interfaces, modern dev setup, dark theme, dramatic lighting, photorealistic"
+      "voiceover": "Năm 2015, một người Đài Loan làm điều chưa ai từng làm trong lịch sử bida. Anh vô địch ba giải thế giới chỉ trong một năm.",
+      "visual_style": "local",
+      "visual_keyword": "pool player victory dramatic",
+      "visual_file": "0.jpg"
     },
     {
-      "voiceover": "The challenge: build a working todo app. React frontend, Express backend, SQLite storage. Save, edit, delete. Standard production stack.",
-      "visual_keyword": "code editor todo app interface",
-      "visual_style": "ai",
-      "visual_prompt": "Todo app interface mockup on screen with checkboxes and items, clean modern UI design, photorealistic"
+      "voiceover": "Anh là Ko Pin Yi, biệt danh Hoàng Tử Bida, sinh năm 1989 tại Đài Loan, nổi tiếng với phong cách đánh chính xác và thanh lịch.",
+      "visual_style": "local",
+      "visual_keyword": "billiard player portrait focused",
+      "visual_file": "1.jpg"
     },
     {
-      "voiceover": "Claude shipped working code in 90 seconds. Single response, 380 lines, ran on first try. Database schema included.",
-      "visual_keyword": "code screen success terminal output",
-      "visual_style": "ai",
-      "visual_prompt": "Terminal showing successful build output with green checkmarks, code editor in background with React component, photorealistic"
+      "voiceover": "Ngay từ khi còn trẻ, anh đã hai lần vô địch giải trẻ thế giới vào năm 2007 và 2008, báo hiệu một tài năng hiếm có.",
+      "visual_style": "local",
+      "visual_keyword": "young billiard prodigy trophy",
+      "visual_file": "2.jpg"
     },
     {
-      "voiceover": "ChatGPT took 4 prompts to fix import errors and a missing CORS config. Final result worked but had 2 security holes.",
-      "visual_keyword": "error message code screen close up",
-      "visual_style": "ai",
-      "visual_prompt": "Code editor showing error messages in red with CORS warning, dark theme IDE interface, photorealistic"
+      "voiceover": "Cú ăn ba vàng bắt đầu ở Doha, Qatar. Anh đánh bại huyền thoại người Mỹ Shane Van Boening với tỉ số mười ba mười một để vô địch World 9 bi.",
+      "visual_style": "local",
+      "visual_keyword": "pool tournament final match intense",
+      "visual_file": "3.jpg"
     },
     {
-      "voiceover": "Gemini gave me code that never compiled. Outdated React syntax from 2019, deprecated Express middleware. Three rebuild attempts failed.",
-      "visual_keyword": "frustrated developer error monitor",
-      "visual_style": "ai",
-      "visual_prompt": "Frustrated developer staring at red error stack trace on monitor, dim office lighting, photorealistic"
+      "voiceover": "Chưa dừng lại, anh vô địch tiếp World 10 bi và cùng đồng đội nâng cao chiếc cúp World Cup of Pool. Ba chức vô địch thế giới trong một mùa giải.",
+      "visual_style": "local",
+      "visual_keyword": "three trophies champion celebration",
+      "visual_file": "4.jpg"
     },
     {
-      "voiceover": "Verdict: Claude wins for production code today. ChatGPT close second if you guide it. Gemini needs work for serious dev tasks.",
-      "visual_keyword": "trophy winner first place",
-      "visual_style": "ai",
-      "visual_prompt": "Gold medal first place trophy with three AI logos in background, modern minimalist style, photorealistic"
+      "voiceover": "Năm 2023, anh trở thành người Đài Loan đầu tiên vô địch World Pool Masters, đánh bại Eklent Kaci với tỉ số mười ba năm.",
+      "visual_style": "local",
+      "visual_keyword": "pool champion lifting trophy stage",
+      "visual_file": "5.jpg"
     },
     {
-      "voiceover": "What stack do you want me to benchmark next? Comment your tech stack and I'll run the test.",
-      "visual_keyword": "hands typing message phone screen close up",
-      "visual_style": "stock"
+      "voiceover": "Điều đặc biệt: cả ba anh em nhà anh đều là cơ thủ chuyên nghiệp. Một gia đình hiếm có của làng bida thế giới.",
+      "visual_style": "local",
+      "visual_keyword": "billiard balls cue closeup elegant",
+      "visual_file": "6.jpg"
     },
     {
-      "voiceover": "Subscribe for one new AI benchmark every day. Real tests, real numbers, no sponsored fluff.",
-      "visual_keyword": "young person smiling pointing office happy",
-      "visual_style": "ai",
-      "visual_prompt": "Young tech professional smiling pointing up at subscribe button, modern office background, photorealistic cinematic"
+      "voiceover": "Theo bạn, cơ thủ nào xứng đáng được kể tiếp? Để lại bình luận và đăng ký kênh để xem tiếp series Huyền Thoại Bida thế giới.",
+      "visual_style": "local",
+      "visual_keyword": "billiard table dramatic empty arena",
+      "visual_file": "7.jpg"
     }
   ]
 }
