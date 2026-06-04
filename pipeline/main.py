@@ -563,13 +563,21 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
         current_t += v.duration + PAUSE  # gap silence
 
     # === BACKGROUND MUSIC ===
-    bgm_files = list(BGM_DIR.glob("*.mp3")) if BGM_DIR.exists() else []
+    # iter 18.2: EN niche AI tools -> prioritize TECH/electronic tracks (bgm_11-17)
+    # Old finance tracks (bgm_01-10) only used as fallback if no tech tracks.
+    all_bgm = list(BGM_DIR.glob("*.mp3")) if BGM_DIR.exists() else []
+    # Tech tracks: hackbeat, cipher, voltaic, digital_lemonade, acid_jazz,
+    #              the_complex, blip_stream, electrodoodle (bgm_11 onwards)
+    _tech_keywords = ("hackbeat", "voltaic", "digital_lemonade", "acid_jazz",
+                      "the_complex", "blip_stream", "electrodoodle", "cipher")
+    tech_bgm = [f for f in all_bgm if any(k in f.name.lower() for k in _tech_keywords)]
+    bgm_files = tech_bgm if tech_bgm else all_bgm  # prefer tech, fallback all
     bgm_filename_used = None  # Trace cho copyright claim
     if bgm_files:
         bgm_path = random.choice(bgm_files)
         bgm_filename_used = bgm_path.name
-        print(f"      BGM: {bgm_path.name}")
-        bgm = AudioFileClip(str(bgm_path)).volumex(0.12)  # 12% volume - du nho de khong at giong
+        print(f"      BGM: {bgm_path.name} (tech pool: {len(tech_bgm)}/{len(all_bgm)})")
+        bgm = AudioFileClip(str(bgm_path)).volumex(0.14)  # iter 18.2: 0.12 -> 0.14 (tech needs presence)
         # Loop hoac trim BGM khop voi total duration
         if bgm.duration < total_dur:
             from moviepy.audio.fx.audio_loop import audio_loop
