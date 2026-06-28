@@ -1151,7 +1151,7 @@ def get_youtube_service():
     return build("youtube", "v3", credentials=creds)
 
 def upload_to_youtube(video_path, script_data, idea):
-    """Upload video lên YouTube với metadata đầy đủ + YMYL disclaimer."""
+    """Upload video lên YouTube với metadata đầy đủ + credit nhạc CC-BY."""
     print("[6/7] Uploading to YouTube...")
     yt = get_youtube_service()
 

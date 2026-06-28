@@ -66,7 +66,7 @@ def main():
     print(f"Privacy: {os.environ.get('YT_PRIVACY', 'public')}")
 
     from main import upload_to_youtube
-    idea = {"id": args.id, "title": script_data["title"], "pillar": "saving"}
+    idea = {"id": args.id, "title": script_data["title"], "pillar": "ai"}
     video_id = upload_to_youtube(str(video_path), script_data, idea)
 
     # Update published.json (cross-platform: utf-8-sig de chiu BOM, ghi bang json.dump)
