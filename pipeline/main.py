@@ -1155,22 +1155,15 @@ def upload_to_youtube(video_path, script_data, idea):
     print("[6/7] Uploading to YouTube...")
     yt = get_youtube_service()
 
-    # Schedule publish ngày mai 06:00 sáng VN (= 23:00 UTC today)
-    vn_tomorrow_6am = (datetime.now(timezone.utc) + timedelta(hours=24))
-    vn_tomorrow_6am = vn_tomorrow_6am.replace(minute=0, second=0, microsecond=0)
-
-    # Description bida tieu su the thao + Kevin MacLeod CC-BY credit
+    # Description niche AI (AI Mỗi Ngày) + Kevin MacLeod CC-BY music credit (BẮT BUỘC)
     full_desc = (
         f"{script_data['description']}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"⚠️ MIỄN TRỪ TRÁCH NHIỆM: Video mang tính giới thiệu, tư liệu thể thao "
-        f"và tôn vinh các huyền thoại bida. Hình ảnh và tư liệu thuộc về chủ sở "
-        f"hữu bản quyền tương ứng, sử dụng theo nguyên tắc bình luận/giáo dục. "
-        f"Mọi yêu cầu gỡ bỏ vui lòng liên hệ kênh.\n\n"
-        f"🎵 Nhạc: Kevin MacLeod (incompetech.com)\n"
-        f"Licensed under Creative Commons: By Attribution 4.0\n"
+        f"🎵 Nhạc: Kevin MacLeod (incompetech.com) — Creative Commons BY 4.0\n"
         f"https://creativecommons.org/licenses/by/4.0/\n\n"
-        f"📧 Liên hệ: bidahuyenthoai.contact@gmail.com"
+        f"⚠️ Nội dung chia sẻ kinh nghiệm sử dụng công cụ AI. Hình minh họa tạo bằng AI. "
+        f"Tên sản phẩm thuộc về chủ sở hữu tương ứng.\n"
+        f"📧 Liên hệ: aimoingay.contact@gmail.com"
     )
     # YouTube reject description chứa ký tự < hoặc > (HTML injection risk).
     # Replace ngay đây trước khi build body — defense-in-depth dù scripts đã clean.
@@ -1182,7 +1175,7 @@ def upload_to_youtube(video_path, script_data, idea):
             "title": safe_title,  # YouTube giới hạn 100 + strip <>
             "description": full_desc[:5000],
             "tags": script_data.get("tags", [])[:30],
-            "categoryId": "17",  # Sports
+            "categoryId": "28",  # Science & Technology (niche AI)
             "defaultLanguage": "vi",
             "defaultAudioLanguage": "vi",
         },
