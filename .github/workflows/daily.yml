@@ -1,11 +1,12 @@
 name: Daily YouTube Pipeline
 
-# PIVOT EN (2026-06-02): cron PAUSED until user creates @aitoolsdaily channel
-# + updates YT_REFRESH_TOKEN secret. Resume by uncommenting `schedule` block.
-# Manual trigger via workflow_dispatch still works for testing.
+# AI Mỗi Ngày (iter 20): đăng 2 video/ngày — 12:00 & 20:00 giờ VN (UTC+7).
+# GitHub Actions chạy UTC: 12:00 VN = 05:00 UTC, 20:00 VN = 13:00 UTC.
+# Mỗi lần chạy = 1 video (idea todo kế tiếp). Manual trigger qua workflow_dispatch vẫn dùng được.
 on:
-  # schedule:
-  #   - cron: "0 23 * * *"
+  schedule:
+    - cron: "0 5 * * *"    # 12:00 trưa giờ VN
+    - cron: "0 13 * * *"   # 20:00 tối giờ VN
   workflow_dispatch:
 
 jobs:
@@ -78,6 +79,8 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          # iter 20: auto-post PUBLIC theo lich (user chot). Co the override qua repo Variable YT_PRIVACY.
+          YT_PRIVACY: ${{ vars.YT_PRIVACY || 'public' }}
         run: python pipeline/main.py
 
       - name: Commit updated log
@@ -85,7 +88,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data/ideas.json data/published.json || true
+          git add data/ideas.json data/published.json data/used_pexels.json || true
           if ! git diff --staged --quiet; then
             git commit -m "Auto update published log"
             git push

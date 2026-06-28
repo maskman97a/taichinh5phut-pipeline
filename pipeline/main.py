@@ -1,9 +1,9 @@
 """
 Pipeline tự động tạo + upload 1 video YouTube Shorts mỗi ngày.
-Kênh: AI Tools Daily (@aitoolsdaily) — EN niche, daily AI tool reviews
+Niche: Tự động hóa & mẹo dùng AI trong đời sống (VN) — daily AI tips/automation Shorts.
 
 Flow: ideas.json -> LOAD pre-generated script (data/scripts/{id}.json)
-   -> Pexels clips -> Google TTS WaveNet voice
+   -> AI image (Pollinations Flux) / Pexels clips -> Google TTS vi-VN voice
    -> FFmpeg ghép video -> YouTube upload -> log published.json
 
 Script được Claude (qua Cowork/Code) generate sẵn và commit lên repo.
@@ -96,26 +96,49 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 IDEAS_FILE = REPO_ROOT / "data" / "ideas.json"
 PUBLISHED_FILE = REPO_ROOT / "data" / "published.json"
 SCRIPTS_DIR = REPO_ROOT / "data" / "scripts"  # Thu muc chua script JSON pre-gen
-IMAGES_DIR = REPO_ROOT / "data" / "images"  # Anh curated cho niche bida (visual_style="local")
-BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3)
+# iter 20 RULE "khong lap content": luu Pexels video_id da dung XUYEN SUOT moi video
+# -> moi video lay footage khac nhau, khong bao gio trung clip.
+USED_PEXELS_FILE = REPO_ROOT / "data" / "used_pexels.json"
 
-# Rotate 3 Vietnamese voices (Bida Huyen Thoai - VN niche, iter 19 pivot)
-# Neural2 vi-VN: giong tu nhien hon Wavenet, co inflection ke chuyen.
-# Male voice hop niche the thao/tieu su (giong binh luan vien).
+
+def load_used_pexels():
+    """Doc set Pexels video_id da dung o cac video truoc (cross-video dedup)."""
+    if USED_PEXELS_FILE.exists():
+        try:
+            with open(USED_PEXELS_FILE, "r", encoding="utf-8-sig") as f:
+                return set(json.load(f))
+        except Exception:
+            return set()
+    return set()
+
+
+def save_used_pexels(ids):
+    """Ghi lai set Pexels video_id da dung (giu toi da 500 ID gan nhat de tranh file phinh)."""
+    try:
+        id_list = list(ids)[-500:]
+        with open(USED_PEXELS_FILE, "w", encoding="utf-8") as f:
+            json.dump(id_list, f)
+    except Exception as e:
+        print(f"      ⚠ Khong luu duoc used_pexels.json: {e}")
+IMAGES_DIR = REPO_ROOT / "data" / "images"  # Anh curated (visual_style="local") - niche AI dung visual_style="ai"
+BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3) - tech/electronic hop niche AI
+
+# Rotate Vietnamese voices (niche AI/tu dong hoa - VN, iter 20 pivot)
+# Mix nam + nu de de-templating + giong than thien huong dan (khong phai ke chuyen the thao).
+# Neural2 vi-VN tu nhien hon Wavenet, co inflection.
 VOICES = [
-    "vi-VN-Wavenet-B",   # Nam - sang, ro net (iter 19.1: doi tu Neural2-D)
-    "vi-VN-Wavenet-D",   # Nam - tram, mature (rotation)
+    "vi-VN-Neural2-A",   # Nu - ro rang, than thien (giong huong dan)
+    "vi-VN-Wavenet-B",   # Nam - sang, ro net (rotation)
     "vi-VN-Neural2-D",   # Nam - tram manh me (rotation de-templating)
 ]
 
-# Disclaimer cho niche the thao/tieu su (co dau tieng Viet)
-DISCLAIMER_TEXT = ("Video giới thiệu, tư liệu thể thao. "
-                   "Hình ảnh thuộc về chủ sở hữu bản quyền tương ứng.")
+# Disclaimer cho niche AI/cong nghe (ngan gon - iter 20: tranh che 1/4 man hinh luc hook)
+DISCLAIMER_TEXT = "Hình ảnh minh họa tạo bằng AI."
 
 # ==================== STEP 1: LẤY Ý TƯỞNG ====================
 def pick_next_idea():
     """Lấy idea đầu tiên có status='todo' từ ideas.json."""
-    with open(IDEAS_FILE, "r", encoding="utf-8") as f:
+    with open(IDEAS_FILE, "r", encoding="utf-8-sig") as f:
         ideas = json.load(f)
     todo = [i for i in ideas if i.get("status") == "todo"]
     if not todo:
@@ -137,7 +160,7 @@ def mark_published(ideas, idea_id, video_id, bgm_file=None):
     # Append published log (kèm bgm_file để trace nếu bị YouTube Content ID claim)
     log = []
     if PUBLISHED_FILE.exists():
-        with open(PUBLISHED_FILE, "r", encoding="utf-8") as f:
+        with open(PUBLISHED_FILE, "r", encoding="utf-8-sig") as f:  # utf-8-sig: chiu duoc BOM
             log = json.load(f)
     entry = {
         "idea_id": idea_id,
@@ -167,7 +190,7 @@ def load_script(idea):
             f"hoac chay manual rooi commit file vao data/scripts/."
         )
 
-    with open(script_path, encoding="utf-8") as f:
+    with open(script_path, encoding="utf-8-sig") as f:
         data = json.load(f)
 
     # Validate schema
@@ -210,7 +233,12 @@ def generate_ai_image(prompt, output_path, width=1080, height=1920, seed=None):
     import urllib.parse, time
     if seed is None:
         seed = random.randint(1, 999999)
-    encoded = urllib.parse.quote(prompt[:500])  # cap length
+    # iter 20: style anchor de dong nhat aesthetic + tranh anime/cartoon (Flux hay drift)
+    STYLE_ANCHOR = (", professional 3d render, sleek modern tech aesthetic, "
+                    "cinematic studio lighting, high detail, sharp focus, clean composition, "
+                    "no text, no watermark, not anime, not cartoon character, photorealistic")
+    full_prompt = (prompt + STYLE_ANCHOR)[:600]
+    encoded = urllib.parse.quote(full_prompt)
 
     # Try sequence: flux -> turbo (2 attempts each with backoff)
     attempts = [
@@ -223,8 +251,10 @@ def generate_ai_image(prompt, output_path, width=1080, height=1920, seed=None):
     for model, delay in attempts:
         if delay:
             time.sleep(delay)
+        # enhance=true: Pollinations tu nang prompt -> chi tiet/dep hon. nofeed=true: khong public feed.
         url = (f"https://image.pollinations.ai/prompt/{encoded}"
-               f"?width={width}&height={height}&seed={seed}&model={model}&nologo=true")
+               f"?width={width}&height={height}&seed={seed}&model={model}"
+               f"&nologo=true&enhance=true&nofeed=true")
         try:
             resp = requests.get(url, timeout=90, stream=True)
             if resp.status_code == 200:
@@ -260,11 +290,13 @@ def image_to_video_kenburns(image_path, video_path, duration=10.0, target_w=1080
     cmd = [
         "ffmpeg", "-y", "-loglevel", "error",
         "-loop", "1", "-i", str(image_path),
-        "-vf", f"scale=-1:{target_h * 2}:flags=lanczos,crop={target_w}:{target_h},{zoompan}",
+        # iter 20: COVER-fit (giu ty le, scale phu kin khung roi crop giua) - tranh anh
+        # khong-9:16 bi keo dep/dai ngoang. Truoc day scale=-1:H*2 lam vat tron thanh ellipse.
+        "-vf", f"scale={target_w}:{target_h}:force_original_aspect_ratio=increase:flags=lanczos,crop={target_w}:{target_h},{zoompan}",
         "-t", f"{duration:.2f}",
         "-r", str(fps),  # explicit output fps
         "-pix_fmt", "yuv420p",
-        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "23",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "18",
         str(video_path),
     ]
     subprocess.run(cmd, check=True, capture_output=True)
@@ -303,7 +335,7 @@ def image_to_video_fit_blur(image_path, video_path, duration=15.0, target_w=1080
         "-t", f"{duration:.2f}",
         "-r", str(fps),
         "-pix_fmt", "yuv420p",
-        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "23",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "18",
         str(video_path),
     ]
     subprocess.run(cmd, check=True, capture_output=True)
@@ -380,7 +412,9 @@ def fetch_all_clips(scenes, tmpdir, idea_id=None):
     visual_file: ten file anh trong data/images/{idea_id}/ (cho style="local").
     """
     print(f"[3/7] Fetching {len(scenes)} clips...")
-    used_ids = set()
+    used_ids = load_used_pexels()  # RULE khong lap: loai tru footage da dung o video truoc
+    if used_ids:
+        print(f"      (cross-video dedup: tranh {len(used_ids)} Pexels clip da dung)")
     paths = [None] * len(scenes)
     img_folder = (IMAGES_DIR / str(idea_id)) if idea_id is not None else None
 
@@ -466,6 +500,7 @@ def fetch_all_clips(scenes, tmpdir, idea_id=None):
                     print(f"      Clip {i+1}/{len(scenes)}: ALL FAIL ({e2})")
                     paths[i] = None
 
+    save_used_pexels(used_ids)  # persist de video sau khong lay lai cung footage
     return paths
 
 # ==================== STEP 4: SINH VOICE (GOOGLE CLOUD TTS WAVENET) ====================
@@ -486,6 +521,81 @@ def split_chunks_text(text, max_words=3):
             if chunk:
                 chunks.append(chunk)
     return chunks if chunks else [text]
+
+
+# ==================== CAPTION DISPLAY TRANSFORM (iter 20) ====================
+# Chi ap dung cho TEXT HIEN THI tren caption/hook (KHONG dung cho TTS -> giong khong doi):
+#   1. So bang chu -> so (ba muoi giay -> 30 giay, muoi -> 10), giu nguyen don vi.
+#   2. Bo dau cau . , : ; va gach ngang — –  (giu ? !).
+_DIGIT = {'không': 0, 'một': 1, 'hai': 2, 'ba': 3, 'bốn': 4, 'năm': 5, 'sáu': 6,
+          'bảy': 7, 'tám': 8, 'chín': 9, 'mốt': 1, 'lăm': 5, 'tư': 4, 'bẩy': 7}
+_NUMWORDS = set(_DIGIT) | {'mười', 'mươi', 'trăm'}
+
+
+def _vn_digit(w):
+    return _DIGIT.get(w, 0)
+
+
+def _vn_tens(toks):
+    """Parse 0-99 tu list token (khong co 'trăm')."""
+    if not toks:
+        return 0
+    if toks[0] == 'mười':
+        return 10 + (_vn_digit(toks[1]) if len(toks) > 1 else 0)
+    if len(toks) >= 2 and toks[1] == 'mươi':
+        return _vn_digit(toks[0]) * 10 + (_vn_digit(toks[2]) if len(toks) > 2 else 0)
+    return _vn_digit(toks[0])
+
+
+def _vn_value(toks):
+    if 'trăm' in toks:
+        k = toks.index('trăm')
+        hundreds = _vn_digit(toks[k - 1]) if k > 0 else 1
+        rest = toks[k + 1:]
+        if rest and rest[0] in ('lẻ', 'linh'):
+            rest = rest[1:]
+        return hundreds * 100 + _vn_tens(rest)
+    return _vn_tens(toks)
+
+
+def _vn_run_to_digits(toks):
+    """Doi 1 run so -> chuoi so. Xu ly 'X năm' (nam = nam thang) khi 2 digit tran khong scale."""
+    has_scale = any(t in ('mười', 'mươi', 'trăm') for t in toks)
+    if not has_scale and len(toks) == 2 and toks[1] == 'năm' and toks[0] in _DIGIT:
+        return f"{_vn_digit(toks[0])} năm"
+    return str(_vn_value(toks))
+
+
+def vn_numbers_to_digits(text):
+    """Doi cac cum so bang chu trong text -> chu so (display only)."""
+    toks = text.split()
+    out, i = [], 0
+    while i < len(toks):
+        core = re.sub(r'[^\wÀ-ỹ]', '', toks[i]).lower()
+        if core in _NUMWORDS:
+            run, j = [], i
+            while j < len(toks):
+                c = re.sub(r'[^\wÀ-ỹ]', '', toks[j]).lower()
+                if c in _NUMWORDS:
+                    run.append(c)
+                    j += 1
+                else:
+                    break
+            tail = re.sub(r'^[\wÀ-ỹ]+', '', toks[j - 1])  # giu dau cau dinh sau token cuoi
+            out.append(_vn_run_to_digits(run) + tail)
+            i = j
+        else:
+            out.append(toks[i])
+            i += 1
+    return ' '.join(out)
+
+
+def caption_display(text):
+    """Transform text cho caption/hook hien thi (so + bo dau cau). KHONG dung cho TTS."""
+    t = vn_numbers_to_digits(text)
+    t = re.sub(r'[.,:;—–]', '', t)
+    t = re.sub(r'\s+', ' ', t).strip()
+    return t
 
 
 def generate_voice_per_scene(script_data, tmpdir):
@@ -632,20 +742,21 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
         current_t += v.duration + PAUSE  # gap silence
 
     # === BACKGROUND MUSIC ===
-    # iter 19 (bida VN niche): dung CINEMATIC/dramatic tracks cho storytelling tieu su.
-    # Tranh tech electronic (bgm_11-17, cho EN AI niche cu) -> le tong bida.
+    # iter 20 (AI niche): UU TIEN nhac tech/electronic/upbeat -> nang dong, hop Shorts AI.
+    # (truoc day logic bida loai bo cac track nay -> nghe cham/chan; nay dao lai.)
     all_bgm = list(BGM_DIR.glob("*.mp3")) if BGM_DIR.exists() else []
-    # Tech tracks loai tru cho niche bida (giu lai cho EN niche neu revert)
-    _tech_keywords = ("hackbeat", "voltaic", "digital_lemonade", "acid_jazz",
-                      "the_complex", "blip_stream", "electrodoodle", "cipher")
-    cinematic_bgm = [f for f in all_bgm if not any(k in f.name.lower() for k in _tech_keywords)]
-    bgm_files = cinematic_bgm if cinematic_bgm else all_bgm
+    # Blocklist track CHAM/buon (Kevin MacLeod cinematic) -> moi track con lai (gom nhac
+    # ban tu drop vao sau) deu vao pool soi dong. Drop file bgm_18+.mp3 la tu dong duoc dung.
+    _slow = ("backed_vibes", "inspired", "lobby_time", "carefree",
+             "local_forecast", "investigations")
+    energetic_bgm = [f for f in all_bgm if not any(k in f.name.lower() for k in _slow)]
+    bgm_files = energetic_bgm if energetic_bgm else all_bgm
     bgm_filename_used = None  # Trace cho copyright claim
     if bgm_files:
         bgm_path = random.choice(bgm_files)
         bgm_filename_used = bgm_path.name
-        print(f"      BGM: {bgm_path.name} (cinematic pool: {len(cinematic_bgm)}/{len(all_bgm)})")
-        bgm = AudioFileClip(str(bgm_path)).volumex(0.12)
+        print(f"      BGM: {bgm_path.name} (energetic pool: {len(energetic_bgm)}/{len(all_bgm)})")
+        bgm = AudioFileClip(str(bgm_path)).volumex(0.16)
         # Loop hoac trim BGM khop voi total duration
         if bgm.duration < total_dur:
             from moviepy.audio.fx.audio_loop import audio_loop
@@ -773,11 +884,12 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
         if len(hook_text) > 70:
             hook_text = " ".join(hook_text.split()[:8]) + "..."
     print(f"      Hook: \"{hook_text}\"")
+    hook_display = caption_display(hook_text)  # iter 20: bo dau cau + so cho HIEN THI
 
     # Hook visual: TRANG + STROKE + BG SEMI-DEN (pill style)
     # iter 18: BIGGER fontsize (no resize animation - breaks IM stroke + fill)
     # iter 18.1: REVERT scale-pop, use fast fadein opacity (preserves text rendering)
-    _hook_len = len(hook_text)
+    _hook_len = len(hook_display)
     if _hook_len <= 25:
         _hook_size = 145
     elif _hook_len <= 45:
@@ -787,7 +899,7 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
     else:
         _hook_size = 92
 
-    hook_visual = (TextClip(hook_text, fontsize=_hook_size, color="white",
+    hook_visual = (TextClip(hook_display, fontsize=_hook_size, color="white",
                            stroke_color="black", stroke_width=5,
                            bg_color="rgba(0,0,0,0.72)",
                            size=(980, None), method="caption", font=HOOK_FONT)
@@ -887,16 +999,17 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
         for chunk, chunk_t, chunk_dur in chunk_timings:
             # Caption: TRANG + STROKE 3 + SHADOW DEN OFFSET (look bold/3D)
             # Timing dung EXACT timepoints tu Google TTS SSML mark (sync 100%)
-            # iter 17: 110 -> 95 + font Black weight 900
-            # iter 18.1: REVERT scale-pop (broke stroke), use quick fadein 0.06s instead
-            # iter 19.1: 95 -> 85 (user "co chu nho hon chut") + Montserrat-Black font
+            # iter 20: caption_display -> bo dau cau . , : ; — + so bang chu thanh chu so
+            chunk_disp = caption_display(chunk)
+            if not chunk_disp:
+                continue
             CHUNK_FONT = 85
-            shadow = (TextClip(chunk, fontsize=CHUNK_FONT, color="black",
+            shadow = (TextClip(chunk_disp, fontsize=CHUNK_FONT, color="black",
                               size=(980, None), method="caption", font=VN_FONT)
                       .set_position(("center", 1287))
                       .set_start(chunk_t).set_duration(chunk_dur)
                       .fadein(0.06))
-            cap = (TextClip(chunk, fontsize=CHUNK_FONT, color="white",
+            cap = (TextClip(chunk_disp, fontsize=CHUNK_FONT, color="white",
                            stroke_color="black", stroke_width=3,
                            size=(980, None), method="caption", font=VN_FONT)
                    .set_position(("center", 1280))
@@ -933,15 +1046,20 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
         _preset = os.environ.get("FFMPEG_PRESET", "ultrafast")
         _extra_params = []
     elif _sys == "Linux":
-        # GitHub Actions Ubuntu CI: libx264 + veryfast (chat luong tot hon ultrafast)
-        _codec, _threads, _preset = "libx264", 4, "veryfast"
+        # Linux (CI it nhan HOAC may local nhieu nhan): threads = so core that - 2.
+        # CI 2-4 nhan -> ~4; may 20 nhan -> 16. Override qua FFMPEG_THREADS / FFMPEG_PRESET.
+        _cores = os.cpu_count() or 4
+        _codec = "libx264"
+        _threads = int(os.environ.get("FFMPEG_THREADS", str(min(16, max(4, _cores - 2)))))
+        _preset = os.environ.get("FFMPEG_PRESET", "veryfast")
         _extra_params = []
+        print(f"      [encode] Linux {_cores} core -> {_threads} threads, preset {_preset}")
     else:  # macOS hoac OS khac
         _codec, _threads, _preset = "libx264", 4, "medium"
         _extra_params = []
 
-    # Bitrate: fast mode dung 3500k (preview), production 5500k
-    _bitrate = "3500k" if _fast_mode else "5500k"
+    # Bitrate: fast mode dung 3500k (preview), production 8000k (iter 20: tang net cho Shorts 1080x1920)
+    _bitrate = "3500k" if _fast_mode else "8000k"
     if _fast_mode:
         print(f"      [LOCAL_FAST_MODE] bitrate {_bitrate} + preset {_preset}")
 

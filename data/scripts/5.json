@@ -1,72 +1,78 @@
 {
   "idea_id": 5,
-  "title": "AI Summarized 50 Unread Emails in 10 Seconds — My New Workflow #shorts #ai",
-  "hook": "I let AI summarize 50 unread emails in 10 seconds. Inbox zero, no time lost.",
-  "description": "I let AI summarize 50 unread emails in 10 seconds. Inbox zero, no time lost.\n\nThe stack: Gmail API plus a local Claude instance through Cursor. The AI scans subject and body, ranks by urgency, and writes a 1-line action item per email. Total processing time for 50 emails: 9.4 seconds on my test run.\n\nIn this video: the exact pipeline, the urgency scoring rule, and 2 emails the AI got wrong.\n\n🔔 Subscribe @aitoolsdaily — 1 new AI tool tested every day at 8 AM PT.\n\n⚠️ Personal workflow. Test on a sample folder before connecting to your live inbox.\n\n#shorts #ai #email #productivity #aitools #gmail #workflow #automation #inbox #claude",
+  "title": "Để AI Tự Lên Lịch & Nhắc Việc Cả Ngày Cho Bạn #shorts #ai #nangsuat",
+  "hook": "Có một cách để AI tự sắp lịch cả ngày của bạn mà gần như chẳng ai tận dụng.",
+  "description": "Có một cách để AI tự sắp lịch cả ngày của bạn mà gần như chẳng ai tận dụng.\n\nMẹo dùng AI để biến danh sách việc lộn xộn thành thời gian biểu chi tiết, có ưu tiên và nhắc nhở.\n\nCác bước:\n1. Liệt kê hết việc cần làm cho AI\n2. Bảo AI sắp xếp theo thời gian và mức ưu tiên\n3. Nhận thời gian biểu từng giờ\n4. Cuối ngày bảo AI dời việc chưa xong sang mai\n\n🔔 Theo dõi AI Mỗi Ngày để mỗi ngày thêm một mẹo AI tiết kiệm thời gian.\n\n#shorts #ai #nangsuat #aimoingay #meoai #chatgpt #quanlythoigian #tudonghoa #thuthuat #congnghe",
   "tags": [
-    "AI tools daily",
-    "aitoolsdaily",
-    "ai email summarizer",
-    "inbox zero with ai",
-    "claude email automation",
-    "ai productivity workflow",
-    "gmail ai workflow",
-    "ai inbox management",
-    "email automation 2026",
-    "ai for office workers",
+    "ai lên lịch",
+    "quản lý thời gian bằng ai",
+    "ai nhắc việc",
+    "mẹo năng suất",
+    "chatgpt lên kế hoạch",
+    "tự động hóa công việc",
+    "ai mỗi ngày",
+    "tăng năng suất với ai",
+    "thủ thuật ai",
+    "mẹo ai đời sống",
     "shorts",
-    "shortvideo",
-    "tips",
-    "viralshorts",
-    "trending"
+    "nang suat",
+    "ai"
   ],
   "scenes": [
     {
-      "voiceover": "I let AI summarize 50 unread emails in 10 seconds. Inbox zero, no time lost. Total processing: 9.4 seconds on my test run.",
-      "visual_keyword": "email inbox screen close up many messages",
-      "visual_style": "ai",
-      "visual_prompt": "Email inbox interface with many unread messages, modern minimal UI, dark theme, photorealistic"
+      "voiceover": "Có một cách để AI tự sắp lịch cả ngày của bạn mà gần như chẳng ai tận dụng.",
+      "visual_style": "stock",
+      "visual_keyword": "busy asian person many tasks at desk overwhelmed"
     },
     {
-      "voiceover": "Before: I spent 45 minutes every morning triaging email. Most of it was newsletters and notifications I would skip anyway.",
-      "visual_keyword": "stressed person coffee laptop morning",
-      "visual_style": "ai",
-      "visual_prompt": "Stressed office worker drinking coffee staring at email inbox in early morning light, modern home office, photorealistic"
+      "voiceover": "Việc thì nhiều, ghi chú thì lộn xộn, bạn chẳng biết bắt đầu từ đâu.",
+      "visual_style": "stock",
+      "visual_keyword": "messy sticky notes todo list on desk"
     },
     {
-      "voiceover": "The stack: Gmail API connected to a local Claude instance through Cursor. AI reads subject and body, no attachments. Pure text only.",
-      "visual_keyword": "automated workflow diagram interface",
+      "voiceover": "Đây là cách để AI sắp xếp tất cả chỉ trong vài giây.",
       "visual_style": "ai",
-      "visual_prompt": "Workflow diagram showing email API connecting to AI processor with output arrows, modern infographic style, photorealistic"
+      "visual_keyword": "glowing neon calendar and clock floating, dark blue background, vertical"
     },
     {
-      "voiceover": "AI ranks each email by urgency. Score 0 to 10. Anything below 4 gets auto-archived. Anything above 7 hits a separate priority folder.",
-      "visual_keyword": "priority sorting dashboard interface",
-      "visual_style": "ai",
-      "visual_prompt": "Priority sorting dashboard with color-coded urgency scores, modern minimal UI design, dark theme, photorealistic"
+      "voiceover": "Bước một: liệt kê hết mọi việc cần làm và đưa cho AI.",
+      "visual_style": "stock",
+      "visual_keyword": "person typing list on phone close up"
     },
     {
-      "voiceover": "Output per email: one line action item. Example: client wants invoice resent. Action: forward to billing, mark followup tomorrow.",
-      "visual_keyword": "task list action items checklist screen",
-      "visual_style": "ai",
-      "visual_prompt": "Task list interface with concise one-line action items and checkboxes, modern clean UI, photorealistic"
+      "voiceover": "Bước hai: bảo AI sắp xếp theo thời gian, ưu tiên việc gấp trước.",
+      "visual_style": "stock",
+      "visual_keyword": "asian woman planning on laptop and notebook"
     },
     {
-      "voiceover": "Two emails the AI got wrong: a contract amendment marked low priority, and a fake invoice scored as urgent. Always sanity check before delete.",
-      "visual_keyword": "warning alert sign document screen",
-      "visual_style": "ai",
-      "visual_prompt": "Warning alert icon overlay on email interface with flagged messages, attention grabbing UI, photorealistic"
+      "voiceover": "Chỉ vài giây, bạn có thời gian biểu chi tiết từng giờ, rõ ràng.",
+      "visual_style": "stock",
+      "visual_keyword": "person reading schedule on tablet satisfied"
     },
     {
-      "voiceover": "Want the full setup walkthrough? Comment your email volume and I'll share the pipeline config.",
-      "visual_keyword": "hands typing message phone screen close up",
-      "visual_style": "stock"
+      "voiceover": "Nhưng mẹo hay nằm ở bước này.",
+      "visual_style": "ai",
+      "visual_keyword": "glowing lightbulb idea concept on dark background, vertical"
     },
     {
-      "voiceover": "Subscribe for daily AI workflow tests. Real automations for real office work.",
-      "visual_keyword": "young person smiling pointing office happy",
+      "voiceover": "Bảo AI nhắc bạn trước mười lăm phút mỗi đầu việc — không bỏ sót gì nữa.",
+      "visual_style": "stock",
+      "visual_keyword": "smartphone notification reminder in hand"
+    },
+    {
+      "voiceover": "Cuối ngày, chỉ cần bảo AI dời việc chưa xong sang hôm sau.",
+      "visual_style": "stock",
+      "visual_keyword": "relaxed asian person finishing work at desk"
+    },
+    {
+      "voiceover": "Theo dõi AI Mỗi Ngày để mỗi ngày thêm một mẹo AI giúp bạn chủ động hơn.",
+      "visual_style": "stock",
+      "visual_keyword": "asian woman smiling holding phone outdoors"
+    },
+    {
+      "voiceover": "Mai mình chỉ cho bạn ba câu lệnh ChatGPT giúp học tiếng Anh nhanh gấp đôi.",
       "visual_style": "ai",
-      "visual_prompt": "Young tech professional smiling pointing up at subscribe button, modern office background, photorealistic cinematic"
+      "visual_keyword": "glowing neon speech bubbles with abstract language symbols, dark background, vertical"
     }
   ]
 }

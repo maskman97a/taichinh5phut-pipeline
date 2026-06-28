@@ -69,21 +69,18 @@ def main():
     idea = {"id": args.id, "title": script_data["title"], "pillar": "saving"}
     video_id = upload_to_youtube(str(video_path), script_data, idea)
 
-    # Update published.json
+    # Update published.json (cross-platform: utf-8-sig de chiu BOM, ghi bang json.dump)
+    published = []
     if PUBLISHED_FILE.exists():
-        with open(PUBLISHED_FILE, "r", encoding="utf-8") as f:
+        with open(PUBLISHED_FILE, "r", encoding="utf-8-sig") as f:
             published = json.load(f)
-    else:
-        published = []
     published.append({
         "idea_id": args.id,
         "video_id": video_id,
         "published_at": datetime.now(timezone.utc).isoformat(),
     })
-    content = json.dumps(published, ensure_ascii=False, indent=2).replace("\n", "\r\n")
-    fd = os.open(str(PUBLISHED_FILE), os.O_WRONLY | os.O_TRUNC | os.O_CREAT | os.O_BINARY)
-    os.write(fd, content.encode("utf-8"))
-    os.close(fd)
+    with open(PUBLISHED_FILE, "w", encoding="utf-8") as f:
+        json.dump(published, f, ensure_ascii=False, indent=2)
 
     print(f"DONE. https://youtube.com/watch?v={video_id}")
 

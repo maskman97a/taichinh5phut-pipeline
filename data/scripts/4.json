@@ -1,72 +1,78 @@
 {
   "idea_id": 4,
-  "title": "Most Devs Don't Know This Cursor AI Trick (Saves 5 Hours/Week) #shorts #ai #cursor",
-  "hook": "Most devs don't know this Cursor AI trick. It saves me 5 hours every single week.",
-  "description": "Most devs don't know this Cursor AI trick. It saves me 5 hours every single week.\n\nThe trick: custom rules file at the project root. Cursor reads it on every prompt and respects your codebase conventions automatically. No more reminding the AI about your folder structure, naming rules, or testing framework.\n\nIn this video: the exact rules file template, the 4 sections that matter most, and what to never include.\n\n🔔 Subscribe @aitoolsdaily — 1 new AI tool tested every day at 8 AM PT.\n\n⚠️ Personal workflow. Adapt the rules to your codebase before copying.\n\n#shorts #cursor #ai #coding #devtools #productivity #aitools #vscode #ide #workflow",
+  "title": "Tự Tạo Phụ Đề + Dịch Video Bằng AI Miễn Phí #shorts #ai #capcut",
+  "hook": "Hầu hết mọi người không biết: AI tạo phụ đề và dịch cả video chỉ trong vài phút, hoàn toàn miễn phí.",
+  "description": "Hầu hết mọi người không biết: AI tạo phụ đề và dịch cả video chỉ trong vài phút, hoàn toàn miễn phí.\n\nMẹo dùng công cụ AI miễn phí để tự động tạo phụ đề chính xác và dịch sang nhiều thứ tiếng cho video của bạn.\n\nCác bước:\n1. Tải video vào công cụ AI miễn phí\n2. Chọn ngôn ngữ, AI tự nghe và tạo phụ đề\n3. Chỉnh nhẹ rồi dịch sang ngôn ngữ khác\n4. Xuất file phụ đề gắn vào video bất kỳ\n\n🔔 Theo dõi AI Mỗi Ngày để mỗi ngày thêm một mẹo AI tiết kiệm thời gian.\n\n#shorts #ai #capcut #aimoingay #meoai #phude #dichvideo #nangsuat #thuthuat #congnghe",
   "tags": [
-    "AI tools daily",
-    "aitoolsdaily",
-    "cursor ai rules",
-    "cursor ai tips",
-    "cursor ai workflow",
-    "cursor productivity hack",
-    "cursorrules file",
-    "ai coding tricks",
-    "developer productivity 2026",
-    "cursor advanced features",
+    "tạo phụ đề bằng ai",
+    "dịch video bằng ai",
+    "phụ đề tự động",
+    "công cụ ai miễn phí",
+    "mẹo làm video",
+    "ai cho người sáng tạo",
+    "ai mỗi ngày",
+    "tăng năng suất với ai",
+    "thủ thuật ai",
+    "mẹo ai đời sống",
     "shorts",
-    "shortvideo",
-    "tips",
-    "viralshorts",
-    "trending"
+    "capcut",
+    "ai"
   ],
   "scenes": [
     {
-      "voiceover": "Most devs don't know this Cursor AI trick. It saves me 5 hours every single week. The fix takes 2 minutes to set up.",
-      "visual_keyword": "developer typing fast keyboard close up",
-      "visual_style": "ai",
-      "visual_prompt": "Close up of hands typing rapidly on mechanical keyboard, code visible on monitor in background, dramatic lighting, photorealistic"
+      "voiceover": "Hầu hết mọi người không biết: AI tạo phụ đề và dịch cả video chỉ trong vài phút, miễn phí.",
+      "visual_style": "stock",
+      "visual_keyword": "asian person editing video on laptop creative"
     },
     {
-      "voiceover": "The problem: every prompt you waste tokens reminding Cursor about your folder structure, naming rules, and which framework you use.",
-      "visual_keyword": "code editor file tree project structure",
-      "visual_style": "ai",
-      "visual_prompt": "Code editor showing project folder tree with nested directories, modern dark theme IDE, photorealistic"
+      "voiceover": "Gõ tay từng dòng phụ đề là việc cực nhất khi làm video.",
+      "visual_style": "stock",
+      "visual_keyword": "person typing subtitles on computer tedious"
     },
     {
-      "voiceover": "The trick: create a file called dot cursor rules at the project root. Cursor reads it automatically on every prompt. Zero token waste.",
-      "visual_keyword": "configuration file text editor screen",
+      "voiceover": "Đây là cách để AI làm thay bạn, không tốn một đồng.",
       "visual_style": "ai",
-      "visual_prompt": "Code editor showing configuration file with project rules, syntax highlighted text, modern dark theme, photorealistic"
+      "visual_keyword": "glowing neon sound wave turning into caption text, dark blue background, vertical"
     },
     {
-      "voiceover": "The 4 sections that matter: folder structure rules, naming conventions, testing framework, and forbidden patterns. Skip everything else.",
-      "visual_keyword": "checklist document tasks screen",
-      "visual_style": "ai",
-      "visual_prompt": "Modern interface showing 4 numbered configuration sections with checkmarks, clean UI design, photorealistic"
+      "voiceover": "Bước một: tải video của bạn lên công cụ AI miễn phí.",
+      "visual_style": "stock",
+      "visual_keyword": "hands uploading file on laptop screen"
     },
     {
-      "voiceover": "Real example: I told Cursor we use Vitest, not Jest. Every new test file now uses correct imports. No more manual rewrites.",
-      "visual_keyword": "test file code success screen",
-      "visual_style": "ai",
-      "visual_prompt": "Code editor showing test file with green passing test indicators and Vitest framework imports, photorealistic"
+      "voiceover": "Bước hai: chọn ngôn ngữ, AI tự nghe và tạo phụ đề khớp từng câu.",
+      "visual_style": "stock",
+      "visual_keyword": "video editing timeline waveform on screen"
     },
     {
-      "voiceover": "Never include: API keys, secrets, or personal preferences. Rules file gets shared with team and may end up in version control.",
-      "visual_keyword": "lock security password screen",
-      "visual_style": "ai",
-      "visual_prompt": "Security lock icon overlay on code editor with redacted secret keys, warning style, dark theme, photorealistic"
+      "voiceover": "Phụ đề chính xác theo từng đoạn, bạn chỉ chỉnh nhẹ là xong.",
+      "visual_style": "stock",
+      "visual_keyword": "asian woman reviewing video on laptop focused"
     },
     {
-      "voiceover": "Want my actual cursor rules file? Comment your stack and I'll share a customized template.",
-      "visual_keyword": "hands typing message phone screen close up",
-      "visual_style": "stock"
+      "voiceover": "Và đây là phần ít ai tận dụng.",
+      "visual_style": "ai",
+      "visual_keyword": "glowing lightbulb idea concept floating dark background, vertical"
     },
     {
-      "voiceover": "Subscribe for one AI productivity hack every day. Real workflows from real production codebases.",
-      "visual_keyword": "young person smiling pointing office happy",
+      "voiceover": "Bảo AI dịch phụ đề sang nhiều thứ tiếng — video của bạn vươn ra thế giới.",
       "visual_style": "ai",
-      "visual_prompt": "Young tech professional smiling pointing up at subscribe button, modern office background, photorealistic cinematic"
+      "visual_keyword": "glowing globe with neon language translation arcs, dark background, vertical"
+    },
+    {
+      "voiceover": "Cuối cùng, xuất file phụ đề và gắn vào bất kỳ video nào bạn muốn.",
+      "visual_style": "stock",
+      "visual_keyword": "person working on laptop video project desk"
+    },
+    {
+      "voiceover": "Theo dõi AI Mỗi Ngày để mỗi ngày thêm một mẹo AI cho công việc sáng tạo.",
+      "visual_style": "stock",
+      "visual_keyword": "asian content creator smiling with laptop"
+    },
+    {
+      "voiceover": "Mai mình chỉ cách để AI tự lên lịch và nhắc việc cho bạn mỗi ngày.",
+      "visual_style": "ai",
+      "visual_keyword": "glowing neon calendar with clock icon, dark blue background, vertical"
     }
   ]
 }

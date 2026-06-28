@@ -1,14 +1,94 @@
 [
   {
     "id": 1,
-    "title": "Efren Reyes — Cậu Bé Ngủ Trên Bàn Bida Thành Huyền Thoại",
-    "pillar": "co-thu-huyen-thoai",
-    "status": "todo"
+    "title": "Tự Động Tóm Tắt Video YouTube 1 Tiếng Trong 10 Giây Bằng AI",
+    "pillar": "tu-dong-hoa",
+    "status": "published",
+    "video_id": "2GTmpMrihhc",
+    "published_at": "2026-06-29T00:10:00+00:00"
   },
   {
     "id": 2,
-    "title": "Ko Pin Yi — Người Đài Loan Vô Địch 3 Giải Thế Giới Trong 1 Năm",
-    "pillar": "co-thu-huyen-thoai",
+    "title": "Tự Động Viết Email Trả Lời Khách Hàng Bằng ChatGPT Trong 30 Giây",
+    "pillar": "tu-dong-hoa",
+    "status": "todo"
+  },
+  {
+    "id": 3,
+    "title": "AI Điền Và Xử Lý Excel Giúp Bạn Chỉ Với Một Câu Lệnh",
+    "pillar": "tu-dong-hoa",
+    "status": "todo"
+  },
+  {
+    "id": 4,
+    "title": "Tự Động Tạo Phụ Đề Và Dịch Video Bằng AI Hoàn Toàn Miễn Phí",
+    "pillar": "tu-dong-hoa",
+    "status": "todo"
+  },
+  {
+    "id": 5,
+    "title": "Tự Động Lên Lịch Và Nhắc Việc Mỗi Ngày Bằng AI",
+    "pillar": "tu-dong-hoa",
+    "status": "todo"
+  },
+  {
+    "id": 6,
+    "title": "Ba Câu Lệnh ChatGPT Giúp Bạn Học Tiếng Anh Nhanh Gấp Đôi",
+    "pillar": "meo-doi-song",
+    "status": "todo"
+  },
+  {
+    "id": 7,
+    "title": "Dùng AI Lên Thực Đơn Cả Tuần Và Danh Sách Đi Chợ Trong 30 Giây",
+    "pillar": "meo-doi-song",
+    "status": "todo"
+  },
+  {
+    "id": 8,
+    "title": "Mẹo Dùng ChatGPT Đọc Và Giải Thích Hợp Đồng Khó Hiểu",
+    "pillar": "meo-doi-song",
+    "status": "todo"
+  },
+  {
+    "id": 9,
+    "title": "Dùng AI Lên Kế Hoạch Du Lịch Chi Tiết Từng Giờ Miễn Phí",
+    "pillar": "meo-doi-song",
+    "status": "todo"
+  },
+  {
+    "id": 10,
+    "title": "Chụp Màn Hình Hỏi AI Giải Bài Tập Và Công Việc Tức Thì",
+    "pillar": "meo-doi-song",
+    "status": "todo"
+  },
+  {
+    "id": 11,
+    "title": "Dùng AI Viết CV Và Thư Xin Việc Chuẩn Chỉ Trong Hai Phút",
+    "pillar": "meo-doi-song",
+    "status": "todo"
+  },
+  {
+    "id": 12,
+    "title": "Ba App AI Miễn Phí Thay Thế Phần Mềm Trả Phí Đắt Đỏ",
+    "pillar": "cong-cu",
+    "status": "todo"
+  },
+  {
+    "id": 13,
+    "title": "ChatGPT So Với Gemini So Với DeepSeek: Cái Nào Tiếng Việt Tốt Nhất?",
+    "pillar": "cong-cu",
+    "status": "todo"
+  },
+  {
+    "id": 14,
+    "title": "App AI Biến Ảnh Chụp Thành Văn Bản Chỉnh Sửa Được Trong 5 Giây",
+    "pillar": "cong-cu",
+    "status": "todo"
+  },
+  {
+    "id": 15,
+    "title": "Tự Động Tóm Tắt Cả Cuốn Sách PDF Bằng AI Miễn Phí",
+    "pillar": "tu-dong-hoa",
     "status": "todo"
   }
 ]
