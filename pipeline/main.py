@@ -456,13 +456,15 @@ def fetch_all_clips(scenes, tmpdir, idea_id=None):
         if style == "ai":
             try:
                 img_path = Path(tmpdir) / f"img_{i}.jpg"
-                generate_ai_image(ai_prompt, img_path)
-                # Convert to video clip with Ken Burns
-                # Duration 15s -> cover MAX voice scene (~12-14s), khong loop
-                # Assembly subclip 0->voice_dur de khop chinh xac
-                image_to_video_kenburns(img_path, path, duration=15.0)
+                # iter 20: gen VUONG 1024x1024 -> model ve vat the dung dang (cau tron ra tron),
+                # KHONG bi keo dai nhu khi gen 9:16. Bo "vertical/portrait" khoi prompt.
+                sq_prompt = re.sub(r',?\s*(vertical|portrait)\b', '', ai_prompt, flags=re.I).strip().rstrip(",")
+                sq_prompt += ", centered composition, full subject visible in frame"
+                generate_ai_image(sq_prompt, img_path, width=1024, height=1024)
+                # FIT + nen mo (contain): giu nguyen ty le vat the, khong crop/meo
+                image_to_video_fit_blur(img_path, path, duration=15.0)
                 paths[i] = path
-                print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> AI image OK")
+                print(f"      Clip {i+1}/{len(scenes)}: '{kw}' -> AI image (square+fit) OK")
                 continue
             except Exception as e:
                 print(f"      Clip {i+1}/{len(scenes)}: AI fail ({e}), fallback Pexels")
@@ -481,11 +483,12 @@ def fetch_all_clips(scenes, tmpdir, idea_id=None):
                 if style == "auto":
                     try:
                         img_path = Path(tmpdir) / f"img_{i}.jpg"
-                        generate_ai_image(ai_prompt, img_path)
-                        # Duration 15s same as AI-force path (cover max scene)
-                        image_to_video_kenburns(img_path, path, duration=15.0)
+                        sq_prompt = re.sub(r',?\s*(vertical|portrait)\b', '', ai_prompt, flags=re.I).strip().rstrip(",")
+                        sq_prompt += ", centered composition, full subject visible in frame"
+                        generate_ai_image(sq_prompt, img_path, width=1024, height=1024)
+                        image_to_video_fit_blur(img_path, path, duration=15.0)
                         paths[i] = path
-                        print(f"      Clip {i+1}/{len(scenes)}: Pexels fail -> AI image OK")
+                        print(f"      Clip {i+1}/{len(scenes)}: Pexels fail -> AI image (square+fit) OK")
                         continue
                     except Exception as ai_e:
                         print(f"      Clip {i+1}/{len(scenes)}: AI also fail ({ai_e})")
