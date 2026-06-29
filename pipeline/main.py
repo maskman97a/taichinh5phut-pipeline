@@ -1153,6 +1153,21 @@ def get_youtube_service():
     creds.refresh(Request())
     return build("youtube", "v3", credentials=creds)
 
+
+def next_publish_slot():
+    """Moc publish ke tiep: 05:00 hoac 13:00 UTC (= 12:00/20:00 gio VN), strictly sau now+10p.
+    Dung cho scheduled-publish -> video tu cong khai dung gio du cron GitHub chay tre."""
+    now = datetime.now(timezone.utc)
+    cands = []
+    for off in (0, 1):
+        base = (now + timedelta(days=off)).replace(minute=0, second=0, microsecond=0)
+        for h in (5, 13):
+            c = base.replace(hour=h)
+            if c > now + timedelta(minutes=10):
+                cands.append(c)
+    return min(cands)
+
+
 def upload_to_youtube(video_path, script_data, idea):
     """Upload video lên YouTube với metadata đầy đủ + credit nhạc CC-BY."""
     print("[6/7] Uploading to YouTube...")
@@ -1173,6 +1188,26 @@ def upload_to_youtube(video_path, script_data, idea):
     full_desc = full_desc.replace("<", "‹").replace(">", "›")
     safe_title = script_data["title"][:100].replace("<", "‹").replace(">", "›")
 
+    # Status: YT_SCHEDULE=1 -> upload PRIVATE + publishAt moc 12:00/20:00 VN ke tiep
+    # (YouTube tu cong khai dung gio, chinh xac hon cron GitHub hay tre).
+    # Nguoc lai -> dung YT_PRIVACY ngay (public/unlisted/private) cho test/manual.
+    if os.environ.get("YT_SCHEDULE", "").lower() in ("1", "true", "yes"):
+        _slot = next_publish_slot()
+        _status = {
+            "privacyStatus": "private",
+            "publishAt": _slot.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "selfDeclaredMadeForKids": False,
+            "containsSyntheticMedia": True,
+        }
+        print(f"      Scheduled publish: tự công khai lúc {_slot.strftime('%Y-%m-%d %H:%M')} UTC "
+              f"(= {(_slot + timedelta(hours=7)).strftime('%H:%M')} VN)")
+    else:
+        _status = {
+            "privacyStatus": os.environ.get("YT_PRIVACY", "public"),
+            "selfDeclaredMadeForKids": False,
+            "containsSyntheticMedia": True,
+        }
+
     body = {
         "snippet": {
             "title": safe_title,  # YouTube giới hạn 100 + strip <>
@@ -1182,13 +1217,7 @@ def upload_to_youtube(video_path, script_data, idea):
             "defaultLanguage": "vi",
             "defaultAudioLanguage": "vi",
         },
-        "status": {
-            # Privacy configurable qua env var YT_PRIVACY (default "public" - san sang phat hanh)
-            # Override "private" qua env var khi can review tam thoi
-            "privacyStatus": os.environ.get("YT_PRIVACY", "public"),
-            "selfDeclaredMadeForKids": False,
-            "containsSyntheticMedia": True,  # YouTube 2026 BẮT BUỘC
-        },
+        "status": _status,
     }
 
     media = MediaFileUpload(str(video_path), chunksize=-1,
