@@ -1022,7 +1022,14 @@ def assemble_video(clip_paths, scene_voice_data, script_data, tmpdir):
             scene_captions.append(cap)
         start_t += scene_durs[i]
 
-    final = CompositeVideoClip([video, hook_visual, disclaimer] + scene_captions)
+    # iter 20: WATERMARK handle @aimoingay.official goc duoi (chong repost + brand), suot video
+    watermark = (TextClip("@aimoingay.official", fontsize=44, color="white",
+                          stroke_color="black", stroke_width=1, font=VN_FONT)
+                 .set_position((48, 1815))
+                 .set_start(0).set_duration(total_dur)
+                 .set_opacity(0.72))
+
+    final = CompositeVideoClip([video, hook_visual, disclaimer] + scene_captions + [watermark])
     output = Path(tmpdir) / "final.mp4"
 
     # Memory + encoder optimization (29/05 — speedup 4x Windows, 2x Linux):
