@@ -126,10 +126,10 @@ BGM_DIR = REPO_ROOT / "audio"  # Folder chua background music (.mp3) - tech/elec
 # Rotate Vietnamese voices (niche AI/tu dong hoa - VN, iter 20 pivot)
 # Mix nam + nu de de-templating + giong than thien huong dan (khong phai ke chuyen the thao).
 # Neural2 vi-VN tu nhien hon Wavenet, co inflection.
+# iter 20: KHOA 1 GIONG cho nhat quan thuong hieu (bo xoay nam/nu - user thay "sai giong").
+# Da dang tu noi dung, khong phai tu doi giong. Override qua env VOICE_NAME neu can.
 VOICES = [
-    "vi-VN-Neural2-A",   # Nu - ro rang, than thien (giong huong dan)
-    "vi-VN-Wavenet-B",   # Nam - sang, ro net (rotation)
-    "vi-VN-Neural2-D",   # Nam - tram manh me (rotation de-templating)
+    os.environ.get("VOICE_NAME", "vi-VN-Neural2-D"),   # Nam tram, manh me, tu nhien (Neural2)
 ]
 
 # Disclaimer cho niche AI/cong nghe (ngan gon - iter 20: tranh che 1/4 man hinh luc hook)
