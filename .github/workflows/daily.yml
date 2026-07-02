@@ -79,9 +79,9 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          # iter 20: scheduled-publish — upload private + tu cong khai dung 12:00/20:00 VN
-          # (chinh xac hon cron GitHub hay tre). Tat bang YT_SCHEDULE=0 neu muon dang ngay.
-          YT_SCHEDULE: ${{ vars.YT_SCHEDULE || '1' }}
+          # iter 20 (rev): ĐĂNG NGAY (public) khi render xong — moi run = 1 video len lien,
+          # tranh dồn slot / slot trong do cron GitHub chay tre/lech. Bat lai hen gio: YT_SCHEDULE=1.
+          YT_SCHEDULE: ${{ vars.YT_SCHEDULE || '0' }}
           YT_PRIVACY: ${{ vars.YT_PRIVACY || 'public' }}
         run: python pipeline/main.py
 
